@@ -14,20 +14,17 @@
 </head>
 <body class="bg-gray-100 h-screen antialiased leading-none">
     <div id="app">
-        <nav class="bg-blue-900 shadow mb-8 py-6">
-            <div class="container mx-auto px-6 md:px-0">
+        <nav class="bg-primary shadow mb-0 sm:mb-8" style="padding:32px 0;">
+            <div class="container mx-auto px-6">
                 <div class="flex items-center justify-center">
                     <div class="mr-6">
-                        <a href="{{ url('/') }}" class="text-lg font-semibold text-gray-100 no-underline">
+                        <a href="{{ url('/') }}" class="text-xl font-semibold text-gray-100 no-underline">
                             {{ config('app.name', 'Laravel') }}
                         </a>
                     </div>
                     <div class="flex-1 text-right">
                         @guest
-                            <a class="no-underline hover:underline text-gray-300 text-sm p-3" href="{{ route('login') }}">{{ __('Login') }}</a>
-                            @if (Route::has('register'))
-                                <a class="no-underline hover:underline text-gray-300 text-sm p-3" href="{{ route('register') }}">{{ __('Register') }}</a>
-                            @endif
+                            <a class="text-lg no-underline hover:underline text-gray-300 text-sm p-3" href="{{ route('login') }}">{{ __('Login') }}</a>
                         @else
                             <span class="text-gray-300 text-sm pr-4">{{ Auth::user()->name }}</span>
 
@@ -44,7 +41,10 @@
             </div>
         </nav>
 
-        @yield('content')
+        <div class="container mx-auto px-0 sm:px-6">
+          @yield('content')
+        </div>
+
     </div>
 
     <!-- Scripts -->

@@ -1,8 +1,8 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="flex items-center">
-        <div class="md:w-1/2 md:mx-auto">
+    <div class="flex">
+        <div class="flex-1">
 
             @if (session('status'))
                 <div class="text-sm border border-t-8 rounded text-green-700 border-green-600 bg-green-100 px-3 py-4 mb-4" role="alert">
@@ -10,18 +10,23 @@
                 </div>
             @endif
 
-            <div class="flex flex-col break-words bg-white border border-2 rounded shadow-md">
-
-                <div class="font-semibold bg-gray-200 text-gray-700 py-3 px-6 mb-0">
-                    Dashboard
-                </div>
-
-                <div class="w-full p-6">
-                    <p class="text-gray-700">
-                        You are logged in!
-                    </p>
-                </div>
-            </div>
         </div>
     </div>
+
+    <div class="flex">
+        <div class="flex-1 p-6 items-center break-words bg-white rounded shadow-md">
+          <?php
+          $email = "gtamborero@iproject.cat";
+          $default = "https://www.somewhere.com/homestar.jpg";
+          $size = 80;
+          $grav_url = "https://www.gravatar.com/avatar/" . md5( strtolower( trim( $email ) ) ) . "?d=" . urlencode( $default ) . "&s=" . $size;
+          ?>
+          <img class="rounded-full" src="<?php echo $grav_url; ?>" alt="" />
+            <p class="text-gray-700">
+                You are logged in!
+            </p>
+        </div>
+    </div>
+
+
 @endsection
