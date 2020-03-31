@@ -14,7 +14,7 @@
 </head>
 <body class="bg-gray-100 h-screen antialiased leading-none">
     <div id="app">
-        <nav class="bg-primary shadow mb-0 sm:mb-8" style="padding:32px 0;">
+        <nav class="bg-primary shadow mb-0 sm:mb-6" style="padding:32px 0;">
             <div class="container mx-auto px-6">
                 <div class="flex items-center justify-center">
                     <div class="mr-6">

@@ -13,18 +13,18 @@
         </div>
     </div>
 
-    <div class="flex">
-        <div class="flex-1 p-6 items-center break-words bg-white rounded shadow-md">
-          <?php
-          $email = "gtamborero@iproject.cat";
-          $default = "https://www.somewhere.com/homestar.jpg";
-          $size = 80;
-          $grav_url = "https://www.gravatar.com/avatar/" . md5( strtolower( trim( $email ) ) ) . "?d=" . urlencode( $default ) . "&s=" . $size;
-          ?>
-          <img class="rounded-full" src="<?php echo $grav_url; ?>" alt="" />
-            <p class="text-gray-700">
-                You are logged in!
-            </p>
+    <div class="grid sm:grid-cols-2">
+        <div class=" p-6 break-words bg-white shadow-md">
+          @auth
+            <img class="rounded-full" src="{{ gravatar(Auth::user()->email) }}">
+          @endauth
+
+          @guest
+            <p> Nos conocemos?</p>
+          @endguest
+        </div>
+        <div class="p-6 break-words bg-white shadow-md">
+        Col2
         </div>
     </div>
 
