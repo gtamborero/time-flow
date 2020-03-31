@@ -46,9 +46,11 @@
         <span class="text-lg font-medium text-primary-light">Bienvenido!</span><br>
         Puedes buscar usuarios y solicitarles o enviarles tiempo,
         pero tarde o temprano, ¡tendrás que loguearte o registrate!
-        <button class="mt-4 bg-primary-light block mx-auto hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+
+        <button class="tf-button tf-button-primary">
           <a href="{{ url('/login') }}">Acceder a TimeFlow</a>
         </button>
+
       </div>
 
   </div>
