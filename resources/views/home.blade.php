@@ -9,5 +9,6 @@
   @endif
 
   <x-user-heading/>
+  <x-user-exchange/>
 
 @endsection

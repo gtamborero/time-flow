@@ -55,9 +55,6 @@
         <div class="container mx-auto px-0 sm:px-6">
           @yield('content')
         </div>
-        <div class="container mx-auto px-0 sm:px-6">
-          @yield('exchanges')
-        </div>
 
     </div>
 
