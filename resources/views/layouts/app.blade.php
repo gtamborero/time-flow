@@ -19,14 +19,11 @@
                 <div class="flex items-center justify-center">
                     <div class="mr-6">
                         <a href="{{ url('/') }}" class="text-xl font-semibold text-gray-100 no-underline">
-                          <img class="rounded-full mx-auto inline h-12 w-12 mr-2" src="
-                          @auth
+                          <img class="rounded-full mx-auto inline h-12 w-12 mr-2" src="@auth
                             {{ gravatar(Auth::user()->email) }}
                           @else
-                            {{-- imagen logo si no estas registrado --}}
-                          @endauth
-
-                          "> {{ config('app.name', 'Laravel') }}
+                            {{ asset ("buscar.svg")}}
+                          @endauth"> {{ config('app.name', 'Laravel') }}
                         </a>
                     </div>
                     <div class="flex-1 text-right">
