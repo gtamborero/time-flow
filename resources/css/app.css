@@ -63,11 +63,17 @@
 
 /* TIME FLOW BUTTONS */
  .tf-button {
-   @apply mt-4 block mx-auto text-white font-bold py-2 px-4 rounded
+   @apply block mx-auto text-white font-medium py-2 px-4 rounded shadow-md
  }
  .tf-button-primary{
    @apply bg-primary;
  }
- .tf-button:hover {
+ .tf-button-primary:hover {
    @apply bg-primary-light;
+ }
+ .tf-button-secondary{
+   @apply bg-secondary text-primary;
+ }
+ .tf-button-secondary:hover {
+   @apply bg-secondary-light text-primary;
  }

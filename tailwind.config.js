@@ -4,7 +4,8 @@ module.exports = {
     colors: {
       primary: '#2a4365',
       'primary-light': '#3a5375',
-      secondary: '#007ace',
+      secondary: '#f2f2f2',
+      'secondary-light': '#fff',
       white: '#fff',
       black: '#000',
       'gray-100': '#F7FAFC',

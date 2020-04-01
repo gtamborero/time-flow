@@ -32,7 +32,7 @@
       <div class="p-6 break-words bg-white shadow-md">
         <div class="grid">
           <div>
-            <img class="rounded-full mx-auto my-2" src="{{ gravatar("") }}">
+            <img class="rounded-full mx-auto my-2" src="">
           </div>
           <div class="text-center">
             <div class="text-primary-light text-lg font-medium">
@@ -47,7 +47,7 @@
         Puedes buscar usuarios y solicitarles o enviarles tiempo,
         pero tarde o temprano, ¡tendrás que loguearte o registrate!
 
-        <button class="tf-button tf-button-primary">
+        <button class="tf-button tf-button-primary mt-4">
           <a href="{{ url('/login') }}">Acceder a TimeFlow</a>
         </button>
 
