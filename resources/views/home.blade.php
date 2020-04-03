@@ -9,6 +9,12 @@
   @endif
 
   <x-user-heading/>
+
+  <div class=" m-4 break-words text-2xl text-primary text-center font-medium">
+    {{ __('EXCHANGES')}}:
+  </div>
+
+  <x-user-exchange/>
   <x-user-exchange/>
 
 @endsection
