@@ -28,7 +28,7 @@
   </div>
 
 </div>-->
-{{ $test }}
+
 <!-- LAST LINE for ACCEPT / REJECT / SPAM -->
 <div class="py-3 px-5 bg-primary text-white mb-5 break-words shadow-md">
     <div class="text-center flex-grow">

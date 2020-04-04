@@ -14,7 +14,6 @@
     {{ __('EXCHANGES')}}:
   </div>
 
-  <x-user-exchange/>
-  <x-user-exchange/>
+<user-exchange></user-exchange>
 
 @endsection
