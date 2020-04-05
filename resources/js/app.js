@@ -27,6 +27,21 @@ Vue.component('user-exchange', require('./components/UserExchange.vue').default)
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-const app = new Vue({
-    el: '#app',
-});
+// Use martinlindhe/laravel-vue-i18n-generator
+ import VueInternationalization from 'vue-i18n';
+ import Locale from './vue-i18n-locales.generated';
+
+ Vue.use(VueInternationalization);
+
+ const lang = document.documentElement.lang.substr(0, 2);
+ // or however you determine your current app locale
+
+ const i18n = new VueInternationalization({
+     locale: lang,
+     messages: Locale
+ });
+
+ const app = new Vue({
+     el: '#app',
+     i18n
+ });
