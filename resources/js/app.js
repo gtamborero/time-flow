@@ -33,8 +33,8 @@ Vue.component('user-exchange', require('./components/UserExchange.vue').default)
 
  Vue.use(VueInternationalization);
 
+ //determine your current app locale
  const lang = document.documentElement.lang.substr(0, 2);
- // or however you determine your current app locale
 
  const i18n = new VueInternationalization({
      locale: lang,

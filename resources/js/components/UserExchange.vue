@@ -36,7 +36,7 @@
       <div class="text-center flex-grow">
         no trans Abel quiere enviarte 30min por: Clases de Guitarra
 
-          {{ $t('exchange',2) }}
+          {{ $t('hello') }}
 
       </div>
 
