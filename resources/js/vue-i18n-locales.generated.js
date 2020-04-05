@@ -129,6 +129,7 @@ export default {
         }
     },
     "es": {
-        "exchange": "intercambio|intercambios"
+        "exchange": "intercambio|intercambios",
+        "hello": "hola"
     }
 }
