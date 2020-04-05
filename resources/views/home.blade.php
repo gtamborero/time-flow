@@ -10,8 +10,8 @@
 
   <x-user-heading/>
 
-  <div class=" m-4 break-words text-2xl text-primary text-center font-medium">
-    {{ __('EXCHANGES')}}:
+  <div class=" m-4 break-words text-2xl text-primary text-center font-medium uppercase">
+    @choice('exchange',2):
   </div>
 
 <user-exchange></user-exchange>

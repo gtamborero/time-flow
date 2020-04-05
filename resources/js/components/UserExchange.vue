@@ -1,15 +1,16 @@
 <template>
+<div>
   <!-- FIRST LINE USERS -->
   <div class="grid grid-cols-3 bg-white shadow-md break-words">
     <div class="p-5 flex flex-col sm:flex-row items-center">
-      <img class="h-12 w-12 rounded-full inline" src="{{ gravatar(Auth::user()->email ?? "") }}">
+
       <div class="px-3">Guillermo</div>
     </div>
 
     <div class="p-0 md:p-5 text-center"> 30min -> </div>
 
     <div class="p-5 flex flex-col sm:flex-row-reverse items-center ">
-      <img class="h-12 w-12 rounded-full inline" src="{{ gravatar(Auth::user()->email ?? "") }}">
+
       <div class="px-3">Xavier</div>
     </div>
 
@@ -33,31 +34,35 @@
   <!-- LAST LINE for ACCEPT / REJECT / SPAM -->
   <div class="py-3 px-5 bg-primary text-white mb-5 break-words shadow-md">
       <div class="text-center flex-grow">
-        Abel quiere enviarte 30min por: Clases de Guitarra
+        no trans Abel quiere enviarte 30min por: Clases de Guitarra
+
+          {{ traducciones }}
+
       </div>
 
       <div class="text-center">
-        {{-- <div>App\Exchanges::all()</div> --}}
-        <a class="inline-block p-2" href="{{ route('login') }}">
+        <a class="inline-block p-2" href="">
           <button class="tf-button tf-button-secondary">
-            {{ __('ACEPTAR') }}
+            aceptar sin traducir
           </button>
         </a>
 
-        <a class="inline-block p-2" href="{{ route('login') }}">
+        <a class="inline-block p-2" href="">
           <button class="tf-button tf-button-secondary">
-            {{ __('RECHAZAR') }}
+          recahzar sin trads
           </button>
         </a>
       </div>
 
   </div>
+</div>
 </template>
 
 <script>
     export default {
-        mounted() {
-            console.log('Component mounted.')
-        }
+      props: ['traducciones'],
+      mounted() {
+          console.log('Component mounted.')
+      }
     }
 </script>
