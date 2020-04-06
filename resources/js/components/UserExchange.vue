@@ -4,14 +4,17 @@
   <div class="grid grid-cols-3 bg-white shadow-md break-words">
     <div class="p-5 flex flex-col sm:flex-row items-center">
 
-      <div class="px-3">Guillermo</div>
+      <img class="h-12 w-12 rounded-full inline" :src="gravatarUrl">
+      <div class="px-3">Guillermo {{ concept }}</div>
+
     </div>
 
     <div class="p-0 md:p-5 text-center"> 30min -> </div>
 
     <div class="p-5 flex flex-col sm:flex-row-reverse items-center ">
 
-      <div class="px-3">Xavier</div>
+      <img class="h-12 w-12 rounded-full inline" :src="gravatarUrl">
+      <div class="px-3">Xavier {{ concept }}</div>
     </div>
 
   </div>
@@ -34,7 +37,7 @@
   <!-- LAST LINE for ACCEPT / REJECT / SPAM -->
   <div class="py-3 px-5 bg-primary text-white mb-5 break-words shadow-md">
       <div class="text-center flex-grow">
-        no trans Abel quiere enviarte 30min por: Clases de Guitarra
+        no trans Abel quiere enviarte 30min por: {{ concept }}
 
           {{ $t('hello') }}
 
@@ -60,9 +63,9 @@
 
 <script>
     export default {
-      props: ['traducciones'],
+      props: ['concept', 'idSeller', 'idBuyer', 'status', 'gravatarUrl'],
       mounted() {
-          console.log('Component mounted.')
+          //console.log('Component mounted.')
       }
     }
 </script>

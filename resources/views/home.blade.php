@@ -14,6 +14,15 @@
     @choice('exchange',2):
   </div>
 
-<user-exchange></user-exchange>
+<?php
+$exchange = App\Exchanges::first();
+?>
+
+<user-exchange
+    concept="{{ $exchange->id }}"
+    id-seller="{{ $exchange->id_seller }}"
+    id-buyer="{{ $exchange->id_buyer }}"
+    gravatar-url="{{ gravatar(Auth::user()->email ?? "") }}">
+</user-exchange>
 
 @endsection
