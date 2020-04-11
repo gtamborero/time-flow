@@ -1,5 +1,6 @@
 {
     "exchange": "intercambio",
     "exchanges": "intercambios",
-    "hello": "hola amigos"
+    "minutes": "minutos",
+    "hours": "horas"
 }
