@@ -1,6 +1,14 @@
 {
+    "anonymous user": "usuario anónimo",
+    "welcome!": "¡bienvenido!",
+    "access to": "acceso a",
     "exchange": "intercambio",
     "exchanges": "intercambios",
     "minutes": "minutos",
-    "hours": "horas"
+    "hours": "horas",
+    "accept": "aceptar",
+    "reject": "rechazar",
+    "spam": "spam",
+    "sends you": "te envía",
+    "for": "por"
 }
