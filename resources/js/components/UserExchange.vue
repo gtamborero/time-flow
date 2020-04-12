@@ -73,9 +73,12 @@
       methods: {
         accept: function (){
           axios
-            .get('https://api.coindesk.com/v1/bpi/currentprice.json')
+            .post('/exchange', {
+                    name: "hola",
+                    description: "hoal22"
+            })
             .then(response => {
-              console.log(response.data.bpi)
+              console.log(response)
             })
             .catch(error => {
               console.log(error)

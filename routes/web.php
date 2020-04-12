@@ -25,4 +25,4 @@ Route::get('login/facebook/callback', 'Auth\LoginController@handleProviderCallba
 
 Route::get('search', 'SearchController@index')->name('search');
 
-Route::get('exchange', 'ExchangeController@accept');
+Route::resource('exchange', 'ExchangeController');

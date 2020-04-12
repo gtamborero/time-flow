@@ -13,7 +13,7 @@ class ExchangeController extends Controller
      */
     public function index()
     {
-        //
+        return "run";
     }
 
     /**
@@ -34,7 +34,7 @@ class ExchangeController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        return "storing";
     }
 
     /**
