@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Exchanges;
 
 class ExchangeController extends Controller
 {
@@ -11,9 +12,10 @@ class ExchangeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Exchanges $exchange)
     {
-        return "run";
+
+        return $exchange->hello();
     }
 
     /**
@@ -34,7 +36,7 @@ class ExchangeController extends Controller
      */
     public function store(Request $request)
     {
-        return "storing";
+        return $request;
     }
 
     /**
@@ -68,7 +70,8 @@ class ExchangeController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $exchange = new Exchanges;
+        return $exchange->statusToAccepted();
     }
 
     /**
