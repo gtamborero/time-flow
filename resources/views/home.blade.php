@@ -17,17 +17,21 @@
     </div>
 
     <?php
-    $exchange = App\Exchanges::first();
+    $exchanges = App\Exchanges::get();
     ?>
 
-    <user-exchange
-        concept="{{ $exchange->concept }}"
-        id-seller="{{ $exchange->id_seller }}"
-        id-buyer="{{ $exchange->id_buyer }}"
-        amount="{{ $exchange->amount }}"
-        created="{{ $exchange->created_at->diffForHumans() }}"
-        gravatar-url="{{ gravatar(Auth::user()->email ?? "") }}">
-    </user-exchange>
+      @foreach ($exchanges as $exchange)
+        <user-exchange
+            id="{{ $exchange->id }}"
+            concept="{{ $exchange->concept }}"
+            id-seller="{{ $exchange->id_seller }}"
+            id-buyer="{{ $exchange->id_buyer }}"
+            amount="{{ $exchange->amount }}"
+            created="{{ $exchange->created_at->diffForHumans() }}"
+            gravatar-url="{{ gravatar(Auth::user()->email ?? "") }}">
+        </user-exchange>
+      @endforeach
+
   @endauth
 
   @guest

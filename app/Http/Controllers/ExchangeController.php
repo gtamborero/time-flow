@@ -70,7 +70,7 @@ class ExchangeController extends Controller
      */
     public function update(Request $request, $id)
     {
-        Exchanges::statusToAccepted(1);
+        return Exchanges::statusToAccepted($id);
     }
 
     /**

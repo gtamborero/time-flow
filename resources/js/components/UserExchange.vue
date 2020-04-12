@@ -66,15 +66,15 @@
 
 <script>
     export default {
-      props: ['concept', 'idSeller', 'idBuyer', 'amount', 'created', 'status', 'gravatarUrl'],
+      props: ['id','concept', 'idSeller', 'idBuyer', 'amount', 'created', 'status', 'gravatarUrl'],
       mounted() {
           //console.log('Component mounted.')
       },
       methods: {
         accept: function (){
           axios
-            .put('/exchange/1', {
-                    name: "hola",
+            .put('/exchange/' + this.id, {
+                    name: "go",
                     description: "hoal22"
             })
             .then(response => {
@@ -82,7 +82,6 @@
             })
             .catch(error => {
               console.log(error)
-              this.errored = true
             })
             .finally(() => this.loading = false)
         },
