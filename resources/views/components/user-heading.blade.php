@@ -32,23 +32,23 @@
       <div class="p-6 break-words bg-white shadow-md">
         <div class="grid">
           <div>
-            <img class="rounded-full mx-auto my-2" src="">
+            <img class="rounded-full mx-auto my-2" src="{{ gravatar("") }}">
           </div>
           <div class="text-center">
-            <div class="text-primary-light text-lg font-medium">
-              Usuario anónimo
+            <div class="text-primary-light text-lg font-medium capitalize">
+              @lang('anonymous user')
             </div>
           </div>
         </div>
       </div>
 
       <div class="p-6 pt-0 md:pt-6 break-words bg-white text-center shadow-md leading-7">
-        <span class="text-lg font-medium text-primary-light">Bienvenido!</span><br>
+        <span class="text-lg font-medium text-primary-light capitalize">@lang('welcome!')</span><br>
         Puedes buscar usuarios y solicitarles o enviarles tiempo,
         pero tarde o temprano, ¡tendrás que loguearte o registrate!
 
-        <button class="tf-button tf-button-primary mt-4">
-          <a href="{{ url('/login') }}">Acceder a TimeFlow</a>
+        <button class="access-to tf-button tf-button-primary mt-4">
+          <a href="{{ url('/login') }}">@lang('Access to') {{ config('app.name') }}</a>
         </button>
 
       </div>
