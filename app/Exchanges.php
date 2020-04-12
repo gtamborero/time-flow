@@ -6,8 +6,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class Exchanges extends Model
 {
-    //
-    public function statusToAccepted(){
-      return $this->where('id',1)->first();
+    public static function statusToAccepted($id){
+    $exchange = Exchanges::where('id',$id)->first();
+    $exchange->status = 8;
+    $exchange->save();
+      return 1;
     }
 }
