@@ -72,19 +72,14 @@
       },
       methods: {
         accept: function (){
-          axios
-            .post('/exchange', {
-                    name: "hola",
-                    description: "hoal22"
-            })
-            .then(response => {
-              console.log(response)
-            })
-            .catch(error => {
-              console.log(error)
-              this.errored = true
-            })
-            .finally(() => this.loading = false)
+
+            fetch("/exchange").then(function (response) {
+              console.log(response);
+                        return response.json();
+                }).then(function (result) {
+                    //console.log(result);
+                });
+
         },
         reject: function (){
           alert(event.target.tagName);
