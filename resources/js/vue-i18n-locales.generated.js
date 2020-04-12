@@ -129,8 +129,17 @@ export default {
         }
     },
     "es": {
+        "anonymous user": "usuario anónimo",
+        "welcome!": "¡bienvenido!",
+        "access to": "acceso a",
         "exchange": "intercambio",
         "exchanges": "intercambios",
-        "hello": "hola amigos"
+        "minutes": "minutos",
+        "hours": "horas",
+        "accept": "aceptar",
+        "reject": "rechazar",
+        "spam": "spam",
+        "sends you": "te envía",
+        "for": "por"
     }
 }
