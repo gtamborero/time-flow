@@ -40,6 +40,7 @@
     :concept="concept"
     :amount="amount"
     :created="created"
+    :status="status"
     :id="id"
   ></user-exchange-status>
 

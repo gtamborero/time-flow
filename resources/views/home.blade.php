@@ -27,6 +27,7 @@
             :seller-user="{{$exchange->getSellerUser}}"
             :buyer-user="{{$exchange->getBuyerUser}}"
             amount="{{ $exchange->amount }}"
+            status="{{ $exchange->status }}"
             created="{{ $exchange->created_at->diffForHumans() }}"
             seller-gravatar="{{ gravatar($exchange->getSellerUser->email) }}"
             buyer-gravatar="{{ gravatar($exchange->getBuyerUser->email) }}">

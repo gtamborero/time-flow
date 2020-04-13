@@ -1,26 +1,56 @@
 <template>
-  <div class="py-3 px-5 bg-primary text-white mb-5 break-words shadow-md relative">
-      <div class="text-right flex-grow md:float-right md:right-0 md:pr-5 md:absolute">
-        <span class="text-sm text-gray-400">{{ created }}</span><br>
-      </div>
+  <div>
 
-      <div class="text-center flex-grow">
-        Abel {{ $t('sends you') }} {{ amount }} {{ $t('minutes') }} {{ $t('for') }}:<br> {{ concept }}
-      </div>
+    <!-- WHEN PENDING EXCHANGE -->
+    <div v-if="status == 0" class="py-3 px-5 bg-primary text-white mb-5 break-words shadow-md relative">
+        <div class="text-right flex-grow md:float-right md:right-0 md:pr-5 md:absolute">
+          <span class="text-sm text-gray-400">{{ created }}</span><br>
+        </div>
 
-      <div class="text-center">
-        <a class="inline-block p-2">
-          <button class="tf-button tf-button-secondary uppercase" v-on:click="accept">
-            {{ $t('accept') }}
-          </button>
-        </a>
+        <div class="text-center flex-grow">
+          Abel {{ $t('sends you') }} {{ amount }} {{ $t('minutes') }} {{ $t('for') }}:<br> {{ concept }}
+        </div>
 
-        <a class="inline-block p-2">
-          <button class="tf-button tf-button-secondary uppercase" v-on:click="reject">
-          {{ $t('reject') }}
-          </button>
-        </a>
-      </div>
+        <div class="text-center">
+          <a class="inline-block p-2">
+            <button class="tf-button tf-button-secondary uppercase" v-on:click="accept">
+              {{ $t('accept') }}
+            </button>
+          </a>
+
+          <a class="inline-block p-2">
+            <button class="tf-button tf-button-secondary uppercase" v-on:click="reject">
+            {{ $t('reject') }}
+            </button>
+          </a>
+        </div>
+    </div>
+
+    <!-- WHEN ACCEPTED EXCHANGE -->
+    <div v-if="status == 1" class="py-3 px-5 bg-primary text-white mb-5 break-words shadow-md relative">
+        <div class="text-right flex-grow md:float-right md:right-0 md:pr-5 md:absolute">
+          <span class="text-sm text-gray-400">{{ created }}</span><br>
+        </div>
+
+        <div class="text-center flex-grow">
+          Abel {{ $t('have send') }} {{ amount }} {{ $t('minutes') }} {{ $t('for') }}:<br> {{ concept }}
+        </div>
+
+        <div class="text-center">
+          <a class="inline-block p-2">
+            <button class="tf-button tf-button-secondary uppercase" v-on:click="rate">
+              {{ $t('Rate to') }} Pedro
+            </button>
+          </a>
+        </div>
+
+    </div>
+
+    <!-- WHEN OCKMMENt-->
+    <div v-if="rateData" class="py-3 px-5 bg-primary text-white mb-5 break-words shadow-md relative">
+   GO COMENT!
+    </div>
+
   </div>
 </template>
 
@@ -35,18 +65,21 @@
         'created',
         'status'
       ],
+      data: function () {
+        return {
+          rateData: 0
+        }
+      },
       mounted() {
           //console.log('Component mounted.')
       },
       methods: {
         accept: function (){
           axios
-            .put('/exchange/' + this.id, {
-                    name: "go",
-                    description: "hoal22"
-            })
+            .put('/exchange/' + this.id)
             .then(response => {
-              console.log(response)
+              this.status = 1; // 0: pending, 1:accepted, 2:rejected
+              console.log(response);
             })
             .catch(error => {
               console.log(error)
@@ -55,6 +88,9 @@
         },
         reject: function (){
           alert(event.target.tagName);
+        },
+        rate: function (){
+          this.rateData = 1;
         }
       }
     }
