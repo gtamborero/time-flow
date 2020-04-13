@@ -37,18 +37,21 @@
         </div>
 
         <div class="text-center">
-          <a class="inline-block p-2">
+          <a v-if="!rateData" class="inline-block p-2">
             <button class="tf-button tf-button-secondary uppercase" v-on:click="rate">
               {{ $t('Rate to') }} Pedro
             </button>
           </a>
+          <!-- WHEN OCKMMENt-->
+          <div v-if="rateData" class=" text-white p-3">
+         GO COMENT!
+         <button class="tf-button tf-button-secondary float-right" v-on:click="stopRate">
+           X
+         </button>
+          </div>
         </div>
 
-    </div>
 
-    <!-- WHEN OCKMMENt-->
-    <div v-if="rateData" class="py-3 px-5 bg-primary text-white mb-5 break-words shadow-md relative">
-   GO COMENT!
     </div>
 
   </div>
@@ -91,6 +94,9 @@
         },
         rate: function (){
           this.rateData = 1;
+        },
+        stopRate: function (){
+          this.rateData = 0;
         }
       }
     }
