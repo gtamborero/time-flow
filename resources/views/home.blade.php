@@ -17,18 +17,19 @@
     </div>
 
     <?php
-    $exchanges = App\Exchanges::get();
+    $exchanges = App\Exchanges::orderBy('id', 'desc')->get();
     ?>
 
       @foreach ($exchanges as $exchange)
         <user-exchange
             id="{{ $exchange->id }}"
             concept="{{ $exchange->concept }}"
-            id-seller="{{ $exchange->id_seller }}"
-            id-buyer="{{ $exchange->id_buyer }}"
+            :seller-user="{{$exchange->getSellerUser}}"
+            :buyer-user="{{$exchange->getBuyerUser}}"
             amount="{{ $exchange->amount }}"
             created="{{ $exchange->created_at->diffForHumans() }}"
-            gravatar-url="{{ gravatar(Auth::user()->email ?? "") }}">
+            seller-gravatar="{{ gravatar($exchange->getSellerUser->email) }}"
+            buyer-gravatar="{{ gravatar($exchange->getBuyerUser->email) }}">
         </user-exchange>
       @endforeach
 

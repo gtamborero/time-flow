@@ -4,8 +4,8 @@
   <div class="grid grid-cols-3 bg-white shadow-md break-words">
     <div class="p-5 flex flex-col sm:flex-row items-center">
 
-      <img class="h-12 w-12 rounded-full inline" :src="gravatarUrl">
-      <div class="px-3">{{ idSeller }}</div>
+      <img class="h-12 w-12 rounded-full inline" :src="sellerGravatar">
+      <div class="px-3">{{ sellerUser["name"] }}</div>
 
     </div>
 
@@ -15,8 +15,8 @@
 
     <div class="p-5 flex flex-col sm:flex-row-reverse items-center ">
 
-      <img class="h-12 w-12 rounded-full inline" :src="gravatarUrl">
-      <div class="px-3">{{ idBuyer }}</div>
+      <img class="h-12 w-12 rounded-full inline" :src="buyerGravatar">
+      <div class="px-3">{{ buyerUser["name"] }}</div>
     </div>
 
   </div>
@@ -37,8 +37,8 @@
   </div>
 
   <!-- LAST LINE for ACCEPT / REJECT / SPAM -->
-  <div class="py-3 px-5 bg-primary text-white mb-5 break-words shadow-md">
-      <div class="text-right flex-grow">
+  <div class="py-3 px-5 bg-primary text-white mb-5 break-words shadow-md relative">
+      <div class="text-right flex-grow md:float-right md:right-0 md:pr-5 md:absolute">
         <span class="text-sm text-gray-400">{{ created }}</span><br>
       </div>
 
@@ -66,7 +66,17 @@
 
 <script>
     export default {
-      props: ['id','concept', 'idSeller', 'idBuyer', 'amount', 'created', 'status', 'gravatarUrl'],
+      props: [
+        'id',
+        'concept',
+        'sellerUser',
+        'buyerUser',
+        'amount',
+        'created',
+        'status',
+        'sellerGravatar',
+        'buyerGravatar'
+      ],
       mounted() {
           //console.log('Component mounted.')
       },
