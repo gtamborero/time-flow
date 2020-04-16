@@ -18,8 +18,8 @@ window.Vue = require('vue');
 import UserExchange from './components/UserExchange.vue';
 Vue.component('user-exchange', UserExchange);
 
-import UserExchangeStatus from './components/UserExchangeStatus.vue';
-Vue.component('user-exchange-status', UserExchangeStatus);
+import UserStatus from './components/UserStatus.vue';
+Vue.component('user-exchange-status', UserStatus);
 
 import UserStars from './components/UserStars.vue';
 Vue.component('user-stars', UserStars);
