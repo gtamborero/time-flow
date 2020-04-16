@@ -2,7 +2,7 @@
   <div>
 
     <!-- WHEN PENDING EXCHANGE -->
-    <div v-if="status == 0" class="py-3 px-5 bg-primary text-white mb-5 break-words shadow-md relative">
+    <div v-if="canUserAccept()" class="py-3 px-5 bg-primary text-white mb-5 break-words shadow-md relative">
         <div class="text-right flex-grow md:float-right md:right-0 md:pr-5 md:absolute">
           <span class="text-sm text-gray-400">{{ created }}</span><br>
         </div>
@@ -27,7 +27,7 @@
     </div>
 
     <!-- WHEN ACCEPTED EXCHANGE -->
-    <div v-if="status == 1" class="py-3 px-5 bg-primary text-white mb-5 break-words shadow-md relative">
+    <div v-else class="py-3 px-5 bg-primary text-white mb-5 break-words shadow-md relative">
         <div class="text-right flex-grow md:float-right md:right-0 md:pr-5 md:absolute">
           <span class="text-sm text-gray-400">{{ created }}</span><br>
         </div>
@@ -62,15 +62,18 @@
       props: [
         'id',
         'concept',
-        'sellerUser',
-        'buyerUser',
+        'seller-user',
+        'buyer-user',
+        'creator-user',
+        'actual-user',
         'amount',
         'created',
         'status'
       ],
       data: function () {
         return {
-          rateData: 0
+          rateData: 0,
+          internalStatus: this.status
         }
       },
       mounted() {
@@ -81,7 +84,8 @@
           axios
             .put('/exchange/' + this.id)
             .then(response => {
-              this.status = 1; // 0: pending, 1:accepted, 2:rejected
+              this.internalStatus = 1; // 0: pending, 1:accepted, 2:rejected
+              //this.changeStatus();
               console.log(response);
             })
             .catch(error => {
@@ -92,6 +96,15 @@
         reject: function (){
           alert(event.target.tagName);
         },
+        canUserAccept: function (){
+          if ((this.internalStatus === 0) && (this.creatorUser != this.actualUser)){
+            return 1
+          }
+          return 0;
+        },
+        /*changeStatus: function (){
+          this.$emit('change-status');
+        },*/
         rate: function (){
           this.rateData = 1;
         },

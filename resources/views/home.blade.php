@@ -30,10 +30,27 @@
             :actual-user="{{Auth::user()->id}}"
             amount="{{ $exchange->amount }}"
             :status="{{ $exchange->status }}"
-            created="{{ $exchange->created_at->diffForHumans() }}"
             seller-gravatar="{{ gravatar($exchange->getSellerUser->email) }}"
             buyer-gravatar="{{ gravatar($exchange->getBuyerUser->email) }}">
         </user-exchange>
+
+        <user-stars
+            id="{{ $exchange->id }}"
+            :actual-user="{{Auth::user()->id}}"
+            :status="{{ $exchange->status }}">
+        </user-stars>
+
+        <user-exchange-status
+          id="{{ $exchange->id }}"
+          concept="{{ $exchange->concept }}"
+          :seller-user="{{$exchange->getSellerUser}}"
+          :buyer-user="{{$exchange->getBuyerUser}}"
+          amount="{{ $exchange->amount }}"
+          created="{{ $exchange->created_at->diffForHumans() }}"
+          :status="{{ $exchange->status }}"
+          :creator-user="{{$exchange->getCreatorUser->id}}"
+          :actual-user="{{Auth::user()->id}}">
+        </user-exchange-status>
       @endforeach
 
   @endauth
