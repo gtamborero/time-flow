@@ -26,8 +26,10 @@
             concept="{{ $exchange->concept }}"
             :seller-user="{{$exchange->getSellerUser}}"
             :buyer-user="{{$exchange->getBuyerUser}}"
+            :creator-user="{{$exchange->getCreatorUser->id}}"
+            :actual-user="{{Auth::user()->id}}"
             amount="{{ $exchange->amount }}"
-            status="{{ $exchange->status }}"
+            :status="{{ $exchange->status }}"
             created="{{ $exchange->created_at->diffForHumans() }}"
             seller-gravatar="{{ gravatar($exchange->getSellerUser->email) }}"
             buyer-gravatar="{{ gravatar($exchange->getBuyerUser->email) }}">
