@@ -12,27 +12,23 @@ window.Vue = require('vue');
  * The following block of code may be used to automatically register your
  * Vue components. It will recursively scan this directory for the Vue
  * components and automatically register them with their "basename".
- *
  * Eg. ./components/ExampleComponent.vue -> <example-component></example-component>
  */
 
-// const files = require.context('./', true, /\.vue$/i)
-// files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
+import UserExchange from './components/UserExchange.vue';
+Vue.component('user-exchange', UserExchange);
 
-Vue.component('user-exchange', require('./components/UserExchange.vue').default);
-Vue.component('user-exchange-status', require('./components/UserExchangeStatus.vue').default);
+import UserExchangeStatus from './components/UserExchangeStatus.vue';
+Vue.component('user-exchange-status', UserExchangeStatus);
 
-/**
- * Next, we will create a fresh Vue application instance and attach it to
- * the page. Then, you may begin adding components to this application
- * or customize the JavaScript scaffolding to fit your unique needs.
- */
+import UserStars from './components/UserStars.vue';
+Vue.component('user-stars', UserStars);
 
-// Use martinlindhe/laravel-vue-i18n-generator
- import VueInternationalization from 'vue-i18n';
- import Locale from './vue-i18n-locales.generated';
+// Use internationalization -> martinlindhe/laravel-vue-i18n-generator
+import VueInternationalization from 'vue-i18n';
+import Locale from './vue-i18n-locales.generated';
 
- Vue.use(VueInternationalization);
+Vue.use(VueInternationalization);
 
  //determine your current app locale
  const lang = document.documentElement.lang.substr(0, 2);
