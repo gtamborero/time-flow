@@ -30,4 +30,8 @@ class Exchanges extends Model
     public function getBuyerUser(){
       return $this->hasOne('App\User','id','id_buyer');
     }
+
+    public function getCreatorUser(){
+      return $this->hasOne('App\User','id','id_creator');
+    }
 }
