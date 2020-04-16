@@ -2,7 +2,7 @@
 <div>
 
   <!-- SECOND LINE COMMENTS + STARS -->
-  <div class="grid grid-cols-2 bg-secondary shadow-md break-words">
+  <div class="grid grid-cols-2 bg-secondary break-words">
 
     <div class="py-2 px-5 text-left">
       5 STARS<br>

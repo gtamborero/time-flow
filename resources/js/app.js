@@ -19,7 +19,7 @@ import UserExchange from './components/UserExchange.vue';
 Vue.component('user-exchange', UserExchange);
 
 import UserStatus from './components/UserStatus.vue';
-Vue.component('user-exchange-status', UserStatus);
+Vue.component('user-status', UserStatus);
 
 import UserStars from './components/UserStars.vue';
 Vue.component('user-stars', UserStars);

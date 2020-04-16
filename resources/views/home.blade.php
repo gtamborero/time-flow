@@ -21,37 +21,38 @@
     ?>
 
       @foreach ($exchanges as $exchange)
-        <user-exchange
-            id="{{ $exchange->id }}"
-            concept="{{ $exchange->concept }}"
-            :seller-user="{{$exchange->getSellerUser}}"
-            :buyer-user="{{$exchange->getBuyerUser}}"
-            :creator-user="{{$exchange->getCreatorUser->id}}"
-            :actual-user="{{Auth::user()->id}}"
-            amount="{{ $exchange->amount }}"
-            :status="{{ $exchange->status }}"
-            seller-gravatar="{{ gravatar($exchange->getSellerUser->email) }}"
-            buyer-gravatar="{{ gravatar($exchange->getBuyerUser->email) }}">
-        </user-exchange>
+        <div class="mb-6 shadow-md">
+            <user-exchange
+                id="{{ $exchange->id }}"
+                concept="{{ $exchange->concept }}"
+                :seller-user="{{$exchange->getSellerUser}}"
+                :buyer-user="{{$exchange->getBuyerUser}}"
+                amount="{{ $exchange->amount }}"
+                :status="{{ $exchange->status }}"
+                seller-gravatar="{{ gravatar($exchange->getSellerUser->email) }}"
+                buyer-gravatar="{{ gravatar($exchange->getBuyerUser->email) }}">
+            </user-exchange>
 
-        <user-stars
-            id="{{ $exchange->id }}"
-            :actual-user="{{Auth::user()->id}}"
-            :status="{{ $exchange->status }}">
-        </user-stars>
+            <user-stars
+                id="{{ $exchange->id }}"
+                :actual-user-id="{{Auth::user()->id}}"
+                :status="{{ $exchange->status }}">
+            </user-stars>
 
-        <user-exchange-status
-          id="{{ $exchange->id }}"
-          concept="{{ $exchange->concept }}"
-          :seller-user="{{$exchange->getSellerUser}}"
-          :buyer-user="{{$exchange->getBuyerUser}}"
-          amount="{{ $exchange->amount }}"
-          created="{{ $exchange->created_at->diffForHumans() }}"
-          :status="{{ $exchange->status }}"
-          :creator-user="{{$exchange->getCreatorUser->id}}"
-          :actual-user="{{Auth::user()->id}}">
-        </user-exchange-status>
+            <user-status
+              id="{{ $exchange->id }}"
+              concept="{{ $exchange->concept }}"
+              :seller-user="{{$exchange->getSellerUser}}"
+              :buyer-user="{{$exchange->getBuyerUser}}"
+              amount="{{ $exchange->amount }}"
+              created="{{ $exchange->created_at->diffForHumans() }}"
+              :status="{{ $exchange->status }}"
+              :creator-user-id="{{$exchange->getCreatorUser->id}}"
+              :actual-user-id="{{Auth::user()->id}}">
+            </user-status>
+        </div>
       @endforeach
+
 
   @endauth
 
