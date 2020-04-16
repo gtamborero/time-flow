@@ -140,6 +140,8 @@ export default {
         "reject": "rechazar",
         "spam": "spam",
         "sends you": "te envía",
-        "for": "por"
+        "have send": "te envió",
+        "for": "por",
+        "Rate to": "Valora a"
     }
 }

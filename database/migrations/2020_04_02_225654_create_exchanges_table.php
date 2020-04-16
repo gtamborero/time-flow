@@ -17,6 +17,7 @@ class CreateExchangesTable extends Migration
             $table->bigIncrements('id');
             $table->bigInteger('id_seller');
             $table->bigInteger('id_buyer');
+            $table->bigInteger('id_creator');
             $table->integer('status');
             $table->string('concept')->nullable();
             $table->timestamp('accepted_time');
