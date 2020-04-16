@@ -41,7 +41,7 @@ class UsersTableSeeder extends Seeder
         'name' => 'paco',
         'email' => 'paco@iproject.cat',
         'password' => Hash::make('iProject77')
-        ],
+        ]
 
       ]);
     }
