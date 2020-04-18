@@ -36,4 +36,12 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    // Add extra data on return of the model
+    protected $appends = ['gravatar'];
+
+        public function getGravatarAttribute()
+        {
+            return gravatar("gtamborero@iproject.cat");
+        }
 }
