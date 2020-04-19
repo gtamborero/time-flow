@@ -4,19 +4,19 @@
   <div class="grid grid-cols-3 bg-white break-words">
     <div class="p-5 flex flex-col sm:flex-row items-center">
 
-      <img class="h-12 w-12 rounded-full inline" :src="sellerGravatar">
-      <div class="px-3">{{ sellerUser["name"] }}</div>
+      <img class="h-12 w-12 rounded-full inline" :src="buyerGravatar">
+      <div class="px-3">{{ buyerUser["name"] }}</div>
 
     </div>
 
     <div class="grid text-center items-center">
-      &larr; {{ amount }} {{ $t('minutes') }}
+      {{ amount }} {{ $t('minutes') }} -->
     </div>
 
     <div class="p-5 flex flex-col sm:flex-row-reverse items-center ">
 
-      <img class="h-12 w-12 rounded-full inline" :src="buyerGravatar">
-      <div class="px-3">{{ buyerUser["name"] }}</div>
+      <img class="h-12 w-12 rounded-full inline" :src="sellerGravatar">
+      <div class="px-3">{{ sellerUser["name"] }}</div>
     </div>
 
   </div>

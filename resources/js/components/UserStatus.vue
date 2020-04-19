@@ -53,7 +53,6 @@
         }
       },
       mounted() {
-          this.siblingUser = this.getSiblingUser();
       },
       methods: {
         accept: function (){

@@ -3,12 +3,13 @@
       data: function () {
         return {
           involvedUser: 0,
-          siblingUser: 0
+          siblingUser: 0,
+          user: 0
         }
       },
       mounted() {
           this.involvedUser = this.getInvolvedUserState();
-          console.log("in");
+          this.siblingUser = this.getSiblingUser();
       },
       methods: {
         getInvolvedUserState: function (){
@@ -42,6 +43,16 @@
           if (this.actualUserId == this.sellerUser.id) return this.buyerUser.name;
         },
         infoForUser: function (){
+          var infoNotInvolved = `${this.buyerUser.name}
+            ${this.$t('sended')}
+            ${this.amount}
+            ${this.$t('to')}
+            ${this.sellerUser.name}
+            ${this.$t('minutes')}
+            ${this.$t('for')}
+            <br>
+            ${this.concept}`;
+
           var info = `${this.siblingUser}
             ${this.$t('sends you')}
             ${this.amount}
@@ -50,10 +61,26 @@
             <br>
             ${this.concept}`;
 
-          if (this.involvedUser == "NotInvolved") return info;
-          if (this.involvedUser == "Buyer") return "buyer. " + info;
+          var infoBuyerAndCreator = `${this.siblingUser}
+            ${this.$t('has received from you')}
+            ${this.amount}
+            ${this.$t('minutes')}
+            ${this.$t('for')}
+            <br>
+            ${this.concept}`;
+
+          var infoBuyer = `${this.siblingUser}
+            ${this.$t('has received from you')}
+            ${this.amount}
+            ${this.$t('minutes')}
+            ${this.$t('for')}
+            <br>
+            ${this.concept}`;
+
+          if (this.involvedUser == "NotInvolved") return infoNotInvolved;
+          if (this.involvedUser == "Buyer") return "buyer. " + infoBuyer;
           if (this.involvedUser == "Seller") return "seller. " + info;
-          if (this.involvedUser == "BuyerAndCreator") return "buyer and creator. " + info;
+          if (this.involvedUser == "BuyerAndCreator") return "buyer and creator. " + infoBuyerAndCreator;
           if (this.involvedUser == "SellerAndCreator") return "seller and creator. " + info;
 
         }
