@@ -43,39 +43,82 @@
           if (this.actualUserId == this.sellerUser.id) return this.buyerUser.name;
         },
         infoForUser: function (){
-          var infoNotInvolved = `${this.buyerUser.name}
-            ${this.$t('sended')}
-            ${this.amount}
-            ${this.$t('to')}
-            ${this.sellerUser.name}
-            ${this.$t('minutes')}
-            ${this.$t('for')}
-            <br>
-            ${this.concept}`;
 
-          var info = `${this.siblingUser}
-            ${this.$t('sends you')}
-            ${this.amount}
-            ${this.$t('minutes')}
-            ${this.$t('for')}
-            <br>
-            ${this.concept}`;
+          // Messanges when exchange status is pending
+          if (this.internalStatus == 0){
 
-          var infoBuyerAndCreator = `${this.siblingUser}
-            ${this.$t('has received from you')}
-            ${this.amount}
-            ${this.$t('minutes')}
-            ${this.$t('for')}
-            <br>
-            ${this.concept}`;
+              var infoNotInvolved = `${this.buyerUser.name}
+                ${this.$t('sended')}
+                ${this.amount}
+                ${this.$t('to')}
+                ${this.sellerUser.name}
+                ${this.$t('minutes')}
+                ${this.$t('for')}
+                <br>
+                ${this.concept}`;
 
-          var infoBuyer = `${this.siblingUser}
-            ${this.$t('has received from you')}
-            ${this.amount}
-            ${this.$t('minutes')}
-            ${this.$t('for')}
-            <br>
-            ${this.concept}`;
+              var info = `${this.siblingUser}
+                ${this.$t('sends you')}
+                ${this.amount}
+                ${this.$t('minutes')}
+                ${this.$t('for')}
+                <br>
+                ${this.concept}`;
+
+              var infoBuyerAndCreator = `${this.siblingUser}
+                ${this.$t('has received from you')}
+                ${this.amount}
+                ${this.$t('minutes')}
+                ${this.$t('for')}
+                <br>
+                ${this.concept}`;
+
+              var infoBuyer = `${this.siblingUser}
+                ${this.$t('has received from you')}
+                ${this.amount}
+                ${this.$t('minutes')}
+                ${this.$t('for')}
+                <br>
+                ${this.concept}`;
+          }
+
+          // Messages when exchange status is Accepted
+          if (this.internalStatus == 1){
+
+              var infoNotInvolved = `ACEPTADO ${this.buyerUser.name}
+                ${this.$t('sended')}
+                ${this.amount}
+                ${this.$t('to')}
+                ${this.sellerUser.name}
+                ${this.$t('minutes')}
+                ${this.$t('for')}
+                <br>
+                ${this.concept}`;
+
+              var info = `ACEPTADO ${this.siblingUser}
+                ${this.$t('sends you')}
+                ${this.amount}
+                ${this.$t('minutes')}
+                ${this.$t('for')}
+                <br>
+                ${this.concept}`;
+
+              var infoBuyerAndCreator = `ACEPTADO ${this.siblingUser}
+                ${this.$t('has received from you')}
+                ${this.amount}
+                ${this.$t('minutes')}
+                ${this.$t('for')}
+                <br>
+                ${this.concept}`;
+
+              var infoBuyer = `ACEPTADO ${this.siblingUser}
+                ${this.$t('has received from you')}
+                ${this.amount}
+                ${this.$t('minutes')}
+                ${this.$t('for')}
+                <br>
+                ${this.concept}`;
+          }
 
           if (this.involvedUser == "NotInvolved") return infoNotInvolved;
           if (this.involvedUser == "Buyer") return "buyer. " + infoBuyer;
