@@ -8,7 +8,10 @@
 
           <div class="text-center flex-grow" v-html="infoForUser()"></div>
 
-          <div class="text-center">
+          <div v-if="internalStatus==0
+                &&
+                (involvedUser == 'Buyer' || involvedUser == 'Seller')"
+                class="text-center">
             <a class="inline-block p-2">
               <button class="tf-button tf-button-secondary uppercase" v-on:click="accept">
                 {{ $t('accept') }}
@@ -20,6 +23,24 @@
               {{ $t('reject') }}
               </button>
             </a>
+          </div>
+
+          <!-- WHEN ACCEPTED EXCHANGE -->
+          <div v-if="internalStatus==1">
+              <div class="text-center">
+                <a v-if="!rateData" class="inline-block p-2">
+                  <button class="tf-button tf-button-secondary uppercase" v-on:click="rate">
+                    {{ $t('Rate to') }} Pedro
+                  </button>
+                </a>
+                <!-- WHEN OCKMMENt-->
+                <div v-if="rateData" class=" text-white p-3">
+               GO COMENT!
+               <button class="tf-button tf-button-secondary float-right" v-on:click="stopRate">
+                 X
+               </button>
+                </div>
+              </div>
           </div>
       </div>
 
@@ -42,12 +63,12 @@
       data: function () {
         return {
           internalStatus: this.status,
-          involvedUserState: 0,
+          involvedUser: 0,
           siblingUser: 0
         }
       },
       mounted() {
-          this.involvedUserState = this.getInvolvedUserState();
+          this.involvedUser = this.getInvolvedUserState();
           this.siblingUser = this.getSiblingUser();
       },
       methods: {
@@ -83,11 +104,11 @@
             <br>
             ${this.concept}`;
 
-          if (this.involvedUserState == "NotInvolved") return info;
-          if (this.involvedUserState == "Buyer") return "buyer. " + info;
-          if (this.involvedUserState == "Seller") return "seller. " + info;
-          if (this.involvedUserState == "BuyerAndCreator") return "buyer and creator. " + info;
-          if (this.involvedUserState == "SellerAndCreator") return "seller and creator. " + info;
+          if (this.involvedUser == "NotInvolved") return info;
+          if (this.involvedUser == "Buyer") return "buyer. " + info;
+          if (this.involvedUser == "Seller") return "seller. " + info;
+          if (this.involvedUser == "BuyerAndCreator") return "buyer and creator. " + info;
+          if (this.involvedUser == "SellerAndCreator") return "seller and creator. " + info;
 
         },
         getInvolvedUserState: function (){
