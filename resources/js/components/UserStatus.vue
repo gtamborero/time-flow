@@ -26,29 +26,16 @@
           </div>
 
           <!-- WHEN ACCEPTED EXCHANGE -->
-          <div v-if="internalStatus==1">
-              <div class="text-center">
-                <a v-if="!rateData" class="inline-block p-2">
-                  <button class="tf-button tf-button-secondary uppercase" v-on:click="rate">
-                    {{ $t('Rate to') }} Pedro
-                  </button>
-                </a>
-                <!-- WHEN OCKMMENt-->
-                <div v-if="rateData" class=" text-white p-3">
-               GO COMENT!
-               <button class="tf-button tf-button-secondary float-right" v-on:click="stopRate">
-                 X
-               </button>
-                </div>
-              </div>
-          </div>
+
       </div>
 
   </div>
 </template>
 
 <script>
+    import UserUtilityMixin from './UserUtilityMixin.vue';
     export default {
+      mixins: [UserUtilityMixin],
       props: [
         'id',
         'concept',
@@ -63,12 +50,9 @@
       data: function () {
         return {
           internalStatus: this.status,
-          involvedUser: 0,
-          siblingUser: 0
         }
       },
       mounted() {
-          this.involvedUser = this.getInvolvedUserState();
           this.siblingUser = this.getSiblingUser();
       },
       methods: {
@@ -91,52 +75,6 @@
         /*changeStatus: function (){
           this.$emit('change-status');
         },*/
-        getSiblingUser: function (){
-          if (this.actualUserId == this.buyerUser.id) return this.sellerUser.name;
-          if (this.actualUserId == this.sellerUser.id) return this.buyerUser.name;
-        },
-        infoForUser: function (){
-          var info = `${this.siblingUser}
-            ${this.$t('sends you')}
-            ${this.amount}
-            ${this.$t('minutes')}
-            ${this.$t('for')}
-            <br>
-            ${this.concept}`;
-
-          if (this.involvedUser == "NotInvolved") return info;
-          if (this.involvedUser == "Buyer") return "buyer. " + info;
-          if (this.involvedUser == "Seller") return "seller. " + info;
-          if (this.involvedUser == "BuyerAndCreator") return "buyer and creator. " + info;
-          if (this.involvedUser == "SellerAndCreator") return "seller and creator. " + info;
-
-        },
-        getInvolvedUserState: function (){
-          // NOT INVOLVED USER
-          if ( (this.actualUserId != this.buyerUser.id) &&
-            (this.actualUserId != this.sellerUser.id) )
-            return "NotInvolved";
-
-          // ACTUAL USER IS BUYER --> Then... Accept o reject transaction
-          if ( (this.actualUserId == this.buyerUser.id) &&
-            (this.actualUserId != this.creatorUserId) )
-            return "Buyer";
-
-          // ACTUAL USER IS SELLER --> Then... Accept o reject transaction
-          if ( (this.actualUserId == this.sellerUser.id) &&
-            (this.actualUserId != this.creatorUserId) )
-            return "Seller";
-
-          // ACTUAL USER IS BUYER AND CREATOR --> Then... Please Wait!
-          if ( (this.actualUserId == this.buyerUser.id) &&
-            (this.actualUserId == this.creatorUserId) )
-            return "BuyerAndCreator";
-
-          // ACTUAL USER IS SELLER AND CREATOR --> Then... Please Wait!
-          if ( (this.actualUserId == this.sellerUser.id) &&
-            (this.actualUserId == this.creatorUserId) )
-            return "SellerAndCreator";
-        }
       }
     }
 </script>
