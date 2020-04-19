@@ -1,16 +1,12 @@
 <template>
   <div>
-
-    <div v-if="internalStatus==0">
       <!-- WHEN PENDING EXCHANGE AND USER CAN ACCEPT -->
-      <div v-if="canUserAccept()" class="py-3 px-5 bg-primary text-white break-words relative">
+      <div class="py-3 px-5 bg-primary text-white break-words relative">
           <div class="text-right flex-grow md:float-right md:right-0 md:pr-5 md:absolute">
             <span class="text-sm text-gray-400">{{ created }}</span><br>
           </div>
 
-          <div class="text-center flex-grow">
-            Abel {{ $t('sends you') }} {{ amount }} {{ $t('minutes') }} {{ $t('for') }}:<br> {{ concept }}
-          </div>
+          <div class="text-center flex-grow" v-html="infoForUser()"></div>
 
           <div class="text-center">
             <a class="inline-block p-2">
@@ -26,59 +22,6 @@
             </a>
           </div>
       </div>
-
-      <!-- WHEN PENDING EXCHANGE AND USER IS WAITING ACCEPTANCE -->
-      <div v-if="!canUserAccept() && isUserWaitingPayment()" class="py-3 px-5 bg-primary text-white break-words shadow-md relative">
-          <div class="text-right flex-grow md:float-right md:right-0 md:pr-5 md:absolute">
-            <span class="text-sm text-gray-400">{{ created }}</span><br>
-          </div>
-
-          <div class="text-center flex-grow">
-             {{ $t('You asked') }} Paco, {{ $t('for') }} {{ amount }} {{ $t('minutes') }}:<br> {{ concept }}
-             <br>
-             {{ $t('Awaiting his approval') }}
-          </div>
-      </div>
-
-      <div v-if="!canUserAccept() && isUserWaitingCharge()" class="py-3 px-5 bg-primary text-white break-words shadow-md relative">
-          <div class="text-right flex-grow md:float-right md:right-0 md:pr-5 md:absolute">
-            <span class="text-sm text-gray-400">{{ created }}</span><br>
-          </div>
-
-          <div class="text-center flex-grow">
-             {{ $t('You are waiting') }} Paco, {{ $t('to accept') }} {{ amount }} {{ $t('minutes') }} {{ $t('for') }}:<br> {{ concept }}
-          </div>
-      </div>
-    </div>
-
-    <div v-if="internalStatus==1">
-      <!-- WHEN ACCEPTED EXCHANGE -->
-      <div v-if="canUserRate()" class="py-3 px-5 bg-primary text-white break-words shadow-md relative">
-          <div class="text-right flex-grow md:float-right md:right-0 md:pr-5 md:absolute">
-            <span class="text-sm text-gray-400">{{ created }}</span><br>
-          </div>
-
-          <div class="text-center flex-grow">
-            Abel {{ $t('have send') }} {{ amount }} {{ $t('minutes') }} {{ $t('for') }}:<br> {{ concept }}
-          </div>
-
-          <div class="text-center">
-            <a v-if="!rateData" class="inline-block p-2">
-              <button class="tf-button tf-button-secondary uppercase" v-on:click="rate">
-                {{ $t('Rate to') }} Pedro
-              </button>
-            </a>
-            <!-- WHEN OCKMMENt-->
-            <div v-if="rateData" class=" text-white p-3">
-           GO COMENT!
-           <button class="tf-button tf-button-secondary float-right" v-on:click="stopRate">
-             X
-           </button>
-            </div>
-          </div>
-
-      </div>
-    </div>
 
   </div>
 </template>
@@ -98,12 +41,14 @@
       ],
       data: function () {
         return {
-          rateData: 0,
-          internalStatus: this.status
+          internalStatus: this.status,
+          involvedUserState: 0,
+          siblingUser: 0
         }
       },
       mounted() {
-          //console.log('Component mounted.')
+          this.involvedUserState = this.getInvolvedUserState();
+          this.siblingUser = this.getSiblingUser();
       },
       methods: {
         accept: function (){
@@ -122,38 +67,54 @@
         reject: function (){
           alert(event.target.tagName);
         },
-        canUserAccept: function (){
-          if ((this.internalStatus === 0) && (this.creatorUserId != this.actualUserId)){
-            return 1
-          }
-          return 0;
-        },
-        isUserWaitingPayment: function (){
-          if (this.sellerUser.id == this.actualUserId){
-            return 1;
-          }
-          return 0;
-        },
-        isUserWaitingCharge: function (){
-          if (this.buyerUser.id == this.actualUserId){
-            return 1;
-          }
-          return 0;
-        },
-        canUserRate: function (){
-          if ( (this.sellerUser.id == this.actualUserId) || (this.buyerUser.id == this.actualUserId) ){
-            return 1;
-          }
-          return 0;
-        },
         /*changeStatus: function (){
           this.$emit('change-status');
         },*/
-        rate: function (){
-          this.rateData = 1;
+        getSiblingUser: function (){
+          if (this.actualUserId == this.buyerUser.id) return this.sellerUser.name;
+          if (this.actualUserId == this.sellerUser.id) return this.buyerUser.name;
         },
-        stopRate: function (){
-          this.rateData = 0;
+        infoForUser: function (){
+          var info = `${this.siblingUser}
+            ${this.$t('sends you')}
+            ${this.amount}
+            ${this.$t('minutes')}
+            ${this.$t('for')}
+            <br>
+            ${this.concept}`;
+
+          if (this.involvedUserState == "NotInvolved") return info;
+          if (this.involvedUserState == "Buyer") return "buyer. " + info;
+          if (this.involvedUserState == "Seller") return "seller. " + info;
+          if (this.involvedUserState == "BuyerAndCreator") return "buyer and creator. " + info;
+          if (this.involvedUserState == "SellerAndCreator") return "seller and creator. " + info;
+
+        },
+        getInvolvedUserState: function (){
+          // NOT INVOLVED USER
+          if ( (this.actualUserId != this.buyerUser.id) &&
+            (this.actualUserId != this.sellerUser.id) )
+            return "NotInvolved";
+
+          // ACTUAL USER IS BUYER --> Then... Accept o reject transaction
+          if ( (this.actualUserId == this.buyerUser.id) &&
+            (this.actualUserId != this.creatorUserId) )
+            return "Buyer";
+
+          // ACTUAL USER IS SELLER --> Then... Accept o reject transaction
+          if ( (this.actualUserId == this.sellerUser.id) &&
+            (this.actualUserId != this.creatorUserId) )
+            return "Seller";
+
+          // ACTUAL USER IS BUYER AND CREATOR --> Then... Please Wait!
+          if ( (this.actualUserId == this.buyerUser.id) &&
+            (this.actualUserId == this.creatorUserId) )
+            return "BuyerAndCreator";
+
+          // ACTUAL USER IS SELLER AND CREATOR --> Then... Please Wait!
+          if ( (this.actualUserId == this.sellerUser.id) &&
+            (this.actualUserId == this.creatorUserId) )
+            return "SellerAndCreator";
         }
       }
     }

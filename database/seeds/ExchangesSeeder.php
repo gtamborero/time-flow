@@ -12,8 +12,8 @@ class ExchangesSeeder extends Seeder
     public function run()
     {
       DB::table('exchanges')->insert([
-          'id_seller' => 1,
-          'id_buyer' => 2,
+          'id_seller' => 2,
+          'id_buyer' => 1,
           'id_creator' => 1,
           'status' => 0,
           'concept'=> 'Perfectly well!',
@@ -36,7 +36,7 @@ class ExchangesSeeder extends Seeder
       DB::table('exchanges')->insert([
           'id_seller' => 2,
           'id_buyer' => 1,
-          'id_creator' => 1,
+          'id_creator' => 2,
           'status' => 0,
           'concept'=> 'Clases informática',
           'accepted_time' => date("Y-m-d H:i:s"),
