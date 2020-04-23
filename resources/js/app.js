@@ -22,8 +22,8 @@ Vue.component('exchange-block', ExchangeBlock);
 import UserExchange from './components/UserExchange.vue';
 Vue.component('user-exchange', UserExchange);
 
-import UserStars from './components/UserStars.vue';
-Vue.component('user-stars', UserStars);
+import UserRating from './components/UserRating.vue';
+Vue.component('user-rating', UserRating);
 
 // Use internationalization -> martinlindhe/laravel-vue-i18n-generator
 import VueInternationalization from 'vue-i18n';

@@ -41,11 +41,11 @@
           :buyer-gravatar="buyerGravatar">
       </user-exchange>
 
-      <user-stars
+      <user-rating
           :id="id"
           :actual-user-id="actualUserId"
           :status="status">
-      </user-stars>
+      </user-rating>
 
 
   </div>

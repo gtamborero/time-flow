@@ -2,7 +2,7 @@
 <div>
   <!-- FIRST LINE USERS -->
   <div class="grid grid-cols-3 bg-white break-words">
-    <div class="p-5 flex flex-col sm:flex-row items-center">
+    <div class="p-5 pb-1 flex flex-col sm:flex-row items-center">
 
       <img class="h-12 w-12 rounded-full inline" :src="buyerGravatar">
       <div class="px-3">{{ buyerUser["name"] }}</div>
@@ -13,7 +13,7 @@
       {{ amount }} {{ $t('minutes') }} -->
     </div>
 
-    <div class="p-5 flex flex-col sm:flex-row-reverse items-center ">
+    <div class="p-5 pb-1 flex flex-col sm:flex-row-reverse items-center ">
 
       <img class="h-12 w-12 rounded-full inline" :src="sellerGravatar">
       <div class="px-3">{{ sellerUser["name"] }}</div>
