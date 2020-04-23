@@ -6,8 +6,8 @@
 
     <div class="pb-3 pt-0 px-5 text-center">go
       <div id="rater"></div>
-      54 STARS<br>
-      User comment
+      {{ rating }} stars<br>
+      {{ comment }}
     </div>
 
   </div>
@@ -18,9 +18,8 @@
 <script>
     export default {
       props: [
-        'id',
-        'actualUser',
-        'status',
+        'rating',
+        'comment'
       ],
       mounted() {
           //console.log('Component mounted.')

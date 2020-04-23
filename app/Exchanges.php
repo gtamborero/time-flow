@@ -3,11 +3,11 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-use App\User;
 use Illuminate\Support\Facades\Auth;
 
 class Exchanges extends Model
 {
+  protected $visible = ['id','other_column'];
 
     public static function statusToAccepted($id){
     $exchange = self::where('id',$id)->first();
@@ -33,5 +33,9 @@ class Exchanges extends Model
 
     public function getCreatorUser(){
       return $this->hasOne('App\User','id','id_creator');
+    }
+
+    public function getRating(){
+      return $this->hasOne('App\Comments','id_exchange','id')->select(['rating', 'comment']);
     }
 }

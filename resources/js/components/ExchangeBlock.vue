@@ -42,9 +42,9 @@
       </user-exchange>
 
       <user-rating
-          :id="id"
-          :actual-user-id="actualUserId"
-          :status="status">
+          :rating="rating"
+          :comment="comment"
+          >
       </user-rating>
 
 
@@ -66,7 +66,9 @@
         'created',
         'status',
         'seller-gravatar',
-        'buyerGravatar'
+        'buyerGravatar',
+        'rating',
+        'comment'
 
       ],
       data: function () {

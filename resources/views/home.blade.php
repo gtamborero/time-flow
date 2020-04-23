@@ -21,6 +21,7 @@
     ?>
 
       @foreach ($exchanges as $exchange)
+
         <div class="mb-6 shadow-md">
             <exchange-block
               id="{{ $exchange->id }}"
@@ -34,6 +35,8 @@
               :actual-user-id="{{Auth::user()->id}}"
               seller-gravatar="{{ gravatar($exchange->getSellerUser->email) }}"
               buyer-gravatar="{{ gravatar($exchange->getBuyerUser->email) }}"
+              rating="@if ($exchange->getRating){{ $exchange->getRating->rating }}@endif"
+              comment="@if ($exchange->getRating){{ $exchange->getRating->comment }}@endif"
               >
             </exchange-block>
         </div>
