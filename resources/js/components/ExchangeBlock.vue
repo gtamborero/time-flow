@@ -1,23 +1,6 @@
 <template>
   <div>
 
-    <user-exchange
-        :id="id"
-        :concept="concept"
-        :seller-user="sellerUser"
-        :buyer-user="buyerUser"
-        :amount="amount"
-        :status="status"
-        :seller-gravatar="sellerGravatar"
-        :buyer-gravatar="buyerGravatar">
-    </user-exchange>
-
-    <user-stars
-        :id="id"
-        :actual-user-id="actualUserId"
-        :status="status">
-    </user-stars>
-
       <!-- WHEN PENDING EXCHANGE AND USER CAN ACCEPT -->
       <div class="py-3 px-5 bg-primary text-white break-words relative">
           <div class="text-right flex-grow md:float-right md:right-0 md:pr-5 md:absolute">
@@ -46,6 +29,24 @@
           <!-- WHEN ACCEPTED EXCHANGE -->
 
       </div>
+
+      <user-exchange
+          :id="id"
+          :concept="concept"
+          :seller-user="sellerUser"
+          :buyer-user="buyerUser"
+          :amount="amount"
+          :status="status"
+          :seller-gravatar="sellerGravatar"
+          :buyer-gravatar="buyerGravatar">
+      </user-exchange>
+
+      <user-stars
+          :id="id"
+          :actual-user-id="actualUserId"
+          :status="status">
+      </user-stars>
+
 
   </div>
 </template>
