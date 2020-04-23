@@ -4,8 +4,9 @@
   <!-- SECOND LINE COMMENTS + STARS -->
   <div class="grid grid-cols-2 bg-secondary break-words">
 
-    <div class="py-2 px-5 text-left">
-      5 STARS<br>
+    <div class="py-2 px-5 text-left">go
+      <div id="rater"></div>
+      54 STARS<br>
       User comment
     </div>
 

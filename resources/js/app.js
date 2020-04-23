@@ -5,6 +5,7 @@
  */
 
 require('./bootstrap');
+var raterJs = require('rater-js');
 
 window.Vue = require('vue');
 
@@ -15,11 +16,11 @@ window.Vue = require('vue');
  * Eg. ./components/ExampleComponent.vue -> <example-component></example-component>
  */
 
+import ExchangeBlock from './components/ExchangeBlock.vue';
+Vue.component('exchange-block', ExchangeBlock);
+
 import UserExchange from './components/UserExchange.vue';
 Vue.component('user-exchange', UserExchange);
-
-import UserStatus from './components/UserStatus.vue';
-Vue.component('user-status', UserStatus);
 
 import UserStars from './components/UserStars.vue';
 Vue.component('user-stars', UserStars);

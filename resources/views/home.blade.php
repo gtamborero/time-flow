@@ -22,24 +22,7 @@
 
       @foreach ($exchanges as $exchange)
         <div class="mb-6 shadow-md">
-            <user-exchange
-                id="{{ $exchange->id }}"
-                concept="{{ $exchange->concept }}"
-                :seller-user="{{$exchange->getSellerUser}}"
-                :buyer-user="{{$exchange->getBuyerUser}}"
-                amount="{{ $exchange->amount }}"
-                :status="{{ $exchange->status }}"
-                seller-gravatar="{{ gravatar($exchange->getSellerUser->email) }}"
-                buyer-gravatar="{{ gravatar($exchange->getBuyerUser->email) }}">
-            </user-exchange>
-
-            <user-stars
-                id="{{ $exchange->id }}"
-                :actual-user-id="{{Auth::user()->id}}"
-                :status="{{ $exchange->status }}">
-            </user-stars>
-
-            <user-status
+            <exchange-block
               id="{{ $exchange->id }}"
               concept="{{ $exchange->concept }}"
               :seller-user="{{$exchange->getSellerUser}}"
@@ -48,8 +31,11 @@
               created="{{ $exchange->created_at->diffForHumans() }}"
               :status="{{ $exchange->status }}"
               :creator-user-id="{{$exchange->getCreatorUser->id}}"
-              :actual-user-id="{{Auth::user()->id}}">
-            </user-status>
+              :actual-user-id="{{Auth::user()->id}}"
+              seller-gravatar="{{ gravatar($exchange->getSellerUser->email) }}"
+              buyer-gravatar="{{ gravatar($exchange->getBuyerUser->email) }}"
+              >
+            </exchange-block>
         </div>
       @endforeach
 
