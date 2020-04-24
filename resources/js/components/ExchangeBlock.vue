@@ -1,6 +1,5 @@
 <template>
   <div>
-
       <!-- WHEN PENDING EXCHANGE AND USER CAN ACCEPT -->
       <div class="py-3 px-5 bg-primary text-white break-words relative">
           <div class="text-right flex-grow md:float-right md:right-0 md:pr-5 md:absolute">
@@ -73,7 +72,7 @@
       ],
       data: function () {
         return {
-          internalStatus: this.status,
+          internalStatus: this.status
         }
       },
       mounted() {

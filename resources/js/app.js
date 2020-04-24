@@ -5,9 +5,9 @@
  */
 
 require('./bootstrap');
-var raterJs = require('rater-js');
 
 window.Vue = require('vue');
+
 
 /**
  * The following block of code may be used to automatically register your
@@ -24,6 +24,9 @@ Vue.component('user-exchange', UserExchange);
 
 import UserRating from './components/UserRating.vue';
 Vue.component('user-rating', UserRating);
+
+import StarRating from 'vue-dynamic-star-rating';
+Vue.component('star-rating', StarRating);
 
 // Use internationalization -> martinlindhe/laravel-vue-i18n-generator
 import VueInternationalization from 'vue-i18n';
