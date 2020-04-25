@@ -25,7 +25,7 @@ Vue.component('user-exchange', UserExchange);
 import UserRating from './components/UserRating.vue';
 Vue.component('user-rating', UserRating);
 
-import StarRating from 'vue-dynamic-star-rating';
+import StarRating from './components/starRating.vue';
 Vue.component('star-rating', StarRating);
 
 // Use internationalization -> martinlindhe/laravel-vue-i18n-generator

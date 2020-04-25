@@ -4,10 +4,8 @@
   <!-- SECOND LINE COMMENTS + STARS -->
   <div class="grid grid-cols-1 bg-white break-words">
 
-    <div class="pb-3 pt-0 px-5 text-center">
-      <div class="w-auto inline-block">
-        <star-rating :rating="rating"></star-rating>
-      </div>
+    <div class="pb-3 pt-0 px-5 text-center star-container">
+      <star-rating v-model="rating"></star-rating>
       {{ rating }} stars<br>
       {{ comment }}
     </div>
