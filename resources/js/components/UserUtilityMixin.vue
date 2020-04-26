@@ -120,6 +120,46 @@
                 ${this.concept}`;
           }
 
+          // Messages when exchange status is Rejected
+          if (this.internalStatus == -1){
+
+              var infoNotInvolved = `${this.buyerUser.name}
+                ${this.$t('sended')}
+                ${this.amount}
+                ${this.$t('to')}
+                ${this.sellerUser.name}
+                ${this.$t('minutes')}
+                ${this.$t('for')}
+                <br>
+                ${this.concept}
+                ${this.$t('but was rejected')}`;
+
+              var info = `${this.siblingUser}
+                ${this.$t('sends you')}
+                ${this.amount}
+                ${this.$t('minutes')}
+                ${this.$t('for')}
+                <br>
+                ${this.concept}
+                ${this.$t('but was rejected')}`;
+
+              var infoBuyerAndCreator = `REJECTED ${this.siblingUser}
+                ${this.$t('has received from you')}
+                ${this.amount}
+                ${this.$t('minutes')}
+                ${this.$t('for')}
+                <br>
+                ${this.concept}`;
+
+              var infoBuyer = `RECHAZADO ${this.siblingUser}
+                ${this.$t('has received from you')}
+                ${this.amount}
+                ${this.$t('minutes')}
+                ${this.$t('for')}
+                <br>
+                ${this.concept}`;
+          }
+
           if (this.involvedUser == "NotInvolved") return infoNotInvolved;
           if (this.involvedUser == "Buyer") return "buyer. " + infoBuyer;
           if (this.involvedUser == "Seller") return "seller. " + info;
