@@ -2,13 +2,13 @@
   <!-- component from: https://codepen.io/olimorris/pen/yOYBjd -->
   <div class="star-rating">
           <label class="star-rating__star" v-for="rating in ratings"
-          :class="{'is-selected': ((value >= rating) && value != null),
+          :class="{'is-selected': ((temp_value >= rating) && temp_value != null),
           'is-disabled': disabled}"
           v-on:click="set(rating)" v-on:mouseover="star_over(rating)"
           v-on:mouseout="star_out">
           <input class="star-rating star-rating__checkbox"
-          type="radio" :value="rating" :name="name"
-          v-model="value" :disabled="disabled">★</label></div>
+          type="radio" :name="name"
+          :value="finalValue" :disabled="disabled">★</label></div>
 </template>
 
 <script>
@@ -26,7 +26,8 @@
       },
       data: function() {
          return {
-           temp_value: null,
+           temp_value: this.value,
+           finalValue: this.value,
            ratings: [1, 2, 3, 4, 5]
          };
        },
@@ -35,11 +36,10 @@
           * Behaviour of the stars on mouseover.
           */
          star_over: function(index) {
-           var self = this;
 
            if (!this.disabled) {
-             this.temp_value = this.value;
-             return this.value = index;
+             //this.temp_value = this.value;
+             return this.temp_value = index;
            }
 
          },
@@ -48,10 +48,9 @@
           * Behaviour of the stars on mouseout.
           */
          star_out: function() {
-           var self = this;
 
            if (!this.disabled) {
-             return this.value = this.temp_value;
+             return this.temp_value = this.finalValue;
            }
          },
 
@@ -59,11 +58,13 @@
           * Set the rating.
           */
          set: function(value) {
-           var self = this;
+
 
            if (!this.disabled) {
-             this.temp_value = value;
-             return this.value = value;
+
+             this.finalValue = value;
+             //return this.temp_value = index;
+             //this.temp_value = value;
            }
          }
        }
