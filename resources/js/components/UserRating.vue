@@ -5,9 +5,8 @@
   <div class="grid grid-cols-1 bg-white break-words">
 
     <div class="pb-3 pt-0 px-5 text-center star-container">
-      <star-rating v-model="rating"></star-rating>
-      {{ rating }} stars<br>
-      {{ comment }}
+      <star-rating v-model="rating" disabled></star-rating>
+      {{ userName }} {{ $t('said') }}: {{ comment }}
     </div>
 
   </div>
@@ -19,7 +18,8 @@
     export default {
       props: [
         'rating',
-        'comment'
+        'comment',
+        'user-name'
       ],
       mounted() {
           //console.log('Component mounted.')

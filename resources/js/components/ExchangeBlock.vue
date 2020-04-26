@@ -26,6 +26,27 @@
           </div>
 
           <!-- WHEN ACCEPTED EXCHANGE -->
+          <div v-if="internalStatus==1">
+              <div class="text-center py-2">
+                <div v-if="!rate" v-on:click="rate=1">
+                  <button class="tf-button tf-button-secondary uppercase">
+                    {{ $t('Rate to') }} {{sellerUser.name}}
+                  </button>
+                  <button class="tf-button tf-button-secondary uppercase">
+                    {{ $t('Rate later') }}
+                  </button>
+                </div>
+
+                <!-- WHEN OCKMMENt-->
+                <div v-if="rate" class=" text-white p-3">
+               <star-rating v-model="rating"></star-rating>
+               <input type="text"></input>
+               <button class="tf-button tf-button-secondary float-right" v-on:click="rate=0">
+                 X
+               </button>
+                </div>
+              </div>
+          </div>
 
       </div>
 
@@ -43,6 +64,7 @@
       <user-rating
           :rating="rating"
           :comment="comment"
+          :user-name="buyerUser.name"
           >
       </user-rating>
 
@@ -72,17 +94,36 @@
       ],
       data: function () {
         return {
-          internalStatus: this.status
+          internalStatus: this.status,
+          rate: 0
         }
       },
       mounted() {
       },
       methods: {
         accept: function (){
+          this.internalStatus = 1; // 0: pending, 1:accepted, -1:rejected
+          axios({
+            method: 'put',
+            url: '/exchange/' + this.id,
+            data: {
+              status: 5,
+            }
+          }).then(response => {
+            //this.changeStatus();
+            console.log(response);
+          })
+          .catch(error => {
+            console.log(error)
+          })
+          .finally(() => this.loading = false)
+        },
+        reject: function (){
+          this.internalStatus = -1; // 0: pending, 1:accepted, -1:rejected
           axios
             .put('/exchange/' + this.id)
             .then(response => {
-              this.internalStatus = 1; // 0: pending, 1:accepted, 2:rejected
+
               //this.changeStatus();
               console.log(response);
             })
@@ -90,9 +131,6 @@
               console.log(error)
             })
             .finally(() => this.loading = false)
-        },
-        reject: function (){
-          alert(event.target.tagName);
         },
         /*changeStatus: function (){
           this.$emit('change-status');
