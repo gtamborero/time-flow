@@ -9,14 +9,19 @@ class Exchanges extends Model
 {
   protected $visible = ['id','other_column'];
 
-    public static function changeStatus($id, $request){
-    $exchange = self::where('id',$id)->first();
+    public static function changeStatus($request, $id){
+
+      // get exchange by id
+      $exchange = self::where('id',$id)->first();
+
+      // Security user check
       if (
           Auth::user()->id == $exchange->id_seller
           ||
           Auth::user()->id == $exchange->id_buyer
       ){
-          $exchange->status = $request->status;
+          // Change status to newStatus
+          if (is_numeric($request->status)) $exchange->status = $request->status;
           $exchange->save();
           return 1;
       }
