@@ -28,6 +28,9 @@ Vue.component('user-rating', UserRating);
 import StarRating from './components/starRating.vue';
 Vue.component('star-rating', StarRating);
 
+import CommentExchange from './components/commentExchange.vue';
+Vue.component('comment-exchange', CommentExchange);
+
 // Use internationalization -> martinlindhe/laravel-vue-i18n-generator
 import VueInternationalization from 'vue-i18n';
 import Locale from './vue-i18n-locales.generated';

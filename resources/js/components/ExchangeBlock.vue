@@ -44,23 +44,8 @@
 
                 <!-- WHEN COMMENT-->
                 <div v-if="rate" class=" text-white">
-
-                   <star-rating v-model="newRating"></star-rating>
-
-                   <input
-                    type="text"
-                    placeholder="Write something for X"
-                    value=""
-                    name="text"
-                    autofocus="autofocus"
-                    class="form-input w-full mt-3 mb-4">
-
-                   <button class="tf-button tf-button-secondary uppercase">
-                     {{ $t('Publish') }}
-                   </button>
-                   <button v-on:click="rate=0" class="tf-button tf-button-secondary uppercase">
-                     {{ $t('Cancel') }}
-                   </button>
+                  <star-rating v-model="newRating"></star-rating>
+                  <comment-exchange></comment-exchange>
                 </div>
               </div>
           </div>
