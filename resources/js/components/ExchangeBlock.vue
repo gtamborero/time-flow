@@ -45,7 +45,7 @@
                 <!-- WHEN COMMENT-->
                 <div v-if="rate" class=" text-white">
                   <star-rating v-model="newRating"></star-rating>
-                  <comment-exchange></comment-exchange>
+                  <comment-exchange :id="id"></comment-exchange>
                 </div>
               </div>
           </div>
