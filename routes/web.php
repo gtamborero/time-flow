@@ -26,3 +26,5 @@ Route::get('login/facebook/callback', 'Auth\LoginController@handleProviderCallba
 Route::get('search', 'SearchController@index')->name('search');
 
 Route::resource('exchange', 'ExchangeController');
+
+Route::put('comment-exchange/{id}', 'CommentController');
