@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="exchange-block">
 
       <!-- WHEN PENDING EXCHANGE AND USER CAN ACCEPT -->
       <div class="py-3 px-5 text-white break-words relative"
@@ -14,9 +14,7 @@
 
           <div class="text-center flex-grow" v-html="infoForUser()"></div>
 
-          <div v-if="internalStatus==0
-                &&
-                (involvedUser == 'Buyer' || involvedUser == 'Seller')"
+          <div v-if="internalStatus==0 && isInvolvedUser()"
                 class="text-center">
             <a class="inline-block p-2">
               <button class="tf-button tf-button-secondary uppercase" v-on:click="accept">
@@ -32,13 +30,8 @@
           </div>
 
           <!-- WHEN ACCEPTED EXCHANGE -->
-          <div v-if="internalStatus==1 &&
-            (
-            involvedUser == 'Buyer'
-            ||
-            involvedUser == 'BuyerAndCreator'
-            )
-          ">
+          <!-- SHOW IF THERES NO SET COMMENT and USER IS INVOLVED BUYER -->
+          <div v-if="internalStatus==1 && isInvolvedBuyer() && !comment">
               <div class="text-center py-2">
                 <div v-if="!rate" v-on:click="rate=1">
                   <button class="tf-button tf-button-secondary uppercase">
@@ -50,13 +43,23 @@
                 </div>
 
                 <!-- WHEN COMMENT-->
-                <div v-if="rate" class=" text-white p-3">
+                <div v-if="rate" class=" text-white">
 
                    <star-rating v-model="newRating"></star-rating>
 
-                   <input type="text"></input>
-                   <button class="tf-button tf-button-secondary float-right" v-on:click="rate=0">
-                     X
+                   <input
+                    type="text"
+                    placeholder="Write something for X"
+                    value=""
+                    name="text"
+                    autofocus="autofocus"
+                    class="form-input w-full mt-3 mb-4">
+
+                   <button class="tf-button tf-button-secondary uppercase">
+                     {{ $t('Publish') }}
+                   </button>
+                   <button v-on:click="rate=0" class="tf-button tf-button-secondary uppercase">
+                     {{ $t('Cancel') }}
                    </button>
                 </div>
               </div>
@@ -86,6 +89,7 @@
           :rating="rating"
           :comment="comment"
           :user-name="buyerUser.name"
+          :status="status"
           >
       </user-rating>
 
@@ -145,7 +149,8 @@
         reject: function(){
           this.internalStatus = -1; // 0: pending, 1:accepted, -1:rejected
           this.changeStatus();
-        }
+        },
+
         /*changeStatus: function (){
           this.$emit('change-status');
         },*/

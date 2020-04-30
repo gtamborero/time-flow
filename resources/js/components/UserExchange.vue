@@ -1,7 +1,7 @@
 <template>
 <div>
   <!-- FIRST LINE USERS -->
-  <div class="grid grid-cols-3 bg-white break-words">
+  <div class="grid grid-cols-3 bg-white break-words pb-3">
     <div class="p-5 pb-1 flex flex-col sm:flex-row items-center">
 
       <img class="h-12 w-12 rounded-full inline" :src="buyerGravatar">

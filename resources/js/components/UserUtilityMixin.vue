@@ -42,6 +42,12 @@
           if (this.actualUserId == this.buyerUser.id) return this.sellerUser.name;
           if (this.actualUserId == this.sellerUser.id) return this.buyerUser.name;
         },
+        isInvolvedBuyer: function(){
+          if ( this.involvedUser == 'Buyer' || this.involvedUser == 'BuyerAndCreator' ) return 1;
+        },
+        isInvolvedUser: function(){
+          if (this.involvedUser == 'Buyer' || this.involvedUser == 'Seller') return 1;
+        },
         infoForUser: function (){
 
           // Messanges when exchange status is pending
