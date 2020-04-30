@@ -8,7 +8,7 @@
        autofocus="autofocus"
        class="form-input w-full mt-3 mb-4">
 
-      <button :click="publishComment()" class="tf-button tf-button-secondary uppercase">
+      <button v-on:click="publishComment()" class="tf-button tf-button-secondary uppercase">
         {{ $t('Publish') }}
       </button>
 
@@ -20,6 +20,9 @@
 
 <script>
     export default {
+      props: [
+        'id'
+      ],
       data: function () {
         return {
           comment: ''
@@ -31,9 +34,9 @@
         publishComment: function (){
           axios({
             method: 'put',
-            url: '/comment-exchange/55',
+            url: '/comment-exchange/' + this.id,
             data: {
-              comment: "hi there!",
+              comment: this.comment,
               rating: 5
             }
           }).then(response => {
