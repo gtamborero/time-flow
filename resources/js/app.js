@@ -35,7 +35,10 @@ Vue.component('comment-exchange', CommentExchange);
 import VueInternationalization from 'vue-i18n';
 import Locale from './vue-i18n-locales.generated';
 
+import Vuex from 'vuex';
+
 Vue.use(VueInternationalization);
+Vue.use(Vuex);
 
  //determine your current app locale
  const lang = document.documentElement.lang.substr(0, 2);
@@ -45,7 +48,20 @@ Vue.use(VueInternationalization);
      messages: Locale
  });
 
+
+  const store = new Vuex.Store({
+   state: {
+     count: 0
+   },
+   mutations: {
+     increment (state) {
+       state.count++
+     }
+   }
+ });
+
  const app = new Vue({
      el: '#app',
+     store,
      i18n
  });

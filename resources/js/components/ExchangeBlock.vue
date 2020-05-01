@@ -1,6 +1,8 @@
 <template>
   <div class="exchange-block">
-
+    <button v-on:click="increment()" class="tf-button tf-button-secondary uppercase">
+      TEST VUEX
+    </button>
       <!-- WHEN PENDING EXCHANGE AND USER CAN ACCEPT -->
       <div class="py-3 px-5 text-white break-words relative"
         v-bind:class="{
@@ -135,7 +137,11 @@
           this.internalStatus = -1; // 0: pending, 1:accepted, -1:rejected
           this.changeStatus();
         },
-
+        // vuex test
+        increment() {
+          this.$store.commit('increment')
+          console.log(this.$store.state.count)
+        }
         /*changeStatus: function (){
           this.$emit('change-status');
         },*/

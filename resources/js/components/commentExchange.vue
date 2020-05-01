@@ -15,6 +15,10 @@
       <button v-on:click="rate=0" class="tf-button tf-button-secondary uppercase">
         {{ $t('Cancel') }}
       </button>
+
+      <button v-on:click="increment()" class="tf-button tf-button-secondary uppercase">
+        VUEX TEST
+      </button>
   </div>
 </template>
 
@@ -47,6 +51,11 @@
             console.log(error)
           })
           .finally(() => this.loading = false)
+        },
+        // vuex test
+        increment() {
+          this.$store.commit('increment')
+          console.log(this.$store.state.count)
         }
       }
     }
