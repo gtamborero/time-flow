@@ -1,5 +1,8 @@
 <template>
   <div>
+
+      <star-rating :id="id"></star-rating>
+
       <input
        type="text"
        placeholder="Write something for X"
@@ -41,7 +44,7 @@
             url: '/comment-exchange/' + this.id,
             data: {
               comment: this.comment,
-              rating: this.$store.state.exchange[this.id].rating
+              rating: this.$store.getters.getRating(this.id)
             }
           }).then(response => {
             //this.changeStatus();
@@ -51,11 +54,6 @@
             console.log(error)
           })
           .finally(() => this.loading = false)
-        },
-        // vuex test
-        increment() {
-          this.$store.commit('increment')
-          console.log(this.$store.state.count)
         }
       }
     }
