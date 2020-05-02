@@ -47,7 +47,7 @@
         Puedes buscar usuarios y solicitarles o enviarles tiempo,
         pero tarde o temprano, ¡tendrás que loguearte o registrate!
 
-        <button class="access-to tf-button tf-button-primary mt-4">
+        <button class="access-to tf-button tf-button-primary mt-4 block mx-auto">
           <a href="{{ url('/login') }}">@lang('Access to') {{ config('app.name') }}</a>
         </button>
 
