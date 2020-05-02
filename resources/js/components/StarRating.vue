@@ -17,9 +17,9 @@
       props: {
         'name': String,
         'value': null,
-        'id': String,
         'disabled': Boolean,
-        'required': Boolean
+        'required': Boolean,
+        'id': String
       },
       mounted() {
           //console.log('Component mounted.')
@@ -56,7 +56,10 @@
          set: function(value) {
            if (!this.disabled) {
              this.finalValue = value;
-             this.$store.state.exchange[3].rating = this.finalValue;
+             this.$store.commit('setRating',{
+               id: this.id,
+               rating: this.finalValue
+             });
            }
          }
        }
