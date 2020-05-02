@@ -1,8 +1,5 @@
 <template>
   <div class="exchange-block">
-    <button v-on:click="increment()" class="tf-button tf-button-secondary uppercase">
-      TEST VUEX
-    </button>
       <!-- WHEN PENDING EXCHANGE AND USER CAN ACCEPT -->
       <div class="py-3 px-5 text-white break-words relative"
         v-bind:class="{
@@ -46,7 +43,6 @@
 
                 <!-- WHEN COMMENT-->
                 <div v-if="rate" class=" text-white">
-                  <star-rating v-model="newRating"></star-rating>
                   <comment-exchange :id="id"></comment-exchange>
                 </div>
               </div>
@@ -136,15 +132,7 @@
         reject: function(){
           this.internalStatus = -1; // 0: pending, 1:accepted, -1:rejected
           this.changeStatus();
-        },
-        // vuex test
-        increment() {
-          this.$store.commit('increment')
-          console.log(this.$store.state.count)
         }
-        /*changeStatus: function (){
-          this.$emit('change-status');
-        },*/
       }
     }
 </script>
