@@ -13,6 +13,7 @@
 </template>
 
 <script>
+    import { mapMutations } from 'vuex';
     export default {
       props: {
         'name': String,
@@ -56,12 +57,13 @@
          set: function(value) {
            if (!this.disabled) {
              this.finalValue = value;
-             this.$store.commit('setRating',{
+             this.setRating({
                id: this.id,
                rating: this.finalValue
              });
            }
-         }
+         },
+         ...mapMutations(['setRating'])
        }
      }
 </script>

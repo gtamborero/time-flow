@@ -18,14 +18,11 @@
       <button v-on:click="rate=0" class="tf-button tf-button-secondary uppercase">
         {{ $t('Cancel') }}
       </button>
-
-      <button v-on:click="increment()" class="tf-button tf-button-secondary uppercase">
-        VUEX TEST
-      </button>
   </div>
 </template>
 
 <script>
+import { mapGetters } from 'vuex';
     export default {
       props: [
         'id'
@@ -44,7 +41,7 @@
             url: '/comment-exchange/' + this.id,
             data: {
               comment: this.comment,
-              rating: this.$store.getters.getRating(this.id)
+              rating: this.getRating(this.id)
             }
           }).then(response => {
             //this.changeStatus();
@@ -55,6 +52,10 @@
           })
           .finally(() => this.loading = false)
         }
-      }
+      },
+      computed:
+        mapGetters(
+          ['getRating']
+        )
     }
 </script>
