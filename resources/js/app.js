@@ -49,16 +49,23 @@ Vue.use(Vuex);
  });
 
 
-  const store = new Vuex.Store({
-   state: {
-     count: 0
-   },
-   mutations: {
-     increment (state) {
-       state.count++
+const store = new Vuex.Store({
+ state: {
+   exchange:{
+     3:{
+       rating: 4
+     },
+     1:{
+       rating: 2
      }
    }
- });
+ },
+ mutations: {
+   getRating (state) {
+     return state.exchange[1].rating;
+   }
+ }
+});
 
  const app = new Vue({
      el: '#app',

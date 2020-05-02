@@ -41,7 +41,7 @@
             url: '/comment-exchange/' + this.id,
             data: {
               comment: this.comment,
-              rating: 5
+              rating: this.$store.state.exchange[this.id].rating
             }
           }).then(response => {
             //this.changeStatus();

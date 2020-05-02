@@ -56,6 +56,7 @@
          set: function(value) {
            if (!this.disabled) {
              this.finalValue = value;
+             this.$store.state.exchange[3].rating = this.finalValue;
            }
          }
        }
