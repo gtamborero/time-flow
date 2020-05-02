@@ -4,7 +4,7 @@
       <label class="star-rating__star" v-for="rating in ratings"
       :class="{'is-selected': ((tempValue >= rating) && tempValue != null),
       'is-disabled': disabled}"
-      v-on:click="set(rating)" v-on:mouseover="star_over(rating)"
+      v-on:click.stop.prevent="set(rating)" v-on:mouseover="star_over(rating)"
       v-on:mouseout="star_out">
           <input class="star-rating star-rating__checkbox"
           type="radio" :name="name"
