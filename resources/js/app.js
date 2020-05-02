@@ -61,10 +61,15 @@ const store = new Vuex.Store({
    }
  },
  mutations: {
-   getRating (state) {
-     return state.exchange[1].rating;
+   setRating (state, payload) {
+     state.exchange[payload.id].rating = payload.rating;
    }
- }
+ },
+ getters: {
+    getRating: (state) => (id) => {
+      return state.exchange[id].rating;
+    }
+  }
 });
 
  const app = new Vue({
