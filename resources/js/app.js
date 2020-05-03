@@ -65,7 +65,10 @@ const store = new Vuex.Store({
  mutations: {
    setRating (state, payload) {
      state.exchange[payload.id].rating = payload.rating;
-   }
+   },
+   setComment (state, payload) {
+     state.exchange[payload.id].comment = payload.comment;
+   },
  },
  getters: {
     getRating: (state) => (id) => {

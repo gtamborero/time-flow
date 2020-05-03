@@ -2,11 +2,11 @@
 <div>
 
   <!-- SECOND LINE COMMENTS + STARS -->
-  <div v-if="status == 1 && comment" class="grid grid-cols-1 bg-white break-words">
+  <div  class="grid grid-cols-1 bg-white break-words">
 
     <div class="pb-3 pt-0 px-5 text-center star-container">
       <star-rating v-model="rating" disabled></star-rating>
-      {{ userName }} {{ $t('said') }}: {{ comment }}
+      {{ userName }} {{ $t('said') }}: {{comment}}
     </div>
 
   </div>
@@ -25,7 +25,7 @@
       ],
       data: function(){
         return {
-          comment: this.getComment(this.id)
+          //comment: this.getComment(this.id)
         }
       },
       mounted() {
@@ -34,6 +34,13 @@
       },
       methods: {
       },
-      computed: mapGetters(['getRating','getComment'])
+      computed: {
+        comment: function (){
+          return this.getComment(this.id)
+        },
+        ...mapGetters(['getRating','getComment'])
+      }
+
+
     }
 </script>

@@ -23,6 +23,7 @@
 
 <script>
 import { mapGetters } from 'vuex';
+import { mapMutations } from 'vuex';
     export default {
       props: [
         'id'
@@ -47,18 +48,23 @@ import { mapGetters } from 'vuex';
           }).then(response => {
             //this.changeStatus();
             this.visibleComponent = 0;
-            
+            this.setComment({
+              id: this.id,
+              comment: this.comment
+            });
+
             //console.log(response);
           })
           .catch(error => {
             console.log(error)
           })
           .finally(() => this.loading = false)
-        }
+        },
+        ...mapMutations(['setComment'])
       },
       computed:
         mapGetters(
-          ['getRating']
+          ['getRating','getComment']
         )
     }
 </script>
