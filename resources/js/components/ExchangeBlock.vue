@@ -1,5 +1,5 @@
 <template>
-  <div class="exchange-block">
+  <div :exchange-id="id" class="exchange-block">
       <!-- WHEN PENDING EXCHANGE AND USER CAN ACCEPT -->
       <div class="py-3 px-5 text-white break-words relative"
         v-bind:class="{
@@ -71,7 +71,6 @@
       <user-rating
           :id="id"
           :rating="rating"
-          :comment="comment"
           :user-name="buyerUser.name"
           :status="status"
           >
