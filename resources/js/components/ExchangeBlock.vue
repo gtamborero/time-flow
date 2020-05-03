@@ -80,6 +80,7 @@
 </template>
 
 <script>
+    import { mapMutations } from 'vuex';
     import UserUtilityMixin from './UserUtilityMixin.vue';
     export default {
       mixins: [UserUtilityMixin],
@@ -107,6 +108,10 @@
         }
       },
       mounted() {
+        this.initExchanges({
+          rating: 5,
+          comment: "espectascular"
+        });
       },
       methods: {
         changeStatus: function (){
@@ -132,7 +137,8 @@
         reject: function(){
           this.internalStatus = -1; // 0: pending, 1:accepted, -1:rejected
           this.changeStatus();
-        }
+        },
+        ...mapMutations(['initExchanges'])
       }
     }
 </script>

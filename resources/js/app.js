@@ -54,15 +54,21 @@ const store = new Vuex.Store({
    exchange:{
      3:{
        rating: 4,
-       comment: "hola1"
+       comment: "hola111111"
      },
      1:{
        rating: 2,
-       comment: "hola2"
+       comment: "hola22222"
      }
    }
  },
  mutations: {
+   initExchanges (state, payload){
+     state.exchange[2] = {
+       rating: payload.rating,
+       comment: payload.comment
+     };
+   },
    setRating (state, payload) {
      state.exchange[payload.id].rating = payload.rating;
    },
