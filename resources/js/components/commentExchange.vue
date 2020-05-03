@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div v-if="visibleComponent">
 
       <star-rating :id="id"></star-rating>
 
@@ -29,7 +29,8 @@ import { mapGetters } from 'vuex';
       ],
       data: function () {
         return {
-          comment: ''
+          comment: '',
+          visibleComponent: 1
         }
       },
       mounted() {
@@ -45,7 +46,9 @@ import { mapGetters } from 'vuex';
             }
           }).then(response => {
             //this.changeStatus();
-            console.log(response);
+            this.visibleComponent = 0;
+            
+            //console.log(response);
           })
           .catch(error => {
             console.log(error)

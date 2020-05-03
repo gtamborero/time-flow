@@ -15,18 +15,25 @@
 </template>
 
 <script>
+    import { mapGetters } from 'vuex';
     export default {
       props: [
+        'id',
         'rating',
-        'comment',
         'user-name',
         'status'
       ],
+      data: function(){
+        return {
+          comment: this.getComment(this.id)
+        }
+      },
       mounted() {
           //console.log('Component mounted.')
 
       },
       methods: {
-      }
+      },
+      computed: mapGetters(['getRating','getComment'])
     }
 </script>

@@ -30,7 +30,7 @@
 
           <!-- WHEN ACCEPTED EXCHANGE -->
           <!-- SHOW IF THERES NO SET COMMENT and USER IS INVOLVED BUYER -->
-          <div v-if="internalStatus==1 && isInvolvedBuyer() && !comment">
+          <div v-if="internalStatus==1 && isInvolvedBuyer()">
               <div class="text-center py-2">
                 <div v-if="!rate" v-on:click="rate=1">
                   <button class="tf-button tf-button-secondary uppercase">
@@ -69,6 +69,7 @@
       </user-exchange>
 
       <user-rating
+          :id="id"
           :rating="rating"
           :comment="comment"
           :user-name="buyerUser.name"

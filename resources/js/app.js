@@ -53,10 +53,12 @@ const store = new Vuex.Store({
  state: {
    exchange:{
      3:{
-       rating: 4
+       rating: 4,
+       comment: "hola1"
      },
      1:{
-       rating: 2
+       rating: 2,
+       comment: "hola2"
      }
    }
  },
@@ -68,7 +70,10 @@ const store = new Vuex.Store({
  getters: {
     getRating: (state) => (id) => {
       return state.exchange[id].rating;
-    }
+    },
+    getComment: (state) => (id) => {
+      return state.exchange[id].comment;
+    },
   }
 });
 
