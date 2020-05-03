@@ -107,10 +107,11 @@
           newRating: 0
         }
       },
-      mounted() {
+      created() {
         this.initExchanges({
-          rating: 5,
-          comment: "espectascular"
+          id: this.id,
+          rating: this.rating,
+          comment: this.comment
         });
       },
       methods: {
