@@ -8,6 +8,27 @@
       </div>
   @endif
 
+<script>
+window.iproexchange= {
+  1:{
+    rating: 5,
+    comment: "hola1"
+  },
+  2:{
+    rating: "5",
+    comment: "hola2"
+  },
+  3:{
+    rating: "5",
+    comment: "hola3"
+  },
+  4:{
+    rating: "5",
+    comment: "hola4"
+  }
+}
+</script>
+
   <!-- LOAD BLADE COMPONENT -->
   <x-user-heading/>
 

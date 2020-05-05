@@ -107,13 +107,6 @@
           newRating: 0
         }
       },
-      created() {
-        this.initExchanges({
-          id: this.id,
-          rating: this.rating,
-          comment: this.comment
-        });
-      },
       methods: {
         changeStatus: function (){
           axios({
