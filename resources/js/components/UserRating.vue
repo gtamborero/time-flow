@@ -15,7 +15,6 @@
     export default {
       props: [
         'id',
-        'rating',
         'user-name',
         'status'
       ],
@@ -32,6 +31,9 @@
       computed: {
         comment: function (){
           return this.getComment(this.id)
+        },
+        rating: function (){
+          return this.getRating(this.id)
         },
         ...mapGetters(['getRating','getComment'])
       }
