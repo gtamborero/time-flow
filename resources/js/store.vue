@@ -1,4 +1,5 @@
-<script>export default {
+<script>
+export default {
  state: {
    exchange:window.iproexchange
  },

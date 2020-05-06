@@ -8,27 +8,6 @@
       </div>
   @endif
 
-<script>
-window.iproexchange= {
-  1:{
-    rating: 5,
-    comment: "hola1"
-  },
-  2:{
-    rating: "5",
-    comment: "hola2"
-  },
-  3:{
-    rating: "5",
-    comment: "hola3"
-  },
-  4:{
-    rating: "5",
-    comment: "hola4"
-  }
-}
-</script>
-
   <!-- LOAD BLADE COMPONENT -->
   <x-user-heading/>
 
@@ -41,8 +20,18 @@ window.iproexchange= {
     $exchanges = App\Exchanges::orderBy('id', 'desc')->get();
     ?>
 
+    {{-- Feed exchange data --}}
+    <script>
+    window.iproexchange = [];
       @foreach ($exchanges as $exchange)
+        window.iproexchange[{{$exchange->id}}] = {
+            rating: @if ($exchange->getRating){{ $exchange->getRating->rating }}@endif,
+            comment: "@if ($exchange->getRating){{ $exchange->getRating->comment }}@endif"
+        }
+      @endforeach
+    </script>
 
+      @foreach ($exchanges as $exchange)
         <div class="mb-6 shadow-md">
             <exchange-block
               id="{{ $exchange->id }}"
@@ -56,8 +45,6 @@ window.iproexchange= {
               :actual-user-id="{{Auth::user()->id}}"
               seller-gravatar="{{ gravatar($exchange->getSellerUser->email) }}"
               buyer-gravatar="{{ gravatar($exchange->getBuyerUser->email) }}"
-              rating="@if ($exchange->getRating){{ $exchange->getRating->rating }}@endif"
-              comment="@if ($exchange->getRating){{ $exchange->getRating->comment }}@endif"
               >
             </exchange-block>
         </div>
