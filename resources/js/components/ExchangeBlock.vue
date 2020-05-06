@@ -70,7 +70,6 @@
 
       <user-rating
           :id="id"
-          :rating="rating"
           :user-name="buyerUser.name"
           :status="status"
           >
@@ -96,8 +95,6 @@
         'status',
         'seller-gravatar',
         'buyerGravatar',
-        'rating',
-        'comment'
 
       ],
       data: function () {
