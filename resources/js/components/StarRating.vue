@@ -57,13 +57,9 @@
          set: function(value) {
            if (!this.disabled) {
              this.finalValue = value;
-             this.setRating({
-               id: this.id,
-               rating: this.finalValue
-             });
+             this.$emit('finalValue', value );
            }
-         },
-         ...mapMutations(['setRating'])
+         }
        }
      }
 </script>

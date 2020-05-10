@@ -1,7 +1,7 @@
 <template>
   <div v-if="visibleComponent">
 
-      <star-rating :id="id"></star-rating>
+      <star-rating :id="id" :value="myRating()" v-on:finalValue="setValue"></star-rating>
 
       <input
        type="text"
@@ -31,10 +31,13 @@ import { mapMutations } from 'vuex';
       data: function () {
         return {
           comment: '',
+          rating: 0,
           visibleComponent: 1
         }
       },
       mounted() {
+        this.comment = this.myComment();
+        this.rating = this.myRating();
       },
       methods: {
         publishComment: function (){
@@ -43,7 +46,7 @@ import { mapMutations } from 'vuex';
             url: '/comment-exchange/' + this.id,
             data: {
               comment: this.comment,
-              rating: this.getRating(this.id)
+              rating: this.rating
             }
           }).then(response => {
             //this.changeStatus();
@@ -52,7 +55,10 @@ import { mapMutations } from 'vuex';
               id: this.id,
               comment: this.comment
             });
-
+            this.setRating({
+              id: this.id,
+              comment: this.rating
+            });
             //console.log(response);
           })
           .catch(error => {
@@ -60,11 +66,17 @@ import { mapMutations } from 'vuex';
           })
           .finally(() => this.loading = false)
         },
-        ...mapMutations(['setComment'])
+        myComment: function (){
+          return this.getComment(this.id)
+        },
+        myRating: function (){
+          return this.getRating(this.id)
+        },
+        setValue: function (value){
+          this.rating = value;
+        },
+        ...mapMutations(['setComment','setRating'])
       },
-      computed:
-        mapGetters(
-          ['getRating','getComment']
-        )
+      computed: mapGetters(['getRating','getComment'])
     }
 </script>
