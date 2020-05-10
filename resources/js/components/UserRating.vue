@@ -3,7 +3,7 @@
   <!-- LINE COMMENTS + STARS -->
   <div  class="grid grid-cols-1 bg-white break-words">
     <div class="pb-3 pt-0 px-5 text-center star-container">
-      <star-rating v-model="rating" disabled></star-rating>
+      <star-rating :id="id" :temp-value="rating"></star-rating>
       {{ userName }} {{ $t('said') }}: {{comment}}
     </div>
   </div>
@@ -15,27 +15,21 @@
     export default {
       props: [
         'id',
-        'user-name',
-        'status'
+        'user-name'
       ],
       data: function(){
         return {
-          //comment: this.getComment(this.id)
+          comment: '',
+          rating: 0
         }
       },
       mounted() {
+        this.comment = this.getComment(this.id);
+        this.rating = this.getRating(this.id);
           //console.log('Component mounted.')
       },
       methods: {
       },
-      computed: {
-        comment: function (){
-          return this.getComment(this.id)
-        },
-        rating: function (){
-          return this.getRating(this.id)
-        },
-        ...mapGetters(['getRating','getComment'])
-      }
+      computed: mapGetters(['getRating','getComment'])
     }
 </script>

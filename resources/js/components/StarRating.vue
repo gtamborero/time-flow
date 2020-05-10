@@ -7,7 +7,7 @@
       v-on:click.stop.prevent="set(rating)" v-on:mouseover="star_over(rating)"
       v-on:mouseout="star_out">
           <input class="star-rating star-rating__checkbox"
-          type="radio" :name="name"
+          type="radio"
           :value="finalValue" :disabled="disabled">★</label>
   </div>
 </template>
@@ -16,18 +16,18 @@
     import { mapMutations } from 'vuex';
     export default {
       props: {
-        'name': String,
-        'value': String,
+        'value': Number,
         'disabled': Boolean,
         'required': Boolean,
-        'id': String
+        'id': String,
+        'temp-value': Number
       },
       mounted() {
           //console.log('Component mounted.')
+          if (this.tempValue) this.tempValue = this.tempValue;
       },
       data: function() {
          return {
-           tempValue: this.value,
            finalValue: this.value,
            ratings: [1, 2, 3, 4, 5]
          };
