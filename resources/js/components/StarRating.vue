@@ -17,7 +17,7 @@
     export default {
       props: {
         'name': String,
-        'value': null,
+        'value': String,
         'disabled': Boolean,
         'required': Boolean,
         'id': String
