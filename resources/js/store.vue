@@ -4,6 +4,9 @@ export default {
    exchange:window.iproexchange
  },
  mutations: {
+   setStatus (state, payload) {
+     state.exchange[payload.id].status = payload.status;
+   },
    setRating (state, payload) {
      state.exchange[payload.id].rating = payload.rating;
    },
@@ -12,6 +15,9 @@ export default {
    },
  },
  getters: {
+     getStatus: (state) => (id) => {
+       return state.exchange[id].status;
+     },
     getRating: (state) => (id) => {
       return state.exchange[id].rating;
     },

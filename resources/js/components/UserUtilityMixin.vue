@@ -51,7 +51,7 @@
         infoForUser: function (){
 
           // Messanges when exchange status is pending
-          if (this.internalStatus == 0){
+          if (this.status == 0){
 
               var infoNotInvolved = `${this.buyerUser.name}
                 ${this.$t('sended')}
@@ -89,7 +89,7 @@
           }
 
           // Messages when exchange status is Accepted
-          if (this.internalStatus == 1){
+          if (this.status == 1){
 
               var infoNotInvolved = `ACEPTADO ${this.buyerUser.name}
                 ${this.$t('sended')}
@@ -127,7 +127,7 @@
           }
 
           // Messages when exchange status is Rejected
-          if (this.internalStatus == -1){
+          if (this.status == -1){
 
               var infoNotInvolved = `${this.buyerUser.name}
                 ${this.$t('sended')}

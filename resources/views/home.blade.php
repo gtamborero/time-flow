@@ -21,15 +21,16 @@
     ?>
 
     {{-- Feed exchange data --}}
-    <script>
+<script>
     window.iproexchange = [];
       @foreach ($exchanges as $exchange)
         window.iproexchange[{{$exchange->id}}] = {
             rating: @if ($exchange->getRating){{ $exchange->getRating->rating }}@endif,
-            comment: "@if ($exchange->getRating){{ $exchange->getRating->comment }}@endif"
+            comment: "@if ($exchange->getRating){{ $exchange->getRating->comment }}@endif",
+            status: "@if ($exchange->status){{ $exchange->status }}@endif"
         }
       @endforeach
-    </script>
+</script>
 
       @foreach ($exchanges as $exchange)
         <div class="mb-6 shadow-md">
@@ -40,7 +41,6 @@
               :buyer-user="{{$exchange->getBuyerUser}}"
               amount="{{ $exchange->amount }}"
               created="{{ $exchange->created_at->diffForHumans() }}"
-              :status="{{ $exchange->status }}"
               :creator-user-id="{{$exchange->getCreatorUser->id}}"
               :actual-user-id="{{Auth::user()->id}}"
               seller-gravatar="{{ gravatar($exchange->getSellerUser->email) }}"

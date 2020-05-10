@@ -3,9 +3,9 @@
       <!-- WHEN PENDING EXCHANGE AND USER CAN ACCEPT -->
       <div class="py-3 px-5 text-white break-words relative"
         v-bind:class="{
-          'bg-primary': internalStatus == 0, // Pending
-          'bg-green': internalStatus == 1, // Accepted
-          'bg-red': internalStatus == -1 // Rejected
+          'bg-primary': status == 0, // Pending
+          'bg-green': status == 1, // Accepted
+          'bg-red': status == -1 // Rejected
         }">
           <div class="text-right flex-grow md:float-right md:right-0 md:pr-5 md:absolute">
             <span class="text-sm text-gray-400">{{ created }}</span><br>
@@ -13,7 +13,7 @@
 
           <div class="text-center flex-grow" v-html="infoForUser()"></div>
 
-          <div v-if="internalStatus==0 && isInvolvedUser()"
+          <div v-if="status==0 && isInvolvedUser()"
                 class="text-center">
             <a class="inline-block p-2">
               <button class="tf-button tf-button-secondary uppercase" v-on:click="accept">
@@ -30,7 +30,7 @@
 
           <!-- WHEN ACCEPTED EXCHANGE -->
           <!-- SHOW IF THERES NO SET COMMENT and USER IS INVOLVED BUYER -->
-          <div v-if="internalStatus==1 && isInvolvedBuyer()">
+          <div v-if="status==1 && isInvolvedBuyer()">
               <div class="text-center py-2">
                 <div v-if="!rate" v-on:click="rate=1">
                   <button class="tf-button tf-button-secondary uppercase">
@@ -49,7 +49,7 @@
           </div>
 
           <!-- WHEN REJECTED EXCHANGE -->
-          <div v-if="internalStatus==-1">
+          <div v-if="status==-1">
               <div class="text-center py-2">
                 {{ $t('Was rejected') }}
               </div>
@@ -63,7 +63,6 @@
           :seller-user="sellerUser"
           :buyer-user="buyerUser"
           :amount="amount"
-          :status="status"
           :seller-gravatar="sellerGravatar"
           :buyer-gravatar="buyerGravatar">
       </user-exchange>
@@ -71,7 +70,6 @@
       <user-rating
           :id="id"
           :user-name="buyerUser.name"
-          :status="status"
           >
       </user-rating>
 
@@ -79,6 +77,7 @@
 </template>
 
 <script>
+    import { mapGetters } from 'vuex';
     import { mapMutations } from 'vuex';
     import UserUtilityMixin from './UserUtilityMixin.vue';
     export default {
@@ -92,17 +91,19 @@
         'actual-user-id',
         'amount',
         'created',
-        'status',
         'seller-gravatar',
         'buyerGravatar',
 
       ],
       data: function () {
         return {
-          internalStatus: this.status,
+          status: null,
           rate: 0,
           newRating: 0
         }
+      },
+      mounted() {
+        this.status = this.getStatus(this.id)
       },
       methods: {
         changeStatus: function (){
@@ -110,7 +111,7 @@
             method: 'put',
             url: '/exchange/' + this.id,
             data: {
-              status: this.internalStatus
+              status: this.status
             }
           }).then(response => {
             //this.changeStatus();
@@ -122,14 +123,15 @@
           .finally(() => this.loading = false)
         },
         accept: function(){
-          this.internalStatus = 1; // 0: pending, 1:accepted, -1:rejected
+          this.status = 1; // 0: pending, 1:accepted, -1:rejected
           this.changeStatus();
         },
         reject: function(){
-          this.internalStatus = -1; // 0: pending, 1:accepted, -1:rejected
+          this.status = -1; // 0: pending, 1:accepted, -1:rejected
           this.changeStatus();
         },
-        ...mapMutations(['initExchanges'])
-      }
+
+      },
+      computed: mapGetters(['getStatus'])
     }
 </script>
