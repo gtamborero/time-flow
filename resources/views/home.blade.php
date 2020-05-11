@@ -25,7 +25,7 @@
     window.iproexchange = [];
       @foreach ($exchanges as $exchange)
         window.iproexchange[{{$exchange->id}}] = {
-            rating: @if ($exchange->getRating){{ $exchange->getRating->rating }}@endif,
+            rating: @if ($exchange->getRating->rating){{ $exchange->getRating->rating }}@else 0 @endif,
             comment: "@if ($exchange->getRating){{ $exchange->getRating->comment }}@endif",
             status: "@if ($exchange->status){{ $exchange->status }}@endif"
         }

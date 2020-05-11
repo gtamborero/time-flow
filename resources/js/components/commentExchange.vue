@@ -1,7 +1,7 @@
 <template>
   <div v-if="visibleComponent">
 
-      <star-rating :id="id" :value="myRating()" v-on:finalValue="setValue"></star-rating>
+      <star-rating :id="id" :temp-value="getRating(id)"></star-rating>
 
       <input
        type="text"
@@ -24,6 +24,7 @@
 <script>
 import { mapGetters } from 'vuex';
 import { mapMutations } from 'vuex';
+
     export default {
       props: [
         'id'
@@ -31,13 +32,11 @@ import { mapMutations } from 'vuex';
       data: function () {
         return {
           comment: '',
-          rating: 0,
           visibleComponent: 1
         }
       },
       mounted() {
-        this.comment = this.myComment();
-        this.rating = this.myRating();
+         this.comment = this.getComment(this.id);
       },
       methods: {
         publishComment: function (){
@@ -65,15 +64,6 @@ import { mapMutations } from 'vuex';
             console.log(error)
           })
           .finally(() => this.loading = false)
-        },
-        myComment: function (){
-          return this.getComment(this.id)
-        },
-        myRating: function (){
-          return this.getRating(this.id)
-        },
-        setValue: function (value){
-          this.rating = value;
         },
         ...mapMutations(['setComment','setRating'])
       },
