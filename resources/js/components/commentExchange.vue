@@ -1,11 +1,11 @@
 <template>
   <div v-if="visibleComponent">
 
-      <star-rating :id="id" :temp-value="getRating(id)"></star-rating>
+      <star-rating :id="id"></star-rating>
 
       <input
        type="text"
-       placeholder="Write something for X"
+       placeholder="Write a comment about the received service"
        v-model="comment"
        name="text"
        autofocus="autofocus"
@@ -15,7 +15,7 @@
         {{ $t('Publish') }}
       </button>
 
-      <button v-on:click="rate=0" class="tf-button tf-button-secondary uppercase">
+      <button class="tf-button tf-button-secondary uppercase">
         {{ $t('Cancel') }}
       </button>
   </div>
@@ -40,33 +40,29 @@ import { mapMutations } from 'vuex';
       },
       methods: {
         publishComment: function (){
+
+          this.visibleComponent = 0;
+          this.setComment({
+            id: this.id,
+            comment: this.comment
+          });
+
           axios({
             method: 'put',
             url: '/comment-exchange/' + this.id,
             data: {
               comment: this.comment,
-              rating: this.rating
             }
           }).then(response => {
-            //this.changeStatus();
-            this.visibleComponent = 0;
-            this.setComment({
-              id: this.id,
-              comment: this.comment
-            });
-            this.setRating({
-              id: this.id,
-              comment: this.rating
-            });
-            //console.log(response);
+            // action on end ajax
           })
           .catch(error => {
             console.log(error)
           })
-          .finally(() => this.loading = false)
+          .finally()
         },
-        ...mapMutations(['setComment','setRating'])
+        ...mapMutations(['setComment'])
       },
-      computed: mapGetters(['getRating','getComment'])
+      computed: mapGetters(['getComment'])
     }
 </script>
