@@ -6,7 +6,7 @@
       <input
        type="text"
        placeholder="Write a comment about the received service"
-       v-model="comment"
+       v-model="$store.state.exchange[id].comment"
        name="text"
        autofocus="autofocus"
        class="form-input w-full mt-3 mb-4">
@@ -22,8 +22,6 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex';
-import { mapMutations } from 'vuex';
 
     export default {
       props: [
@@ -31,27 +29,18 @@ import { mapMutations } from 'vuex';
       ],
       data: function () {
         return {
-          comment: '',
           visibleComponent: 1
         }
       },
-      mounted() {
-         this.comment = this.getComment(this.id);
-      },
       methods: {
         publishComment: function (){
-
           this.visibleComponent = 0;
-          this.setComment({
-            id: this.id,
-            comment: this.comment
-          });
 
           axios({
             method: 'put',
             url: '/comment-exchange/' + this.id,
             data: {
-              comment: this.comment,
+              comment: this.$store.state.exchange[this.id].comment,
             }
           }).then(response => {
             // action on end ajax
@@ -60,9 +49,7 @@ import { mapMutations } from 'vuex';
             console.log(error)
           })
           .finally()
-        },
-        ...mapMutations(['setComment'])
-      },
-      computed: mapGetters(['getComment'])
+        }
+      }
     }
 </script>
