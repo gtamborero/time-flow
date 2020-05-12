@@ -77,8 +77,6 @@
 </template>
 
 <script>
-    import { mapGetters } from 'vuex';
-    import { mapMutations } from 'vuex';
     import UserUtilityMixin from './UserUtilityMixin.vue';
     export default {
       mixins: [UserUtilityMixin],
@@ -103,7 +101,7 @@
         }
       },
       mounted() {
-        this.status = this.getStatus(this.id)
+        this.status = this.$store.state.exchange[this.id].status;
       },
       methods: {
         changeStatus: function (){
@@ -131,7 +129,6 @@
           this.changeStatus();
         },
 
-      },
-      computed: mapGetters(['getStatus'])
+      }
     }
 </script>
