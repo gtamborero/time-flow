@@ -30,7 +30,7 @@
 
           <!-- WHEN ACCEPTED EXCHANGE -->
           <!-- SHOW IF THERES NO SET COMMENT and USER IS INVOLVED BUYER -->
-          <div v-if="status==1 && isInvolvedBuyer()">
+          <div v-if="status==1 && isInvolvedBuyer() && !hasComment">
               <div class="text-center py-2">
                 <div v-if="!rate" v-on:click="rate=1">
                   <button class="tf-button tf-button-secondary uppercase">
@@ -102,6 +102,7 @@
       },
       mounted() {
         this.status = this.$store.state.exchange[this.id].status;
+        this.hasComment = this.$store.state.exchange[this.id].comment
       },
       methods: {
         changeStatus: function (){
