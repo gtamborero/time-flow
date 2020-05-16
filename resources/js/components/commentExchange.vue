@@ -41,6 +41,7 @@
             url: '/comment-exchange/' + this.id,
             data: {
               comment: this.$store.state.exchange[this.id].comment,
+              rating: this.$store.state.exchange[this.id].rating
             }
           }).then(response => {
             // action on end ajax
