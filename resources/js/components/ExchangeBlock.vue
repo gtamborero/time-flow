@@ -67,7 +67,7 @@
           :buyer-gravatar="buyerGravatar">
       </user-exchange>
 
-      <user-rating
+      <user-rating v-if="status==1 && $store.state.exchange[id].comment"
           :id="id"
           :user-name="buyerUser.name"
           >
