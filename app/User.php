@@ -48,7 +48,26 @@ class User extends Authenticatable
         return gravatar("gtamborero@iproject.cat");
     }
 
-    public function getTotalExchanges(){
-      return Exchanges::where('id_buyer', Auth::user()->id)->get();
+    public function getTotalBalance(){
+      $exchangesAsSeller = Exchanges::where('id_seller', Auth::user()->id)->sum('amount');
+      $exchangesAsBuyer = Exchanges::where('id_buyer', Auth::user()->id)->sum('amount');
+      return $exchangesAsSeller - $exchangesAsBuyer;
+    }
+
+    public function getExchangeCount(){
+      return Exchanges
+        ::where('id_seller', Auth::user()->id)
+        ->orWhere('id_buyer', Auth::user()->id)->count();
+    }
+
+    public function getTotalRating(){
+      $myExchanges = Exchanges::where('id_seller', Auth::user()->id)->pluck('id');
+
+      $ratingData = 0;
+      foreach ($myExchanges as $exchangeId){
+        $ratingData = $ratingData + \App\Comments::where('id_exchange',$exchangeId)->value('rating');
+      }
+      return $ratingData / $myExchanges->count();
+
     }
 }
