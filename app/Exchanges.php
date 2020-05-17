@@ -20,7 +20,7 @@ class Exchanges extends Model
           ||
           Auth::user()->id == $exchange->id_buyer
       ){
-          // Change status to newStatus 
+          // Change status to newStatus
           if (is_numeric($request->status)) $exchange->status = $request->status;
           $exchange->save();
           return 1;
