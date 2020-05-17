@@ -167,10 +167,10 @@
           }
 
           if (this.involvedUser == "NotInvolved") return infoNotInvolved;
-          if (this.involvedUser == "Buyer") return "buyer. " + infoBuyer;
-          if (this.involvedUser == "Seller") return "seller. " + info;
-          if (this.involvedUser == "BuyerAndCreator") return "buyer and creator. " + infoBuyerAndCreator;
-          if (this.involvedUser == "SellerAndCreator") return "seller and creator. " + info;
+          if (this.involvedUser == "Buyer") return infoBuyer; // buyer
+          if (this.involvedUser == "Seller") return info; // seller
+          if (this.involvedUser == "BuyerAndCreator") return infoBuyerAndCreator; // "buyer and creator
+          if (this.involvedUser == "SellerAndCreator") return info; // seller and creator
 
         }
       }

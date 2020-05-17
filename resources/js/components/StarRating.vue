@@ -1,5 +1,5 @@
 <template>
-  <!-- component from: https://codepen.io/olimorris/pen/yOYBjd -->
+  <!-- component simplified from: https://codepen.io/olimorris/pen/yOYBjd -->
   <div class="star-rating">
       <label class="star-rating__star" v-for="rating in ratings"
       :class="{'is-selected': $store.state.exchange[id].rating >= rating,
