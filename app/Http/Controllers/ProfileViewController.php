@@ -13,6 +13,6 @@ class ProfileViewController extends Controller
 
   public function index($userName)
   {
-      return view('home');
+      return view('home')->with('userName',$userName);
   }
 }

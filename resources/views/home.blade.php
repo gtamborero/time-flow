@@ -17,10 +17,12 @@
     </div>
 
     <?php
+    $userId = App\User::where('name',$userName)->pluck('id');
+
     // Get Exchanges of actual user (search user as buyer or seller)
     $exchanges = App\Exchanges
-        ::where('id_buyer', Auth::user()->id)
-        ->orWhere('id_seller', Auth::user()->id)
+        ::where('id_buyer', $userId)
+        ->orWhere('id_seller', $userId)
         ->orderBy('id', 'desc')->get();
     ?>
 
