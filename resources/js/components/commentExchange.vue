@@ -44,7 +44,15 @@
               rating: this.$store.state.exchange[this.id].rating
             }
           }).then(response => {
-            // action on end ajax
+            // action on end ajax: Show Sweet alert:
+              this.$swal({
+                title: this.$t('Rating Saved'),
+                icon: "success",
+                text: " ",
+                buttons: false,
+                timer: 2500
+              });
+
           })
           .catch(error => {
             console.log(error)

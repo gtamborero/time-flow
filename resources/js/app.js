@@ -22,7 +22,9 @@ import CommentExchange from './components/commentExchange.vue';
 Vue.component('comment-exchange', CommentExchange);
 
 import Vuex from 'vuex';
+import VueSwal from 'vue-swal' //https://github.com/anteriovieira/vue-swal
 Vue.use(Vuex);
+Vue.use(VueSwal);
 
 // Get laravel Data from blade <script>
 import StoreData from './store.vue';
