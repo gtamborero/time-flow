@@ -71,15 +71,4 @@
         </div>
       @endforeach
 
-
-
-
-  @guest
-    <div class="grid grid-cols-3 mt-5 bg-white shadow-md break-words">
-      <div class="p-5 flex flex-col sm:flex-row items-center">
-        Sección Buscar usuarios
-      </div>
-    </div>
-  @endguest
-
 @endsection
