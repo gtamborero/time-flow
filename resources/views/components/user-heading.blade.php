@@ -31,14 +31,19 @@
 
       <div class="p-6 break-words bg-white shadow-md">
         <div class="grid">
-          <div>
-            <img class="rounded-full mx-auto my-2" src="{{ gravatar("") }}">
-          </div>
-          <div class="text-center">
-            <div class="text-primary-light text-lg font-medium capitalize">
-              @lang('anonymous user')
+
+          <a href="{{ url('/login') }}">
+            <div>
+              <img class="rounded-full mx-auto my-2" src="{{ gravatar("") }}">
             </div>
-          </div>
+
+            <div class="text-center">
+              <div class="text-primary-light text-lg font-medium capitalize">
+                @lang('anonymous user')
+              </div>
+            </div>
+          </a>
+
         </div>
       </div>
 
@@ -47,9 +52,11 @@
         Puedes buscar usuarios y solicitarles o enviarles tiempo,
         pero tarde o temprano, ¡tendrás que loguearte o registrate!
 
-        <button class="access-to tf-button tf-button-primary mt-4 block mx-auto">
-          <a href="{{ url('/login') }}">@lang('Access to') {{ config('app.name') }}</a>
-        </button>
+        <a href="{{ url('/login') }}">
+          <button class="access-to tf-button tf-button-primary mt-4 block mx-auto">
+            @lang('Access to') {{ config('app.name') }}
+          </button>
+        </a>
 
       </div>
 
