@@ -17,8 +17,9 @@
 
     <div class="p-6 pt-0 md:pt-6 break-words bg-white text-center shadow-md leading-7">
       <span class="text-lg font-medium text-primary-light">Información de Guillermo:</span><br>
-      Balance global: 50horas<br>
-      Intercambios realizados: 7<br>
+      Balance global:
+      <?php echo Auth::user()->getTotalExchanges()->sum('amount'); ?> minutos<br>
+      Intercambios realizados: <?php echo Auth::user()->getTotalExchanges()->count(); ?><br>
       Karma: 5 Stars<br>
       Reside en:BARCELONA
     </div>

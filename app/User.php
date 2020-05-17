@@ -5,6 +5,8 @@ namespace App;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Support\Facades\Auth;
+use App\Exchanges;
 
 class User extends Authenticatable
 {
@@ -40,8 +42,13 @@ class User extends Authenticatable
     // Add extra data on return of the model
     protected $appends = ['gravatar'];
 
-        public function getGravatarAttribute()
-        {
-            return gravatar("gtamborero@iproject.cat");
-        }
+    // GRAVATAR GET
+    public function getGravatarAttribute()
+    {
+        return gravatar("gtamborero@iproject.cat");
+    }
+
+    public function getTotalExchanges(){
+      return Exchanges::where('id_buyer', Auth::user()->id)->get();
+    }
 }
