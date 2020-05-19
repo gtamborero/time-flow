@@ -18,6 +18,9 @@ Vue.component('user-rating', UserRating);
 import StarRating from './components/starRating.vue';
 Vue.component('star-rating', StarRating);
 
+import StarRatingDirect from './components/StarRatingDirect.vue';
+Vue.component('star-rating-direct', StarRatingDirect);
+
 import CommentExchange from './components/commentExchange.vue';
 Vue.component('comment-exchange', CommentExchange);
 

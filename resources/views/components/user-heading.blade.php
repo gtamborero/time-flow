@@ -20,8 +20,9 @@
       Balance global:
       {{ Auth::user()->getTotalBalance() }} minutos<br>
       Intercambios realizados: {{ Auth::user()->getExchangeCount() }}<br>
-      Karma: {{ Auth::user()->getTotalRating() }} Stars<br>
-      Reside en:BARCELONA
+      Karma: <star-rating-direct direct-value="{{ Auth::user()->getTotalRating() }}"></star-rating-direct>
+      Reside en: BARCELONA
+
     </div>
 
   </div>
