@@ -64,10 +64,16 @@ class User extends Authenticatable
       $myExchanges = Exchanges::where('id_seller', Auth::user()->id)->pluck('id');
 
       $ratingData = 0;
+      $ratingsWithValue = 0;
       foreach ($myExchanges as $exchangeId){
-        $ratingData = $ratingData + \App\Comments::where('id_exchange',$exchangeId)->value('rating');
+        $getRating = \App\Comments::where('id_exchange',$exchangeId)->value('rating');
+        if ($getRating){
+          $ratingData = $ratingData + $getRating;
+          $ratingsWithValue ++;
+        }
       }
-      return $ratingData / $myExchanges->count();
+      if ($myExchanges->count()) return $ratingData / $ratingsWithValue;
+      return 0;
 
     }
 }
