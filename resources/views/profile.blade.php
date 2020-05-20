@@ -12,7 +12,7 @@
   <x-user-heading/>
 
   @auth
-    <div class=" m-4 break-words text-2xl text-primary text-center font-medium uppercase">
+    <div class=" m-4 break-words text-3xl text-primary text-center font-medium uppercase">
       @lang('your exchanges')
     </div>
 

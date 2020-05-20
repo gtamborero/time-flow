@@ -8,7 +8,7 @@
           'bg-red': status == -1 // Rejected
         }">
           <div class="text-right flex-grow md:float-right md:right-0 md:pr-5 md:absolute">
-            <span class="text-sm text-gray-400">{{ created }}</span><br>
+            <span class="text-sm text-gray-300">{{ created }}</span><br>
           </div>
 
           <div class="text-center flex-grow" v-html="infoForUser()"></div>

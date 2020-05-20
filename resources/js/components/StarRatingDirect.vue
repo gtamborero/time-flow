@@ -1,7 +1,7 @@
 <template>
   <!-- component simplified from: https://codepen.io/olimorris/pen/yOYBjd -->
   <div class="star-rating">
-      <label class="star-rating__star" v-for="rating in ratings"
+      <label class="star-rating__star is-disabled" v-for="rating in ratings"
         :class="{'is-selected': directValue >= rating}">
         <input class="star-rating star-rating__checkbox" type="radio"
         v-model="directValue" disabled>★</label>

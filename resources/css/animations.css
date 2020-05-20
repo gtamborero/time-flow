@@ -1,0 +1,21 @@
+.arrow-animation {
+    margin-top: -3px;
+    animation: hideshow 6s infinite;
+}
+
+@keyframes hideshow {
+    0% {
+        opacity: 0;
+        margin-left: -25px;
+    }
+
+    40% {
+        opacity: 1;
+        margin-left: 25px;
+    }
+
+    100% {
+        opacity: 0;
+        margin-left: 25px;
+    }
+}

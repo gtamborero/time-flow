@@ -4,7 +4,8 @@
   <div  class="grid grid-cols-1 bg-white break-words">
     <div class="pb-3 pt-0 px-5 text-center star-container">
       <star-rating :id="id" disabled></star-rating>
-      {{ userName }} {{ $t('said') }}: {{$store.state.exchange[id].comment}}
+      <br>
+      <strong style="text-transform: uppercase;">{{ userName }} {{ $t('said') }}</strong>: {{$store.state.exchange[id].comment}}
     </div>
   </div>
 </div>
