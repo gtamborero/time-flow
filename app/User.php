@@ -62,15 +62,12 @@ class User extends Authenticatable
 
     // Get all ratings values and divide them buy ratings
     public function getTotalRating(){
-      $myExchanges = Exchanges::where('id_seller', Auth::user()->id)->pluck('id');
-
+      $myExchanges = Exchanges::where('id_seller', Auth::user()->id)->get();
       $ratingData = 0;
       $ratingsWithValue = 0;
-
-      foreach ($myExchanges as $exchangeId){
-        $getRating = \App\Comments::where('id_exchange',$exchangeId)->value('rating');
-        if ($getRating){
-          $ratingData = $ratingData + $getRating;
+      foreach ($myExchanges as $exchange){
+        if ($exchange->getRating){
+          $ratingData = $ratingData + $exchange->getRating->rating;
           $ratingsWithValue ++;
         }
       }

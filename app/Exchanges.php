@@ -41,6 +41,6 @@ class Exchanges extends Model
     }
 
     public function getRating(){
-      return $this->hasOne('App\Comments','id_exchange','id')->select(['rating', 'comment']);
+      return $this->hasOne('App\Comments','id_exchange','id');
     }
 }
