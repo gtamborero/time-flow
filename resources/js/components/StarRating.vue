@@ -1,6 +1,6 @@
 <template>
   <!-- component simplified from: https://codepen.io/olimorris/pen/yOYBjd -->
-  <div class="star-rating">
+  <div class="star-rating inline-block">
       <label class="star-rating__star" v-for="rating in ratings"
       :class="{'is-selected': $store.state.exchange[id].rating >= rating,
       'is-disabled': disabled}"

@@ -9,11 +9,11 @@ window.Vue = require('vue');
 import ExchangeBlock from './components/ExchangeBlock.vue';
 Vue.component('exchange-block', ExchangeBlock);
 
-import UserExchange from './components/UserExchange.vue';
-Vue.component('user-exchange', UserExchange);
+import TwoUsers from './components/TwoUsers.vue';
+Vue.component('two-users', TwoUsers);
 
-import UserRating from './components/UserRating.vue';
-Vue.component('user-rating', UserRating);
+import UserRatingResults from './components/UserRatingResults.vue';
+Vue.component('user-rating-results', UserRatingResults);
 
 import StarRating from './components/starRating.vue';
 Vue.component('star-rating', StarRating);

@@ -57,7 +57,7 @@
 
       </div>
 
-      <user-exchange
+      <two-users
           :id="id"
           :concept="concept"
           :seller-user="sellerUser"
@@ -65,13 +65,13 @@
           :amount="amount"
           :seller-gravatar="sellerGravatar"
           :buyer-gravatar="buyerGravatar">
-      </user-exchange>
+      </two-users>
 
-      <user-rating v-if="status==1 && $store.state.exchange[id].comment"
+      <user-rating-results v-if="status==1 && $store.state.exchange[id].comment"
           :id="id"
           :user-name="buyerUser.name"
           >
-      </user-rating>
+      </user-rating-results>
 
   </div>
 </template>
