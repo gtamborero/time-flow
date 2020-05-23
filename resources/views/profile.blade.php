@@ -12,12 +12,12 @@
   <x-user-heading/>
 
   @auth
+    
     <div class=" m-4 break-words text-3xl text-primary text-center font-medium uppercase">
       @lang('your exchanges')
     </div>
 
     <?php
-    if (isset($userName)){
       $userId = App\User::where('name',$userName)->pluck('id');
       // Eloquent Get Exchanges of actual user
       // (search user as buyer or seller)
@@ -25,9 +25,6 @@
           ::where('id_buyer', $userId)
           ->orWhere('id_seller', $userId)
           ->orderBy('id', 'desc')->get();
-    }else{
-      $exchanges = App\Exchanges::orderBy('id', 'desc')->get();
-    }
     ?>
 
     {{-- Feed exchange data --}}
