@@ -20,11 +20,10 @@
     </div>
 
     <div class="p-6 pt-0 md:pt-6 break-words bg-white text-center shadow-md leading-7">
-      <span class="text-lg font-medium text-primary-light invisible md:visible">
+      <span class="text-lg font-medium text-primary-light hidden md:block">
         @lang('Información de')
         <span class="capitalize">{{ Auth::user()->name }}</span>:
       </span>
-      <br>
       @lang('Balance global'):
       {{ Auth::user()->getTotalBalance() }} minutos<br>
       @lang('Intercambios realizados'): {{ Auth::user()->getExchangeCount() }}
