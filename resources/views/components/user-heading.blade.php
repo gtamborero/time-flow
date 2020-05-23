@@ -20,15 +20,24 @@
     </div>
 
     <div class="p-6 pt-0 md:pt-6 break-words bg-white text-center shadow-md leading-7">
-      <span class="text-lg font-medium text-primary-light">
+      <span class="text-lg font-medium text-primary-light invisible md:visible">
         @lang('Información de')
         <span class="capitalize">{{ Auth::user()->name }}</span>:
       </span>
       <br>
       @lang('Balance global'):
       {{ Auth::user()->getTotalBalance() }} minutos<br>
-      @lang('Intercambios realizados'): {{ Auth::user()->getExchangeCount() }}<br>
-      @lang('Karma'): <star-rating-direct direct-value="{{ Auth::user()->getTotalRating() }}"></star-rating-direct>
+      @lang('Intercambios realizados'): {{ Auth::user()->getExchangeCount() }}
+
+      <br>
+      <span class="capitalize">{{ Auth::user()->name }}</span>
+      @lang('ha recibido')
+      {{ Auth::user()->getRatingCount() }}
+      @lang('valoraciones')
+
+      <br>
+      @lang('Valoración media de los usaurios que han intercambiado con') <span class="capitalize">{{ Auth::user()->name }}</span>:
+        <star-rating-direct direct-value="{{ Auth::user()->getTotalRating() }}"></star-rating-direct>
       @lang('Reside en'): xxBARCELONA
 
     </div>

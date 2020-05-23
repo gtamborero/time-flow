@@ -70,6 +70,25 @@ class User extends Authenticatable
         ->count();
     }
 
+    // Get all received ratings
+    public function getRatingCount(){
+      $myExchanges = Exchanges
+        ::where('id_seller', Auth::user()->id)
+        ->where('status', Constant::STATUS_ACCEPTED)
+        ->get();
+
+        $ratingsWithValue = 0;
+
+        foreach ($myExchanges as $exchange){
+          if ($exchange->getRating){
+            $ratingsWithValue ++;
+          }
+        }
+
+        if ($ratingsWithValue) return $ratingsWithValue;
+        return 0;
+    }
+
     // Get all ratings values and divide them buy ratings
     public function getTotalRating(){
       $myExchanges = Exchanges
@@ -89,6 +108,5 @@ class User extends Authenticatable
 
       if ($ratingsWithValue) return intval($ratingData / $ratingsWithValue);
       return 0;
-
     }
 }
