@@ -1,4 +1,5 @@
 <template>
+  <!-- Cloned from star rating but without rating option (always disabled) -->
   <!-- component simplified from: https://codepen.io/olimorris/pen/yOYBjd -->
   <div class="star-rating">
       <label class="star-rating__star is-disabled" v-for="rating in ratings"

@@ -142,6 +142,7 @@ export default {
         "sends you": "te envía",
         "have send": "te envió",
         "for": "por",
-        "Rate to": "Valora a"
+        "Rate to": "Valora a",
+        "Rating Saved": "Valoración guardada"
     }
 }

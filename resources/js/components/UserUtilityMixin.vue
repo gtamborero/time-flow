@@ -1,3 +1,4 @@
+<!-- MIXIN FOR EXCHANGEBLOCK.VUE -->
 <script>
     export default {
       data: function () {

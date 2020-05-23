@@ -1,7 +1,9 @@
 <template>
 <div>
-  <!-- FIRST LINE USERS -->
+  <!-- FIRST LINE USERS ICON -->
   <div class="grid grid-cols-3 bg-white break-words pb-3">
+
+    <!-- LEFT USER -->
     <div class="p-5 pb-1 flex flex-col sm:flex-row items-center">
 
       <img class="h-16 w-16 rounded-full inline" :src="buyerGravatar">
@@ -9,6 +11,7 @@
 
     </div>
 
+    <!-- AMOUNT -->
     <div class="grid text-center items-center">
       <div>
       {{ amount }} {{ $t('minutes') }}
@@ -19,7 +22,7 @@
       </div>
     </div>
 
-
+    <!-- RIGHT USER ICON -->
     <div class="p-5 pb-1 flex flex-col sm:flex-row-reverse items-center ">
 
       <img class="h-16 w-16 rounded-full inline" :src="sellerGravatar">
@@ -43,11 +46,6 @@
         'status',
         'sellerGravatar',
         'buyerGravatar'
-      ],
-      mounted() {
-          //console.log('Component mounted.')
-      },
-      methods: {
-      }
+      ]
     }
 </script>
