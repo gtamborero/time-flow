@@ -7,21 +7,29 @@
           <img class="rounded-full mx-auto my-2" src="{{ gravatar(Auth::user()->email) }}">
         </div>
         <div class="text-center">
-          <div class="text-primary-light text-lg font-medium">
+          <div class="text-primary-light text-lg font-medium capitalize">
+            {{ Auth::user()->name }}
+          </div>
+          <div class="text-primary-light text-md font-medium mb-2">
             {{ Auth::user()->email }}
           </div>
-          Resumen breve de guillermo
+          Resumen breve de la persona Resumen breve de la persona Resumen breve de la persona Resumen breve de la persona
+          Resumen breve de la persona Resumen breve de la persona Resumen breve de la persona Resumen breve de la persona
         </div>
       </div>
     </div>
 
     <div class="p-6 pt-0 md:pt-6 break-words bg-white text-center shadow-md leading-7">
-      <span class="text-lg font-medium text-primary-light">Información de Guillermo:</span><br>
-      Balance global:
+      <span class="text-lg font-medium text-primary-light">
+        @lang('Información de')
+        <span class="capitalize">{{ Auth::user()->name }}</span>:
+      </span>
+      <br>
+      @lang('Balance global'):
       {{ Auth::user()->getTotalBalance() }} minutos<br>
-      Intercambios realizados: {{ Auth::user()->getExchangeCount() }}<br>
-      Karma: <star-rating-direct direct-value="{{ Auth::user()->getTotalRating() }}"></star-rating-direct>
-      Reside en: BARCELONA
+      @lang('Intercambios realizados'): {{ Auth::user()->getExchangeCount() }}<br>
+      @lang('Karma'): <star-rating-direct direct-value="{{ Auth::user()->getTotalRating() }}"></star-rating-direct>
+      @lang('Reside en'): xxBARCELONA
 
     </div>
 

@@ -45,26 +45,41 @@ class User extends Authenticatable
     // GRAVATAR GET
     public function getGravatarAttribute()
     {
-        return gravatar("gtamborero@iproject.cat");
+      return gravatar("gtamborero@iproject.cat");
     }
 
     public function getTotalBalance(){
-      $exchangesAsSeller = Exchanges::where('id_seller', Auth::user()->id)->sum('amount');
-      $exchangesAsBuyer = Exchanges::where('id_buyer', Auth::user()->id)->sum('amount');
+
+      $exchangesAsSeller = Exchanges
+        ::where('id_seller', Auth::user()->id)
+        ->where('status', Constant::STATUS_ACCEPTED)
+        ->sum('amount');
+
+      $exchangesAsBuyer = Exchanges
+        ::where('id_buyer', Auth::user()->id)
+        ->where('status', Constant::STATUS_ACCEPTED)
+        ->sum('amount');
       return $exchangesAsSeller - $exchangesAsBuyer;
     }
 
     public function getExchangeCount(){
       return Exchanges
         ::where('id_seller', Auth::user()->id)
-        ->orWhere('id_buyer', Auth::user()->id)->count();
+        ->where('status', Constant::STATUS_ACCEPTED)
+        ->orWhere('id_buyer', Auth::user()->id)
+        ->count();
     }
 
     // Get all ratings values and divide them buy ratings
     public function getTotalRating(){
-      $myExchanges = Exchanges::where('id_seller', Auth::user()->id)->get();
+      $myExchanges = Exchanges
+        ::where('id_seller', Auth::user()->id)
+        ->where('status', Constant::STATUS_ACCEPTED)
+        ->get();
+
       $ratingData = 0;
       $ratingsWithValue = 0;
+
       foreach ($myExchanges as $exchange){
         if ($exchange->getRating){
           $ratingData = $ratingData + $exchange->getRating->rating;

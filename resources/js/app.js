@@ -25,8 +25,9 @@ import CommentExchange from './components/commentExchange.vue';
 Vue.component('comment-exchange', CommentExchange);
 
 import Vuex from 'vuex';
-import VueSwal from 'vue-swal' //https://github.com/anteriovieira/vue-swal
 Vue.use(Vuex);
+
+import VueSwal from 'vue-swal' //https://github.com/anteriovieira/vue-swal -> Sweet Alert
 Vue.use(VueSwal);
 
 // Get laravel Data from blade <script>
