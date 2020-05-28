@@ -48,32 +48,32 @@ class User extends Authenticatable
       return gravatar("gtamborero@iproject.cat");
     }
 
-    public function getTotalBalance(){
+    public function getTotalBalance($userId){
 
       $exchangesAsSeller = Exchanges
-        ::where('id_seller', Auth::user()->id)
+        ::where('id_seller', $userId)
         ->where('status', Constant::STATUS_ACCEPTED)
         ->sum('amount');
 
       $exchangesAsBuyer = Exchanges
-        ::where('id_buyer', Auth::user()->id)
+        ::where('id_buyer', $userId)
         ->where('status', Constant::STATUS_ACCEPTED)
         ->sum('amount');
       return $exchangesAsSeller - $exchangesAsBuyer;
     }
 
-    public function getExchangeCount(){
+    public function getExchangeCount($userId){
       return Exchanges
-        ::where('id_seller', Auth::user()->id)
+        ::where('id_seller', $userId)
         ->where('status', Constant::STATUS_ACCEPTED)
-        ->orWhere('id_buyer', Auth::user()->id)
+        ->orWhere('id_buyer', $userId)
         ->count();
     }
 
     // Get all received ratings
-    public function getRatingCount(){
+    public function getRatingCount($userId){
       $myExchanges = Exchanges
-        ::where('id_seller', Auth::user()->id)
+        ::where('id_seller', $userId)
         ->where('status', Constant::STATUS_ACCEPTED)
         ->get();
 
@@ -90,9 +90,9 @@ class User extends Authenticatable
     }
 
     // Get all ratings values and divide them buy ratings
-    public function getTotalRating(){
+    public function getTotalRating($userId){
       $myExchanges = Exchanges
-        ::where('id_seller', Auth::user()->id)
+        ::where('id_seller', $userId)
         ->where('status', Constant::STATUS_ACCEPTED)
         ->get();
 

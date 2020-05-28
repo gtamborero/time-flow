@@ -1,56 +1,57 @@
-@auth
-    <?php
-    // hay que pintar en todos losa casos el usaurio user name aunque
-    // cuando coincide con el profile pintamos el auth user aunque es irrelevante
-    echo "cachted!" . $userName;
-    ?>
-  <div class="grid md:grid-cols-2">
+<!-- IF LOGGED IN OR NOT AND WHATCHING PROFILE -->
+@isset ($userName)
+<?php $userData = App\User::where('name', $userName)->first(); ?>
 
-      <div class="p-6 break-words bg-white shadow-md">
-        <div class="grid">
-          <div>
-            <img class="rounded-full mx-auto my-2" src="{{ gravatar(Auth::user()->email) }}">
+<div class="grid md:grid-cols-2">
+
+    <div class="p-6 break-words bg-white shadow-md">
+      <div class="grid">
+        <div>
+          <img class="rounded-full mx-auto my-2" src="{{ gravatar($userData->email) }}">
+        </div>
+        <div class="text-center">
+          <div class="text-primary-light text-lg font-medium capitalize">
+            {{ $userData->name }}
           </div>
-          <div class="text-center">
-            <div class="text-primary-light text-lg font-medium capitalize">
-              {{ Auth::user()->name }}
-            </div>
-            <div class="text-primary-light text-md font-medium ">
-              {{ Auth::user()->email }}
-            </div>
-            <br>
-            @lang('Balance global'):
-            {{ Auth::user()->getTotalBalance() }} minutos<br>
-            @lang('Intercambios realizados'): {{ Auth::user()->getExchangeCount() }}
-
-            <br>
-            <span class="capitalize">{{ Auth::user()->name }}</span>
-            @lang('ha recibido')
-            {{ Auth::user()->getRatingCount() }}
-            @lang('valoraciones')
-
-            <br><br>
-            @lang('Valoración media de los usaurios que han intercambiado con') <span class="capitalize">{{ Auth::user()->name }}</span>:
-            <star-rating-direct direct-value="{{ Auth::user()->getTotalRating() }}"></star-rating-direct>
-
+          <div class="text-primary-light text-md font-medium ">
+            {{ $userData->email }}
           </div>
+          <br>
+          @lang('Balance global'):
+          {{ $userData->getTotalBalance($userData->id) }} minutos<br>
+          @lang('Intercambios realizados'): {{ $userData->getExchangeCount($userData->id) }}
+
+          <br>
+          <span class="capitalize">{{ $userData->name }}</span>
+          @lang('ha recibido')
+          {{ $userData->getRatingCount($userData->id) }}
+          @lang('valoraciones')
+
+          <br><br>
+          @lang('Valoración media de los usaurios que han intercambiado con') <span class="capitalize">{{ $userData->name }}</span>:
+          <star-rating-direct direct-value="{{ $userData->getTotalRating($userData->id) }}"></star-rating-direct>
+
+
+
         </div>
       </div>
+    </div>
 
-      <div class="p-6 pt-0 md:pt-6 break-words bg-white text-center shadow-md leading-7">
-        <span class="text-lg font-medium text-primary-light hidden md:block mb-4">
-          @lang('Información de')
-          <span class="capitalize">{{ Auth::user()->name }}</span>:
-        </span>
-        Resumen breve de la persona Resumen breve de la persona Resumen breve de la persona Resumen breve de la persona
-        Resumen breve de la persona Resumen breve de la persona Resumen breve de la persona Resumen breve de la persona
-        <br>
-        <br>@lang('Reside en'): xxBARCELONA
-
-      </div>
+    <div class="p-6 pt-0 md:pt-6 break-words bg-white text-center shadow-md leading-7">
+      <span class="text-lg font-medium text-primary-light hidden md:block mb-4">
+        @lang('Información de')
+        <span class="capitalize">{{ $userData->name }}</span>:
+      </span>
+      Resumen breve de la persona Resumen breve de la persona Resumen breve de la persona Resumen breve de la persona
+      Resumen breve de la persona Resumen breve de la persona Resumen breve de la persona Resumen breve de la persona
+      <br>
+      <br>@lang('Reside en'): xxBARCELONA
 
     </div>
-@endauth
+
+  </div>
+
+@endisset
 
 @empty ($userName)
   <div class="grid md:grid-cols-2">
