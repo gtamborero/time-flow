@@ -4,12 +4,12 @@
   <div class="grid grid-cols-3 bg-white break-words pb-3">
 
     <!-- LEFT USER -->
-    <div class="p-5 pb-1 flex flex-col sm:flex-row items-center">
-
-      <img class="h-16 w-16 rounded-full inline" :src="buyerGravatar">
-      <div class="px-3">{{ buyerUser["name"] }}</div>
-
-    </div>
+    <a :href="getBuyerUrl()">
+      <div class="p-5 pb-1 flex flex-col sm:flex-row items-center">
+        <img class="h-16 w-16 rounded-full inline" :src="buyerGravatar">
+        <div class="px-3">{{ buyerUser["name"] }}</div>
+      </div>
+    </a>
 
     <!-- AMOUNT -->
     <div class="grid text-center items-end">
@@ -23,11 +23,12 @@
     </div>
 
     <!-- RIGHT USER ICON -->
-    <div class="p-5 pb-1 flex flex-col sm:flex-row-reverse items-center ">
-
-      <img class="h-16 w-16 rounded-full inline" :src="sellerGravatar">
-      <div class="px-3">{{ sellerUser["name"] }}</div>
-    </div>
+    <a :href="getSellerUrl()">
+      <div class="p-5 pb-1 flex flex-col sm:flex-row-reverse items-center ">
+        <img class="h-16 w-16 rounded-full inline" :src="sellerGravatar">
+        <div class="px-3">{{ sellerUser["name"] }}</div>
+      </div>
+    </a>
 
   </div>
 
@@ -46,6 +47,14 @@
         'status',
         'sellerGravatar',
         'buyerGravatar'
-      ]
+      ],
+      methods: {
+        getBuyerUrl: function (){
+          return "/profile/" + this.buyerUser["name"];
+        },
+        getSellerUrl: function (){
+          return "/profile/" + this.sellerUser["name"];
+        }
+      }
     }
 </script>
