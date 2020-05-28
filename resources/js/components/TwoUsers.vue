@@ -12,7 +12,7 @@
     </div>
 
     <!-- AMOUNT -->
-    <div class="grid text-center items-center">
+    <div class="grid text-center items-end">
       <div>
       {{ amount }} {{ $t('minutes') }}
       <br>
