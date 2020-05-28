@@ -6,7 +6,7 @@
     <!-- LEFT USER -->
     <a class="user-link" :href="getBuyerUrl()">
       <div class="p-5 pb-1 flex flex-col sm:flex-row items-center">
-        <img class="h-16 w-16 rounded-full inline" :src="buyerGravatar">
+        <img class="h-16 w-16 lg:h-20 lg:w-20 rounded-full inline" :src="buyerGravatar">
         <div class="px-3">{{ buyerUser["name"] }}</div>
       </div>
     </a>
@@ -25,7 +25,7 @@
     <!-- RIGHT USER ICON -->
     <a class="user-link" :href="getSellerUrl()">
       <div class="p-5 pb-1 flex flex-col sm:flex-row-reverse items-center ">
-        <img class="h-16 w-16 rounded-full inline" :src="sellerGravatar">
+        <img class="h-16 w-16 lg:h-20 lg:w-20 rounded-full inline" :src="sellerGravatar">
         <div class="px-3">{{ sellerUser["name"] }}</div>
       </div>
     </a>
