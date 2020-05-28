@@ -4,7 +4,7 @@
   <div class="grid grid-cols-3 bg-white break-words pb-3">
 
     <!-- LEFT USER -->
-    <a :href="getBuyerUrl()">
+    <a class="user-link" :href="getBuyerUrl()">
       <div class="p-5 pb-1 flex flex-col sm:flex-row items-center">
         <img class="h-16 w-16 rounded-full inline" :src="buyerGravatar">
         <div class="px-3">{{ buyerUser["name"] }}</div>
@@ -23,7 +23,7 @@
     </div>
 
     <!-- RIGHT USER ICON -->
-    <a :href="getSellerUrl()">
+    <a class="user-link" :href="getSellerUrl()">
       <div class="p-5 pb-1 flex flex-col sm:flex-row-reverse items-center ">
         <img class="h-16 w-16 rounded-full inline" :src="sellerGravatar">
         <div class="px-3">{{ sellerUser["name"] }}</div>

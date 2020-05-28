@@ -19,3 +19,14 @@
         margin-left: 75px;
     }
 }
+
+a.user-link img {
+    transition: transform .15s;
+}
+
+a.user-link:hover img {
+    transition: transform .15s;
+    /* Animation */
+    transform: scale(1.1);
+    filter: brightness(1.15);
+}
