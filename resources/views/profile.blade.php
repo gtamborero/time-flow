@@ -8,11 +8,9 @@
       </div>
   @endif
 
-  <!-- LOAD BLADE COMPONENT -->
-  <x-user-heading/>
+  <!-- LOAD USER HEADING -->
+  @include ('partials.user-heading')
 
-  @auth
-    
     <div class=" m-4 break-words text-3xl text-primary text-center font-medium uppercase">
       @lang('your exchanges')
     </div>
@@ -40,14 +38,12 @@
               amount="{{ $exchange->amount }}"
               created="{{ $exchange->created_at->diffForHumans() }}"
               :creator-user-id="{{$exchange->getCreatorUser->id}}"
-              :actual-user-id="{{Auth::user()->id}}"
+              :actual-user-id="@auth {{Auth::user()->id}} @endauth @guest {{$userId}} @endguest"
               seller-gravatar="{{ gravatar($exchange->getSellerUser->email) }}"
               buyer-gravatar="{{ gravatar($exchange->getBuyerUser->email) }}"
               >
             </exchange-block>
         </div>
       @endforeach
-
-  @endauth
 
 @endsection

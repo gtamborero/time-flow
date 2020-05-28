@@ -8,8 +8,8 @@
       </div>
   @endif
 
-  <!-- LOAD BLADE COMPONENT -->
-  <x-user-heading/>
+  <!-- LOAD USER HEADING -->
+  @include ('partials.user-heading')
 
 
     <div class=" m-4 break-words text-3xl md:text-2x1 text-primary text-center font-medium uppercase">

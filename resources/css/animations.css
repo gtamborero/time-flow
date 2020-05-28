@@ -1,21 +1,21 @@
 .arrow-animation {
     margin-top: -3px;
-    animation: hideshow 6s infinite;
+    animation: hideshow 4s infinite;
 }
 
 @keyframes hideshow {
     0% {
         opacity: 0;
-        margin-left: -25px;
+        margin-left: -75px;
     }
 
-    40% {
+    50% {
         opacity: 1;
-        margin-left: 25px;
+        margin-left: 75px;
     }
 
     100% {
         opacity: 0;
-        margin-left: 25px;
+        margin-left: 75px;
     }
 }
