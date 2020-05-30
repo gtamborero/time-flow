@@ -25,8 +25,8 @@ a.user-link img {
 }
 
 a.user-link:hover img {
-    transition: transform .15s;
+    transition: transform .3s;
     /* Animation */
-    transform: scale(1.1);
-    filter: brightness(1.15);
+    transform: scale(1.06);
+    filter: brightness(1.1);
 }

@@ -24,6 +24,9 @@ Vue.component('star-rating-direct', StarRatingDirect);
 import CommentExchange from './components/commentExchange.vue';
 Vue.component('comment-exchange', CommentExchange);
 
+import RequestSendButton from './components/request-send-button.vue';
+Vue.component('request-send-button', RequestSendButton);
+
 import Vuex from 'vuex';
 Vue.use(Vuex);
 

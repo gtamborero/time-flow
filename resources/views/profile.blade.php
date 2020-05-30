@@ -16,7 +16,7 @@
     </div>
 
     <?php
-      $userId = App\User::where('name',$userName)->pluck('id');
+      $userId = App\User::where('name',$userName)->value('id');
       // Eloquent Get Exchanges of actual user
       // (search user as buyer or seller)
       $exchanges = App\Exchanges
@@ -38,12 +38,18 @@
               amount="{{ $exchange->amount }}"
               created="{{ $exchange->created_at->diffForHumans() }}"
               :creator-user-id="{{$exchange->getCreatorUser->id}}"
-              :actual-user-id="@auth {{Auth::user()->id}} @endauth @guest {{$userId}} @endguest"
+              :actual-user-id="@auth {{Auth::user()->id}} @endauth @guest 0 @endguest"
               seller-gravatar="{{ gravatar($exchange->getSellerUser->email) }}"
               buyer-gravatar="{{ gravatar($exchange->getBuyerUser->email) }}"
               >
             </exchange-block>
         </div>
       @endforeach
+
+      <request-send-button
+        :profile-user-id="{{$userId}}"
+        profile-user-name="{{$userName}}"
+        :actual-user-id="@auth {{Auth::user()->id}} @endauth"
+      ></request-send-button>
 
 @endsection
