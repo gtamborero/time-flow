@@ -50,7 +50,7 @@
                 icon: "success",
                 text: " ",
                 buttons: false,
-                timer: 2500
+                timer: 1800
               });
 
           })

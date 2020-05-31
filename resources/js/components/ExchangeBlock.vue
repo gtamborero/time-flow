@@ -112,7 +112,7 @@
             icon: "success",
             text: this.$t('You\'re logged in'),
             buttons: false,
-            timer: 2500
+            timer: 1800
           });
         }
 
@@ -137,10 +137,24 @@
         accept: function(){
           this.status = 1; // 0: pending, 1:accepted, -1:rejected
           this.changeStatus();
+          this.$swal({
+            title: this.$t('Exchange Accepted'),
+            icon: "success",
+            text: ' ',
+            buttons: false,
+            timer: 1800
+          });
         },
         reject: function(){
           this.status = -1; // 0: pending, 1:accepted, -1:rejected
           this.changeStatus();
+          this.$swal({
+            title: this.$t('Exchange Rejected'),
+            icon: "error",
+            text: ' ',
+            buttons: false,
+            timer: 1800
+          });
         }
       }
     }
