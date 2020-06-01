@@ -33,18 +33,32 @@
       methods: {
         createNew: function (){
 
-          const div = document.createElement("div");
-          div.innerHTML ="<input type=range id='111' value='one'></input></br>second<input id='222' value='two'></input></br>third<input id='333' value='three'></input>";
+          //const div = document.createElement("div");
+          //div.innerHTML ='<input type="range" id="myRange" value="20">';
           //console.log(div);
+
+          window.slider = document.createElement("input");
+          window.slider.type = "number";
+          window.slider.value = 5;
+          window.slider.id = "elemento";
+          window.slider.step=1;
+          window.slider.min = 5;
+          window.slider.max = 50;
 
           this.$swal({
             title: this.$t('Request time to XXX'),
-            //icon: "success",
-            text: this.$t('You\'re logged in'),
-            content: div,
-            buttons: [true, "Create"]
+            text: this.$t('Select time to send / request'),
+            content: slider,
+            buttons: {
+              cancel: "Run away!",
+              catch: {
+                text: "Throw Pokéball!",
+                value: window.slider.value,
+              },
+              defeat: true,
+            }
           }).then((value) => {
-            console.log(value);
+            console.log(window.slider.value);
             //swal(`You typed: ${value}`);
           });
         }
