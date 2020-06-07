@@ -33,35 +33,44 @@
       methods: {
         createNew: function (){
 
-          //const div = document.createElement("div");
-          //div.innerHTML ='<input type="range" id="myRange" value="20">';
-          //console.log(div);
-
-          window.slider = document.createElement("input");
-          window.slider.type = "number";
-          window.slider.value = 5;
-          window.slider.id = "elemento";
-          window.slider.step=1;
-          window.slider.min = 5;
-          window.slider.max = 50;
+          var form = document.createElement("div");
+          form.innerHTML = `
+          <span id="tfHours">0</span> hours<br>
+          <input style="width:90%;" type="range" name="tfHours" value=0 step=1 min=0 max=25
+          onchange="window.changeHours(this.value)"
+          oninput="window.changeHours(this.value)"
+          ><br>
+          <span id="tfMinutes">0</span> min<br>
+          <input style="width:60%;" type="range" name="tfMinutes" value=0 step=5 min=0 max=60
+          onchange="window.changeMinutes(this.value)"
+          oninput="window.changeMinutes(this.value)"
+          ><br>
+          `;
 
           this.$swal({
             title: this.$t('Request time to XXX'),
             text: this.$t('Select time to send / request'),
-            content: slider,
+            content: form,
             buttons: {
-              cancel: "Run away!",
+              cancel: "Cancel",
               catch: {
-                text: "Throw Pokéball!",
-                value: window.slider.value,
+                text: "Create",
+                value: 5,
               },
-              defeat: true,
             }
           }).then((value) => {
-            console.log(window.slider.value);
+            console.log(slider.value);
             //swal(`You typed: ${value}`);
           });
         }
       }
+     }
+     window.changeHours = function (value){
+       var tfHours = document.getElementById("tfHours");
+       tfHours.innerHTML = value;
+     }
+     window.changeMinutes = function (value){
+       var tfMinutes = document.getElementById("tfMinutes");
+       tfMinutes.innerHTML = value;
      }
 </script>
