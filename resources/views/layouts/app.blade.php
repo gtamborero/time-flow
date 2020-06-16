@@ -11,7 +11,7 @@
 <body class="bg-gray-100 h-screen antialiased">
     <div id="app">
         <nav class="bg-primary shadow mb-0 sm:mb-6" style="padding:32px 0;">
-            <div class="container mx-auto px-6 flex items-center justify-center">
+            <div class="container mx-auto px-6 flex items-center justify-center" >
 
                 <!-- SIDE LEFT logo -->
                 <div class="flex-1">
@@ -73,7 +73,7 @@
             </div>
         </nav>
 
-        <div class="container mx-auto px-0 sm:px-6">
+        <div class="container mx-auto px-0 sm:px-6" style="padding-bottom:90px;">
           @yield('content')
         </div>
 
