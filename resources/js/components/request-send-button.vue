@@ -68,8 +68,8 @@
               },
             }
           }).then((value) => {
-            //console.log(tfHours.innerHTML);
             //swal(`You typed: ${value}`);
+            if (!value) return 0; // If cancel or click outside do nothing
               axios({
                 method: 'post',
                 url: '/exchange',
