@@ -74,8 +74,8 @@
                 method: 'post',
                 url: '/exchange',
                 data: {
-                  userId: this.actualUserId,
-                  profileId: this.profileUserId,
+                  actualUserId: this.actualUserId,
+                  involvedUserId: this.profileUserId,
                   hours: tfHours.innerHTML,
                   min: tfMinutes.innerHTML,
                   type: type,
@@ -89,11 +89,12 @@
               .catch(error => {
                 console.log(error)
               })
-              .finally(() => this.loading = false)
-              });
+          });
         }
       }
      }
+
+     // Outside functions
      window.changeHours = function (value){
        var tfHours = document.getElementById("tfHours");
        tfHours.innerHTML = value;

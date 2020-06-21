@@ -36,10 +36,20 @@ class ExchangeController extends Controller
      */
     public function store(Request $request)
     {
-        $exchange = new Exchanges;
-        $exchange->id_seller = 3;
-        $exchange->id_buyer = 1;
-        $exchange->id_creator = 1;
+
+      $exchange = new Exchanges;
+
+        // Catch by the type of exchange who is the seller and buyer
+        if ($request->type == 'request'){
+          $exchange->id_seller = $request->actualUserId;
+          $exchange->id_buyer = $request->involvedUserId;
+        }
+        if ($request->type == 'send'){
+          $exchange->id_seller = $request->involvedUserId;
+          $exchange->id_buyer = $request->actualUserId;
+        }
+
+        $exchange->id_creator = $request->actualUserId;
         $exchange->status = 0;
         $exchange->concept = $request->concept;
         $exchange->amount = 12;
