@@ -6,6 +6,7 @@ use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
+use App\Exchanges;
 
 class StatusChanged extends Mailable
 {
@@ -16,9 +17,11 @@ class StatusChanged extends Mailable
      *
      * @return void
      */
-    public function __construct()
+    public $exchange;
+
+    public function __construct(Exchanges $exchange)
     {
-        //
+        $this->exchange = $exchange;
     }
 
     /**

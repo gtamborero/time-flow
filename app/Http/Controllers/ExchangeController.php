@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Exchanges;
 use Illuminate\Support\Facades\Mail;
+use App\Mail\StatusChanged;
 
 class ExchangeController extends Controller
 {
@@ -59,9 +60,7 @@ class ExchangeController extends Controller
         $exchange->cancelled_time = now();
         $exchange->save();
 
-        Mail::to("gtamborero@iproject.cat")->send(new StateChangeMail($exchange));
-        return $request;
-        //return Redirect::back()->with('message','Operation Successful !');
+        Mail::to("gtamborero@iproject.cat")->send(new StatusChanged($exchange));
     }
 
     /**

@@ -1,5 +1,6 @@
 @component('mail::message')
 # Introduction
+<?php echo($exchange->amount); ?>min
 
 The body of your message.
 
