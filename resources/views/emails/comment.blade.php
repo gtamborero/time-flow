@@ -1,8 +1,12 @@
 @component('mail::message')
-# Introduction
-<?php var_dump($exchange->amount); ?>min
+# New Comment
 
-The body of your message.
+<?php
+
+var_dump($theExchange);
+?>
+<br><br>
+<?php /*var_dump($this->theExchange->getRating());*/ ?>
 
 @component('mail::button', ['url' => ''])
 Button Text
