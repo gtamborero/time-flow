@@ -1,13 +1,28 @@
 @component('mail::message')
-# Introduction
+# @lang('Titulo mail')
 
+{{ $sellerName }}
+{{ $sellerMail }}
+{{ $buyerName }}
+{{ $buyerMail }}
+{{ $creatorName }}
 
-The body of your message.
+{{ $status }}
+{{ $concept }}
+{{ $amount }}
+{{ $accepted_time }}
+{{ $finished_time }}
+{{ $cancelled_time }}
+
+{{ $rating }}
+{{ $comment }}
 
 @component('mail::button', ['url' => ''])
-Button Text
+  @lang('Entrar a Time-Flow')
 @endcomponent
 
-Thanks,<br>
+<center>
+  @lang('El equipo de') 
 {{ config('app.name') }}
+</center>
 @endcomponent
