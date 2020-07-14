@@ -17,6 +17,8 @@
             {{ $userData->email }}
           </div>
           <br>
+          Minutos entregados xxxx<br>
+          Minutos recibidos vvv<br>
           @lang('Balance global'):
           {{ $userData->getTotalBalance($userData->id) }} minutos<br>
           @lang('Intercambios realizados'): {{ $userData->getExchangeCount($userData->id) }}
