@@ -8,7 +8,7 @@ use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 use App\Exchanges;
 
-class StatusChanged extends Mailable
+class StatusMail extends Mailable
 {
     use Queueable, SerializesModels;
 
@@ -17,11 +17,9 @@ class StatusChanged extends Mailable
      *
      * @return void
      */
-    public $exchange;
 
-    public function __construct(Exchanges $exchange)
+    public function __construct()
     {
-        $this->exchange = $exchange;
     }
 
     /**
@@ -31,6 +29,6 @@ class StatusChanged extends Mailable
      */
     public function build()
     {
-        return $this->markdown('emails.statusChanged');
+        return $this->markdown('emails.statusMail');
     }
 }
