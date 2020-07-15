@@ -1,6 +1,6 @@
 @component('mail::message')
 
-  @if ($status === 0)
+<!--  @if ($status === 0)
     # <center>@lang('New exchange')</center>
   @endif
   @if ($status === 1)
@@ -8,10 +8,11 @@
   @endif
   @if ($status === -1)
     # <center>@lang('Rejected Exchange')</center>
-  @endif
+  @endif -->
 
-@lang('Time-Flow is a Time Exchange System. You are receiving this mail because someone has send or requested time to you')
-
+<center>@lang('Time-Flow is a Time Exchange System. You are receiving this mail because someone has send or requested time to you')
+</center>
+<br>
 <table class="timeflow">
   <td style="background-color:#222; padding:8px; color:#fff; ">
     Exchange Concept:
@@ -23,6 +24,20 @@
 </table>
 
 <br>
+
+@if ($rating)
+  <table class="timeflow">
+    <td style="background-color:#555; padding:8px; color:#fff; ">
+      Comments of <span style="text-transform:capitalize;">{{ $buyerName }}</span>:
+    <tr>
+    <td> {{ $comment }}</td>
+    <tr>
+    <td>
+      Rating of <span style="text-transform:capitalize;">{{ $buyerName }}</span>: {{ $rating }} stars
+    </td>
+  </table>
+<br>
+@endif
 
 <table class="timeflow">
   <td style="border:1px solid #ddd; padding:8px;  color:#fff; background-color:
@@ -41,19 +56,6 @@
 </table>
 
 <br>
-
-@if ($rating)
-  <table class="timeflow">
-    <td style="background-color:#555; padding:8px; color:#fff; ">
-      Comments of <span style="text-transform:capitalize;">{{ $buyerName }}</span>:
-    <tr>
-    <td> {{ $comment }}</td>
-    <tr>
-    <td>
-      Rating of <span style="text-transform:capitalize;">{{ $buyerName }}</span>: {{ $rating }} stars
-    </td>
-  </table>
-@endif
 
 <br>Exchange Creator: {{ $creatorName }}
 

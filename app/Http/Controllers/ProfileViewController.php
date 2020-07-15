@@ -15,7 +15,6 @@ class ProfileViewController extends Controller
 
   public function index($userName)
   {
-      Mail::to("gtamborero@iproject.cat")->send(new StatusMail());
       return view('profile')->with('userName',$userName);
   }
 }

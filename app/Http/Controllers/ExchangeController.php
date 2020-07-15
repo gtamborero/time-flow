@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Exchanges;
 use Illuminate\Support\Facades\Mail;
-use App\Mail\StatusChanged;
+use App\Mail\StatusMail;
 
 class ExchangeController extends Controller
 {
@@ -59,8 +59,7 @@ class ExchangeController extends Controller
         $exchange->finished_time = now();
         $exchange->cancelled_time = now();
         $exchange->save();
-
-        Mail::to("gtamborero@iproject.cat")->send(new StatusChanged($exchange));
+        Mail::send(new StatusMail($exchange->id));
     }
 
     /**
@@ -94,7 +93,8 @@ class ExchangeController extends Controller
      */
     public function update(Request $request, $id)
     {
-        return Exchanges::changeStatus($request, $id);
+        Exchanges::changeStatus($request, $id);
+        Mail::send(new StatusMail($id));
     }
 
     /**
