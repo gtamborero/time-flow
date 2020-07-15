@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Comments;
 use Illuminate\Support\Facades\Mail;
-use App\Mail\Comment;
+use App\Mail\StatusMail;
 
 class CommentController extends Controller
 {
@@ -21,7 +21,7 @@ class CommentController extends Controller
     );
 
     // Aqui hay que preparar la consulta, saber quien envia y quien recibe, tener todos los datos y luego enviar
-    Mail::to("gtamborero@iproject.cat")->send(new Comment($request->id));
+    Mail::send(new StatusMail($request->id));
   }
 
 }

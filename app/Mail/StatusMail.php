@@ -48,9 +48,11 @@ class StatusMail extends Mailable
       $this->cancelled_time = $exchangeData->cancelled_time;
 
       // Extra info
-      $this->rating = $exchangeData->getRating->rating;
-      $this->comment = $exchangeData->getRating->comment;
-
+      if (isset($exchangeData->getRating))
+      {
+        $this->rating = $exchangeData->getRating->rating;
+        $this->comment = $exchangeData->getRating->comment;
+      }
     }
 
     /**
