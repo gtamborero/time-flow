@@ -36,7 +36,7 @@ class StatusMail extends Mailable
       $this->sellerName = $exchangeData->getSellerUser->name;
       $this->sellerMail = $exchangeData->getSellerUser->email;
       $this->buyerName = $exchangeData->getBuyerUser->name;
-      $this->buyerMail = $exchangeData->getSellerUser->email;
+      $this->buyerMail = $exchangeData->getBuyerUser->email;
       $this->creatorName = $exchangeData->getCreatorUser->name;
 
       // Exchange info
@@ -60,6 +60,15 @@ class StatusMail extends Mailable
      */
     public function build()
     {
-        return $this->markdown('emails.statusMail');
+      if ($this->status === 0){
+        $customMessage = __('New exchange');
+      }
+      if ($this->status === 1){
+        $customMessage = __('Exchange Update');
+      }
+      if ($this->status === -1){
+        $customMessage = __('Rejected Exchange');
+      }
+        return $this->subject('[' . config('app.name') . '] ' . $customMessage )->markdown('emails.statusMail');
     }
 }
