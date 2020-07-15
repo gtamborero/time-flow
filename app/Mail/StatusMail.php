@@ -69,6 +69,9 @@ class StatusMail extends Mailable
       if ($this->status === -1){
         $customMessage = __('Rejected Exchange');
       }
-        return $this->subject('[' . config('app.name') . '] ' . $customMessage )->markdown('emails.statusMail');
+        return $this->subject('[' . config('app.name') . '] ' . $customMessage )
+        ->to($this->sellerMail)
+        ->to($this->buyerMail)
+        ->markdown('emails.statusMail');
     }
 }
