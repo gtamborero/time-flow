@@ -20,7 +20,11 @@ class ProfileViewController extends Controller
       $exchanges = \App\Exchanges
           ::where('id_buyer', $userId)
           ->orWhere('id_seller', $userId)
-          ->orderBy('id', 'desc')->get();
+          ->with('getSellerUser')
+          ->with('getBuyerUser')
+          ->with('getCreatorUser')
+          ->orderBy('id', 'desc')
+          ->get();
 
       return view('profile')
         ->with('userName',$userName)
