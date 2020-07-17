@@ -15,7 +15,8 @@ class ProfileViewController extends Controller
 
   public function index($userName)
   {
-      $userId = \App\User::where('name',$userName)->value('id');
+      $userData = \App\User::where('name', $userName)->first();
+      $userId = $userData->id;
 
       $exchanges = \App\Exchanges
           ::where('id_buyer', $userId)
@@ -23,12 +24,14 @@ class ProfileViewController extends Controller
           ->with('getSellerUser')
           ->with('getBuyerUser')
           ->with('getCreatorUser')
+          ->with('getRating')
           ->orderBy('id', 'desc')
           ->get();
 
       return view('profile')
         ->with('userName',$userName)
         ->with('userId',$userId)
+        ->with('userData',$userData)
         ->with('exchanges',$exchanges);
   }
 }

@@ -1,6 +1,5 @@
 <!-- IF LOGGED IN OR NOT AND WHATCHING PROFILE -->
 @isset ($userName)
-<?php $userData = App\User::where('name', $userName)->first(); ?>
 
 <div class="grid md:grid-cols-2">
 

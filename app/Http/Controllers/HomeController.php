@@ -35,6 +35,7 @@ class HomeController extends Controller
       ->with('getSellerUser')
       ->with('getBuyerUser')
       ->with('getCreatorUser')
+      ->with('getRating')
       ->orderBy('id', 'desc')
       ->get();
       return view('home')
