@@ -13,17 +13,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-  // If user is logged in go to his profile
-  if (isset(Auth::user()->name)){
-    return redirect()->route('profileView',Auth::user()->name);
-  }
-  // Or go home
-    return view('home');
-});
-
 Auth::routes();
 // After login -> Home -> Redirects to profile/username
+Route::get('/', 'HomeController@index')->name('home');
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/profile/{username}', 'ProfileViewController@index')->name('profileView');
 

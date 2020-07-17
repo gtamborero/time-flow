@@ -14,7 +14,7 @@ class HomeController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth');
+        //$this->middleware('auth');
     }
 
     /**
@@ -24,7 +24,21 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $userName = Auth::user()->name;
-        return redirect()->route('profileView',$userName);
+
+      // IF User is Logged in
+      if (isset(Auth::user()->name)){
+        return redirect()->route('profileView',Auth::user()->name);
+      }
+
+      // IF Anonymouse user
+      $exchanges = \App\Exchanges::orderBy('id', 'desc')
+      ->with('getSellerUser')
+      ->with('getBuyerUser')
+      ->with('getCreatorUser')
+      ->orderBy('id', 'desc')
+      ->get();
+      return view('home')
+        ->with('exchanges',$exchanges);
+
     }
 }

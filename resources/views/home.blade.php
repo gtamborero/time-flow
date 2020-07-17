@@ -16,10 +16,6 @@
       @lang('last exchanges')
     </div>
 
-    <?php
-      $exchanges = App\Exchanges::orderBy('id', 'desc')->get();
-    ?>
-
     {{-- Feed exchange data --}}
     @include ('partials.script-injection-vue')
 
