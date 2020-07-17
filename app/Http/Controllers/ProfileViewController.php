@@ -15,6 +15,16 @@ class ProfileViewController extends Controller
 
   public function index($userName)
   {
-      return view('profile')->with('userName',$userName);
+      $userId = \App\User::where('name',$userName)->value('id');
+
+      $exchanges = \App\Exchanges
+          ::where('id_buyer', $userId)
+          ->orWhere('id_seller', $userId)
+          ->orderBy('id', 'desc')->get();
+
+      return view('profile')
+        ->with('userName',$userName)
+        ->with('userId',$userId)
+        ->with('exchanges',$exchanges);
   }
 }
