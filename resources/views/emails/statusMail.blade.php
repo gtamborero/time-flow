@@ -50,9 +50,9 @@
     @if ($status === 1) Accepted @endif
   </td>
   <tr>
-  <td >Time Receiver: {{ $sellerName }} - <a href="mailto:{{ $sellerMail }}">{{ $sellerMail }}</a></td>
+  <td >Time Receiver:<br> {{ $sellerName }} - <a href="mailto:{{ $sellerMail }}">{{ $sellerMail }}</a></td>
   <tr>
-  <td >Time Giver: {{ $buyerName }} - <a href="mailto:{{ $buyerMail }}">{{ $buyerMail }}</a></td>
+  <td >Time Giver:<br> {{ $buyerName }} - <a href="mailto:{{ $buyerMail }}">{{ $buyerMail }}</a></td>
 </table>
 
 <br>
