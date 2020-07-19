@@ -1,16 +1,16 @@
 <template>
   <div v-if="visibleComponent">
 
-      <star-rating :id="id"></star-rating>
-
-      <input
-       type="text"
+      <textarea
        placeholder="Write a comment about the received service"
        v-model="$store.state.exchange[id].comment"
        name="text"
        autofocus="autofocus"
-       class="form-input w-full mt-3 mb-4">
+       class="form-input w-full mt-3 mb-4 text-black"></textarea>
 
+       {{ $t('Rate your satisfaction level') }}:<br>
+      <star-rating class="pb-3" :id="id"></star-rating>
+<br>
       <button v-on:click="publishComment()" class="tf-button tf-button-secondary uppercase">
         {{ $t('Publish') }}
       </button>
