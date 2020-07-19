@@ -65,6 +65,44 @@
                 ${this.concept}`;
 
               var info = `${this.siblingUser}
+                ${this.$t('wants to sends you')}
+                ${this.amount}
+                ${this.$t('minutes')}
+                ${this.$t('for')}
+                <br>
+                ${this.concept}`;
+
+              var infoBuyerAndCreator = `${this.siblingUser}
+                ${this.$t('wants to received from you')}
+                ${this.amount}
+                ${this.$t('minutes')}
+                ${this.$t('for')}
+                <br>
+                ${this.concept}`;
+
+              var infoBuyer = `${this.siblingUser}
+                ${this.$t('wants to received from you')}
+                ${this.amount}
+                ${this.$t('minutes')}
+                ${this.$t('for')}
+                <br>
+                ${this.concept}`;
+          }
+
+          // Messages when exchange status is Accepted
+          if (this.status == 1){
+
+              var infoNotInvolved = `${this.buyerUser.name}
+                ${this.$t('sended')}
+                ${this.amount}
+                ${this.$t('to')}
+                ${this.sellerUser.name}
+                ${this.$t('minutes')}
+                ${this.$t('for')}
+                <br>
+                ${this.concept}`;
+
+              var info = `${this.siblingUser}
                 ${this.$t('sends you')}
                 ${this.amount}
                 ${this.$t('minutes')}
@@ -89,44 +127,6 @@
                 ${this.concept}`;
           }
 
-          // Messages when exchange status is Accepted
-          if (this.status == 1){
-
-              var infoNotInvolved = `ACEPTADO ${this.buyerUser.name}
-                ${this.$t('sended')}
-                ${this.amount}
-                ${this.$t('to')}
-                ${this.sellerUser.name}
-                ${this.$t('minutes')}
-                ${this.$t('for')}
-                <br>
-                ${this.concept}`;
-
-              var info = `ACEPTADO ${this.siblingUser}
-                ${this.$t('sends you')}
-                ${this.amount}
-                ${this.$t('minutes')}
-                ${this.$t('for')}
-                <br>
-                ${this.concept}`;
-
-              var infoBuyerAndCreator = `ACEPTADO ${this.siblingUser}
-                ${this.$t('has received from you')}
-                ${this.amount}
-                ${this.$t('minutes')}
-                ${this.$t('for')}
-                <br>
-                ${this.concept}`;
-
-              var infoBuyer = `ACEPTADO ${this.siblingUser}
-                ${this.$t('has received from you')}
-                ${this.amount}
-                ${this.$t('minutes')}
-                ${this.$t('for')}
-                <br>
-                ${this.concept}`;
-          }
-
           // Messages when exchange status is Rejected
           if (this.status == -1){
 
@@ -138,19 +138,17 @@
                 ${this.$t('minutes')}
                 ${this.$t('for')}
                 <br>
-                ${this.concept}
-                ${this.$t('but was rejected')}`;
+                ${this.concept}`;
 
               var info = `${this.siblingUser}
-                ${this.$t('sends you')}
+                ${this.$t('sended you')}
                 ${this.amount}
                 ${this.$t('minutes')}
                 ${this.$t('for')}
                 <br>
-                ${this.concept}
-                ${this.$t('but was rejected')}`;
+                ${this.concept}`;
 
-              var infoBuyerAndCreator = `REJECTED ${this.siblingUser}
+              var infoBuyerAndCreator = `${this.siblingUser}
                 ${this.$t('has received from you')}
                 ${this.amount}
                 ${this.$t('minutes')}
@@ -158,7 +156,7 @@
                 <br>
                 ${this.concept}`;
 
-              var infoBuyer = `RECHAZADO ${this.siblingUser}
+              var infoBuyer = `${this.siblingUser}
                 ${this.$t('has received from you')}
                 ${this.amount}
                 ${this.$t('minutes')}

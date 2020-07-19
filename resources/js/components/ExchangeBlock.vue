@@ -1,7 +1,7 @@
 <template>
   <div :exchange-id="id" class="exchange-block">
       <!-- WHEN PENDING EXCHANGE AND USER CAN ACCEPT -->
-      <div class="py-3 px-5 text-white break-words relative"
+      <div class="py-3 px-5 text-white break-words relative text-center"
         v-bind:class="{
           'bg-primary': status == 0, // Pending
           'bg-green': status == 1, // Accepted
@@ -32,12 +32,9 @@
           <!-- SHOW IF THERES NO SET COMMENT and USER IS INVOLVED BUYER -->
           <div v-if="status==1 && isInvolvedBuyer() && !hasComment">
               <div class="text-center py-2">
-                <div v-if="!rate" v-on:click="rate=1">
-                  <button class="tf-button tf-button-secondary uppercase">
+                <div v-if="!rate" >
+                  <button v-on:click="rate=1" class="tf-button tf-button-secondary uppercase">
                     {{ $t('Rate to') }} {{sellerUser.name}}
-                  </button>
-                  <button class="tf-button tf-button-secondary uppercase">
-                    {{ $t('Rate later') }}
                   </button>
                 </div>
 
@@ -49,11 +46,11 @@
           </div>
 
           <!-- WHEN REJECTED EXCHANGE -->
-          <div v-if="status==-1">
-              <div class="text-center py-2">
-                {{ $t('Was rejected') }}
+
+              <div v-if="status==-1" class="p-2 px-4 inline-block m-2 uppercase bg-white text-red">
+                {{ $t('Rejected') }}
               </div>
-          </div>
+
 
       </div>
 
