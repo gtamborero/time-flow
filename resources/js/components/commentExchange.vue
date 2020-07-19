@@ -14,10 +14,6 @@
       <button v-on:click="publishComment()" class="tf-button tf-button-secondary uppercase">
         {{ $t('Publish') }}
       </button>
-
-      <button class="tf-button tf-button-secondary uppercase">
-        {{ $t('Cancel') }}
-      </button>
   </div>
 </template>
 

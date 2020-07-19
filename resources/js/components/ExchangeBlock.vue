@@ -37,6 +37,9 @@
                     {{ $t('Rate to') }} {{sellerUser.name}}
                   </button>
                 </div>
+                <div v-else class="text-right">
+                  <button class="tf-button tf-button-secondary uppercase text-right" v-on:click="rate=0">X</button>
+                </div>
 
                 <!-- WHEN COMMENT-->
                 <div v-if="rate" class=" text-white">
