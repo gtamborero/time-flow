@@ -2,7 +2,7 @@
   <div v-if="visibleComponent">
 
       <textarea
-       placeholder="Write a comment about the received service"
+       :placeholder="$t('Write a comment about the exchange')"
        v-model="$store.state.exchange[id].comment"
        name="text"
        autofocus="autofocus"
@@ -46,7 +46,7 @@
                 icon: "success",
                 text: " ",
                 buttons: false,
-                timer: 1800
+                timer: 1200
               });
 
           })

@@ -11,7 +11,7 @@
   <!-- LOAD USER HEADING -->
   @include ('partials.user-heading')
 
-    <div class=" m-4 break-words text-3xl text-primary text-center font-medium uppercase">
+    <div class=" p-4 my-5 break-words text-3xl text-primary text-center font-medium uppercase bg-white">
       @lang('your exchanges')
     </div>
 
@@ -19,7 +19,7 @@
     @include ('partials.script-injection-vue')
 
       @foreach ($exchanges as $exchange)
-        <div class="mb-6 shadow-md">
+        <div class="mb-5 shadow-md">
             <exchange-block
               id="{{ $exchange->id }}"
               concept="{{ $exchange->concept }}"

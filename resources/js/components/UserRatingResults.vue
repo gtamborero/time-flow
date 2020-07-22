@@ -1,11 +1,18 @@
 <template>
 <div>
   <!-- VIEW OF USER COMMENT + RATING STARS APLIED -->
-  <div class="grid grid-cols-1 bg-white break-words">
+  <div class="grid grid-cols-1 bg-white break-words pt-2" style="background-color:#f7f7f7;">
     <div class="pb-3 pt-0 px-5 text-center star-container">
+
+      <span class="capitalize">
+         {{ userName }}</span> {{ $t('said') }}:
+
+      <span class="block">
+        {{$store.state.exchange[id].comment}}
+      </span>
+
       <star-rating :id="id" disabled></star-rating>
-      <br>
-      <strong style="text-transform: uppercase;">{{ userName }} {{ $t('said') }}</strong>: {{$store.state.exchange[id].comment}}
+
     </div>
   </div>
 </div>

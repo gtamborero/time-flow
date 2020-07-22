@@ -7,13 +7,13 @@
     <a class="user-link" :href="getBuyerUrl()">
       <div class="p-5 pb-1 flex flex-col sm:flex-row items-center">
         <img class="h-16 w-16 lg:h-20 lg:w-20 rounded-full inline" :src="buyerGravatar">
-        <div class="px-3">{{ buyerUser["name"] }}</div>
+        <div class="px-3 capitalize">{{ buyerUser["name"] }}</div>
       </div>
     </a>
 
     <!-- AMOUNT -->
     <div class="grid text-center items-end">
-      <div>
+      <div class="font-medium">
       {{ amount }} {{ $t('minutes') }}
       <br>
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" class="arrow-animation inline fill-current w-6 h-6">
@@ -26,7 +26,7 @@
     <a class="user-link" :href="getSellerUrl()">
       <div class="p-5 pb-1 flex flex-col sm:flex-row-reverse items-center ">
         <img class="h-16 w-16 lg:h-20 lg:w-20 rounded-full inline" :src="sellerGravatar">
-        <div class="px-3">{{ sellerUser["name"] }}</div>
+        <div class="px-3 capitalize">{{ sellerUser["name"] }}</div>
       </div>
     </a>
 
