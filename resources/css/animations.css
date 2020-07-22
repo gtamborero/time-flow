@@ -30,3 +30,25 @@ a.user-link:hover img {
     transform: scale(1.06);
     filter: brightness(1.1);
 }
+
+/* fade transition */
+.fade-enter-active, .fade-leave-active {
+  transition: opacity .5s
+}
+.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+  opacity: 0
+}
+
+/*slide transition */
+.slide-fade-enter-active {
+  transition: all .5s ease;
+}
+.slide-fade-leave-active {
+  transition: all 1s ease;
+  transform: translateX(25px);
+}
+.slide-fade-enter, .slide-fade-leave-to
+/* .slide-fade-leave-active below version 2.1.8 */ {
+  transform: translateX(25px);
+  opacity: 0;
+}

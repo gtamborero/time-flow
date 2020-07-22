@@ -89,11 +89,3 @@
 @import "stars.css";
 @import "exchange-block.css";
 @import "animations.css";
-
-.fade-enter-active, .fade-leave-active {
-    transition: all 1s;
-}
-
-.fade-enter, .fade-leave-to {
-    opacity: 0;
-}

@@ -37,14 +37,20 @@
                     {{ $t('Rate to') }} {{sellerUser.name}}
                   </button>
                 </div>
-                <div v-else class="text-right">
-                  <button class="tf-button tf-button-secondary uppercase text-right" v-on:click="rate=0">X</button>
+                <div v-else class="text-center">
+                  <button
+                  class="tf-button tf-button-secondary uppercase text-center"
+                  v-on:click="rate=0"
+                  style="font-weight:bold;"
+                  >X</button>
                 </div>
 
                 <!-- WHEN COMMENT-->
-                <div v-if="rate" class=" text-white">
-                  <comment-exchange :id="id"></comment-exchange>
-                </div>
+                <transition name="slide-fade">
+                  <div v-if="rate" class=" text-white">
+                    <comment-exchange :id="id"></comment-exchange>
+                  </div>
+                </transition>
               </div>
           </div>
 
