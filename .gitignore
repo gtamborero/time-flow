@@ -5,7 +5,6 @@
 /public/css/app.css
 /storage/*.key
 /vendor
-.env
 .env.backup
 .phpunit.result.cache
 Homestead.json
@@ -18,5 +17,4 @@ public/js/app.js
 public/js/app.js.LICENSE.txt
 public/css/app.css
 public/css/app.css
-resources/js/vue-i18n-locales.generated.js
 resources/js/vue-i18n-locales.generated.js
