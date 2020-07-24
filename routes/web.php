@@ -13,17 +13,18 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Auth::routes();
+Auth::routes(['verify' => true]); //verify email
+
 // After login -> Home -> Redirects to profile/username
 Route::get('/', 'HomeController@index')->name('home');
 Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/profile/{username}', 'ProfileViewController@index')->name('profileView');
+Route::get('/profile/{username}', 'ProfileViewController@index')->name('profileView')->middleware('verified');
 
 Route::get('login/facebook', 'Auth\LoginController@redirectToProvider');
 Route::get('login/facebook/callback', 'Auth\LoginController@handleProviderCallback');
 
-Route::get('search', 'SearchController@index')->name('search');
+Route::get('search', 'SearchController@index')->name('search')->middleware('verified');
 
-Route::resource('exchange', 'ExchangeController');
+Route::resource('exchange', 'ExchangeController')->middleware('verified');
 
-Route::put('comment-exchange/{id}', 'CommentController');
+Route::put('comment-exchange/{id}', 'CommentController')->middleware('verified');
