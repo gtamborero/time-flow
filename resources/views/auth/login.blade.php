@@ -3,8 +3,8 @@
 @section('content')
     <div class="container mx-auto">
         <div class="flex flex-wrap justify-center">
-            <div class="w-full max-w-sm mt-5">
-                <div class="flex flex-col break-words bg-white border border-2 rounded shadow-md">
+            <div class="w-full max-w-xl">
+                <div class="flex flex-col break-words bg-white shadow-md">
 
                     <div class="font-semibold bg-gray-200 text-gray-700 py-3 px-6 mb-0">
                         {{ __('Login') }}
@@ -54,16 +54,16 @@
                             </button>
 
                             @if (Route::has('password.request'))
-                                <a class="text-sm text-blue-500 hover:text-blue-700 whitespace-no-wrap no-underline ml-auto" href="{{ route('password.request') }}">
+                                <a class="text-blue-500 hover:text-blue-700 whitespace-no-wrap no-underline ml-auto" href="{{ route('password.request') }}">
                                     {{ __('Forgot Your Password?') }}
                                 </a>
                             @endif
 
                             @if (Route::has('register'))
-                                <p class="w-full text-xs text-center text-gray-700 mt-8 -mb-4">
+                                <p class="w-full text-center text-gray-700 mt-8 mb-4">
                                     {{ __("Don't have an account?") }}
-                                    <a class="text-blue-500 hover:text-blue-700 no-underline" href="{{ route('register') }}">
-                                        {{ __('Register') }}
+                                    <a class="no-underline" href="{{ route('register') }}">
+                                        <strong>{{ __('Register') }}</strong>
                                     </a>
                                 </p>
                             @endif

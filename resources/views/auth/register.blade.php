@@ -3,8 +3,8 @@
 @section('content')
     <div class="container mx-auto">
         <div class="flex flex-wrap justify-center">
-            <div class="w-full max-w-sm">
-                <div class="flex flex-col break-words bg-white border border-2 rounded shadow-md">
+            <div class="w-full max-w-xl">
+                <div class="flex flex-col break-words bg-white rounded shadow-md">
 
                     <div class="font-semibold bg-gray-200 text-gray-700 py-3 px-6 mb-0">
                         {{ __('Register') }}
@@ -68,10 +68,10 @@
                                 {{ __('Register') }}
                             </button>
 
-                            <p class="w-full text-xs text-center text-gray-700 mt-8 -mb-4">
+                            <p class="w-full text-center text-gray-700 mt-8 mb-4">
                                 {{ __('Already have an account?') }}
-                                <a class="text-blue-500 hover:text-blue-700 no-underline" href="{{ route('login') }}">
-                                    {{ __('Login') }}
+                                <a class="no-underline" href="{{ route('login') }}">
+                                    <strong>{{ __('Login') }}</strong>
                                 </a>
                             </p>
                         </div>
