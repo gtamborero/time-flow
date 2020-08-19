@@ -46,7 +46,7 @@
       Resumen breve de la persona..
       {{ $userData->user_data }}
       <br>
-      <br>@lang('Reside en'): xxBARCELONA
+      <br>@lang('Reside en'):<br> {{ ucfirst($userData->country) }} - {{ ucfirst($userData->city) }}
 
     </div>
 
