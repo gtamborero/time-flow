@@ -43,8 +43,8 @@
         @lang('Información de')
         <span class="capitalize">{{ $userData->name }}</span>:
       </span>
-      Resumen breve de la persona Resumen breve de la persona Resumen breve de la persona Resumen breve de la persona
-      Resumen breve de la persona Resumen breve de la persona Resumen breve de la persona Resumen breve de la persona
+      Resumen breve de la persona..
+      {{ $userData->user_data }}
       <br>
       <br>@lang('Reside en'): xxBARCELONA
 

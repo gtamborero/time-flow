@@ -14,7 +14,7 @@ class AddUserData extends Migration
     public function up()
     {
       Schema::table('users', function (Blueprint $table) {
-          $table->string('user-data',250);
+          $table->string('user_data',250);
           $table->string('country',50);
           $table->string('city',80);
           $table->string('town',100);

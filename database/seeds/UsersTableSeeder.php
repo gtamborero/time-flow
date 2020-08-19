@@ -16,31 +16,51 @@ class UsersTableSeeder extends Seeder
         'id' => 1,
         'name' => 'guille',
         'email' => 'gtamborero@iproject.cat',
-        'password' => Hash::make('iProject77')
+        'password' => Hash::make('iProject77'),
+        'user_data' => 'informatica, bicicleta',
+        'country' => 'spain',
+        'city' => 'barcelona',
+        'town' => 'barcelona'
         ],
         [
         'id' => 2,
         'name' => 'xavi',
         'email' => 'xavier@iproject.cat',
-        'password' => Hash::make('iProject77')
+        'password' => Hash::make('iProject77'),
+        'user_data' => 'informatica, bicicleta',
+        'country' => 'spain',
+        'city' => 'barcelona',
+        'town' => 'barcelona'
         ],
         [
         'id' => 3,
         'name' => 'pedro',
         'email' => 'pedro@iproject.cat',
-        'password' => Hash::make('iProject77')
+        'password' => Hash::make('iProject77'),
+        'user_data' => 'informatica, bicicleta',
+        'country' => 'spain',
+        'city' => 'barcelona',
+        'town' => 'barcelona'
         ],
         [
         'id' => 4,
         'name' => 'jorge',
         'email' => 'jorge@iproject.cat',
-        'password' => Hash::make('iProject77')
+        'password' => Hash::make('iProject77'),
+        'user_data' => 'informatica, bicicleta',
+        'country' => 'spain',
+        'city' => 'barcelona',
+        'town' => 'barcelona'
         ],
         [
         'id' => 5,
         'name' => 'paco',
         'email' => 'paco@iproject.cat',
-        'password' => Hash::make('iProject77')
+        'password' => Hash::make('iProject77'),
+        'user_data' => 'informatica, bicicleta',
+        'country' => 'spain',
+        'city' => 'barcelona',
+        'town' => 'barcelona'
         ]
 
       ]);
