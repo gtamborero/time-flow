@@ -143,6 +143,10 @@ export default {
         "have send": "te envió",
         "for": "por",
         "Rate to": "Valora a",
-        "Rating Saved": "Valoración guardada"
+        "Rating Saved": "Valoración guardada",
+        "said": "dijo",
+        "exchange rating": "valoración del intercambio",
+        "Write a comment about the exchange": "Escribe un comentario del intercambio",
+        "Rate your satisfaction level": "Valora tu nivel de satisfacción"
     }
 }

@@ -54,7 +54,7 @@ class ExchangeController extends Controller
         $exchange->id_creator = $request->actualUserId;
         $exchange->status = 0;
         $exchange->concept = $request->concept;
-        $exchange->amount = 12;
+        $exchange->amount = $request->hours * 60 + $request->minutes;
         $exchange->accepted_time = now();
         $exchange->finished_time = now();
         $exchange->cancelled_time = now();

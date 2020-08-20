@@ -37,15 +37,16 @@
           form.innerHTML = `
           <input placeholder="${this.$t('Write the Concept...')}"
           id="tfConcept" type="text" name="concept"
-          class="box-border p-2 mb-3 rounded-md"
-          style="border: 1px solid #999; width:100%; text-align:center;" ><br>
+          class="box-border p-2 mb-3 rounded-md text-center w-full"
+          maxlength="120"
+          style="border: 1px solid #999;" ><br>
           <span id="tfHours">0</span> hours<br>
-          <input style="width:90%;" type="range" name="tfHours" value=0 step=1 min=0 max=25
+          <input style="width:100%;" type="range" name="tfHours" value=0 step=1 min=0 max=25
           onchange="window.changeHours(this.value)"
           oninput="window.changeHours(this.value)"
           ><br>
           <span id="tfMinutes">0</span> min<br>
-          <input style="width:60%;" type="range" name="tfMinutes" value=0 step=5 min=0 max=60
+          <input style="width:100%;" type="range" name="tfMinutes" value=0 step=5 min=0 max=55
           onchange="window.changeMinutes(this.value)"
           oninput="window.changeMinutes(this.value)"
           >
@@ -60,6 +61,7 @@
               + this.profileUserName.substring(1),
             /*text: '',*/
             content: form,
+            showLoaderOnConfirm: true,
             buttons: {
               cancel: "Cancel",
               catch: {
@@ -68,7 +70,6 @@
               },
             }
           }).then((value) => {
-            //swal(`You typed: ${value}`);
             if (!value) return 0; // If cancel or click outside do nothing
               axios({
                 method: 'post',
@@ -77,13 +78,21 @@
                   actualUserId: this.actualUserId,
                   involvedUserId: this.profileUserId,
                   hours: tfHours.innerHTML,
-                  min: tfMinutes.innerHTML,
+                  minutes: tfMinutes.innerHTML,
                   type: type,
                   concept: document.getElementById("tfConcept").value
                 }
-              }).then(response => {
+              },
+              this.$swal({
+                title: this.$t('Sending data...'),
+                icon: "success",
+                text: this.$t('This page will soon refresh'),
+                buttons: false,
+                timer: 5000
+              })
+            ).then(response => {
                 //this.changeStatus();
-                console.log(response);
+                //console.log(response);
                 location.reload();
               })
               .catch(error => {
