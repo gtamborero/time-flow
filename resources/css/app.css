@@ -79,11 +79,11 @@
 }
 
 .fixed-button {
-    @apply text-white font-medium shadow-md px-2 py-3 bg-primary border border-4;
+    @apply text-primary bg-white font-medium shadow-md px-2 py-3 border border-gray-300;
 }
 
 .fixed-button:hover {
-    @apply bg-primary-light;
+    @apply bg-primary text-white;
 }
 
 @import "stars.css";

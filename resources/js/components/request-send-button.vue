@@ -1,6 +1,6 @@
 <template>
   <div v-if="renderComponent"
-    class="fixed bottom-0 p-1 bg-white color1 left-0 right-0 grid grid-cols-2"
+    class="fixed bottom-0 left-0 right-0 grid grid-cols-2"
     style="border-top:1px solid #ccc;"
     >
       <button v-on:click="createNew('request')"
