@@ -86,7 +86,7 @@
               this.$swal({
                 title: this.$t('Sending data...'),
                 icon: "success",
-                text: this.$t('This page will soon refresh'),
+                text: this.$t('Please wait until page refresh'),
                 buttons: false,
                 timer: 5000
               })
