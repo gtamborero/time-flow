@@ -25,7 +25,7 @@
               concept="{{ $exchange->concept }}"
               :seller-user="{{$exchange->getSellerUser}}"
               :buyer-user="{{$exchange->getBuyerUser}}"
-              amount="{{ $exchange->amount }}"
+              amount="{{ humanizeMinutes($exchange->amount) }}"
               created="{{ $exchange->created_at->diffForHumans() }}"
               :creator-user-id="{{$exchange->getCreatorUser->id}}"
               :actual-user-id="@auth {{Auth::user()->id}} @endauth @guest 0 @endguest"
