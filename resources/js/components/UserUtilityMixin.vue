@@ -56,34 +56,34 @@
 
               var infoNotInvolved = `${this.buyerUser.name}
                 ${this.$t('sended')}
-                
+
                 ${this.amount}
                 ${this.$t('to')}
                 ${this.sellerUser.name}
-                ${this.$t('for')}
-                <br>
-                ${this.concept}`;
+                ${this.$t('for:')}
+
+                <span class="font-semibold">${this.concept}</span>`;
 
               var info = `${this.siblingUser}
                 ${this.$t('wants to sends you')}
                 ${this.amount}
-                ${this.$t('for')}
-                <br>
-                ${this.concept}`;
+                ${this.$t('for:')}
+
+                <span class="font-semibold">${this.concept}</span>`;
 
               var infoBuyerAndCreator = `${this.siblingUser}
                 ${this.$t('wants to received from you')}
                 ${this.amount}
-                ${this.$t('for')}
-                <br>
-                ${this.concept}`;
+                ${this.$t('for:')}
+
+                <span class="font-semibold">${this.concept}</span>`;
 
               var infoBuyer = `${this.siblingUser}
                 ${this.$t('wants to received from you')}
                 ${this.amount}
-                ${this.$t('for')}
-                <br>
-                ${this.concept}`;
+                ${this.$t('for:')}
+
+                <span class="font-semibold">${this.concept}</span>`;
           }
 
           // Messages when exchange status is Accepted
@@ -95,31 +95,31 @@
                 ${this.amount}
                 ${this.$t('to')}
                 ${this.sellerUser.name}
-                ${this.$t('for')}
-                <br>
-                ${this.concept}`;
+                ${this.$t('for:')}
+
+                <span class="font-semibold">${this.concept}</span>`;
 
               var info = `${this.siblingUser}
                 ${this.$t('sends you')}
 
                 ${this.amount}
-                ${this.$t('for')}
-                <br>
-                ${this.concept}`;
+                ${this.$t('for:')}
+
+                <span class="font-semibold">${this.concept}</span>`;
 
               var infoBuyerAndCreator = `${this.siblingUser}
                 ${this.$t('has received from you')}
                 ${this.amount}
-                ${this.$t('for')}
-                <br>
-                ${this.concept}`;
+                ${this.$t('for:')}
+
+                <span class="font-semibold">${this.concept}</span>`;
 
               var infoBuyer = `${this.siblingUser}
                 ${this.$t('has received from you')}
                 ${this.amount}
-                ${this.$t('for')}
-                <br>
-                ${this.concept}`;
+                ${this.$t('for:')}
+
+                <span class="font-semibold">${this.concept}</span>`;
           }
 
           // Messages when exchange status is Rejected
@@ -130,30 +130,30 @@
                 ${this.amount}
                 ${this.$t('to')}
                 ${this.sellerUser.name}
-                ${this.$t('for')}
-                <br>
-                ${this.concept}`;
+                ${this.$t('for:')}
+
+                <span class="font-semibold">${this.concept}</span>`;
 
               var info = `${this.siblingUser}
                 ${this.$t('sended you')}
                 ${this.amount}
-                ${this.$t('for')}
-                <br>
-                ${this.concept}`;
+                ${this.$t('for:')}
+
+                <span class="font-semibold">${this.concept}</span>`;
 
               var infoBuyerAndCreator = `${this.siblingUser}
                 ${this.$t('has received from you')}
                 ${this.amount}
-                ${this.$t('for')}
-                <br>
-                ${this.concept}`;
+                ${this.$t('for:')}
+
+                <span class="font-semibold">${this.concept}</span>`;
 
               var infoBuyer = `${this.siblingUser}
                 ${this.$t('has received from you')}
                 ${this.amount}
-                ${this.$t('for')}
-                <br>
-                ${this.concept}`;
+                ${this.$t('for:')}
+
+                <span class="font-semibold">${this.concept}</span>`;
           }
 
           if (this.involvedUser == "NotInvolved") return infoNotInvolved;
