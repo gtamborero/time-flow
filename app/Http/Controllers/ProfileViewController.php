@@ -29,7 +29,6 @@ class ProfileViewController extends Controller
           ->get();
 
       return view('profile')
-        ->with('userName',$userName)
         ->with('userId',$userId)
         ->with('userData',$userData)
         ->with('exchanges',$exchanges);

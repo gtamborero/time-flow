@@ -19,6 +19,8 @@
   font-variant: normal;
   text-transform: none;
   line-height: 1;
+  color:#555;
+  font-size: 18px;
 
   /* Better Font Rendering =========== */
   -webkit-font-smoothing: antialiased;

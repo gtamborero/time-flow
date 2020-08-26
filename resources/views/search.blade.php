@@ -3,13 +3,13 @@
 @section('content')
 
     <div class=" m-4 break-words text-2xl text-primary text-center font-medium uppercase">
-      @lang('search for users')
+      @lang('Matching users')
     </div>
 
-    <div class="grid grid-cols-3 mt-5 bg-white shadow-md break-words">
-      <div class="p-5 flex flex-col sm:flex-row items-center">
-        Sección Buscar usuarios
-      </div>
-    </div>
+@foreach ($usersData as $userData)
+  @include ('partials.user-heading')
+  <div class="w-full pt-6"></div>
+@endforeach
+
 
 @endsection

@@ -26,7 +26,7 @@
               concept="{{ $exchange->concept }}"
               :seller-user="{{$exchange->getSellerUser}}"
               :buyer-user="{{$exchange->getBuyerUser}}"
-              amount="{{ $exchange->amount }}"
+              amount="{{ humanizeMinutes($exchange->amount) }}"
               created="{{ $exchange->created_at->diffForHumans() }}"
               :creator-user-id="{{$exchange->getCreatorUser->id}}"
               seller-gravatar="{{ gravatar($exchange->getSellerUser->email) }}"

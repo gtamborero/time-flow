@@ -38,7 +38,7 @@
 
       <request-send-button
         :profile-user-id="{{$userId}}"
-        profile-user-name="{{$userName}}"
+        profile-user-name="{{$userData->name}}"
         :actual-user-id="@auth {{Auth::user()->id}} @endauth"
       ></request-send-button>
 

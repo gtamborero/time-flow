@@ -1,5 +1,5 @@
 <!-- IF LOGGED IN OR NOT AND WHATCHING PROFILE -->
-@isset ($userName)
+@isset ($userData->name)
 
 <div class="grid md:grid-cols-2">
 
@@ -54,7 +54,7 @@
 
 @endisset
 
-@empty ($userName)
+@empty ($userData->name)
   <div class="grid md:grid-cols-2">
 
       <div class="p-6 break-words bg-white shadow-md">
