@@ -56,10 +56,10 @@
 
               var infoNotInvolved = `${this.buyerUser.name}
                 ${this.$t('sended')}
+                
                 ${this.amount}
                 ${this.$t('to')}
                 ${this.sellerUser.name}
-                ${this.$t('minutes')}
                 ${this.$t('for')}
                 <br>
                 ${this.concept}`;
@@ -67,7 +67,6 @@
               var info = `${this.siblingUser}
                 ${this.$t('wants to sends you')}
                 ${this.amount}
-                ${this.$t('minutes')}
                 ${this.$t('for')}
                 <br>
                 ${this.concept}`;
@@ -75,7 +74,6 @@
               var infoBuyerAndCreator = `${this.siblingUser}
                 ${this.$t('wants to received from you')}
                 ${this.amount}
-                ${this.$t('minutes')}
                 ${this.$t('for')}
                 <br>
                 ${this.concept}`;
@@ -83,7 +81,6 @@
               var infoBuyer = `${this.siblingUser}
                 ${this.$t('wants to received from you')}
                 ${this.amount}
-                ${this.$t('minutes')}
                 ${this.$t('for')}
                 <br>
                 ${this.concept}`;
@@ -94,18 +91,18 @@
 
               var infoNotInvolved = `${this.buyerUser.name}
                 ${this.$t('sended')}
+
                 ${this.amount}
                 ${this.$t('to')}
                 ${this.sellerUser.name}
-                ${this.$t('minutes')}
                 ${this.$t('for')}
                 <br>
                 ${this.concept}`;
 
               var info = `${this.siblingUser}
                 ${this.$t('sends you')}
+
                 ${this.amount}
-                ${this.$t('minutes')}
                 ${this.$t('for')}
                 <br>
                 ${this.concept}`;
@@ -113,7 +110,6 @@
               var infoBuyerAndCreator = `${this.siblingUser}
                 ${this.$t('has received from you')}
                 ${this.amount}
-                ${this.$t('minutes')}
                 ${this.$t('for')}
                 <br>
                 ${this.concept}`;
@@ -121,7 +117,6 @@
               var infoBuyer = `${this.siblingUser}
                 ${this.$t('has received from you')}
                 ${this.amount}
-                ${this.$t('minutes')}
                 ${this.$t('for')}
                 <br>
                 ${this.concept}`;
@@ -135,7 +130,6 @@
                 ${this.amount}
                 ${this.$t('to')}
                 ${this.sellerUser.name}
-                ${this.$t('minutes')}
                 ${this.$t('for')}
                 <br>
                 ${this.concept}`;
@@ -143,7 +137,6 @@
               var info = `${this.siblingUser}
                 ${this.$t('sended you')}
                 ${this.amount}
-                ${this.$t('minutes')}
                 ${this.$t('for')}
                 <br>
                 ${this.concept}`;
@@ -151,7 +144,6 @@
               var infoBuyerAndCreator = `${this.siblingUser}
                 ${this.$t('has received from you')}
                 ${this.amount}
-                ${this.$t('minutes')}
                 ${this.$t('for')}
                 <br>
                 ${this.concept}`;
@@ -159,7 +151,6 @@
               var infoBuyer = `${this.siblingUser}
                 ${this.$t('has received from you')}
                 ${this.amount}
-                ${this.$t('minutes')}
                 ${this.$t('for')}
                 <br>
                 ${this.concept}`;

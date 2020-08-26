@@ -38,7 +38,7 @@
       </div>
     </div>
 
-    <div class="p-6 pt-0 md:pt-6 break-words bg-white text-center shadow-md leading-7">
+    <div class="p-6 pt-0 md:pt-6 break-words bg-white text-center shadow-md leading-6">
       <span class="text-lg font-medium text-primary-light hidden md:block mb-4">
         @lang('Información de')
         <span class="capitalize">{{ $userData->name }}</span>:
@@ -46,7 +46,7 @@
       Resumen breve de la persona..
       {{ $userData->user_data }}
       <br>
-      <br>@lang('Reside en'):<br> {{ ucfirst($userData->country) }} - {{ ucfirst($userData->city) }}
+      <br><span class="icon-home text-xl"></span><br> {{ ucfirst($userData->country) }} - {{ ucfirst($userData->city) }}
 
     </div>
 

@@ -14,11 +14,10 @@
     <!-- AMOUNT -->
     <div class="grid text-center items-end">
       <div class="font-medium">
+        <span class="icon-timer"></span><br>
       {{ amount }}
       <br>
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" class="arrow-animation inline fill-current w-6 h-6">
-          <path fill="#bbb" d="M1 5l9 5-9 5V5zm9 0l9 5-9 5V5z"></path>
-        </svg>
+      <span class="icon-fast_forward arrow-animation"></span>
       </div>
     </div>
 
