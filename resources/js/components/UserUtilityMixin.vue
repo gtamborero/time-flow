@@ -173,6 +173,12 @@
           if (this.involvedUser == "BuyerAndCreator") return infoBuyerAndCreator; // "buyer and creator
           if (this.involvedUser == "SellerAndCreator") return info; // seller and creator
 
+        },
+        getStatusName: function(){
+          //0: pending, 1:accepted, -1:rejected
+          if (this.status == 0) return `${this.$t('Pending')}`;
+          if (this.status == 1) return `${this.$t('Accepted')}`;
+          if (this.status == -1) return `${this.$t('Rejected')}`;
         }
       }
     }

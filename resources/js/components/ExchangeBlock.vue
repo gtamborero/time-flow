@@ -10,7 +10,7 @@
         }">
 
           <div class="md:text-left md:float-left">
-            Pending
+            {{getStatusName()}}
           </div>
 
           <div class="md:text-right flex-grow md:float-right md:right-0 md:pr-5 md:absolute">
@@ -53,13 +53,6 @@
                 </transition>
               </div>
           </div>
-
-          <!-- WHEN REJECTED EXCHANGE -->
-
-              <div v-if="status==-1" class="p-2 px-4 inline-block m-2 uppercase bg-white text-red">
-                {{ $t('Rejected') }}
-              </div>
-
 
       </div>
 

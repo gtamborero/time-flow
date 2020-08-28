@@ -12,9 +12,9 @@ module.exports = {
       'gray-200': '#EDF2F7',
       'gray-300': '#E2E8F0',
       'gray-400': '#CBD5E0',
-      'red': '#d43f11',
-      'green': '#599f13',
-      'orange': '#de8316'
+      'red': '#b00e0e',
+      'green': '#50920f',
+      'orange': '#cd7914'
     }
   },
   variants: {},
