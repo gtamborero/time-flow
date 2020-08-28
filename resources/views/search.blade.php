@@ -2,8 +2,8 @@
 
 @section('content')
 
-    <div class=" m-4 break-words text-2xl text-primary text-center font-medium uppercase">
-      @lang('Matching users')
+    <div class=" p-4 my-5 break-words text-3xl text-primary text-center font-medium bg-white">
+      <span class="uppercase">@lang('Matching users')</span><br> Search: paco
     </div>
 
 @foreach ($usersData as $userData)

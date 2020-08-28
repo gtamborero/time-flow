@@ -12,9 +12,9 @@
   @include ('partials.user-heading')
 
 
-    <div class=" m-4 break-words text-3xl md:text-2x1 text-primary text-center font-medium uppercase">
-      @lang('last exchanges')
-    </div>
+  <div class=" p-4 my-5 break-words text-3xl text-primary text-center font-medium uppercase bg-white">
+    @lang('last exchanges')
+  </div>
 
     {{-- Feed exchange data --}}
     @include ('partials.script-injection-vue')
