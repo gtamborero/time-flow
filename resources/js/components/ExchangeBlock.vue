@@ -1,13 +1,19 @@
 <template>
   <div :exchange-id="id" class="exchange-block">
+
       <!-- WHEN PENDING EXCHANGE AND USER CAN ACCEPT -->
       <div class="py-3 px-5 text-white break-words relative text-center"
         v-bind:class="{
-          'bg-primary': status == 0, // Pending
+          'bg-orange': status == 0, // Pending
           'bg-green': status == 1, // Accepted
           'bg-red': status == -1 // Rejected
         }">
-          <div class="text-right flex-grow md:float-right md:right-0 md:pr-5 md:absolute">
+
+          <div class="md:text-left md:float-left">
+            Pending
+          </div>
+
+          <div class="md:text-right flex-grow md:float-right md:right-0 md:pr-5 md:absolute">
             <span class="text-sm text-gray-300">{{ created }}</span><br>
           </div>
 
@@ -37,7 +43,7 @@
                     {{ $t('Rate to') }} {{sellerUser.name}}
                   </button>
                 </div>
-                
+
 
                 <!-- WHEN COMMENT-->
                 <transition name="slide-fade">

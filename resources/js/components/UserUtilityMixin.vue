@@ -61,13 +61,14 @@
                 ${this.$t('to')}
                 ${this.sellerUser.name}
                 ${this.$t('for:')}
-
+                <div class="hidden md:block"></div>
                 <span class="font-semibold">${this.concept}</span>`;
 
               var info = `${this.siblingUser}
                 ${this.$t('wants to sends you')}
                 ${this.amount}
                 ${this.$t('for:')}
+                <div class="hidden md:block"></div>
 
                 <span class="font-semibold">${this.concept}</span>`;
 
@@ -75,6 +76,7 @@
                 ${this.$t('wants to received from you')}
                 ${this.amount}
                 ${this.$t('for:')}
+                <div class="hidden md:block"></div>
 
                 <span class="font-semibold">${this.concept}</span>`;
 
@@ -82,6 +84,7 @@
                 ${this.$t('wants to received from you')}
                 ${this.amount}
                 ${this.$t('for:')}
+                <div class="hidden md:block"></div>
 
                 <span class="font-semibold">${this.concept}</span>`;
           }
@@ -96,6 +99,7 @@
                 ${this.$t('to')}
                 ${this.sellerUser.name}
                 ${this.$t('for:')}
+                <div class="hidden md:block"></div>
 
                 <span class="font-semibold">${this.concept}</span>`;
 
@@ -104,6 +108,7 @@
 
                 ${this.amount}
                 ${this.$t('for:')}
+                <div class="hidden md:block"></div>
 
                 <span class="font-semibold">${this.concept}</span>`;
 
@@ -111,6 +116,7 @@
                 ${this.$t('has received from you')}
                 ${this.amount}
                 ${this.$t('for:')}
+                <div class="hidden md:block"></div>
 
                 <span class="font-semibold">${this.concept}</span>`;
 
@@ -118,6 +124,7 @@
                 ${this.$t('has received from you')}
                 ${this.amount}
                 ${this.$t('for:')}
+                <div class="hidden md:block"></div>
 
                 <span class="font-semibold">${this.concept}</span>`;
           }
@@ -131,6 +138,7 @@
                 ${this.$t('to')}
                 ${this.sellerUser.name}
                 ${this.$t('for:')}
+                <div class="hidden md:block"></div>
 
                 <span class="font-semibold">${this.concept}</span>`;
 
@@ -138,6 +146,7 @@
                 ${this.$t('sended you')}
                 ${this.amount}
                 ${this.$t('for:')}
+                <div class="hidden md:block"></div>
 
                 <span class="font-semibold">${this.concept}</span>`;
 
@@ -145,6 +154,7 @@
                 ${this.$t('has received from you')}
                 ${this.amount}
                 ${this.$t('for:')}
+                <div class="hidden md:block"></div>
 
                 <span class="font-semibold">${this.concept}</span>`;
 
@@ -152,6 +162,7 @@
                 ${this.$t('has received from you')}
                 ${this.amount}
                 ${this.$t('for:')}
+                <div class="hidden md:block"></div>
 
                 <span class="font-semibold">${this.concept}</span>`;
           }
