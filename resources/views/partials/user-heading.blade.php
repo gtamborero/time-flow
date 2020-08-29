@@ -46,7 +46,10 @@
       Resumen breve de la persona..
       {{ $userData->user_data }}
       <br>
-      <br><span class="icon-home text-xl"></span><br> {{ ucfirst($userData->country) }} - {{ ucfirst($userData->city) }}
+      <br><span class="icon-home text-xl"></span>
+      <br> {{ ucfirst($userData->country) }} - {{ ucfirst($userData->city) }}
+
+    
 
     </div>
 
