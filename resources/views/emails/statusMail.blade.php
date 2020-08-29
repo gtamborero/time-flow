@@ -20,7 +20,7 @@
   <tr>
   <td>{{ $concept }}</td>
   <tr>
-  <td>Amount: {{ $amount }}</td>
+  <td>Amount: {{ humanizeMinutes($amount) }}</td>
 </table>
 
 <br>
