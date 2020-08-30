@@ -59,6 +59,17 @@
           <a href="mailto:{{Auth::user()->email}}"><span class="icon-envelope-o"></span></a>
           <a href="{{Auth::user()->linkedin}}"><span class="icon-linkedin-square"></span></a>
         </div>
+
+        <?php if (Auth::user()->name == $userData->name){ ?>
+        <div>
+          <a href="{{ url('/profile/' . $userData->name . '/edit') }}">
+            <button class="access-to tf-button tf-button-primary mt-4 block mx-auto">
+              @lang('Edit my profile')
+            </button>
+          </a>
+        </div>
+        <?php } ?>
+
       @endauth
       @guest
         <div class="social-data border-solid border border-secondary inline-block p-4">
