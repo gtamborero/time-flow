@@ -6,7 +6,9 @@
     <div class="p-6 break-words bg-white shadow-md">
       <div class="grid">
         <div>
-          <img class="rounded-full mx-auto my-2" src="{{ gravatar($userData->email) }}">
+          <a class="user-link" href="/profile/{{ $userData->name }}">
+            <img class="rounded-full mx-auto my-2" src="{{ gravatar($userData->email) }}">
+          </a>
         </div>
         <div class="text-center">
           <div class="text-primary-light text-lg font-medium capitalize">
@@ -50,12 +52,23 @@
       <br> {{ ucfirst($userData->country) }} - {{ ucfirst($userData->city) }}
       <br><br>
 
-      <div class="social-data">
-        <a href=""><span class="icon-phone"></span></a>
-        <a href=""><span class="icon-whatsapp"></span></a>
-        <a href=""><span class="icon-envelope-o"></span></a>
-        <a href=""><span class="icon-linkedin-square"></span></a>
-      </div>
+      @auth
+        <div class="social-data p-4">
+          <a href=""><span class="icon-phone"></span></a>
+          <a href=""><span class="icon-whatsapp"></span></a>
+          <a href=""><span class="icon-envelope-o"></span></a>
+          <a href=""><span class="icon-linkedin-square"></span></a>
+        </div>
+      @endauth
+      @guest
+        <div class="social-data border-solid border border-secondary inline-block p-4">
+          <span class="icon-phone"></span>
+          <span class="icon-whatsapp"></span>
+          <span class="icon-envelope-o"></span>
+          <span class="icon-linkedin-square"></span>
+          <br>Social data is available for registered users
+        </div>
+      @endguest
 
     </div>
 
