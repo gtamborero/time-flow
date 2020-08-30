@@ -48,8 +48,14 @@
       <br>
       <br><span class="icon-home text-xl"></span>
       <br> {{ ucfirst($userData->country) }} - {{ ucfirst($userData->city) }}
+      <br><br>
 
-    
+      <div class="social-data">
+        <a href=""><span class="icon-phone"></span></a>
+        <a href=""><span class="icon-whatsapp"></span></a>
+        <a href=""><span class="icon-envelope-o"></span></a>
+        <a href=""><span class="icon-linkedin-square"></span></a>
+      </div>
 
     </div>
 

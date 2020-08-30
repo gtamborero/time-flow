@@ -1,0 +1,9 @@
+.social-data span{
+  margin:10px;
+  font-size:28px;
+  color:#777;
+}
+
+.social-data a:hover span {
+  color: var(--color1);
+}

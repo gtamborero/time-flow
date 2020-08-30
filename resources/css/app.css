@@ -57,6 +57,12 @@
  * @import "utilities/background-patterns";
  * @import "utilities/skew-transforms";
  */
+
+ :root {
+   --color1: #2a4365;
+   --color2: #f2f2f2;
+ }
+
 /* TIME FLOW BUTTONS */
 .tf-button {
     @apply text-white font-medium py-2 px-4 rounded shadow-md
@@ -90,3 +96,4 @@
 @import "exchange-block.css";
 @import "animations.css";
 @import "icomoon.css";
+@import "social-data.css";

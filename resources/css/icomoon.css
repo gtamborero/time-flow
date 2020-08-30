@@ -27,6 +27,18 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+.icon-phone:before {
+  content: "\e909";
+}
+.icon-envelope-o:before {
+  content: "\e906";
+}
+.icon-whatsapp:before {
+  content: "\e907";
+}
+.icon-linkedin-square:before {
+  content: "\e908";
+}
 .icon-search:before {
   content: "\e901";
 }
