@@ -20,7 +20,10 @@ class UsersTableSeeder extends Seeder
         'user_data' => 'informatica, bicicleta',
         'country' => 'spain',
         'city' => 'barcelona',
-        'town' => 'barcelona'
+        'town' => 'barcelona',
+        'phone' => '639402399',
+        'whatsapp' => '639402399',
+        'linkedin' => 'https://www.linkedin.com/in/guillermotamborero/'
         ],
         [
         'id' => 2,
@@ -30,7 +33,10 @@ class UsersTableSeeder extends Seeder
         'user_data' => 'informatica, bicicleta',
         'country' => 'spain',
         'city' => 'barcelona',
-        'town' => 'barcelona'
+        'town' => 'barcelona',
+        'phone' => '639402399',
+        'whatsapp' => '639402399',
+        'linkedin' => 'https://www.linkedin.com/in/guillermotamborero/'
         ],
         [
         'id' => 3,
@@ -40,7 +46,10 @@ class UsersTableSeeder extends Seeder
         'user_data' => 'informatica, bicicleta',
         'country' => 'spain',
         'city' => 'barcelona',
-        'town' => 'barcelona'
+        'town' => 'barcelona',
+        'phone' => '639402399',
+        'whatsapp' => '639402399',
+        'linkedin' => 'https://www.linkedin.com/in/guillermotamborero/'
         ],
         [
         'id' => 4,
@@ -50,7 +59,10 @@ class UsersTableSeeder extends Seeder
         'user_data' => 'informatica, bicicleta',
         'country' => 'spain',
         'city' => 'barcelona',
-        'town' => 'barcelona'
+        'town' => 'barcelona',
+        'phone' => '639402399',
+        'whatsapp' => '639402399',
+        'linkedin' => 'https://www.linkedin.com/in/guillermotamborero/'
         ],
         [
         'id' => 5,
@@ -60,7 +72,10 @@ class UsersTableSeeder extends Seeder
         'user_data' => 'informatica, bicicleta',
         'country' => 'spain',
         'city' => 'barcelona',
-        'town' => 'barcelona'
+        'town' => 'barcelona',
+        'phone' => '639402399',
+        'whatsapp' => '639402399',
+        'linkedin' => 'https://www.linkedin.com/in/guillermotamborero/'
         ]
 
       ]);
