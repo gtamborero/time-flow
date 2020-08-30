@@ -54,10 +54,10 @@
 
       @auth
         <div class="social-data p-4">
-          <a href=""><span class="icon-phone"></span></a>
-          <a href=""><span class="icon-whatsapp"></span></a>
-          <a href=""><span class="icon-envelope-o"></span></a>
-          <a href=""><span class="icon-linkedin-square"></span></a>
+          <a href="tel:+34639402399"><span class="icon-phone"></span></a>
+          <a href="https://wa.me/34639402399"><span class="icon-whatsapp"></span></a>
+          <a href="mailto:gtamborero@iproject.cat"><span class="icon-envelope-o"></span></a>
+          <a href="https://www.linkedin.com/in/guillermotamborero/"><span class="icon-linkedin-square"></span></a>
         </div>
       @endauth
       @guest

@@ -2,7 +2,12 @@
   margin:10px;
   font-size:28px;
   color:#777;
-  padding:5px 0;
+  padding:8px 0;
+}
+@media (max-width:990px){
+  .social-data span{
+    font-size:32px;
+  }
 }
 
 .social-data a:hover span {

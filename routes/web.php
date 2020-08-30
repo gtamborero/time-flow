@@ -23,7 +23,7 @@ Route::get('/profile/{username}', 'ProfileViewController@index')->name('profileV
 Route::get('login/facebook', 'Auth\LoginController@redirectToProvider');
 Route::get('login/facebook/callback', 'Auth\LoginController@handleProviderCallback');
 
-Route::get('search', 'SearchController@index')->name('search')->middleware('verified');
+Route::get('search', 'SearchController@index')->name('search');
 
 Route::resource('exchange', 'ExchangeController')->middleware('verified');
 
