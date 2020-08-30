@@ -18,7 +18,7 @@ Auth::routes(['verify' => true]); //verify email
 // After login -> Home -> Redirects to profile/username
 Route::get('/', 'HomeController@index')->name('home');
 Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/profile/{username}', 'ProfileViewController@index')->name('profileView');
+Route::get('/profile/{username}', 'ProfileViewController@index')->name('profileView')->middleware('verified');
 
 Route::get('login/facebook', 'Auth\LoginController@redirectToProvider');
 Route::get('login/facebook/callback', 'Auth\LoginController@handleProviderCallback');
