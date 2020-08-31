@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Auth;
 use App\Mail\StatusMail;
 
 class ProfileViewController extends Controller
@@ -16,6 +17,12 @@ class ProfileViewController extends Controller
   public function index($userName)
   {
       $userData = \App\User::where('name', $userName)->first();
+
+      // Check if user has verified mail:
+      if ((Auth::user()) && ($userName == Auth::user()->name)){
+        if (!Auth::user()->hasVerifiedEmail()) return redirect ('email/verify');
+      }
+
       $userId = $userData->id;
 
       $exchanges = \App\Exchanges
@@ -31,6 +38,7 @@ class ProfileViewController extends Controller
       return view('profile')
         ->with('userId',$userId)
         ->with('userData',$userData)
+        ->with('userName',$userName)
         ->with('exchanges',$exchanges);
   }
 }
