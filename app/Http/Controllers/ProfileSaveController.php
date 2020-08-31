@@ -30,7 +30,7 @@ class ProfileSaveController extends Controller
       //dd($request->phone);
       $user->save();
 
-      return redirect( '/profile/'. Auth::user()->name .'/edit')->with('message','El formulario ha sido enviado correctamente');
+      return redirect( '/profile/'. Auth::user()->name .'/edit')->with('message', __('Your data have been saved'));
 
   }
 }
