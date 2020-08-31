@@ -54,10 +54,10 @@
 
       @auth
         <div class="social-data p-4">
-          <a href="tel:{{Auth::user()->phone}}"><span class="icon-phone"></span></a>
-          <a href="https://wa.me/{{Auth::user()->whatsapp}}"><span class="icon-whatsapp"></span></a>
-          <a href="mailto:{{Auth::user()->email}}"><span class="icon-envelope-o"></span></a>
-          <a href="{{Auth::user()->linkedin}}"><span class="icon-linkedin-square"></span></a>
+          <a href="tel:{{$userData->phone}}"><span class="icon-phone"></span></a>
+          <a href="https://wa.me/{{$userData->whatsapp}}"><span class="icon-whatsapp"></span></a>
+          <a href="mailto:{{$userData->email}}"><span class="icon-envelope-o"></span></a>
+          <a href="{{$userData->linkedin}}"><span class="icon-linkedin-square"></span></a>
         </div>
 
         <?php if (Auth::user()->name == $userData->name){ ?>
