@@ -34,8 +34,8 @@
       @endforeach
 
              <a class="mt-2 bg-primary hover:bg-primary-light
-                    w-full block text-white text-center font-normal py-2 px-4 rounded
+                    w-full block text-white text-xl uppercase text-center font-normal py-2 px-4 rounded
                     focus:outline-none focus:shadow-outline cursor-pointer mx-auto"
-                    href="/" >@lang('Back')</a>
+                    href="/" >@lang('Go Back')</a>
 
 @endsection

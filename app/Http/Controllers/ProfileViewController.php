@@ -20,7 +20,7 @@ class ProfileViewController extends Controller
 
       // Check if user has verified mail:
       if ((Auth::user()) && ($userName == Auth::user()->name)){
-        if (!Auth::user()->hasVerifiedEmail()) return redirect ('email/verify');
+        if (!isVerifiedUser()) return redirect ('email/verify');
       }
 
       $userId = $userData->id;

@@ -13,9 +13,7 @@ class ExchangeViewController extends Controller
         $userData = \App\User::where('name', Auth::user()->name)->first();
 
         // Check if user has verified mail:
-        if (Auth::user()){
-          if (!Auth::user()->hasVerifiedEmail()) return redirect ('email/verify');
-        }
+        if (!isVerifiedUser()) return redirect ('email/verify');
 
         $userId = $userData->id;
 
