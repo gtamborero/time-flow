@@ -21,7 +21,7 @@
           Minutos entregados xxxx<br>
           Minutos recibidos vvv<br>
           @lang('Balance global'):
-          {{ $userData->getTotalBalance($userData->id) }} minutos<br>
+          {{ humanizeMinutes($userData->getTotalBalance($userData->id)) }}<br>
           @lang('Intercambios realizados'): {{ $userData->getExchangeCount($userData->id) }}
 
           <br>
@@ -45,7 +45,6 @@
         @lang('Información de')
         <span class="capitalize">{{ $userData->name }}</span>:
       </span>
-      Resumen breve de la persona..
       {{ $userData->user_data }}
       <br>
       <br><span class="icon-home text-xl"></span>
