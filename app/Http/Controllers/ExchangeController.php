@@ -60,6 +60,7 @@ class ExchangeController extends Controller
         $exchange->cancelled_time = now();
         $exchange->save();
         Mail::send(new StatusMail($exchange->id));
+        return $exchange->id; //Return new created exchange id
     }
 
     /**

@@ -88,12 +88,12 @@
                 icon: "success",
                 text: this.$t('Please wait until page refresh'),
                 buttons: false,
-                timer: 5000
+                timer: 2000
               })
             ).then(response => {
                 //this.changeStatus();
                 //console.log(response);
-                location.reload();
+                location.replace('/exchange-view/' + response.data);
               })
               .catch(error => {
                 console.log(error)
