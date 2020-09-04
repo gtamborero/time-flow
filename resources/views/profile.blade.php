@@ -12,7 +12,11 @@
   @include ('partials.user-heading')
 
     <div class=" p-4 my-5 break-words text-3xl text-primary text-center font-medium uppercase bg-white">
-      @lang('your exchanges')
+      <?php if (isVerifiedUser() && ($userName != Auth::user()->name)){ ?>
+        @lang(':name exchanges',['name' => $userName])
+      <?php }else{ ?>
+        @lang('your exchanges')
+      <?php } ?>
     </div>
 
     {{-- Feed exchange data --}}
@@ -36,7 +40,7 @@
         </div>
       @endforeach
 
-      <?php if ((Auth::user()) && (Auth::user()->hasVerifiedEmail()) && ($userName != Auth::user()->name)){ ?>
+      <?php if (isVerifiedUser() && ($userName != Auth::user()->name)){ ?>
       <request-send-button
         :profile-user-id="{{$userId}}"
         profile-user-name="{{$userData->name}}"

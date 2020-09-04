@@ -48,7 +48,8 @@
             "database/factories"
         ],
         "files": [
-            "app/Helpers/HumanizeMinutes.php"
+            "app/Helpers/HumanizeMinutes.php",
+            "app/Helpers/IsVerifiedUser.php"
         ]
     },
     "autoload-dev": {

@@ -32,6 +32,7 @@ class HomeController extends Controller
 
       // IF Anonymouse user
       $exchanges = \App\Exchanges::orderBy('id', 'desc')
+      ->where('status', 1)
       ->with('getSellerUser')
       ->with('getBuyerUser')
       ->with('getCreatorUser')
