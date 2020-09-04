@@ -12,10 +12,10 @@
   @include ('partials.user-heading')
 
     <div class=" p-4 my-5 break-words text-3xl text-primary text-center font-medium uppercase bg-white">
-      <?php if (isVerifiedUser() && ($userName != Auth::user()->name)){ ?>
-        @lang(':name exchanges',['name' => $userName])
-      <?php }else{ ?>
+      <?php if (isVerifiedUser() && ($userName == Auth::user()->name)){ ?>
         @lang('your exchanges')
+      <?php }else{ ?>
+        @lang(':name exchanges',['name' => $userName])
       <?php } ?>
     </div>
 
