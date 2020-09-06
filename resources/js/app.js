@@ -27,6 +27,9 @@ Vue.component('comment-exchange', CommentExchange);
 import RequestSendButton from './components/request-send-button.vue';
 Vue.component('request-send-button', RequestSendButton);
 
+import ProfileGeoloc from './components/profileGeoloc.vue';
+Vue.component('profile-geoloc', ProfileGeoloc);
+
 import Vuex from 'vuex';
 Vue.use(Vuex);
 

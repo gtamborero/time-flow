@@ -8,9 +8,13 @@
       </div>
   @endif
 
+  <profile-geoloc></profile-geoloc>
+
     <div class=" p-4 my-5 break-words text-3xl text-primary text-center font-medium uppercase bg-white">
       @lang('Edit your profile')
     </div>
+
+    <div id="location">Dirección:</div>
 
     <div class=" p-4 my-5 break-words text-lg text-gray text-center font-medium bg-white">
         <img class="rounded-full mx-auto my-2" src="{{ gravatar(Auth::user()->email) }}">
