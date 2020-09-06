@@ -18,8 +18,8 @@
       getLocation: function (){
         if (navigator.geolocation) {
           this.$swal({
-              title: 'Can we Geolocate You?',
-              text: "So you can fill your profile faster",
+              title: this.$t('Can we Geolocate You?'),
+              text: this.$t('So you can fill your profile faster'),
               icon: 'warning',
               buttons: {
                 confirm: {
@@ -37,8 +37,8 @@
                   closeModal: true,
                 }
               }
-            }).then((result) => {
-              if (result) {
+            }).then((value) => {
+              if (value) {
                 navigator.geolocation.getCurrentPosition(this.showPosition);
               }
           });
@@ -55,8 +55,7 @@
       },
 
       showPosition: function (position) {
-        console.log("Latitude: " + position.coords.latitude +
-        "<br>Longitude: " + position.coords.longitude);
+        //console.log("Latitude: " + position.coords.latitude + "<br>Longitude: " + position.coords.longitude);
 
       axios({
         method: 'get',
