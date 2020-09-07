@@ -19,8 +19,8 @@
         if (navigator.geolocation) {
           this.$swal({
               title: this.$t('Can we Geolocate You?'),
-              text: this.$t('So you can fill your profile faster'),
-              icon: 'warning',
+              text: this.$t('Your profile will fill up with your Country, State and City so other timebankers can find you'),
+              icon: 'info',
               buttons: {
                 confirm: {
                   text: "OK",
@@ -63,12 +63,40 @@
         }).then(function(response) {
           console.log(response.data.results[0].locations[0]);
           var location = document.getElementById("location");
-          location.innerHTML += response.data.results[0].locations[0].adminArea1;
-          location.innerHTML += response.data.results[0].locations[0].adminArea3;
-          location.innerHTML += response.data.results[0].locations[0].adminArea4;
-          location.innerHTML += response.data.results[0].locations[0].adminArea5;
-          location.innerHTML += response.data.results[0].locations[0].adminArea6;
-          location.innerHTML += response.data.results[0].locations[0].postalCode;
+
+          var locationData = response.data.results[0].locations[0];
+
+          var locationField = document.getElementById('locationField');
+
+          if (locationData.adminArea1){
+            locationField.innerHTML = locationData.adminArea1 + " - ";
+            document.getElementById('country').value = locationData.adminArea1;
+          }
+          if (locationData.adminArea2){
+            locationField.innerHTML += locationData.adminArea2 + " - ";
+            document.getElementById('country').value += ', ' + locationData.adminArea2;
+          }
+          if (locationData.adminArea3){
+            locationField.innerHTML += locationData.adminArea3 + " - ";
+            document.getElementById('country').value += ', ' +locationData.adminArea3;
+          }
+          if (locationData.adminArea4){
+            locationField.innerHTML = locationData.adminArea4 + " - ";
+            document.getElementById('city').value = locationData.adminArea4;
+          }
+          if (locationData.adminArea5){
+            locationField.innerHTML += locationData.adminArea5 + " - ";
+            document.getElementById('town').value = locationData.adminArea5;
+          }
+          if (locationData.adminArea6){
+            locationField.innerHTML += locationData.adminArea6 + " - ";
+            document.getElementById('town').value = locationData.adminArea6;
+          }
+          if (locationData.postalCode){
+            locationField.innerHTML += locationData.postalCode;
+            document.getElementById('postalcode').value = locationData.postalCode;
+          }
+
 
         }).catch(error => {
           console.log(error)

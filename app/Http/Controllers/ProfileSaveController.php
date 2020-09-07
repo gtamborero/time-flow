@@ -27,6 +27,10 @@ class ProfileSaveController extends Controller
       $user->phone = $request->phone;
       $user->whatsapp = $request->whatsapp;
       $user->linkedin = $request->linkedin;
+      $user->country = $request->country;
+      $user->city = $request->city;
+      $user->town = $request->town;
+      $user->postalcode = $request->postalcode;
       //dd($request->phone);
       $user->save();
 

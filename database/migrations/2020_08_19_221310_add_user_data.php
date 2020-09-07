@@ -14,10 +14,10 @@ class AddUserData extends Migration
     public function up()
     {
       Schema::table('users', function (Blueprint $table) {
-          $table->string('user_data',250);
-          $table->string('country',50);
-          $table->string('city',80);
-          $table->string('town',100);
+          $table->string('user_data',250)->nullable();
+          $table->string('country',50)->nullable();
+          $table->string('city',80)->nullable();
+          $table->string('town',100)->nullable();
       });
     }
 
