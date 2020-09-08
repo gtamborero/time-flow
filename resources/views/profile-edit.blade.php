@@ -10,28 +10,27 @@
 
   <profile-geoloc></profile-geoloc>
 
+    @if (count($errors) > 0)
+      <div class="w-full p-4 bg-orange text-center text-2xl">
+        <div class=" text-white mx-auto p-2 mb-2">
+                @foreach ($errors->all() as $error)
+                    {{ $error }}<br>
+                @endforeach
+        </div>
+      </div>
+    @endif
+
+    @if(session()->has('message'))
+      <div class="w-full p-4 bg-gray-400 text-center text-2xl">
+        <div class="mx-auto p-2 mb-2">
+            {{ session()->get('message') }}
+        </div>
+      </div>
+    @endif
+
     <div class=" p-4 my-5 break-words text-3xl text-primary text-center font-medium uppercase bg-white">
       @lang('Edit your profile')
     </div>
-
-
-      @if (count($errors) > 0)
-        <div class="w-full p-4 bg-orange text-center text-2xl">
-          <div class=" text-white mx-auto p-2 mb-2">
-                  @foreach ($errors->all() as $error)
-                      {{ $error }}<br>
-                  @endforeach
-          </div>
-        </div>
-      @endif
-
-      @if(session()->has('message'))
-        <div class="w-full p-4 bg-gray-400 text-center text-2xl">
-          <div class="mx-auto p-2 mb-2">
-              {{ session()->get('message') }}
-          </div>
-        </div>
-      @endif
 
     <div class=" p-4 my-5 break-words text-lg text-gray text-center font-medium bg-white">
         <img class="rounded-full mx-auto my-2" src="{{ gravatar(Auth::user()->email) }}">
@@ -44,7 +43,11 @@
     <div class="p-4 my-5 break-words text-2xl text-primary text-center font-medium bg-white">
       @lang('Location'):
       <div id="locationField" class="text-base text-gray ">
-        @lang('Please accept geolocation to set this data')
+        @if (empty(Auth::user()->postalcode))
+          @lang('Please accept geolocation to set this data')
+        @else
+          {{Auth::user()->country}} - {{Auth::user()->city}} - {{Auth::user()->town}} - {{Auth::user()->postalcode}}
+        @endif
         </div>
     </div>
 
