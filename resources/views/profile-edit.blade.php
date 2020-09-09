@@ -8,7 +8,9 @@
       </div>
   @endif
 
+@if (!isset(Auth::user()->postalcode))
   <profile-geoloc></profile-geoloc>
+@endif
 
     @if (count($errors) > 0)
       <div class="w-full p-4 bg-orange text-center text-2xl">
@@ -48,6 +50,7 @@
         @else
           {{Auth::user()->country}} - {{Auth::user()->city}} - {{Auth::user()->town}} - {{Auth::user()->postalcode}}
         @endif
+        <a href="?geolocate=1"><button class="tf-button tf-button-primary mt-4 block mx-auto">GeoLocate Me!</button></a>
         </div>
     </div>
 
@@ -80,11 +83,6 @@
       <div>
         <input placeholder="@lang('https://www.linkedin.com/in/username')" class="form-input w-full mt-3 mb-4 text-black" type="text" name="linkedin" value="{{old('linkedin', Auth::user()->linkedin) }}">
       </div>
-
-        <input id="country" type="hidden" name="country">
-        <input id="city" type="hidden" name="city">
-        <input id="town" type="hidden" name="town">
-        <input id="postalcode" type="hidden" name="postalcode">
 
       <input class="access-to tf-button tf-button-primary mt-4 block mx-auto text-xl uppercase" type="submit" value="@lang('Save')">
 

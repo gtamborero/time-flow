@@ -54,54 +54,55 @@
           }
       },
 
+      saveUserLocation: function(locationData){
+        alert(locationData);
+      },
+
       showPosition: function (position) {
         //console.log("Latitude: " + position.coords.latitude + "<br>Longitude: " + position.coords.longitude);
 
-      axios({
-        method: 'get',
-        url: 'https://www.mapquestapi.com/geocoding/v1/reverse?key=' + this.mapKey + '&location=' + position.coords.latitude + ',' + position.coords.longitude + '&includeRoadMetadata=true&includeNearestIntersection=true',
-        }).then(function(response) {
-          console.log(response.data.results[0].locations[0]);
-          var location = document.getElementById("location");
+        axios({
+          method: 'get',
+          url: 'https://www.mapquestapi.com/geocoding/v1/reverse?key=' + this.mapKey + '&location=' + position.coords.latitude + ',' + position.coords.longitude + '&includeRoadMetadata=true&includeNearestIntersection=true',
+          }).then(function(response) {
+            console.log(response.data.results[0].locations[0]);
+            var location = document.getElementById("location");
 
-          var locationData = response.data.results[0].locations[0];
+            window.locationData = response.data.results[0].locations[0];
 
-          var locationField = document.getElementById('locationField');
+            var locationField = document.getElementById('locationField');
 
-          if (locationData.adminArea1){
-            locationField.innerHTML = locationData.adminArea1 + " - ";
-            document.getElementById('country').value = locationData.adminArea1;
-          }
-          if (locationData.adminArea2){
-            locationField.innerHTML += locationData.adminArea2 + " - ";
-            document.getElementById('country').value += ', ' + locationData.adminArea2;
-          }
-          if (locationData.adminArea3){
-            locationField.innerHTML += locationData.adminArea3 + " - ";
-            document.getElementById('country').value += ', ' +locationData.adminArea3;
-          }
-          if (locationData.adminArea4){
-            locationField.innerHTML = locationData.adminArea4 + " - ";
-            document.getElementById('city').value = locationData.adminArea4;
-          }
-          if (locationData.adminArea5){
-            locationField.innerHTML += locationData.adminArea5 + " - ";
-            document.getElementById('town').value = locationData.adminArea5;
-          }
-          if (locationData.adminArea6){
-            locationField.innerHTML += locationData.adminArea6 + " - ";
-            document.getElementById('town').value = locationData.adminArea6;
-          }
-          if (locationData.postalCode){
-            locationField.innerHTML += locationData.postalCode;
-            document.getElementById('postalcode').value = locationData.postalCode;
-          }
+            if (window.locationData.adminArea1){
+              locationField.innerHTML = window.locationData.adminArea1 + " - ";
+            }
+            if (window.locationData.adminArea2){
+              locationField.innerHTML += window.locationData.adminArea2 + " - ";
+            }
+            if (window.locationData.adminArea3){
+              locationField.innerHTML += window.locationData.adminArea3 + " - ";
+            }
+            if (window.locationData.adminArea4){
+              locationField.innerHTML = window.locationData.adminArea4 + " - ";
+            }
+            if (window.locationData.adminArea5){
+              locationField.innerHTML += window.locationData.adminArea5 + " - ";
+            }
+            if (window.locationData.adminArea6){
+              locationField.innerHTML += window.locationData.adminArea6 + " - ";
+            }
+            if (window.locationData.postalCode){
+              locationField.innerHTML += window.locationData.postalCode;
+            }
 
+          }).catch(error => {
+            console.log(error)
+          });
 
-        }).catch(error => {
-          console.log(error)
-        })
-      }
+          setTimeout(() => {
+            this.saveUserLocation(window.locationData);
+          },2000);
+      },
+
   }
 }
 
