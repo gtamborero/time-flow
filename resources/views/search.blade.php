@@ -14,6 +14,7 @@
           name="search"
           value="{{$search}}"
           type="text"
+          autofocus
           placeholder="@lang('Example: Programmer, designer...')">
 
           <div class="flex items-center justify-between text-center">

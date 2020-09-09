@@ -21,6 +21,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/profile/{username}', 'ProfileViewController@index')->name('profileView');
 Route::get('/profile/{username}/edit', 'ProfileEditController@index')->middleware('verified');
 Route::post('/save-user-data', 'ProfileSaveController@index')->middleware('verified');
+Route::post('/save-user-location', 'ProfileSaveController@location')->middleware('verified');
 
 Route::get('/exchange-view/{id}', 'ExchangeViewController@index')->name('exchangeView')->middleware('verified');
 

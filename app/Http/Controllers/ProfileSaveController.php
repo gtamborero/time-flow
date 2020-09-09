@@ -12,6 +12,7 @@ class ProfileSaveController extends Controller
       //$this->middleware('auth');
   }
 
+  // Save user data
   public function index(Request $request)
   {
 
@@ -21,20 +22,26 @@ class ProfileSaveController extends Controller
           'linkedin' => 'url'
       ]);
 
-      $user = \App\User::find(Auth::user()->id);
-
+      $user = Auth::user();
       $user->user_data = $request->user_data;
       $user->phone = $request->phone;
       $user->whatsapp = $request->whatsapp;
       $user->linkedin = $request->linkedin;
-      $user->country = $request->country;
-      $user->city = $request->city;
-      $user->town = $request->town;
-      $user->postalcode = $request->postalcode;
       //dd($request->phone);
       $user->save();
 
       return redirect( '/profile/'. Auth::user()->name .'/edit')->with('message', __('Your data have been saved'));
 
+  }
+
+  // Save user location
+  public function location(Request $request){
+    $user = Auth::user();
+    $user->country = $request->country;
+    $user->city = $request->city;
+    $user->town = $request->town;
+    $user->postalcode = $request->postalcode;
+    $user->save();
+    return $request;
   }
 }
