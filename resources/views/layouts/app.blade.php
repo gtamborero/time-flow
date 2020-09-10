@@ -16,8 +16,8 @@
                 <!-- SIDE LEFT logo -->
                 <div class="flex-1">
                     <a href="{{ url('/') }}" class="text-xl font-medium text-gray-100 no-underline">
-                      LOGO<!--<img class="rounded-full mx-auto inline h-12 w-12 mr-2" src="">-->
-                      {{ config('app.name', 'Laravel') }}
+                      <img style="width:50%; max-width:250px;" src="/img/logo-timeflow.png">
+
                     </a>
                 </div>
 
