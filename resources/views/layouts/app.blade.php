@@ -10,7 +10,7 @@
 
 <body class=" h-screen antialiased" style="background-color:#bbb;">
     <div id="app">
-        <nav class="bg-primary shadow mb-0 sm:mb-6" style="padding:32px 0;">
+        <nav class="bg-primary shadow mb-0 sm:mb-6 fixed w-full z-50" style="padding:20px 0;">
             <div class="container mx-auto px-6 flex items-center justify-center" >
 
                 <!-- SIDE LEFT logo -->
@@ -25,8 +25,8 @@
                 <div class="flex">
                     <a href="{{ route('search') }}">
                       <button class="head-button inline-flex items-center mx-1 lg:mx-2">
-                        <span class="icon-search text-white text-3xl" style="margin-top:5px; margin-right:4px;"></span>
-                        <span class="hidden md:block ml-2">Search</span>
+                        <span class="icon-search text-white" style="font-size: 1.7rem; margin-top:5px; margin-bottom:4px; margin-right:4px;"></span>
+                        <span class="hidden md:block ml-2 mr-1">Search</span>
                       </button>
                       </a>
                     @guest
@@ -50,7 +50,7 @@
             </div>
         </nav>
 
-        <div class="container mx-auto px-0 sm:px-6" style="padding-bottom:90px;">
+        <div class="container mx-auto px-0 sm:px-6 special-top-pad" style="padding-bottom:90px;">
           @yield('content')
         </div>
 

@@ -9,7 +9,7 @@
   @endif
 
   <!-- LOAD USER HEADING -->
-  @include ('partials.user-heading')
+  @include ('partials.user-simple-heading')
 
 
   <div class=" p-4 my-5 break-words text-3xl text-primary text-center font-medium uppercase bg-white">
