@@ -64,6 +64,10 @@
  }
 
 /* TIME FLOW BUTTONS */
+.head-button{
+    @apply text-white font-medium text-lg py-2 pl-2 
+}
+
 .tf-button {
     @apply text-white font-medium py-2 px-4 rounded shadow-md
 }

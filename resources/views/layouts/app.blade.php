@@ -16,7 +16,7 @@
                 <!-- SIDE LEFT logo -->
                 <div class="flex-1">
                     <a href="{{ url('/') }}" class="text-xl font-medium text-gray-100 no-underline">
-                      <img style="width:50%; max-width:250px;" src="/img/logo-timeflow.png">
+                      <img style="width:85%; margin-left:4px; max-width:250px;" src="/img/logo-timeflow.png">
 
                     </a>
                 </div>
@@ -24,37 +24,27 @@
                 <!-- SIDE RIGHT LOGIN -->
                 <div class="flex">
                     <a href="{{ route('search') }}">
-                      <button class="tf-button tf-button-secondary inline-flex items-center mx-2">
-                        <span class="icon-search"></span>
+                      <button class="head-button inline-flex items-center mx-1 lg:mx-2">
+                        <span class="icon-search text-white text-3xl" style="margin-top:5px; margin-right:4px;"></span>
                         <span class="hidden md:block ml-2">Search</span>
                       </button>
                       </a>
                     @guest
                       <a href="{{ route('login') }}">
-                        <button class="tf-button tf-button-secondary inline-flex items-center mx-2">
-                          <span class="icon-person"></span>
+                        <button class="head-button inline-flex items-center mx-1 lg:mx-2">
+                          <span class="icon-person text-white text-3xl"></span>
                             <span class="hidden md:block ml-2">{{ __('Login') }}</span>
                         </button>
                       </a>
                     @else
 
                     <a href="{{ route('profileView', Auth::user()->name) }}">
-                      <button class="tf-button tf-button-secondary inline-flex items-center mx-2">
-                        <span class="icon-person"></span>
+                      <button class="head-button inline-flex items-center mx-1 lg:mx-2">
+                        <span class="icon-person text-white text-4xl"></span>
                         <span class="hidden md:block ml-2">@lang('My Profile')</span>
                       </button>
                     </a>
 
-                      <a href="{{ route('logout') }}" onclick="event.preventDefault();
-                        document.getElementById('logout-form').submit();">
-                        <button class="tf-button tf-button-secondary inline-flex items-center mx-2">
-                          <span class="icon-log-out"></span>
-                          <span class="hidden md:block ml-2">{{ __('Logout') }}</span>
-                        </button>
-                      </a>
-                      <form id="logout-form" action="{{ route('logout') }}" method="POST" class="hidden">
-                          {{ csrf_field() }}
-                      </form>
                     @endguest
                 </div>
             </div>

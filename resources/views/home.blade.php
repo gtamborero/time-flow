@@ -38,7 +38,7 @@
 
       <div class=" p-8 my-5 break-words text-xl text-primary text-center font-medium bg-white">
 
-        <div class="uppercase pb-4">@lang('Search user, phone, skills, profession')...</div>
+        <div class="uppercase text-3xl pb-4">@lang('Search user, phone, skills, profession')...</div>
 
           <form method="get" action="/search">
           {{csrf_field()}}

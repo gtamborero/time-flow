@@ -10,6 +10,7 @@
             <img class="rounded-full mx-auto my-2" src="{{ gravatar($userData->email) }}">
           </a>
         </div>
+
         <div class="text-center">
           <div class="text-primary-light text-lg font-medium capitalize">
             {{ $userData->name }}
@@ -17,6 +18,30 @@
           <div class="text-primary-light text-md font-medium ">
             {{ $userData->email }}
           </div>
+
+          @auth
+          <?php if (Auth::user()->name == $userData->name){ ?>
+          <div>
+            <a href="{{ url('/profile/' . $userData->name . '/edit') }}">
+              <button class="tf-button tf-button-primary mt-5 items-center mx-2">
+                @lang('Edit my profile')
+              </button>
+            </a>
+
+            <a href="{{ route('logout') }}" onclick="event.preventDefault();
+              document.getElementById('logout-form').submit();">
+              <button class="tf-button tf-button-secondary mt-5 items-center mx-2">
+                <span class="icon-log-out"></span>
+                <span class="ml-2">{{ __('Logout') }}</span>
+              </button>
+            </a>
+            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="hidden">
+                {{ csrf_field() }}
+            </form>
+          </div>
+          <?php } ?>
+          @endauth
+
           <br>
           Minutos entregados xxxx<br>
           Minutos recibidos vvv<br>
@@ -41,13 +66,13 @@
     </div>
 
     <div class="p-6 pt-0 md:pt-6 break-words bg-white text-center shadow-md leading-6">
-      <span class="text-lg font-medium text-primary-light hidden md:block mb-4">
+      <span class="text-xl font-medium text-primary-light hidden md:block mb-4">
         @lang('Información de')
         <span class="capitalize">{{ $userData->name }}</span>:
       </span>
       {{ $userData->user_data }}
       <br>
-      <br><span class="icon-home text-xl"></span>
+      <br><span class="icon-home text-3xl"></span>
       <br> {{ ucfirst($userData->country) }} - {{ ucfirst($userData->city) }} - {{ ucfirst($userData->town) }} - {{ ucfirst($userData->postalcode) }}
       <br><br>
 
@@ -58,18 +83,8 @@
           <a href="mailto:{{$userData->email}}"><span class="icon-envelope-o"></span></a>
           <a href="{{$userData->linkedin}}"><span class="icon-linkedin-square"></span></a>
         </div>
-
-        <?php if (Auth::user()->name == $userData->name){ ?>
-        <div>
-          <a href="{{ url('/profile/' . $userData->name . '/edit') }}">
-            <button class="access-to tf-button tf-button-primary mt-4 block mx-auto">
-              @lang('Edit my profile')
-            </button>
-          </a>
-        </div>
-        <?php } ?>
-
       @endauth
+
       @guest
         <div class="social-data border-solid border border-secondary inline-block p-4">
           <span class="icon-phone"></span>
