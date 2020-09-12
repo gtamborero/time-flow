@@ -48,7 +48,7 @@
             name="search"
             value=""
             type="text"
-            placeholder="@lang('Example: Programmer, designer...')">
+            placeholder="@lang('Example: Programmer, designer')...">
 
             <div class="flex items-center justify-between text-center">
                <input type="submit" class="mt-2 bg-primary hover:bg-primary-light

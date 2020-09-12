@@ -9,7 +9,7 @@
   @endif
 
     <div class=" p-4 my-5 break-words text-3xl text-primary text-center font-medium uppercase bg-white">
-        @lang('created exchange')
+        @lang('Created exchange')
     </div>
 
     {{-- Feed exchange data --}}

@@ -50,7 +50,7 @@
         @else
           {{Auth::user()->country}} - {{Auth::user()->city}} - {{Auth::user()->town}} - {{Auth::user()->postalcode}}
         @endif
-        <a href="?geolocate=1"><button class="tf-button tf-button-primary mt-4 block mx-auto">GeoLocate Me!</button></a>
+        <a href="?geolocate=1"><button class="tf-button tf-button-primary mt-4 block mx-auto">@lang('GeoLocate Me')!</button></a>
         </div>
     </div>
 
@@ -60,7 +60,7 @@
 
       <div>@lang('Description'):</div>
       <div class="text-base text-gray ">
-        @lang('Lo que escribas aquí servirá de palabras clave cuando alguien te búsque')
+        @lang('Write here what you can offer to others. All words will be searchable keywords.')
         <textarea placeholder="@lang('Write your description')..." rows="4" name="user_data" class="form-input w-full mt-3 mb-4 text-black">{{ old('user_data', Auth::user()->user_data) }}</textarea>
       </div>
 
@@ -71,12 +71,12 @@
 
       <div>@lang('Phone'):</div>
       <div>
-        <input placeholder="@lang('0034...')" class="form-input w-full mt-3 mb-4 text-black" type="text" name="phone" value="{{ old('phone', Auth::user()->phone) }}">
+        <input placeholder="@lang('0034')..." class="form-input w-full mt-3 mb-4 text-black" type="text" name="phone" value="{{ old('phone', Auth::user()->phone) }}">
       </div>
 
       <div>@lang('WhatsApp'):</div>
       <div>
-        <input placeholder="@lang('0034...')" class="form-input w-full mt-3 mb-4 text-black" type="text" name="whatsapp" value="{{ old('whatsapp', Auth::user()->whatsapp) }}">
+        <input placeholder="@lang('0034')..." class="form-input w-full mt-3 mb-4 text-black" type="text" name="whatsapp" value="{{ old('whatsapp', Auth::user()->whatsapp) }}">
       </div>
 
       <div>@lang('Linkedin'):</div>

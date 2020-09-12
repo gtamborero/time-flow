@@ -72,9 +72,8 @@
       </div>
 
       <div class="p-6 pt-0 md:pt-6 break-words bg-white text-center shadow-md leading-7">
-        <span class="text-lg font-medium text-primary-light capitalize">@lang('welcome!')</span><br>
-        Puedes buscar usuarios y solicitarles o enviarles tiempo,
-        pero tarde o temprano, ¡tendrás que loguearte o registrate!
+        <span class="text-lg font-medium text-primary-light capitalize">@lang('Welcome')!</span><br>
+        @lang('Time-Flow is a universal time exchanging system. Register / Login to start exchanging')
 
         <a href="{{ url('/login') }}">
           <button class="access-to tf-button tf-button-primary mt-4 block mx-auto">

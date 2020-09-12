@@ -9,6 +9,7 @@
     "minutes": "minutos",
     "hours": "horas",
     "Ok": "Ok",
+    "Go Back": "Atrás",
     "accept": "aceptar",
     "reject": "rechazar",
     "cancel": "cancelar",
@@ -32,7 +33,7 @@
     "Publish": "Publicar",
 
     "Can we Geolocate You?": "Podemos geolocalizarte?",
-    "Your profile will fill up with your Country, State and City so other usuarios can find you": "Tu perfil será auto rellenado con tu país, ciudad y población para que otros usuarios puedan encontrarte",
+    "Your profile will fill up with your Country, State and City so other users can find you": "Tu perfil será auto rellenado con tu país, ciudad y población para que otros usuarios puedan encontrarte",
     "Geolocation is not supported by this browser": "La geolocalización no está permitida en este navegador",
     "You will not be able to use GeoLocation": "No podrás usar la geolocalización",
 
@@ -51,6 +52,48 @@
     "has received from you": "ha recibido de tí",
     "Pending": "Pendiente",
     "Accepted": "Aceptado",
-    "Rejected": "Rechazado"
+    "Rejected": "Rechazado",
+
+    "Edit my profile": "Editar mi perfil",
+    "My Profile": "Mi perfil",
+    "Balance": "Saldo",
+    "Total exchanges": "Intercambios realizados",
+    "have received": "ha recibido",
+    "ratings": "valoraciones",
+    "Average rating of users who have exchanged with": "Valoración media de los usuarios que han intercambiado con",
+    "Information": "Información",
+    "anonymous user": "usuario anónimo",
+    "Logout": "Salir",
+    "Profile": "Perfil",
+    "Time-Flow is a universal time exchanging system. Register / Login to start exchanging": "Time-Flow es un sistema universal de intercambio de tiempo. Regístrate / Accede para comenzar a intercambiar",
+    "Access to": "Acceder a",
+
+    "last exchanges": "últimos intercambios",
+    "Search user, phone, skills, profession": "Buscar usuarios, teléfono, habilidades, profesión",
+    "Example: Programmer, designer": "Ejemplo: Programador, diseñador",
+    "Search": "Buscar",
+    "Login": "Acceder",
+
+    "Edit your profile": "Editar tu perfil",
+    "Want to upload or change your profile photo?": "Quieres subir o cambiar tu foto de perfil?",
+    "Do it using": "Hazlo usando",
+    "Location": "Ubicación",
+    "Please accept geolocation to set this data": "Por favor acepta la geolocalización para setear estos datos",
+    "GeoLocate Me": "Geolocalízame",
+    "Description": "Descripción",
+    "Write here what you can offer to others. All words will be searchable keywords.": "Escribe aquí lo que te crees que puedes ofrecer a otros. Todo lo que escribas servirá como palabra clave de búsqueda.",
+    "Write your description": "Escribe tu descripción",
+    "Web Site": "Sitio web",
+    "Phone": "Teléfono",
+    "0034": "01",
+    "Save": "Guardar",
+    "Created exchange": "Intercambio creado",
+    "your exchanges": "tus intercambios",
+    ":name exchanges": "intercambios de :name",
+    "Nothing found by": "Nada encontrado por",
+    "Time-Flow search is powered by": "La búsqueda de Time-Flow está potenciada por"
+
+
+
 
 }
