@@ -43,8 +43,6 @@
           @endauth
 
           <br>
-          Minutos entregados xxxx<br>
-          Minutos recibidos vvv<br>
           @lang('Balance'):
           {{ humanizeMinutes($userData->getTotalBalance($userData->id)) }}<br>
           @lang('Total exchanges'): {{ $userData->getExchangeCount($userData->id) }}
@@ -67,8 +65,8 @@
 
     <div class="p-6 pt-0 md:pt-6 break-words bg-white text-center shadow-md leading-6">
       <span class="text-xl font-medium text-primary-light hidden md:block mb-4">
-        @lang('Information'):
-        <span class="capitalize">{{ $userData->name }}</span>:
+        @lang('Description'):
+        <span class="capitalize">{{ $userData->name }}</span>
       </span>
       {{ $userData->user_data }}
       <br>

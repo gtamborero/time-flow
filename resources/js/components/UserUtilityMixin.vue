@@ -67,7 +67,7 @@
               var info = `${this.siblingUser}
                 ${this.$t('wants to send you')}
                 ${this.amount}
-                ${this.$t('for')};
+                ${this.$t('for')}:
                 <div class="hidden md:block"></div>
 
                 <span class="font-semibold">${this.concept}</span>`;
