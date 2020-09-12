@@ -65,7 +65,7 @@
 
 /* TIME FLOW BUTTONS */
 .head-button{
-    @apply text-white font-medium text-lg py-2 pl-2 
+    @apply text-white font-medium text-lg py-2 pl-2
 }
 
 .tf-button {
@@ -94,6 +94,15 @@
 
 .fixed-button:hover {
     @apply bg-primary text-white;
+}
+
+.special-pad-top{
+  padding-top:110px;
+}
+@media (max-width:630px){
+  .special-pad-top{
+    padding-top:87px;
+  }
 }
 
 @import "stars.css";

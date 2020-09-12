@@ -25,7 +25,7 @@
                 <div class="flex">
                     <a href="{{ route('search') }}">
                       <button class="head-button inline-flex items-center mx-1 lg:mx-2">
-                        <span class="icon-search text-white" style="font-size: 1.7rem; margin-top:5px; margin-bottom:4px; margin-right:4px;"></span>
+                        <span class="icon-search text-white" style="font-size: 1.7rem; margin-bottom:4px; margin-right:4px;"></span>
                         <span class="hidden md:block ml-2 mr-1">Search</span>
                       </button>
                       </a>
@@ -40,7 +40,7 @@
 
                     <a href="{{ route('profileView', Auth::user()->name) }}">
                       <button class="head-button inline-flex items-center mx-1 lg:mx-2">
-                        <span class="icon-person text-white text-4xl"></span>
+                        <span class="icon-person text-white text-3xl"></span>
                         <span class="hidden md:block ml-2">@lang('My Profile')</span>
                       </button>
                     </a>
@@ -50,7 +50,7 @@
             </div>
         </nav>
 
-        <div class="container mx-auto px-0 sm:px-6 special-top-pad" style="padding-bottom:90px;">
+        <div class="container mx-auto px-0 sm:px-6 special-pad-top" style="padding-bottom:90px;">
           @yield('content')
         </div>
 
