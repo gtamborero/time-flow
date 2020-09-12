@@ -2,7 +2,7 @@
   <div v-if="visibleComponent">
 
       <textarea
-       :placeholder="$t('Write a comment about the exchange')"
+       :placeholder="$t('Write a comment')"
        v-model="$store.state.exchange[id].comment"
        name="text"
        autofocus="autofocus"
@@ -74,7 +74,7 @@
           this.$swal({
             title: this.$t('Please Rate'),
             icon: "warning",
-            text: "Click on the stars!",
+            text: this.$t('Click on the stars!'),
             buttons: false,
             timer: 1800
           });

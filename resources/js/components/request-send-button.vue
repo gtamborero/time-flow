@@ -4,12 +4,12 @@
     style="border-top:1px solid #ccc;"
     >
       <button v-on:click="createNew('request')"
-        class="fixed-button capitalize">
-        REQUEST TIME TO<br> {{profileUserName}}
+        class="fixed-button">
+        {{ $t('Request time to') }}<br> {{profileUserName}}
       </button>
       <button v-on:click="createNew('send')"
-        class="fixed-button capitalize">
-        SEND TIME TO<br>  {{profileUserName}}
+        class="fixed-button">
+        {{ $t('Send time to') }}<br>  {{profileUserName}}
       </button>
   </div>
 </template>

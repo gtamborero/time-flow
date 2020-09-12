@@ -19,18 +19,18 @@
         if (navigator.geolocation) {
           this.$swal({
               title: this.$t('Can we Geolocate You?'),
-              text: this.$t('Your profile will fill up with your Country, State and City so other timebankers can find you'),
+              text: this.$t('Your profile will fill up with your Country, State and City so other users can find you'),
               icon: 'info',
               buttons: {
                 confirm: {
-                  text: "OK",
+                  text: this.$t('Ok'),
                   value: true,
                   visible: true,
                   className: "",
                   closeModal: true
                 },
                 cancel: {
-                  text: "Cancel",
+                  text: this.$t('cancel'),
                   value: false,
                   visible: true,
                   className: "",

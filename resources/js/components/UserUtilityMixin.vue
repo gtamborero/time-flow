@@ -60,30 +60,30 @@
                 ${this.amount}
                 ${this.$t('to')}
                 ${this.sellerUser.name}
-                ${this.$t('for:')}
+                ${this.$t('for')}:
                 <div class="hidden md:block"></div>
                 <span class="font-semibold">${this.concept}</span>`;
 
               var info = `${this.siblingUser}
-                ${this.$t('wants to sends you')}
+                ${this.$t('wants to send you')}
                 ${this.amount}
-                ${this.$t('for:')}
+                ${this.$t('for')};
                 <div class="hidden md:block"></div>
 
                 <span class="font-semibold">${this.concept}</span>`;
 
               var infoBuyerAndCreator = `${this.siblingUser}
-                ${this.$t('wants to received from you')}
+                ${this.$t('asks you')}
                 ${this.amount}
-                ${this.$t('for:')}
+                ${this.$t('for')}:
                 <div class="hidden md:block"></div>
 
                 <span class="font-semibold">${this.concept}</span>`;
 
               var infoBuyer = `${this.siblingUser}
-                ${this.$t('wants to received from you')}
+                ${this.$t('asks you')}
                 ${this.amount}
-                ${this.$t('for:')}
+                ${this.$t('for')}:
                 <div class="hidden md:block"></div>
 
                 <span class="font-semibold">${this.concept}</span>`;
@@ -98,16 +98,16 @@
                 ${this.amount}
                 ${this.$t('to')}
                 ${this.sellerUser.name}
-                ${this.$t('for:')}
+                ${this.$t('for')}:
                 <div class="hidden md:block"></div>
 
                 <span class="font-semibold">${this.concept}</span>`;
 
               var info = `${this.siblingUser}
-                ${this.$t('sends you')}
+                ${this.$t('send you')}
 
                 ${this.amount}
-                ${this.$t('for:')}
+                ${this.$t('for')}:
                 <div class="hidden md:block"></div>
 
                 <span class="font-semibold">${this.concept}</span>`;
@@ -115,7 +115,7 @@
               var infoBuyerAndCreator = `${this.siblingUser}
                 ${this.$t('has received from you')}
                 ${this.amount}
-                ${this.$t('for:')}
+                ${this.$t('for')}:
                 <div class="hidden md:block"></div>
 
                 <span class="font-semibold">${this.concept}</span>`;
@@ -123,7 +123,7 @@
               var infoBuyer = `${this.siblingUser}
                 ${this.$t('has received from you')}
                 ${this.amount}
-                ${this.$t('for:')}
+                ${this.$t('for')}:
                 <div class="hidden md:block"></div>
 
                 <span class="font-semibold">${this.concept}</span>`;
@@ -137,7 +137,7 @@
                 ${this.amount}
                 ${this.$t('to')}
                 ${this.sellerUser.name}
-                ${this.$t('for:')}
+                ${this.$t('for')}:
                 <div class="hidden md:block"></div>
 
                 <span class="font-semibold">${this.concept}</span>`;
@@ -145,7 +145,7 @@
               var info = `${this.siblingUser}
                 ${this.$t('sended you')}
                 ${this.amount}
-                ${this.$t('for:')}
+                ${this.$t('for')}:
                 <div class="hidden md:block"></div>
 
                 <span class="font-semibold">${this.concept}</span>`;
@@ -153,7 +153,7 @@
               var infoBuyerAndCreator = `${this.siblingUser}
                 ${this.$t('has received from you')}
                 ${this.amount}
-                ${this.$t('for:')}
+                ${this.$t('for')}:
                 <div class="hidden md:block"></div>
 
                 <span class="font-semibold">${this.concept}</span>`;
@@ -161,7 +161,7 @@
               var infoBuyer = `${this.siblingUser}
                 ${this.$t('has received from you')}
                 ${this.amount}
-                ${this.$t('for:')}
+                ${this.$t('for')}:
                 <div class="hidden md:block"></div>
 
                 <span class="font-semibold">${this.concept}</span>`;
