@@ -2,9 +2,9 @@
   <div :exchange-id="id" class="exchange-block">
 
       <!-- WHEN PENDING EXCHANGE AND USER CAN ACCEPT -->
-      <div class="py-3 px-5 text-white break-words relative text-center" style="background-color:#555;">
+      <div class="py-3 px-5 text-white break-words relative text-center grid tb-heading">
 
-          <div class="md:text-left md:float-left py-2 px-4 mt-1 shadow" v-bind:class="{
+          <div class="text-center md:float-left py-2 px-4 my-1 shadow" v-bind:class="{
             'bg-orange': status == 0, // Pending
             'bg-green': status == 1, // Accepted
             'bg-red': status == -1 // Rejected
@@ -12,7 +12,7 @@
             {{getStatusName()}}
           </div>
 
-          <div class="md:text-right flex-grow md:float-right md:right-0 md:pr-5 md:absolute">
+          <div class="lg:text-right py-2 px-4 flex-grow lg:float-right lg:right-0 lg:absolute">
             <span class="text-sm text-gray-300">{{ created }}</span><br>
           </div>
 
