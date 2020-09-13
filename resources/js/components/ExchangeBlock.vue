@@ -2,14 +2,13 @@
   <div :exchange-id="id" class="exchange-block">
 
       <!-- WHEN PENDING EXCHANGE AND USER CAN ACCEPT -->
-      <div class="py-3 px-5 text-white break-words relative text-center"
-        v-bind:class="{
-          'bg-orange': status == 0, // Pending
-          'bg-green': status == 1, // Accepted
-          'bg-red': status == -1 // Rejected
-        }">
+      <div class="py-3 px-5 text-white break-words relative text-center" style="background-color:#555;">
 
-          <div class="md:text-left md:float-left">
+          <div class="md:text-left md:float-left py-2 px-4 mt-1 shadow" v-bind:class="{
+            'bg-orange': status == 0, // Pending
+            'bg-green': status == 1, // Accepted
+            'bg-red': status == -1 // Rejected
+          }">
             {{getStatusName()}}
           </div>
 
