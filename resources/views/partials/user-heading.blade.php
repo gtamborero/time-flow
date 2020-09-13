@@ -15,9 +15,12 @@
           <div class="text-primary-light text-lg font-medium capitalize">
             {{ $userData->name }}
           </div>
+
+          @auth
           <div class="text-primary-light text-md font-medium ">
             {{ $userData->email }}
           </div>
+          @endauth
 
           @auth
           <?php if (Auth::user()->name == $userData->name){ ?>
