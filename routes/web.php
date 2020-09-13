@@ -18,6 +18,8 @@ Auth::routes(['verify' => true]); //verify email
 // After login -> Home -> Redirects to profile/username
 Route::get('/', 'HomeController@index')->name('home');
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/last-exchanges', 'HomeController@lastExchanges')->name('lastExchanges');
+
 Route::get('/profile/{username}', 'ProfileViewController@index')->name('profileView');
 Route::get('/profile/{username}/edit', 'ProfileEditController@index')->middleware('verified');
 Route::post('/save-user-data', 'ProfileSaveController@index')->middleware('verified');

@@ -3,7 +3,7 @@ module.exports = {
     extend: {},
     colors: {
       primary: 'var(--color1)',
-      'primary-light': '#3a5375',
+      'primary-light': '#2a3355',
       secondary: 'var(--color2)',
       'secondary-light': '#fff',
       white: '#fff',
