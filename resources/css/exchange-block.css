@@ -1,3 +1,12 @@
 .exchange-block input {
     color: #444;
 }
+
+.tb-heading{
+  background-color:#444; grid-template-columns: 15% 70% 15%;
+}
+@media (max-width:1023px){
+  .tb-heading{
+    grid-template-columns: 100%;
+  }
+}
