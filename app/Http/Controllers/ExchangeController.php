@@ -96,7 +96,8 @@ class ExchangeController extends Controller
     public function update(Request $request, $id)
     {
         Exchanges::changeStatus($request, $id);
-        Mail::send(new StatusMail($id));
+        SendMailProcess::dispatch($id);
+        //Mail::send(new StatusMail($id));
     }
 
     /**
@@ -108,10 +109,5 @@ class ExchangeController extends Controller
     public function destroy($id)
     {
         //
-    }
-
-    public function test(){
-      //Mail::send(new StatusMail(16));
-      SendMailProcess::dispatch();
     }
 }

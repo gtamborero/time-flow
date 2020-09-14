@@ -30,8 +30,8 @@ class SendMailProcess implements ShouldQueue
      *
      * @return void
      */
-    public function handle()
+    public function handle($id)
     {
-      Mail::send(new StatusMail(16));
+      Mail::send(new StatusMail($id));
     }
 }
