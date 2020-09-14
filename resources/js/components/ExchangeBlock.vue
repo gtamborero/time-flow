@@ -106,7 +106,7 @@
         if (!sessionStorage.getItem('firstAlertDone') && this.actualUserId){
           sessionStorage.setItem('firstAlertDone', 1);
           this.$swal({
-            title: this.$t('welcome'),
+            title: this.$t('Welcome'),
             icon: "success",
             text: this.$t('You\'re logged in'),
             buttons: false,
