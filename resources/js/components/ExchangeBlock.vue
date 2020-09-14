@@ -18,7 +18,7 @@
 
           <div class="text-center flex-grow" v-html="infoForUser()"></div>
 
-          <div v-if="status==0 && isInvolvedUser()"
+          <div v-if="status==0 && isInvolvedUser()" style="grid-column:1/-1;"
                 class="text-center">
             <a class="inline-block p-2">
               <button class="tf-button tf-button-secondary uppercase" v-on:click="accept">
@@ -35,7 +35,7 @@
 
           <!-- WHEN ACCEPTED EXCHANGE -->
           <!-- SHOW IF THERES NO SET COMMENT and USER IS INVOLVED BUYER -->
-          <div v-if="status==1 && isInvolvedBuyer() && !hasComment">
+          <div v-if="status==1 && isInvolvedBuyer() && !hasComment" style="grid-column:1/-1;">
               <div class="text-center py-2">
                 <div v-if="!rate" >
                   <button v-on:click="rate=1" class="tf-button tf-button-secondary uppercase">
