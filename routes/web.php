@@ -34,4 +34,6 @@ Route::get('search', 'SearchController@index')->name('search');
 
 Route::resource('exchange', 'ExchangeController')->middleware('verified');
 
+Route::get('test', 'ExchangeController@test');
+
 Route::put('comment-exchange/{id}', 'CommentController')->middleware('verified');

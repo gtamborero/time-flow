@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Exchanges;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\StatusMail;
+use App\Jobs\SendMailProcess;
 
 class ExchangeController extends Controller
 {
@@ -107,5 +108,10 @@ class ExchangeController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function test(){
+      //Mail::send(new StatusMail(16));
+      SendMailProcess::dispatch();
     }
 }

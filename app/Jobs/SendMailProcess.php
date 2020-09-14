@@ -8,6 +8,9 @@ use Illuminate\Foundation\Bus\Dispatchable;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Queue\SerializesModels;
 
+use Illuminate\Support\Facades\Mail;
+use App\Mail\StatusMail;
+
 class SendMailProcess implements ShouldQueue
 {
     use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
@@ -29,6 +32,6 @@ class SendMailProcess implements ShouldQueue
      */
     public function handle()
     {
-        //
+      Mail::send(new StatusMail(16));
     }
 }
