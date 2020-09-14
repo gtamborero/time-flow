@@ -26,9 +26,9 @@ class HomeController extends Controller
     {
 
       // IF User is Logged in
-      //if (isset(Auth::user()->name)){
-      //  return redirect()->route('profileView',Auth::user()->name);
-      //}
+      if (isset(Auth::user()->name)){
+        return redirect()->route('profileView',Auth::user()->name);
+      }
 
       // IF Anonymouse user
       $exchanges = \App\Exchanges::orderBy('id', 'desc')
@@ -38,11 +38,25 @@ class HomeController extends Controller
       ->with('getCreatorUser')
       ->with('getRating')
       ->orderBy('id', 'desc')
-      ->limit(5)
+      ->limit(10)
       ->get();
       return view('home')
         ->with('exchanges',$exchanges)
         ->with('userData',Auth::user());
+    }
 
+    public function lastExchanges(){
+      $exchanges = \App\Exchanges::orderBy('id', 'desc')
+      ->where('status', 1)
+      ->with('getSellerUser')
+      ->with('getBuyerUser')
+      ->with('getCreatorUser')
+      ->with('getRating')
+      ->orderBy('id', 'desc')
+      ->limit(10)
+      ->get();
+      return view('home')
+        ->with('exchanges',$exchanges)
+        ->with('userData',Auth::user());      
     }
 }
