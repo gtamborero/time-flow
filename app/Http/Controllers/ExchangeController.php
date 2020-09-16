@@ -60,7 +60,8 @@ class ExchangeController extends Controller
         $exchange->finished_time = now();
         $exchange->cancelled_time = now();
         $exchange->save();
-        Mail::send(new StatusMail($exchange->id));
+        //Mail::send(new StatusMail(16));
+        SendMailProcess::dispatch($exchange->id);
         return $exchange->id; //Return new created exchange id
     }
 

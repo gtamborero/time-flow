@@ -4,8 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Comments;
-use Illuminate\Support\Facades\Mail;
-use App\Mail\StatusMail;
+use App\Jobs\SendMailProcess;
 
 class CommentController extends Controller
 {
@@ -20,8 +19,8 @@ class CommentController extends Controller
       ]
     );
 
-    // Aqui hay que preparar la consulta, saber quien envia y quien recibe, tener todos los datos y luego enviar
-    Mail::send(new StatusMail($request->id));
+    // envio correo del id intercambio
+    SendMailProcess::dispatch($request->id);
   }
 
 }
