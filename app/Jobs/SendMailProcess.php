@@ -20,9 +20,12 @@ class SendMailProcess implements ShouldQueue
      *
      * @return void
      */
-    public function __construct()
+
+    private $id;
+
+    public function __construct(int $id)
     {
-        //
+        $this->id = $id;
     }
 
     /**
@@ -30,8 +33,8 @@ class SendMailProcess implements ShouldQueue
      *
      * @return void
      */
-    public function handle($id)
+    public function handle()
     {
-      Mail::send(new StatusMail($id));
+      return Mail::send(new StatusMail($this->id));
     }
 }
