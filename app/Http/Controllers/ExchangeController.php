@@ -4,8 +4,6 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Exchanges;
-use Illuminate\Support\Facades\Mail;
-use App\Mail\StatusMail;
 use App\Jobs\SendMailProcess;
 
 class ExchangeController extends Controller
