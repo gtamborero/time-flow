@@ -34,8 +34,24 @@
       @endforeach
 
              <a class="mt-2 bg-primary hover:bg-primary-light
-                    w-full block text-white text-xl uppercase text-center font-normal py-2 px-4 rounded
+                    w-full block text-white text-xl uppercase text-center font-normal py-4 px-4 rounded
                     focus:outline-none focus:shadow-outline cursor-pointer mx-auto"
-                    href="/profile/{{Auth::user()->name}}" >@lang('Go Back')</a>
+                    href="/profile/{{Auth::user()->name}}" >@lang('Go Back')
+              </a>
+
+{{-- Add nice alert if exchange is just created : below 5 seconds --}}
+@if ($exchange->created_at->diffInSeconds() < 5)
+  <script>
+  window.onload = function() {
+    swal({
+      title: '@lang('Payment Request Done')',
+      icon: "success",
+      text: ' ',
+      buttons: false,
+      timer: 2000
+    })
+  }
+  </script>
+@endif
 
 @endsection
