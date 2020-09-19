@@ -17,8 +17,8 @@ class CreateCommentsTable extends Migration
             $table->id();
             $table->bigInteger('id_exchange');
             $table->integer('rating')->nullable();
-            $table->string('comment')->nullable();           
-            $table->timestamps();
+            $table->string('comment')->nullable();
+            $table->nullableTimestamps();
         });
     }
 
