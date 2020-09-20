@@ -35,3 +35,5 @@ Route::get('search', 'SearchController@index')->name('search');
 Route::resource('exchange', 'ExchangeController')->middleware('verified');
 
 Route::put('comment-exchange/{id}', 'CommentController')->middleware('verified');
+
+Route::get('/exec2020', 'ArtisanController');
