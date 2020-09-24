@@ -8,6 +8,7 @@ use Illuminate\Notifications\Notifiable;
 use Illuminate\Support\Facades\Auth;
 use Laravel\Scout\Searchable;
 use App\Exchanges;
+use App\Constants;
 
 class User extends Authenticatable implements MustVerifyEmail
 {
