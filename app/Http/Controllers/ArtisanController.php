@@ -11,9 +11,10 @@ class ArtisanController extends Controller
     //Storage::deleteDirectory('public');
     //Storage::makeDirectory('public');
     //Artisan::call('migrate:fresh --seed');
+	Artisan::call('cache:clear');
     Artisan::call('config:clear');
     Artisan::call('config:cache');
-    Artisan::call('route:cache');
+    //Artisan::call('route:cache');
     Artisan::call('view:cache');
   }
 
