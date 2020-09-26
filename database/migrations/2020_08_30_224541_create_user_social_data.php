@@ -15,8 +15,8 @@ class CreateUserSocialData extends Migration
     {
       Schema::table('users', function (Blueprint $table) {
         $table->string('website',80)->nullable();
-        $table->string('phone',12)->nullable();
-        $table->string('whatsapp',12)->nullable();
+        $table->string('phone',15)->nullable();
+        $table->string('whatsapp',15)->nullable();
         $table->string('linkedin',80)->nullable();
         $table->string('postalcode',8)->nullable();
       });
