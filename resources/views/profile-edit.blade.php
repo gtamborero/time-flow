@@ -66,7 +66,7 @@
 
       <div>@lang('Web Site'):</div>
       <div>
-        <input placeholder="@lang('https://yourweb.site')..." class="form-input w-full mt-3 mb-4 text-black" type="text" name="phone" value="{{ old('website', Auth::user()->phone) }}">
+        <input placeholder="@lang('https://yourweb.site')..." class="form-input w-full mt-3 mb-4 text-black" type="text" name="website" value="{{ old('website', Auth::user()->website) }}">
       </div>
 
       <div>@lang('Phone'):</div>

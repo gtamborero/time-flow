@@ -17,15 +17,17 @@ class ProfileSaveController extends Controller
   {
 
       $validatedData = $request->validate([
-          'phone' => 'between:9,14',
-          'whatsapp' => 'between:9,14',
-          'linkedin' => 'url'
+          'phone' => 'between:9,14|nullable',
+          'whatsapp' => 'between:9,14|nullable',
+          'website' => 'url|nullable',
+          'linkedin' => 'url|nullable'
       ]);
 
       $user = Auth::user();
       $user->user_data = $request->user_data;
       $user->phone = $request->phone;
       $user->whatsapp = $request->whatsapp;
+      $user->website = $request->website;
       $user->linkedin = $request->linkedin;
       //dd($request->phone);
       $user->save();
