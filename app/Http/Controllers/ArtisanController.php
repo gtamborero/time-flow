@@ -16,8 +16,11 @@ class ArtisanController extends Controller
     Artisan::call('config:cache');
     //Artisan::call('route:cache');
     Artisan::call('view:cache');
-	Artisan::call('queue:listen');
-
+  }
+  
+  public function mailWork(){
+  	//Artisan::call('queue:restart');
+	Artisan::call('queue:work --stop-when-empty --tries=2');
   }
 
 }
