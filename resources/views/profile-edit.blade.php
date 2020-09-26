@@ -50,7 +50,7 @@
         @else
           {{Auth::user()->country}} - {{Auth::user()->city}} - {{Auth::user()->town}} - {{Auth::user()->postalcode}}
         @endif
-        <a href="?geolocate=1"><button class="tf-button tf-button-primary mt-4 block mx-auto">@lang('GeoLocate Me')!</button></a>
+        <a href="?geolocate=1"><button class="tf-button tf-button-primary mt-4 block mx-auto uppercase">@lang('GeoLocate Me')!</button></a>
         </div>
     </div>
 
@@ -84,7 +84,7 @@
         <input placeholder="@lang('https://www.linkedin.com/in/username')" class="form-input w-full mt-3 mb-4 text-black" type="text" name="linkedin" value="{{old('linkedin', Auth::user()->linkedin) }}">
       </div>
 
-      <input class="access-to tf-button tf-button-primary mt-4 block mx-auto text-xl uppercase" type="submit" value="@lang('Save')">
+      <input class="access-to tf-button tf-button-primary mt-4 block mx-auto text-xl uppercase cursor-pointer" type="submit" value="@lang('Save')">
 
     </div>
     </form>

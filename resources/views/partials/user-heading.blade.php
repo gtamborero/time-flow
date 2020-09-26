@@ -79,10 +79,21 @@
 
       @auth
         <div class="social-data p-4">
-          <a href="tel:{{$userData->phone}}"><span class="icon-phone"></span></a>
-          <a href="https://wa.me/{{$userData->whatsapp}}"><span class="icon-whatsapp"></span></a>
-          <a href="mailto:{{$userData->email}}"><span class="icon-envelope-o"></span></a>
-          <a href="{{$userData->linkedin}}"><span class="icon-linkedin-square"></span></a>
+          @if ($userData->phone)
+            <a href="tel:{{$userData->phone}}"><span title="@lang('Phone')" class="icon-phone"></span></a>
+          @endif
+          @if ($userData->whatsapp)
+            <a href="https://wa.me/{{$userData->whatsapp}}"><span title="WhatsApp" class="icon-whatsapp"></span></a>
+          @endif
+          @if ($userData->email)
+            <a href="mailto:{{$userData->email}}"><span title="@lang('Mail')" class="icon-envelope-o"></span></a>
+          @endif
+          @if ($userData->website)
+            <a target="_blank" href="{{$userData->website}}"><span title="@lang('Web Site')" class="icon-earth"></span></a>
+          @endif
+          @if ($userData->linkedin)
+            <a target="_blank" href="{{$userData->linkedin}}"><span title="LinkedIn" class="icon-linkedin-square"></span></a>
+          @endif
         </div>
       @endauth
 
