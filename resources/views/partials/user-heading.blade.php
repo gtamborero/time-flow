@@ -94,6 +94,25 @@
           @if ($userData->linkedin)
             <a target="_blank" href="{{$userData->linkedin}}"><span title="LinkedIn" class="icon-linkedin-square"></span></a>
           @endif
+
+          @if (
+                (Auth::user()->name == $userData->name)
+                &&
+                (!$userData->phone)
+                &&
+                (!$userData->whatsapp)
+                &&
+                (!$userData->website)
+                &&
+                (!$userData->linkedin)
+              )
+            <a href="{{ url('/profile/' . $userData->name . '/edit') }}">
+              <div class="p-2 mt-2 bg-orange text-center text-white">
+                @lang('Want to see here your WhatsApp, Phone, LinkedIn...? Fill out your profile')!
+              </div>
+            </a>
+          @endif
+
         </div>
       @endauth
 
