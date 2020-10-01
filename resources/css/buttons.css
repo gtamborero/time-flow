@@ -25,7 +25,7 @@
 }
 
 .fixed-button {
-    @apply text-primary bg-white font-medium shadow-md px-2 py-4 border border-gray-300;
+    @apply text-white bg-color3 font-medium shadow-md px-2 py-4 border border-gray-300;
 }
 
 .fixed-button:hover {

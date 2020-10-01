@@ -60,6 +60,12 @@
 
 @import "colors.css";
 @import "buttons.css";
+@import "stars.css";
+@import "exchange-block.css";
+@import "animations.css";
+@import "icomoon.css";
+@import "social-data.css";
+@import "type-range.css";
 
 .special-pad-top{
   padding-top:110px;
@@ -69,9 +75,3 @@
     padding-top:87px;
   }
 }
-
-@import "stars.css";
-@import "exchange-block.css";
-@import "animations.css";
-@import "icomoon.css";
-@import "social-data.css";
