@@ -1,15 +1,15 @@
 <template>
   <div v-if="renderComponent"
-    class="fixed bottom-0 left-0 right-0 grid grid-cols-2"
+    class="fixed bottom-0 left-0 right-0 grid grid-cols-1"
     style="border-top:1px solid #ccc;"
     >
-      <button v-on:click="createNew('request')"
+      <!--<button v-on:click="createNew('request')"
         class="fixed-button">
         {{ $t('Request time to') }}<br> {{profileUserName}}
-      </button>
+      </button>-->
       <button v-on:click="createNew('send')"
-        class="fixed-button">
-        {{ $t('Send time to') }}<br>  {{profileUserName}}
+        class="fixed-button uppercase">
+        {{ $t('Pay to') }} {{profileUserName}}
       </button>
   </div>
 </template>

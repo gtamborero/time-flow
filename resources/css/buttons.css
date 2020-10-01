@@ -1,0 +1,33 @@
+
+/* TIME FLOW BUTTONS */
+.head-button{
+    @apply text-white font-medium text-lg py-2 pl-2
+}
+
+.tf-button {
+    @apply text-white font-medium py-2 px-4 rounded shadow-md
+}
+
+.tf-button-primary {
+    @apply bg-primary;
+}
+
+.tf-button-primary:hover {
+    @apply bg-primary-light;
+}
+
+.tf-button-secondary {
+    @apply bg-secondary text-primary;
+}
+
+.tf-button-secondary:hover {
+    @apply bg-secondary-light text-primary;
+}
+
+.fixed-button {
+    @apply text-primary bg-white font-medium shadow-md px-2 py-4 border border-gray-300;
+}
+
+.fixed-button:hover {
+    @apply bg-primary text-white;
+}
