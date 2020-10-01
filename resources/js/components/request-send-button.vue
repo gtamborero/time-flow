@@ -39,14 +39,18 @@
           id="tfConcept" type="text" name="concept"
           class="box-border p-2 mb-3 rounded-md text-center w-full"
           maxlength="120"
-          style="border: 1px solid #999;" ><br>
+          style="border: 1px solid #999; margin-bottom:15px;" ><br>
+
           <span id="tfHours">0</span> hours<br>
-          <input style="width:100%;" type="range" name="tfHours" value=0 step=1 min=0 max=25
+          <input style="width:100%; margin-top:10px;" type="range" name="tfHours" value=0 step=1 min=0 max=24
+          autocomplete="off"
           onchange="window.changeHours(this.value)"
           oninput="window.changeHours(this.value)"
           ><br>
+
           <span id="tfMinutes">0</span> min<br>
-          <input style="width:100%;" type="range" name="tfMinutes" value=0 step=5 min=0 max=55
+          <input style="width:100%; margin-top:10px;" type="range" name="tfMinutes" value=0 step=5 min=0 max=55
+          autocomplete="off"
           onchange="window.changeMinutes(this.value)"
           oninput="window.changeMinutes(this.value)"
           >
@@ -61,7 +65,6 @@
               + this.profileUserName.substring(1),
             /*text: '',*/
             content: form,
-            showLoaderOnConfirm: true,
             buttons: {
               cancel: "Cancel",
               catch: {
@@ -70,7 +73,33 @@
               },
             }
           }).then((value) => {
-            if (!value) return 0; // If cancel or click outside do nothing
+
+            // If cancel or click outside do nothing
+            if (!value) return 0;
+
+            // If user do not write the concept do alert
+            if (!document.getElementById("tfConcept").value) {
+              this.$swal({
+                title: this.$t('Ups!'),
+                icon: "info",
+                text: this.$t('You must write the concept'),
+                buttons: false,
+                timer: 2000
+              })
+            }
+
+            // If user sets a zero value do alert
+            if (parseInt(tfHours.innerHTML) + parseInt(tfMinutes.innerHTML) == 0) {
+              this.$swal({
+                title: this.$t('Ups!'),
+                icon: "info",
+                text: this.$t('You must pay something'),
+                buttons: false,
+                timer: 2000
+              })
+            }
+
+            // If everything is ok then GO!
               axios({
                 method: 'post',
                 url: '/exchange',
