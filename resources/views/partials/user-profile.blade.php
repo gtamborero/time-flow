@@ -83,7 +83,7 @@
             <a href="tel:{{$userData->phone}}"><span title="@lang('Phone')" class="icon-phone"></span></a>
           @endif
           @if ($userData->whatsapp)
-            <a href="https://wa.me/{{$userData->whatsapp}}?message=@lang('Hi') {{ $userData->name }}, @lang('I have seen your profile on') {{config('app.name')}}. @lang('Are you interested in') ..."><span title="WhatsApp" class="icon-whatsapp"></span></a>
+            <a href="https://wa.me/{{$userData->whatsapp}}?text=@lang('Hi') {{ $userData->name }}, @lang('I have seen your profile on') {{config('app.name')}}. @lang('Are you interested in') ..."><span title="WhatsApp" class="icon-whatsapp"></span></a>
           @endif
           @if ($userData->email)
             <a href="mailto:{{$userData->email}}?subject=[{{config('app.name')}}] @lang('Hi') {{ $userData->name }} &body=@lang('Hi') {{ $userData->name }}, @lang('I have seen your profile on') {{config('app.name')}}. @lang('Are you interested in') ..."><span title="@lang('Mail')" class="icon-envelope-o"></span></a>
