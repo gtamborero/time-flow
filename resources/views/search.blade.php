@@ -26,7 +26,7 @@
 
 @if ($usersData->isNotEmpty())
   @foreach ($usersData as $userData)
-    @include ('partials.user-heading')
+    @include ('partials.user-profile')
     <div class="w-full pt-6"></div>
   @endforeach
 @elseif ($search != "")

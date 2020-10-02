@@ -83,10 +83,10 @@
             <a href="tel:{{$userData->phone}}"><span title="@lang('Phone')" class="icon-phone"></span></a>
           @endif
           @if ($userData->whatsapp)
-            <a href="https://wa.me/{{$userData->whatsapp}}"><span title="WhatsApp" class="icon-whatsapp"></span></a>
+            <a href="https://wa.me/{{$userData->whatsapp}}?message=@lang('Hi') {{ $userData->name }}, @lang('I have seen your profile on') {{config('app.name')}}. @lang('Are you interested in') ..."><span title="WhatsApp" class="icon-whatsapp"></span></a>
           @endif
           @if ($userData->email)
-            <a href="mailto:{{$userData->email}}"><span title="@lang('Mail')" class="icon-envelope-o"></span></a>
+            <a href="mailto:{{$userData->email}}?subject=[{{config('app.name')}}] @lang('Hi') {{ $userData->name }} &body=@lang('Hi') {{ $userData->name }}, @lang('I have seen your profile on') {{config('app.name')}}. @lang('Are you interested in') ..."><span title="@lang('Mail')" class="icon-envelope-o"></span></a>
           @endif
           @if ($userData->website)
             <a target="_blank" href="{{$userData->website}}"><span title="@lang('Web Site')" class="icon-earth"></span></a>
@@ -107,9 +107,10 @@
                 (!$userData->linkedin)
               )
             <a href="{{ url('/profile/' . $userData->name . '/edit') }}">
-              <div class="p-2 mt-2 bg-orange text-center text-white">
-                @lang('Want to see here your WhatsApp, Phone, LinkedIn...? Fill out your profile')!
-              </div>
+              <button class="block w-full tf-button p-2 mt-2 bg-orange text-center text-white">
+                @lang('Want to see here your WhatsApp, Phone, LinkedIn...?')<br>
+                @lang('Fill out your profile')
+              </button>
             </a>
           @endif
 

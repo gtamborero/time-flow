@@ -9,7 +9,7 @@
   @endif
 
   <!-- LOAD USER HEADING -->
-  @include ('partials.user-heading')
+  @include ('partials.user-profile')
 
     <div class=" p-4 my-5 break-words text-3xl text-primary text-center font-medium uppercase bg-white">
       <?php if (isVerifiedUser() && ($userName == Auth::user()->name)){ ?>

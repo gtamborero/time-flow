@@ -121,7 +121,8 @@
 
     "Edit your profile": "Editar tu perfil",
     "Want to upload or change your profile photo?": "Quieres subir o cambiar tu foto de perfil?",
-    "Want to see here your WhatsApp, Phone, LinkedIn...? Fill out your profile": "¿Quieres ver aquí tu WhatsApp, Teléfono, LinkedIn...? Rellena tu perfil",
+    "Want to see here your WhatsApp, Phone, LinkedIn...?": "¿Quieres ver aquí tu WhatsApp, Teléfono, LinkedIn...?",
+    "Fill out your profile": "Rellena tu perfil",
     "Do it using": "Hazlo usando",
     "Location": "Ubicación",
     "Please accept geolocation to set this data": "Por favor acepta la geolocalización para setear estos datos",
@@ -139,7 +140,11 @@
     "your exchanges": "tus intercambios",
     ":name exchanges": "intercambios de :name",
     "Nothing found by": "Nada encontrado por",
-    "Time-Flow search is powered by": "La búsqueda de Time-Flow está potenciada por"
+    "Time-Flow search is powered by": "La búsqueda de Time-Flow está potenciada por",
+
+    "Hi": "Hola",
+    "I have seen your profile on": "He visto tu perfil en",
+    "Are you interested in": "Estarías interesado en"
 
 
 
