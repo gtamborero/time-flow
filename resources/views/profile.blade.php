@@ -22,7 +22,7 @@
     {{-- Feed exchange data --}}
     @include ('partials.script-injection-vue')
 
-      @foreach ($exchanges as $exchange)
+      @forelse ($exchanges as $exchange)
         <div class="mb-5 shadow-md">
             <exchange-block
               id="{{ $exchange->id }}"
@@ -38,7 +38,20 @@
               >
             </exchange-block>
         </div>
-      @endforeach
+      @empty
+        <div class="p-4 my-5 break-words text-2xl text-center bg-gray-300">
+          @lang('You don\'t have any exchanges yet').<br>
+          @lang('Start searching users or skills').<br>
+          @lang('Connect with users and start paying time')!<br><br>
+          <button class="tf-button tf-button-primary text-lg uppercase">
+            <a target=_BLANK href="https://www.youtube.com/watch?v=1KY7b-C-HHA">
+              @lang('Play promotional video')
+            </a>
+          </button>
+        </div>
+      @endforelse
+
+      @include ('partials.search-block')
 
       <?php if (isVerifiedUser() && ($userName != Auth::user()->name)){ ?>
       <request-send-button

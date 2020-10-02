@@ -23,7 +23,7 @@
     @endif
 
     @if(session()->has('message'))
-      <div class="w-full p-4 bg-gray-400 text-center text-2xl">
+      <div class="w-full p-4 bg-gray-300 text-center text-2xl">
         <div class="mx-auto p-2 mb-2">
             {{ session()->get('message') }}
         </div>

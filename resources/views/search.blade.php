@@ -18,7 +18,7 @@
           <div class="flex items-center justify-between text-center">
              <input type="submit" class="mt-2 bg-primary hover:bg-primary-light
              w-full lg:w-1/2 text-white font-normal py-2 px-4 rounded
-             focus:outline-none focus:shadow-outline cursor-pointer mx-auto" type="button" value="@lang('Search')">
+             focus:outline-none focus:shadow-outline cursor-pointer mx-auto uppercase" type="button" value="@lang('Search')">
              </input>
           </div>
         </form>
@@ -37,9 +37,10 @@
         </div>
       </div>
   </div>
-@else
+@endif
+
   <div class="block">
-      <div class="p-8 my-5 break-words text-lg text-gray text-center font-medium bg-white shadow-md">
+      <div class="p-8 break-words text-lg text-gray text-center font-medium bg-white shadow-md">
         <div class="text-primary block">
           @lang('Time-Flow search is powered by')
           <a target="_NEW" href="https://www.algolia.com/products/search/">
@@ -49,6 +50,5 @@
         </div>
       </div>
   </div>
-@endif
 
 @endsection
