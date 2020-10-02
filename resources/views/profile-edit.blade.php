@@ -3,7 +3,7 @@
 @section('content')
 
   @if (session('status'))
-      <div class="col-span-2 p-6 bg-gray-400 text-center" role="alert">
+      <div class="col-span-2 p-6 bg-color3-light text-center" role="alert">
           {{ session('status') }}
       </div>
   @endif
@@ -13,7 +13,7 @@
 @endif
 
     @if (count($errors) > 0)
-      <div class="w-full p-4 bg-orange text-center text-2xl">
+      <div class="w-full p-4 bg-color3-light text-center text-2xl">
         <div class=" text-white mx-auto p-2 mb-2">
                 @foreach ($errors->all() as $error)
                     {{ $error }}<br>
@@ -65,18 +65,19 @@
       </div>
 
       <div>@lang('Web Site'):</div>
+      <span class="text-lg text-gray-400">@lang('Start with https://')</span>
       <div>
         <input placeholder="@lang('https://yourweb.site')..." class="form-input w-full mt-3 mb-4 text-black" type="text" name="website" value="{{ old('website', Auth::user()->website) }}">
       </div>
 
       <div>@lang('Phone'):</div>
       <div>
-        <input placeholder="@lang('0034')..." class="form-input w-full mt-3 mb-4 text-black" type="text" name="phone" value="{{ old('phone', Auth::user()->phone) }}">
+        <input placeholder="@lang('01')..." class="form-input w-full mt-3 mb-4 text-black" type="text" name="phone" value="{{ old('phone', Auth::user()->phone) }}">
       </div>
 
       <div>@lang('WhatsApp'):</div>
       <div>
-        <input placeholder="@lang('0034')..." class="form-input w-full mt-3 mb-4 text-black" type="text" name="whatsapp" value="{{ old('whatsapp', Auth::user()->whatsapp) }}">
+        <input placeholder="@lang('01')..." class="form-input w-full mt-3 mb-4 text-black" type="text" name="whatsapp" value="{{ old('whatsapp', Auth::user()->whatsapp) }}">
       </div>
 
       <div>@lang('Linkedin'):</div>
