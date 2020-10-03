@@ -18,7 +18,8 @@
         "laravel/scout": "^8.2",
         "laravel/socialite": "^4.3",
         "laravel/tinker": "^2.0",
-        "laravel/ui": "^2.0"
+        "laravel/ui": "^2.0",
+        "propaganistas/laravel-phone": "^4.2"
     },
     "require-dev": {
         "facade/ignition": "^2.0",
