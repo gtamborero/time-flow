@@ -61,28 +61,39 @@
       <div>@lang('Description'):</div>
       <div class="text-base text-gray ">
         @lang('Write here what you can offer to others. All words will be searchable keywords.')
-        <textarea placeholder="@lang('Write your description')..." rows="4" name="user_data" class="form-input w-full mt-3 mb-4 text-black">{{ old('user_data', Auth::user()->user_data) }}</textarea>
+        <textarea placeholder="@lang('Write your description')..." rows="4" name="user_data"  maxlength="250"
+          class="form-input w-full lg:w-1/2 mt-3 mb-4 text-black">{{ old('user_data', Auth::user()->user_data) }}</textarea>
       </div>
 
       <div>@lang('Web Site'):</div>
-      <span class="text-lg text-gray-400">@lang('Start with https://')</span>
+      <span class="text-lg font-normal text-gray">@lang('Start with https://')</span>
       <div>
-        <input placeholder="@lang('https://yourweb.site')..." class="form-input w-full mt-3 mb-4 text-black" type="text" name="website" value="{{ old('website', Auth::user()->website) }}">
+        <input placeholder="@lang('https://yourweb.site')..." class="form-input w-full lg:w-1/3 mt-3 mb-4 text-black" type="text" name="website" value="{{ old('website', Auth::user()->website) }}">
       </div>
 
       <div>@lang('Phone'):</div>
       <div>
-        <input placeholder="@lang('01')..." class="form-input w-full mt-3 mb-4 text-black" type="text" name="phone" value="{{ old('phone', Auth::user()->phone) }}">
+        <input placeholder="@lang('+1')..." class="form-input w-full lg:w-1/3 mt-3 mb-4 text-black" type="text" name="phone" value="{{ old('phone', Auth::user()->phone) }}">
       </div>
 
       <div>@lang('WhatsApp'):</div>
+      <span class="text-lg font-normal text-gray">@lang('Please write your phone on the International format')
+        <a class="text-color3" target="_BLANK" href="https://faq.whatsapp.com/general/about-international-phone-number-format/?lang={{ Lang::locale() }}">(@lang('More info'))</a>
+        <br>US: +1 | Spain: +34 | Argentina: +54 | México: +521
+      </span>
+
       <div>
-        <input placeholder="@lang('01')..." class="form-input w-full mt-3 mb-4 text-black" type="text" name="whatsapp" value="{{ old('whatsapp', Auth::user()->whatsapp) }}">
+        <input placeholder="@lang('+1')..." class="form-input w-full lg:w-1/3 mt-3 mb-4 text-black" type="text" name="whatsapp" value="{{ old('whatsapp', Auth::user()->whatsapp) }}">
       </div>
 
       <div>@lang('Linkedin'):</div>
       <div>
-        <input placeholder="@lang('https://www.linkedin.com/in/username')" class="form-input w-full mt-3 mb-4 text-black" type="text" name="linkedin" value="{{old('linkedin', Auth::user()->linkedin) }}">
+        <input placeholder="@lang('https://www.linkedin.com/in/username')" class="form-input w-full lg:w-1/2 mt-3 mb-4 text-black" type="text" name="linkedin" value="{{old('linkedin', Auth::user()->linkedin) }}">
+      </div>
+
+      <div>@lang('Idioma'):</div>
+      <div>
+        {{ app()->getLocale() }}
       </div>
 
       <input class="access-to tf-button tf-button-primary mt-4 block mx-auto text-xl uppercase cursor-pointer" type="submit" value="@lang('Save')">

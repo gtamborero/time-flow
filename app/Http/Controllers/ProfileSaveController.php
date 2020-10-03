@@ -15,10 +15,9 @@ class ProfileSaveController extends Controller
   // Save user data
   public function index(Request $request)
   {
-
       $validatedData = $request->validate([
           'phone' => 'between:9,14|nullable',
-          'whatsapp' => 'between:9,14|nullable',
+          'whatsapp' => 'phone:AUTO|nullable',
           'website' => 'url|nullable',
           'linkedin' => 'url|nullable'
       ]);
