@@ -12,7 +12,7 @@ return [
     | as the size rules. Feel free to tweak each of these messages here.
     |
     */
-    'phone' => 'El campo :attribute parece tener un teléfono incorrecto.',
+    'phone' => 'El campo :attribute parece tener un teléfono Internacional incorrecto.',
     'accepted'             => 'El campo :attribute debe ser aceptado.',
     'active_url'           => 'El campo :attribute no es una URL válida.',
     'after'                => 'El campo :attribute debe ser una fecha posterior a :date.',
