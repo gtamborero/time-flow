@@ -94,6 +94,11 @@
       <div>@lang('Idioma'):</div>
       <div>
 
+                <?php
+                  // devuelve valor bd user
+                  echo language()->flags();
+                  //dd(language()->getCode('en'));
+                 ?>
 
       </div>
 
