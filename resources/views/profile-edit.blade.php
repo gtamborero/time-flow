@@ -45,7 +45,7 @@
     <div class="p-4 my-5 break-words text-2xl text-primary text-center font-medium bg-white">
       @lang('Location'):
       <div id="locationField" class="text-base text-gray ">
-        @if (empty(Auth::user()->postalcode))
+        @if (empty(Auth::user()->country) && (empty(Auth::user()->city)) )
           @lang('Please accept geolocation to set this data')
         @else
           {{Auth::user()->country}} - {{Auth::user()->city}} - {{Auth::user()->town}} - {{Auth::user()->postalcode}}
