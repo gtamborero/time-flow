@@ -60,7 +60,8 @@
 
       <div>@lang('Description'):</div>
       <div class="text-base text-gray w-full lg:w-1/2 mx-auto">
-        @lang('Write here what you can offer to others. All words will be searchable keywords.')
+        @lang('Write here what you can offer to others. All words will be searchable keywords.')<br>
+        <span class="text-base text-primary">@lang('Max size. 255 characters')</span>
         <textarea placeholder="@lang('Write your description')..." rows="4" name="user_data"  maxlength="250"
           class="form-input w-full mt-3 mb-4 text-black">{{ old('user_data', Auth::user()->user_data) }}</textarea>
       </div>
@@ -79,7 +80,7 @@
       <div>@lang('WhatsApp'):</div>
       <span class="text-base text-gray">@lang('Please write your phone on the International format')
         <a class="text-color3" target="_BLANK" href="https://faq.whatsapp.com/general/about-international-phone-number-format/?lang={{ Lang::locale() }}">(@lang('More info'))</a>
-        <br>US: +1 | Spain: +34 | Argentina: +54 | México: +521
+        <br><span class="text-base text-primary">US: +1 | Spain: +34 | Argentina: +54 | México: +521</span>
       </span>
 
       <div>

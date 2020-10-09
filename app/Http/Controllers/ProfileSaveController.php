@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Str;
 
 class ProfileSaveController extends Controller
 {
@@ -16,6 +17,7 @@ class ProfileSaveController extends Controller
   public function index(Request $request)
   {
       $validatedData = $request->validate([
+          'user_data' => 'string|max:250|nullable',
           'phone' => 'between:9,14|nullable',
           'whatsapp' => 'phone:AUTO|nullable',
           'website' => 'url|nullable',
@@ -35,13 +37,17 @@ class ProfileSaveController extends Controller
 
   }
 
+  public function clearField($data){
+    return Str::replaceFirst('undefined','', $data);
+  }
+
   // Save user location
   public function location(Request $request){
     $user = Auth::user();
-    $user->country = $request->country;
-    $user->city = $request->city;
-    $user->town = $request->town;
-    $user->postalcode = $request->postalcode;
+    $user->country = $this->clearField($request->country);
+    $user->city = $this->clearField($request->city);
+    $user->town = $this->clearField($request->town);
+    $user->postalcode = $this->clearField($request->postalcode);
     $user->save();
     return $request;
   }
