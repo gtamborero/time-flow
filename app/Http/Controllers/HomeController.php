@@ -22,8 +22,18 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
+
+      // CHange lang if ?locale=lang
+      if ($request->input('locale') == 'es'){
+        Auth::user()->locale = 'es';
+        Auth::user()->save();
+      }
+      if ($request->input('locale') == 'en'){
+        Auth::user()->locale = 'en';
+        Auth::user()->save();
+      }
 
       // IF User is Logged in
       if (isset(Auth::user()->name)){
@@ -57,6 +67,6 @@ class HomeController extends Controller
       ->get();
       return view('home')
         ->with('exchanges',$exchanges)
-        ->with('userData',Auth::user());      
+        ->with('userData',Auth::user());
     }
 }

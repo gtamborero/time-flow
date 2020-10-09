@@ -34,6 +34,17 @@
       @lang('Edit your profile')
     </div>
 
+    <div class="p-4 my-5 break-words text-2xl text-primary text-center font-medium bg-white">
+      <div>@lang('Language'):</div>
+      <div class="profileLangSelector">
+      <?php
+        // devuelve valor bd user
+        echo language()->flags();
+        //dd(language()->getCode('en'));
+       ?>
+      </div>
+    </div>
+
     <div class=" p-4 my-5 break-words text-lg text-gray text-center font-medium bg-white">
         <img class="rounded-full mx-auto my-2" src="{{ gravatar(Auth::user()->email) }}">
         @lang('Want to upload or change your profile photo?')
@@ -90,17 +101,6 @@
       <div>@lang('Linkedin'):</div>
       <div>
         <input placeholder="@lang('https://www.linkedin.com/in/username')" class="form-input w-full lg:w-1/2 mt-3 mb-4 text-black" type="text" name="linkedin" value="{{old('linkedin', Auth::user()->linkedin) }}">
-      </div>
-
-      <div>@lang('Idioma'):</div>
-      <div>
-
-                <?php
-                  // devuelve valor bd user
-                  echo language()->flags();
-                  //dd(language()->getCode('en'));
-                 ?>
-
       </div>
 
       <input class="access-to tf-button tf-button-primary mt-4 block mx-auto text-xl uppercase cursor-pointer" type="submit" value="@lang('Save')">
