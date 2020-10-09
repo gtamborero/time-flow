@@ -19,7 +19,7 @@ class ProfileSaveController extends Controller
           'phone' => 'between:9,14|nullable',
           'whatsapp' => 'phone:AUTO|nullable',
           'website' => 'url|nullable',
-          'linkedin' => 'url|nullable'
+          'linkedin' => 'url|starts_with:https://www.linkedin.com/|nullable'
       ]);
 
       $user = Auth::user();
