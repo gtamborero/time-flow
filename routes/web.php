@@ -17,7 +17,7 @@ use Illuminate\Support\Facades\Route;
 Route::group(['middleware' => 'language'], function () {
 
   Auth::routes(['verify' => true]); //verify email
-  
+
   // After login -> Home -> Redirects to profile/username
   Route::get('/', 'HomeController@index')->name('home');
   Route::get('/home', 'HomeController@index')->name('language::back');
@@ -33,12 +33,13 @@ Route::group(['middleware' => 'language'], function () {
 
   Route::get('search', 'SearchController@index')->name('search');
 
-});
+  Route::post('/save-user-data', 'ProfileSaveController@index')->middleware('verified');
 
-Route::resource('exchange', 'ExchangeController')->middleware('verified');
-Route::put('comment-exchange/{id}', 'CommentController')->middleware('verified');
-Route::post('/save-user-data', 'ProfileSaveController@index')->middleware('verified');
-Route::post('/save-user-location', 'ProfileSaveController@location')->middleware('verified');
+  Route::resource('exchange', 'ExchangeController')->middleware('verified');
+  Route::put('comment-exchange/{id}', 'CommentController')->middleware('verified');
+  Route::post('/save-user-location', 'ProfileSaveController@location')->middleware('verified');
+
+});
 
 // Artisan Controller
 Route::get('/exec2020', 'ArtisanController');
