@@ -17,6 +17,7 @@ class ArtisanController extends Controller
     Artisan::call('config:cache');
     Artisan::call('route:cache');
     Artisan::call('view:cache');
+    Artisan::call('optimize');
   }
 
   public function mailWork(){
