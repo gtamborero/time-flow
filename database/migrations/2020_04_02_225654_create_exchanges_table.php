@@ -20,9 +20,9 @@ class CreateExchangesTable extends Migration
             $table->bigInteger('id_creator');
             $table->integer('status');
             $table->string('concept')->nullable();
-            $table->timestamp('accepted_time');
-            $table->timestamp('finished_time');
-            $table->timestamp('cancelled_time');
+            $table->timestamp('accepted_time')->nullable();
+            $table->timestamp('finished_time')->nullable();
+            $table->timestamp('cancelled_time')->nullable();
             $table->integer('amount');
             //$table->foreign('id_seller')->references('id')->on('users');
             //$table->foreign('id_buyer')->references('id')->on('users');
