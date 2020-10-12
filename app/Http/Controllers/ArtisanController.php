@@ -10,12 +10,13 @@ class ArtisanController extends Controller
   public function __invoke(){
     //Storage::deleteDirectory('public');
     //Storage::makeDirectory('public');
-    Artisan::call('migrate:fresh --seed --force');
-	//Artisan::call('cache:clear');
-    //Artisan::call('config:clear');
-    //Artisan::call('config:cache');
-    //Artisan::call('route:cache');
-    //Artisan::call('view:cache');
+    //Artisan::call('migrate:fresh --seed --force');
+	Artisan::call('cache:clear');
+	Artisan::call('route:clear');
+    Artisan::call('config:clear');
+    Artisan::call('config:cache');
+    Artisan::call('route:cache');
+    Artisan::call('view:cache');
   }
 
   public function mailWork(){
