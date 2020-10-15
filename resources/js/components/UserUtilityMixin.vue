@@ -55,8 +55,7 @@
           if (this.status == 0){
 
               var infoNotInvolved = `${this.buyerUser.name}
-                ${this.$t('sended')}
-
+                ${this.$t('want\'s to pay')}
                 ${this.amount}
                 ${this.$t('to')}
                 ${this.sellerUser.name}
@@ -65,24 +64,28 @@
                 <span class="font-semibold">${this.concept}</span>`;
 
               var info = `${this.siblingUser}
-                ${this.$t('wants to send you')}
+                ${this.$t('want\'s to pay you')}
                 ${this.amount}
                 ${this.$t('for')}:
                 <div class="hidden md:block"></div>
 
                 <span class="font-semibold">${this.concept}</span>`;
 
-              var infoBuyerAndCreator = `${this.siblingUser}
-                ${this.$t('asks you')}
+              var infoBuyerAndCreator = `${this.buyerUser.name}
+                ${this.$t('want\'s to pay')}
                 ${this.amount}
+                ${this.$t('to')}
+                ${this.siblingUser}
                 ${this.$t('for')}:
                 <div class="hidden md:block"></div>
 
                 <span class="font-semibold">${this.concept}</span>`;
 
-              var infoBuyer = `${this.siblingUser}
-                ${this.$t('asks you')}
+              var infoBuyer = `${this.buyerUser.name}
+                ${this.$t('want\'s to pay')}
                 ${this.amount}
+                ${this.$t('to')}
+                ${this.siblingUser}
                 ${this.$t('for')}:
                 <div class="hidden md:block"></div>
 
@@ -93,7 +96,7 @@
           if (this.status == 1){
 
               var infoNotInvolved = `${this.buyerUser.name}
-                ${this.$t('sended')}
+                ${this.$t('paid')}
 
                 ${this.amount}
                 ${this.$t('to')}
@@ -105,24 +108,25 @@
 
               var info = `${this.siblingUser}
                 ${this.$t('send you')}
-
                 ${this.amount}
                 ${this.$t('for')}:
                 <div class="hidden md:block"></div>
 
                 <span class="font-semibold">${this.concept}</span>`;
 
-              var infoBuyerAndCreator = `${this.siblingUser}
-                ${this.$t('has received from you')}
+              var infoBuyerAndCreator = `${this.$t('You have paid')}
                 ${this.amount}
+                ${this.$t('to')}
+                ${this.siblingUser}
                 ${this.$t('for')}:
                 <div class="hidden md:block"></div>
 
                 <span class="font-semibold">${this.concept}</span>`;
 
-              var infoBuyer = `${this.siblingUser}
-                ${this.$t('has received from you')}
+              var infoBuyer = `${this.$t('You have paid')}
                 ${this.amount}
+                ${this.$t('to')}
+                ${this.siblingUser}
                 ${this.$t('for')}:
                 <div class="hidden md:block"></div>
 
@@ -133,7 +137,7 @@
           if (this.status == -1){
 
               var infoNotInvolved = `${this.buyerUser.name}
-                ${this.$t('sended')}
+                ${this.$t('paid')}
                 ${this.amount}
                 ${this.$t('to')}
                 ${this.sellerUser.name}
@@ -143,24 +147,26 @@
                 <span class="font-semibold">${this.concept}</span>`;
 
               var info = `${this.siblingUser}
-                ${this.$t('sended you')}
+                ${this.$t('paid you')}
                 ${this.amount}
                 ${this.$t('for')}:
                 <div class="hidden md:block"></div>
 
                 <span class="font-semibold">${this.concept}</span>`;
 
-              var infoBuyerAndCreator = `${this.siblingUser}
-                ${this.$t('has received from you')}
+              var infoBuyerAndCreator = `${this.$t('You have paid')}
                 ${this.amount}
+                ${this.$t('to')}
+                ${this.siblingUser}
                 ${this.$t('for')}:
                 <div class="hidden md:block"></div>
 
                 <span class="font-semibold">${this.concept}</span>`;
 
-              var infoBuyer = `${this.siblingUser}
-                ${this.$t('has received from you')}
+              var infoBuyer = `${this.$t('You have paid')}
                 ${this.amount}
+                ${this.$t('to')}
+                ${this.siblingUser}
                 ${this.$t('for')}:
                 <div class="hidden md:block"></div>
 
