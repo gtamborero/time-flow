@@ -46,8 +46,18 @@
           @endauth
 
           <br>
-          @lang('Balance'):
-          {{ humanizeMinutes($userData->getTotalBalance($userData->id)) }}<br>
+          <span class="text-xl font-medium text-primary-light hidden md:block mb-4">
+            @lang('Balance'): {{ humanizeMinutes($userData->getTotalBalance($userData->id)) }}
+          </span>
+
+          <span class="text-lg font-normal text-primary-light hidden md:block">
+            @lang('Total Charges'): {{ humanizeMinutes($userData->getTotalCharge($userData->id)) }}
+          </span>
+
+          <span class="text-lg font-normal text-primary-light hidden md:block mb-4">
+            @lang('Total Payments'): {{ humanizeMinutes($userData->getTotalPayment($userData->id)) }}
+          </span>
+
           @lang('Total exchanges'): {{ $userData->getExchangeCount($userData->id) }}
 
           <br>

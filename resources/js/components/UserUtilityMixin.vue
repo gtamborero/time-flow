@@ -63,7 +63,7 @@
                 <div class="hidden md:block"></div>
                 <span class="font-semibold">${this.concept}</span>`;
 
-              var info = `${this.siblingUser}
+              var info = `<span class="capitalize">${this.siblingUser}</span>
                 ${this.$t('want\'s to pay you')}
                 ${this.amount}
                 ${this.$t('for')}:
@@ -75,7 +75,7 @@
                 ${this.$t('want\'s to pay')}
                 ${this.amount}
                 ${this.$t('to')}
-                ${this.siblingUser}
+                <span class="capitalize">${this.siblingUser}</span>
                 ${this.$t('for')}:
                 <div class="hidden md:block"></div>
 
@@ -85,7 +85,7 @@
                 ${this.$t('want\'s to pay')}
                 ${this.amount}
                 ${this.$t('to')}
-                ${this.siblingUser}
+                <span class="capitalize">${this.siblingUser}</span>
                 ${this.$t('for')}:
                 <div class="hidden md:block"></div>
 
@@ -106,9 +106,10 @@
 
                 <span class="font-semibold">${this.concept}</span>`;
 
-              var info = `${this.siblingUser}
-                ${this.$t('send you')}
+              var info = `${this.$t('You have charged')}
                 ${this.amount}
+                ${this.$t('to')}
+                <span class="capitalize">${this.siblingUser}</span>
                 ${this.$t('for')}:
                 <div class="hidden md:block"></div>
 
@@ -117,7 +118,7 @@
               var infoBuyerAndCreator = `${this.$t('You have paid')}
                 ${this.amount}
                 ${this.$t('to')}
-                ${this.siblingUser}
+                <span class="capitalize">${this.siblingUser}</span>
                 ${this.$t('for')}:
                 <div class="hidden md:block"></div>
 
@@ -126,7 +127,7 @@
               var infoBuyer = `${this.$t('You have paid')}
                 ${this.amount}
                 ${this.$t('to')}
-                ${this.siblingUser}
+                <span class="capitalize">${this.siblingUser}</span>
                 ${this.$t('for')}:
                 <div class="hidden md:block"></div>
 
@@ -146,7 +147,7 @@
 
                 <span class="font-semibold">${this.concept}</span>`;
 
-              var info = `${this.siblingUser}
+              var info = `<span class="capitalize">${this.siblingUser}</span>
                 ${this.$t('paid you')}
                 ${this.amount}
                 ${this.$t('for')}:
@@ -157,7 +158,7 @@
               var infoBuyerAndCreator = `${this.$t('You have paid')}
                 ${this.amount}
                 ${this.$t('to')}
-                ${this.siblingUser}
+                <span class="capitalize">${this.siblingUser}</span>
                 ${this.$t('for')}:
                 <div class="hidden md:block"></div>
 
@@ -166,7 +167,7 @@
               var infoBuyer = `${this.$t('You have paid')}
                 ${this.amount}
                 ${this.$t('to')}
-                ${this.siblingUser}
+                <span class="capitalize">${this.siblingUser}</span>
                 ${this.$t('for')}:
                 <div class="hidden md:block"></div>
 

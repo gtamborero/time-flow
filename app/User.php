@@ -51,18 +51,24 @@ class User extends Authenticatable implements MustVerifyEmail
       return gravatar("gtamborero@iproject.cat");
     }
 
-    public function getTotalBalance($userId){
-
+    public function getTotalCharge($userId){
       $exchangesAsSeller = Exchanges
         ::where('id_seller', $userId)
         ->where('status', Constant::STATUS_ACCEPTED)
         ->sum('amount');
+      return $exchangesAsSeller;
+    }
 
+    public function getTotalPayment($userId){
       $exchangesAsBuyer = Exchanges
         ::where('id_buyer', $userId)
         ->where('status', Constant::STATUS_ACCEPTED)
         ->sum('amount');
-      return $exchangesAsSeller - $exchangesAsBuyer;
+      return $exchangesAsBuyer;
+    }
+
+    public function getTotalBalance($userId){
+      return ( intval($this->getTotalCharge($userId)) - intval($this->getTotalPayment($userId)) );
     }
 
     public function getExchangeCount($userId){
