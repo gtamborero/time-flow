@@ -59,7 +59,7 @@
 
 <br>Exchange Creator: {{ $creatorName }}
 
-@component('mail::button', ['url' => env('APP_URL') . 'login'])
+@component('mail::button', ['url' => 'https://time-flow.app/login'])
   @lang('Log to Time-Flow')
 @endcomponent
 
