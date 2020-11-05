@@ -37,7 +37,7 @@ class HomeController extends Controller
 
       // IF User is Logged in
       if (isset(Auth::user()->name)){
-        return redirect()->route('profileView',Auth::user()->name);
+        return redirect()->route('profileEdit',Auth::user()->name);
       }
 
       // IF Anonymouse user
