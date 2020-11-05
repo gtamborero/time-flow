@@ -30,6 +30,10 @@ class ProfileSaveController extends Controller
       $user->whatsapp = $request->whatsapp;
       $user->website = $request->website;
       $user->linkedin = $request->linkedin;
+      $user->country = $this->clearField($request->country);
+      $user->city = $this->clearField($request->city);
+      $user->town = $this->clearField($request->town);
+      $user->postalcode = $this->clearField($request->postalcode);
       //dd($request->phone);
       $user->save();
 
@@ -42,7 +46,7 @@ class ProfileSaveController extends Controller
   }
 
   // Save user location
-  public function location(Request $request){
+  /*public function location(Request $request){
     $user = Auth::user();
     $user->country = $this->clearField($request->country);
     $user->city = $this->clearField($request->city);
@@ -50,5 +54,5 @@ class ProfileSaveController extends Controller
     $user->postalcode = $this->clearField($request->postalcode);
     $user->save();
     return $request;
-  }
+  }*/
 }

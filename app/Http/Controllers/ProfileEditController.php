@@ -16,11 +16,7 @@ class ProfileEditController extends Controller
 
   public function index(Request $request)
   {
-    if ($request->geolocate){
-      $user = Auth::user();
-      $user->postalcode = NULL;
-      $user->save();
-    }
     return view('profile-edit');
   }
+
 }

@@ -1,6 +1,6 @@
 <template>
 <div>
-
+<button @click.prevent="getLocation" class="tf-button tf-button-primary mt-4 mx-auto uppercase">GeoLocate Me!</button>
 </div>
 </template>
 
@@ -12,7 +12,7 @@
       }
     },
     mounted(){
-      this.getLocation();
+      //this.getLocation();
     },
     methods: {
       getLocation: function (){
