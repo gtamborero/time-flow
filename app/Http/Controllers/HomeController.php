@@ -29,15 +29,17 @@ class HomeController extends Controller
       if ($request->input('locale') == 'es'){
         Auth::user()->locale = 'es';
         Auth::user()->save();
+        return redirect()->route('profileEdit',Auth::user()->name);
       }
       if ($request->input('locale') == 'en'){
         Auth::user()->locale = 'en';
         Auth::user()->save();
+        return redirect()->route('profileEdit',Auth::user()->name);
       }
 
       // IF User is Logged in
       if (isset(Auth::user()->name)){
-        return redirect()->route('profileEdit',Auth::user()->name);
+        return redirect()->route('homeuserView',Auth::user()->name);
       }
 
       // IF Anonymouse user
