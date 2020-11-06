@@ -22,6 +22,20 @@
           @auth
           <?php if (Auth::user()->name == $userData->name){ ?>
           <div>
+            <a href="{{ url('/') }}">
+              <button class="tf-button tf-button-primary mt-5 items-center mx-2">
+                <span class="icon-person text-white"></span>
+                @lang('Home')
+              </button>
+            </a>
+
+            <a href="{{ url('/last-exchanges') }}">
+              <button class="tf-button tf-button-primary mt-5 items-center mx-2">
+                <span class="icon-person text-white"></span>
+                @lang('Last Exchanges')
+              </button>
+            </a>
+
             <a href="{{ url('/profile/' . $userData->name) }}">
               <button class="tf-button tf-button-primary mt-5 items-center mx-2">
                 <span class="icon-person text-white"></span>
