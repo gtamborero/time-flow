@@ -24,6 +24,7 @@ Route::group(['middleware' => 'language'], function () {
   Route::get('/last-exchanges', 'HomeController@lastExchanges')->name('lastExchanges');
 
   Route::get('/profile/{username}', 'ProfileViewController@index')->name('profileView');
+  Route::get('/user/{username}', 'ProfileViewController@homeuser')->name('homeuserView');
   Route::get('/profile/{username}/edit', 'ProfileEditController@index')->name('profileEdit')->middleware('verified');
 
   Route::get('/exchange-view/{id}', 'ExchangeViewController@index')->name('exchangeView')->middleware('verified');
