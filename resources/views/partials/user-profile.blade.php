@@ -3,7 +3,7 @@
 
 <div class="grid md:grid-cols-2">
 
-    <div class="p-6 break-words bg-white shadow-md">
+    <div class="p-4 md:p-8 break-words bg-white shadow-md">
       <div class="grid">
         <div>
           <a class="user-link" href="/profile/{{ $userData->name }}">
@@ -22,120 +22,93 @@
           </div>
           @endauth
 
-          @auth
-          <?php if (Auth::user()->name == $userData->name){ ?>
           <div>
-            <a href="{{ url('/profile/' . $userData->name . '/edit') }}">
-              <button class="tf-button tf-button-primary mt-5 items-center mx-2">
-                @lang('Edit my profile')
-              </button>
-            </a>
-
-            <a href="{{ route('logout') }}" onclick="event.preventDefault();
-              document.getElementById('logout-form').submit();">
-              <button class="tf-button tf-button-secondary mt-5 items-center mx-2">
-                <span class="icon-log-out"></span>
-                <span class="ml-2">{{ __('Logout') }}</span>
-              </button>
-            </a>
-            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="hidden">
-                {{ csrf_field() }}
-            </form>
+           {{ ucfirst($userData->country) }} - {{ ucfirst($userData->city) }} - {{ ucfirst($userData->town) }}
           </div>
-          <?php } ?>
-          @endauth
 
-          <br>
-          <span class="text-xl font-medium text-primary-light hidden md:block mb-4">
-            @lang('Balance'): {{ humanizeMinutes($userData->getTotalBalance($userData->id)) }}
-          </span>
+          <div class="p-2">
+           {{ $userData->user_data }}
+          </div>
 
-          <span class="text-lg font-normal text-primary-light hidden md:block">
-            @lang('Total Charges'): {{ humanizeMinutes($userData->getTotalCharge($userData->id)) }}
-          </span>
+                @auth
+                  <div class="social-data p-2">
+                    @if ($userData->phone)
+                      <a href="tel:{{$userData->phone}}"><span title="@lang('Phone')" class="icon-phone"></span></a>
+                    @endif
+                    @if ($userData->whatsapp)
+                      <a href="https://wa.me/{{$userData->whatsapp}}?text=@lang('Hi') {{ $userData->name }}, @lang('I have seen your profile on') {{config('app.name')}}. @lang('Are you interested in') ..."><span title="WhatsApp" class="icon-whatsapp"></span></a>
+                    @endif
+                    @if ($userData->email)
+                      <a href="mailto:{{$userData->email}}?subject=[{{config('app.name')}}] @lang('Hi') {{ $userData->name }} &body=@lang('Hi') {{ $userData->name }}, @lang('I have seen your profile on') {{config('app.name')}}. @lang('Are you interested in') ..."><span title="@lang('Mail')" class="icon-envelope-o"></span></a>
+                    @endif
+                    @if ($userData->website)
+                      <a target="_blank" href="{{$userData->website}}"><span title="@lang('Web Site')" class="icon-earth"></span></a>
+                    @endif
+                    @if ($userData->linkedin)
+                      <a target="_blank" href="{{$userData->linkedin}}"><span title="LinkedIn" class="icon-linkedin-square"></span></a>
+                    @endif
 
-          <span class="text-lg font-normal text-primary-light hidden md:block mb-4">
-            @lang('Total Payments'): {{ humanizeMinutes($userData->getTotalPayment($userData->id)) }}
-          </span>
+                    @if (
+                          (Auth::user()->name == $userData->name)
+                          &&
+                          (!$userData->phone)
+                          &&
+                          (!$userData->whatsapp)
+                          &&
+                          (!$userData->website)
+                          &&
+                          (!$userData->linkedin)
+                        )
+                      <a href="{{ url('/profile/' . $userData->name . '/edit') }}">
+                        <button class="block w-full tf-button p-2 mt-2 bg-orange text-center text-white">
+                          @lang('Want to see here your WhatsApp, Phone, LinkedIn...?')<br>
+                          @lang('Fill out your profile')
+                        </button>
+                      </a>
+                    @endif
 
-          @lang('Total exchanges'): {{ $userData->getExchangeCount($userData->id) }}
+                  </div>
+                @endauth
 
-          <br>
-          <span class="capitalize">{{ $userData->name }}</span>
-          @lang('have received')
-          {{ $userData->getRatingCount($userData->id) }}
-          @lang('ratings')
-
-          <br><br>
-          @lang('Average rating of users who have exchanged with') <span class="capitalize">{{ $userData->name }}</span>:
-          <star-rating-direct direct-value="{{ $userData->getTotalRating($userData->id) }}"></star-rating-direct>
-
-
+                @guest
+                  <div class="social-data border-solid border border-secondary inline-block pt-4">
+                    <span class="icon-phone"></span>
+                    <span class="icon-whatsapp"></span>
+                    <span class="icon-envelope-o"></span>
+                    <span class="icon-linkedin-square"></span>
+                    <br>Social data is available for registered users
+                  </div>
+                @endguest
 
         </div>
       </div>
     </div>
 
-    <div class="p-6 pt-0 md:pt-6 break-words bg-white text-center shadow-md leading-6">
-      <span class="text-xl font-medium text-primary-light hidden md:block mb-4">
-        @lang('Description'):
-        <span class="capitalize">{{ $userData->name }}</span>
+    <div class="p-4 md:p-8 break-words bg-gray-200 md:bg-white text-center shadow-md leading-6">
+
+      <span class="text-xl font-medium text-primary-light block mb-4">
+        @lang('Balance'): {{ humanizeMinutes($userData->getTotalBalance($userData->id)) }}
       </span>
-      {{ $userData->user_data }}
+
+      <span class="text-lg font-normal text-primary-light leading-relaxed block">
+        @lang('Total Charges'): {{ humanizeMinutes($userData->getTotalCharge($userData->id)) }}
+        <br>
+        @lang('Total Payments'): {{ humanizeMinutes($userData->getTotalPayment($userData->id)) }}
+        <br>
+        @lang('Total exchanges'): {{ $userData->getExchangeCount($userData->id) }}
+      </span>
+
+
       <br>
-      <br><span class="icon-home text-3xl"></span>
-      <br> {{ ucfirst($userData->country) }} - {{ ucfirst($userData->city) }} - {{ ucfirst($userData->town) }} - {{ ucfirst($userData->postalcode) }}
-      <br><br>
+      <span class="capitalize">{{ $userData->name }}</span>
+      @lang('have received')
+      {{ $userData->getRatingCount($userData->id) }}
+      @lang('ratings')
 
-      @auth
-        <div class="social-data p-4">
-          @if ($userData->phone)
-            <a href="tel:{{$userData->phone}}"><span title="@lang('Phone')" class="icon-phone"></span></a>
-          @endif
-          @if ($userData->whatsapp)
-            <a href="https://wa.me/{{$userData->whatsapp}}?text=@lang('Hi') {{ $userData->name }}, @lang('I have seen your profile on') {{config('app.name')}}. @lang('Are you interested in') ..."><span title="WhatsApp" class="icon-whatsapp"></span></a>
-          @endif
-          @if ($userData->email)
-            <a href="mailto:{{$userData->email}}?subject=[{{config('app.name')}}] @lang('Hi') {{ $userData->name }} &body=@lang('Hi') {{ $userData->name }}, @lang('I have seen your profile on') {{config('app.name')}}. @lang('Are you interested in') ..."><span title="@lang('Mail')" class="icon-envelope-o"></span></a>
-          @endif
-          @if ($userData->website)
-            <a target="_blank" href="{{$userData->website}}"><span title="@lang('Web Site')" class="icon-earth"></span></a>
-          @endif
-          @if ($userData->linkedin)
-            <a target="_blank" href="{{$userData->linkedin}}"><span title="LinkedIn" class="icon-linkedin-square"></span></a>
-          @endif
+      <br>
+      @lang('Average rating of users who have exchanged with') <span class="capitalize">{{ $userData->name }}</span>:
+      <star-rating-direct direct-value="{{ $userData->getTotalRating($userData->id) }}"></star-rating-direct>
 
-          @if (
-                (Auth::user()->name == $userData->name)
-                &&
-                (!$userData->phone)
-                &&
-                (!$userData->whatsapp)
-                &&
-                (!$userData->website)
-                &&
-                (!$userData->linkedin)
-              )
-            <a href="{{ url('/profile/' . $userData->name . '/edit') }}">
-              <button class="block w-full tf-button p-2 mt-2 bg-orange text-center text-white">
-                @lang('Want to see here your WhatsApp, Phone, LinkedIn...?')<br>
-                @lang('Fill out your profile')
-              </button>
-            </a>
-          @endif
-
-        </div>
-      @endauth
-
-      @guest
-        <div class="social-data border-solid border border-secondary inline-block p-4">
-          <span class="icon-phone"></span>
-          <span class="icon-whatsapp"></span>
-          <span class="icon-envelope-o"></span>
-          <span class="icon-linkedin-square"></span>
-          <br>Social data is available for registered users
-        </div>
-      @endguest
 
     </div>
 
