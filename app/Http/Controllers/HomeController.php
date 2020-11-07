@@ -69,6 +69,7 @@ class HomeController extends Controller
       ->get();
       return view('home')
         ->with('exchanges',$exchanges)
-        ->with('userData',Auth::user());
+        ->with('userData',Auth::user())
+        ->with('hideHeading','1');
     }
 }
