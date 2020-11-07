@@ -5,7 +5,7 @@
 }
 
 .tf-button {
-    @apply text-white font-medium py-2 px-4 rounded shadow-md
+    @apply text-white font-medium py-3 px-4 my-2 rounded shadow-md
 }
 
 .tf-button-primary {

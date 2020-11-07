@@ -9,11 +9,12 @@
   @endif
 
   <!-- LOAD USER HEADING -->
-  @include ('partials.user-simple-heading')
+  @if (!isset($hideHeading))
+    @include ('partials.user-simple-heading')
+    @include ('partials.search-block')
+  @endif
 
-  @include ('partials.search-block')
-
-  <div class=" p-4 my-5 break-words text-3xl text-primary text-center font-medium uppercase bg-white">
+  <div class="p-4 my-5 break-words text-3xl text-primary text-center font-medium uppercase bg-white">
     @lang('last exchanges')
   </div>
 

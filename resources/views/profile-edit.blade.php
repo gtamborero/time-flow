@@ -119,11 +119,9 @@
         </div>
 
     </div>
-    <div class="profile-divider">
 
-        <input class="access-to tf-button tf-button-primary block mx-auto text-xl uppercase cursor-pointer" type="submit" value="@lang('Save')">
+        <input class="access-to tf-button tf-button-primary block mx-auto text-lg w-1/2 uppercase cursor-pointer" type="submit" value="@lang('Save')">
 
-    </div>
     </form>
 
 @endsection

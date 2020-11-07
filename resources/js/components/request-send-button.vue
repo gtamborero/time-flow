@@ -1,13 +1,11 @@
 <template>
-  <div v-if="renderComponent"
-    class="fixed bottom-0 left-0 right-0 grid grid-cols-1"
-    >
+  <div v-if="renderComponent">
       <!--<button v-on:click="createNew('request')"
         class="fixed-button">
         {{ $t('Request time to') }}<br> {{profileUserName}}
       </button>-->
       <button v-on:click="createNew('send')"
-        class="fixed-button uppercase">
+        class="tf-button tf-button-primary items-center mx-2 w-3/4 md:w-1/2 text-base font-medium uppercase">
         {{ $t('Pay to') }} {{profileUserName}}
       </button>
   </div>
