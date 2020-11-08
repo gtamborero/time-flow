@@ -42,17 +42,6 @@
             {{ csrf_field() }}
         </form>
       </div>
-      <?php }else{ ?>
-
-        {{-- Show PAYMENT fixed down button --}}
-        <?php if (isVerifiedUser() && ($userName != Auth::user()->name)){ ?>
-        <request-send-button
-          :profile-user-id="{{$userId}}"
-          profile-user-name="{{$userData->name}}"
-          :actual-user-id="@auth {{Auth::user()->id}} @endauth"
-        ></request-send-button>
-        <?php } ?>
-
       <?php } ?>
       @endauth
     </div>
@@ -60,6 +49,21 @@
     <!-- LOAD USER HEADING -->
       @include ('partials.user-profile')
 
+        @auth
+        <?php if (Auth::user()->name != $userData->name){ ?>
+          <div class="profile-divider text-base uppercase p-0" style="background-color:#bbb;">
+
+          {{-- Show PAYMENT fixed down button --}}
+          <?php if (isVerifiedUser() && ($userName != Auth::user()->name)){ ?>
+          <request-send-button
+            :profile-user-id="{{$userId}}"
+            profile-user-name="{{$userData->name}}"
+            :actual-user-id="@auth {{Auth::user()->id}} @endauth"
+          ></request-send-button>
+          <?php } ?>
+        </div>
+      <?php } ?>
+      @endauth
 
   {{-- @include ('partials.search-block') --}}
 
