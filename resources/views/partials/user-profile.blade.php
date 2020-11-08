@@ -71,10 +71,11 @@
                 @endauth
 
                 @guest
-                  <div class="social-data border-solid border border-secondary inline-block pt-4">
+                  <div class="social-data border-solid border border-secondary inline-block p-4 bg-gray-200">
                     <span class="icon-phone"></span>
                     <span class="icon-whatsapp"></span>
                     <span class="icon-envelope-o"></span>
+                    <span class="icon-earth"></span>
                     <span class="icon-linkedin-square"></span>
                     <br>Social data is available for registered users
                   </div>
