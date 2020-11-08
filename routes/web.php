@@ -41,6 +41,12 @@ Route::group(['middleware' => 'language'], function () {
 
 });
 
+// Clear session exception
+Route::get('/clear-session', function(){
+  Cookie::queue(Cookie::forget(strtolower(config('app.name')) . '_session'));
+  return redirect('/');
+});
+
 // Artisan Controller
 Route::get('/exec2020', 'ArtisanController');
 Route::get('/mailwork', 'ArtisanController@mailWork');

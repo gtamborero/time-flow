@@ -29,6 +29,8 @@
                         <form id="resend-verification-form" method="POST" action="{{ route('verification.resend') }}" class="hidden">
                             @csrf
                         </form>
+
+                        <a href="/clear-session" class="tf-button tf-button-primary m-auto text-center mt-4">@lang('My mail was wrong, I want to try another one')</a>
                     </div>
 
                 </div>

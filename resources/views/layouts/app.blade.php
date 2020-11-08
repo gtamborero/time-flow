@@ -41,7 +41,7 @@
                     <a href="{{ route('profileView', Auth::user()->name) }}">
                       <button class="head-button inline-flex items-center mx-1 lg:mx-2">
                         <span class="icon-person text-white text-3xl"></span>
-                        <span class="hidden md:block ml-2">@lang('My Profile')</span>
+                        <span class="hidden md:block ml-2 capitalize">{{Auth::user()->name}}</span>
                       </button>
                     </a>
 
