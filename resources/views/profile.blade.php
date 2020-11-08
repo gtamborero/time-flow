@@ -17,20 +17,26 @@
       <div>
 
         <a href="{{ url('/last-exchanges') }}">
-          <button class="tf-button tf-button-secondary items-center mx-2 w-3/4 md:w-1/4 uppercase">
+          <button class="tf-button tf-button-secondary items-center mx-2 w-4/5 md:w-1/5 uppercase">
             @lang('Last Exchanges')
           </button>
         </a>
 
+        <a onclick="paymentAlert();">
+          <button class="tf-button tf-button-3 items-center mx-2 w-4/5 md:w-1/5 uppercase">
+            @lang('Make a Payment')
+          </button>
+        </a>
+
         <a href="{{ url('/profile/' . $userData->name . '/edit') }}">
-          <button class="tf-button tf-button-primary items-center mx-2 w-3/4 md:w-1/4 uppercase">
+          <button class="tf-button tf-button-primary items-center mx-2 w-4/5 md:w-1/5 uppercase">
             @lang('Edit my profile')
           </button>
         </a>
 
         <a href="{{ route('logout') }}" onclick="event.preventDefault();
           document.getElementById('logout-form').submit();">
-          <button class="tf-button tf-button-secondary items-center mx-2 w-3/4 md:w-1/4 uppercase">
+          <button class="tf-button tf-button-secondary items-center mx-2 w-4/5 md:w-1/5 uppercase">
             <span class="icon-log-out"></span>
             <span class="ml-2">{{ __('Logout') }}</span>
           </button>
@@ -110,3 +116,22 @@
       @endforelse
 
 @endsection
+
+<script>
+function paymentAlert(){
+  swal({
+    title: '@lang('You must search for a user first!')',
+    icon: "info",
+    text: '@lang('Inside every user profile you will be able to make Payments')',
+    buttons: {
+      confirm: {
+        text: '@lang('OK, Thanks!')',
+        className: 'text-center',
+        visible: true,
+        closeModal: true
+      }
+    },
+    timer: 6000
+  })
+}
+</script>

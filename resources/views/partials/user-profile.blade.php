@@ -109,7 +109,13 @@
       @lang('Average rating of users who have exchanged with') <span class="capitalize">{{ $userData->name }}</span>:
       <star-rating-direct direct-value="{{ $userData->getTotalRating($userData->id) }}"></star-rating-direct>
 
-
+      @if (isset($search))
+        <a class="user-link" href="/profile/{{ $userData->name }}">
+          <button class="tf-button tf-button-primary items-center mx-2 w-3/4 md:w-1/4 uppercase">
+            @lang('View profile')
+          </button>
+        </a>
+      @endif
     </div>
 
   </div>
