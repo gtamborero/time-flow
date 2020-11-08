@@ -5,7 +5,7 @@
         {{ $t('Request time to') }}<br> {{profileUserName}}
       </button>-->
       <button v-on:click="createNew('send')"
-        class="tf-button tf-button-primary items-center mx-2 w-3/4 md:w-1/2 text-base font-medium uppercase">
+        class="tf-button tf-button-3 items-center mx-2 w-4/5 md:w-1/2 text-base font-medium uppercase">
         {{ $t('Pay to') }} {{profileUserName}}
       </button>
   </div>

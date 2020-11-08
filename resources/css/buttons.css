@@ -24,10 +24,10 @@
     @apply bg-secondary-light text-primary;
 }
 
-.fixed-button {
-    @apply text-white bg-color3 font-medium shadow-md px-2 py-4 border border-gray-300;
+.tf-button-3 {
+    @apply bg-color3 text-white;
 }
 
-.fixed-button:hover {
-    @apply bg-primary text-white;
+.tf-button-3:hover {
+    @apply bg-color3-light;
 }

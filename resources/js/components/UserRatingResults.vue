@@ -7,10 +7,10 @@
       <span class="capitalize">
          {{ userName }}</span> {{ $t('said') }}:
 
-      <span class="block">
+      <span class="inline">
         {{$store.state.exchange[id].comment}}
       </span>
-
+      <br>
       <star-rating :id="id" disabled></star-rating>
 
     </div>
