@@ -8,35 +8,32 @@
       </div>
   @endif
 
-  <!-- LOAD USER HEADING -->
-    @include ('partials.user-profile')
-
     <div class="profile-divider text-base uppercase p-0" style="background-color:#bbb;">
       @auth
       <?php if (Auth::user()->name == $userData->name){ ?>
-      <div>
+      <div class="md:flex gap-4 mx-4 sm:mx-0">
 
-        <a href="{{ url('/last-exchanges') }}">
-          <button class="tf-button tf-button-secondary items-center mx-2 w-4/5 md:w-1/5 uppercase">
+        <a class="flex-1" href="{{ url('/last-exchanges') }}">
+          <button class="tf-button tf-button-secondary items-center w-full uppercase">
             @lang('Last Exchanges')
           </button>
         </a>
 
-        <a onclick="paymentAlert();">
-          <button class="tf-button tf-button-3 items-center mx-2 w-4/5 md:w-1/5 uppercase">
+        <a class="flex-1" onclick="paymentAlert();">
+          <button class="tf-button tf-button-3 items-center w-full uppercase">
             @lang('Make a Payment')
           </button>
         </a>
 
-        <a href="{{ url('/profile/' . $userData->name . '/edit') }}">
-          <button class="tf-button tf-button-primary items-center mx-2 w-4/5 md:w-1/5 uppercase">
+        <a class="flex-1" href="{{ url('/profile/' . $userData->name . '/edit') }}">
+          <button class="tf-button tf-button-primary items-center w-full uppercase">
             @lang('Edit my profile')
           </button>
         </a>
 
-        <a href="{{ route('logout') }}" onclick="event.preventDefault();
+        <a class="flex-1" href="{{ route('logout') }}" onclick="event.preventDefault();
           document.getElementById('logout-form').submit();">
-          <button class="tf-button tf-button-secondary items-center mx-2 w-4/5 md:w-1/5 uppercase">
+          <button class="tf-button tf-button-secondary items-center w-full uppercase">
             <span class="icon-log-out"></span>
             <span class="ml-2">{{ __('Logout') }}</span>
           </button>
@@ -59,6 +56,9 @@
       <?php } ?>
       @endauth
     </div>
+
+    <!-- LOAD USER HEADING -->
+      @include ('partials.user-profile')
 
 
   {{-- @include ('partials.search-block') --}}
