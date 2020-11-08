@@ -50,7 +50,7 @@
             </div>
         </nav>
 
-        <div class="container mx-auto px-0 sm:px-6 special-pad-top pb-6">
+        <div class="container mx-auto px-0 sm:px-6 pb-6" style="padding-top:87px;">
           @yield('content')
         </div>
 

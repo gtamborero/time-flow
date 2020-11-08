@@ -20,30 +20,6 @@
 @import "icomoon.css";
 @import "social-data.css";
 @import "type-range.css";
-
-.special-pad-top{
-  padding-top:90px;
-}
-
-/* LANG */
-.profileLangSelector > ul{
-  display:flex;
-  justify-content:center;
-}
-.profileLangSelector li {
-  padding: 5px 20px 10px;
-  background-color:var(--color2);
-  margin:15px 15px 0;
-}
-.profileLangSelector img {
-  display:inline;
-}
-.profileLangSelector a {
-  font-size: 18px;
-}
-
-.profile-divider{
- @apply p-4 pb-5 my-5 break-words text-2xl text-primary text-center font-medium bg-white;
-}
+@import "profile.css";
 
 @tailwind utilities;
