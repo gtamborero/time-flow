@@ -5,7 +5,7 @@
         {{ $t('Request time to') }}<br> {{profileUserName}}
       </button>-->
       <button v-on:click="createNew('send')"
-        class="tf-button tf-button-3 items-center mx-2 w-4/5 md:w-1/2 text-base font-medium uppercase">
+        class="tf-button tf-button-3 items-center mx-2 w-4/5 md:w-1/2 text-lg font-medium uppercase">
         {{ $t('Pay to') }} {{profileUserName}}
       </button>
   </div>
@@ -34,19 +34,19 @@
           form.innerHTML = `
           <input placeholder="${this.$t('Write the Concept...')}"
           id="tfConcept" type="text" name="concept"
-          class="box-border p-2 mb-3 rounded-md text-center w-full"
+          class="box-border p-3 text-lg rounded-md text-center w-full"
           maxlength="120"
-          style="border: 1px solid #999; margin-bottom:15px;" ><br>
+          style="border: 1px solid #999; margin-bottom:25px;" ><br>
 
-          <span id="tfHours">0</span> hours<br>
-          <input style="width:100%; margin-top:10px;" type="range" name="tfHours" value=0 step=1 min=0 max=24
+          <span id="tfHours" class="text-xl">0</span> ${this.$t('hours')}<br>
+          <input style="width:100%; margin:8px 0 25px;" type="range" name="tfHours" value=0 step=1 min=0 max=23
           autocomplete="off"
           onchange="window.changeHours(this.value)"
           oninput="window.changeHours(this.value)"
           ><br>
 
-          <span id="tfMinutes">0</span> min<br>
-          <input style="width:100%; margin-top:10px;" type="range" name="tfMinutes" value=0 step=5 min=0 max=55
+          <span id="tfMinutes" class="text-xl">0</span> ${this.$t('minutes')}<br>
+          <input style="width:100%; margin:8px 0 25px;" type="range" name="tfMinutes" value=0 step=5 min=0 max=55
           autocomplete="off"
           onchange="window.changeMinutes(this.value)"
           oninput="window.changeMinutes(this.value)"
@@ -63,9 +63,9 @@
             /*text: '',*/
             content: form,
             buttons: {
-              cancel: "Cancel",
+              cancel: this.$t('cancel'),
               catch: {
-                text: "Create",
+                text: this.$t('create'),
                 value: 5,
               },
             }

@@ -40,8 +40,8 @@
             return "SellerAndCreator";
         },
         getSiblingUser: function (){
-          if (this.actualUserId == this.buyerUser.id) return this.sellerUser.name;
-          if (this.actualUserId == this.sellerUser.id) return this.buyerUser.name;
+          if (this.actualUserId == this.buyerUser.id) return this.sellerUser.name.capitalize();
+          if (this.actualUserId == this.sellerUser.id) return this.buyerUser.name.capitalize();
         },
         isInvolvedBuyer: function(){
           if ( this.involvedUser == 'Buyer' || this.involvedUser == 'BuyerAndCreator' ) return 1;
@@ -54,7 +54,7 @@
           // Messanges when exchange status is pending
           if (this.status == 0){
 
-              var infoNotInvolved = `${this.buyerUser.name}
+              var infoNotInvolved = `${this.buyerUser.name.capitalize()}
                 ${this.$t('want\'s to pay')}
                 ${this.amount}
                 ${this.$t('to')}
@@ -63,7 +63,7 @@
                 <div class="hidden md:block"></div>
                 <span class="font-semibold">${this.concept}</span>`;
 
-              var info = `<span class="capitalize">${this.siblingUser}</span>
+              var info = `${this.siblingUser.capitalize()}
                 ${this.$t('want\'s to pay you')}
                 ${this.amount}
                 ${this.$t('for')}:
@@ -71,11 +71,11 @@
 
                 <span class="font-semibold">${this.concept}</span>`;
 
-              var infoBuyerAndCreator = `${this.buyerUser.name}
+              var infoBuyerAndCreator = `${this.buyerUser.name.capitalize()}
                 ${this.$t('want\'s to pay')}
                 ${this.amount}
                 ${this.$t('to')}
-                <span class="capitalize">${this.siblingUser}</span>
+                ${this.siblingUser.capitalize()}
                 ${this.$t('for')}:
                 <div class="hidden md:block"></div>
 
@@ -85,7 +85,7 @@
                 ${this.$t('want\'s to pay')}
                 ${this.amount}
                 ${this.$t('to')}
-                <span class="capitalize">${this.siblingUser}</span>
+                ${this.siblingUser.capitalize()}
                 ${this.$t('for')}:
                 <div class="hidden md:block"></div>
 
@@ -95,7 +95,7 @@
           // Messages when exchange status is Accepted
           if (this.status == 1){
 
-              var infoNotInvolved = `${this.buyerUser.name}
+              var infoNotInvolved = `${this.buyerUser.name.capitalize()}
                 ${this.$t('paid')}
 
                 ${this.amount}
@@ -109,7 +109,7 @@
               var info = `${this.$t('You have charged')}
                 ${this.amount}
                 ${this.$t('to')}
-                <span class="capitalize">${this.siblingUser}</span>
+                ${this.siblingUser.capitalize()}
                 ${this.$t('for')}:
                 <div class="hidden md:block"></div>
 
@@ -118,7 +118,7 @@
               var infoBuyerAndCreator = `${this.$t('You have paid')}
                 ${this.amount}
                 ${this.$t('to')}
-                <span class="capitalize">${this.siblingUser}</span>
+                ${this.siblingUser.capitalize()}
                 ${this.$t('for')}:
                 <div class="hidden md:block"></div>
 
@@ -127,7 +127,7 @@
               var infoBuyer = `${this.$t('You have paid')}
                 ${this.amount}
                 ${this.$t('to')}
-                <span class="capitalize">${this.siblingUser}</span>
+                ${this.siblingUser.capitalize()}
                 ${this.$t('for')}:
                 <div class="hidden md:block"></div>
 
@@ -137,7 +137,7 @@
           // Messages when exchange status is Rejected
           if (this.status == -1){
 
-              var infoNotInvolved = `${this.buyerUser.name}
+              var infoNotInvolved = `${this.buyerUser.name.capitalize()}
                 ${this.$t('paid')}
                 ${this.amount}
                 ${this.$t('to')}
@@ -147,7 +147,7 @@
 
                 <span class="font-semibold">${this.concept}</span>`;
 
-              var info = `<span class="capitalize">${this.siblingUser}</span>
+              var info = `${this.siblingUser.capitalize()}
                 ${this.$t('paid you')}
                 ${this.amount}
                 ${this.$t('for')}:
@@ -158,7 +158,7 @@
               var infoBuyerAndCreator = `${this.$t('You have paid')}
                 ${this.amount}
                 ${this.$t('to')}
-                <span class="capitalize">${this.siblingUser}</span>
+                ${this.siblingUser.capitalize()}
                 ${this.$t('for')}:
                 <div class="hidden md:block"></div>
 
@@ -167,7 +167,7 @@
               var infoBuyer = `${this.$t('You have paid')}
                 ${this.amount}
                 ${this.$t('to')}
-                <span class="capitalize">${this.siblingUser}</span>
+                ${this.siblingUser.capitalize()}
                 ${this.$t('for')}:
                 <div class="hidden md:block"></div>
 

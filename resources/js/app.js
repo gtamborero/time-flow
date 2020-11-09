@@ -6,6 +6,11 @@
 require('./bootstrap');
 window.Vue = require('vue');
 
+// Add capitalize function on strings
+String.prototype.capitalize = function() {
+    return this.charAt(0).toUpperCase() + this.slice(1);
+}
+
 import ExchangeBlock from './components/ExchangeBlock.vue';
 Vue.component('exchange-block', ExchangeBlock);
 
@@ -42,7 +47,7 @@ const store = new Vuex.Store(StoreData);
 
 // Use internationalization -> martinlindhe/laravel-vue-i18n-generator
 import VueInternationalization from 'vue-i18n';
-import Locale from './vue-i18n-locales';
+import Locale from '../lang/es/vue-i18n-locales';
 
 // VueInternationalization config
 Vue.use(VueInternationalization);
