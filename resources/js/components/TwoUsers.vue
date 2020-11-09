@@ -13,7 +13,7 @@
 
     <!-- AMOUNT -->
     <div class="grid text-center items-end">
-      <div class="font-medium">
+      <div class="font-medium text-lg mb-2">
         <span class="icon-timer"></span><br>
       {{ amount }}
       <br>
