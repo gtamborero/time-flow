@@ -10,6 +10,7 @@ use Illuminate\Queue\SerializesModels;
 
 use Illuminate\Support\Facades\Mail;
 use App\Mail\StatusMail;
+use Illuminate\Support\Facades\Auth;
 
 class SendMailProcess implements ShouldQueue
 {
@@ -35,6 +36,7 @@ class SendMailProcess implements ShouldQueue
      */
     public function handle()
     {
+      \App::setLocale(Auth::user()->locale);
       return Mail::send(new StatusMail($this->id));
     }
 }
