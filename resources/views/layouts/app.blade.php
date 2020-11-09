@@ -25,7 +25,7 @@
                 <div class="flex">
                     <a href="{{ route('search') }}">
                       <button class="head-button inline-flex items-center mx-1 lg:mx-2">
-                        <span class="icon-search text-white" style="font-size: 1.7rem; margin-bottom:4px; margin-right:4px;"></span>
+                        <span class="icon-search text-white" style="font-size: 2rem; margin-bottom:-1px; margin-right:2px;"></span>
                         <span class="hidden md:block ml-2 mr-1">@lang('Search')</span>
                       </button>
                       </a>

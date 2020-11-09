@@ -17,7 +17,7 @@
         <span class="icon-timer"></span><br>
       {{ amount }}
       <br>
-      <span class="icon-fast_forward arrow-animation"></span>
+      <span class="icon-fast-forward arrow-animation"></span>
       </div>
     </div>
 
