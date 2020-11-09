@@ -62,6 +62,9 @@ class StatusMail extends Mailable
      */
     public function build()
     {
+      // Get user language for use in this mail
+      //App::setLocale('es');
+
       if ($this->status === 0){
         $customMessage = __('New exchange');
       }

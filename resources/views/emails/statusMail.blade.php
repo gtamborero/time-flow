@@ -1,6 +1,6 @@
 @component('mail::message')
 
-<!--  @if ($status === 0)
+ @if ($status === 0)
     # <center>@lang('New exchange')</center>
   @endif
   @if ($status === 1)
@@ -8,19 +8,19 @@
   @endif
   @if ($status === -1)
     # <center>@lang('Rejected Exchange')</center>
-  @endif -->
+  @endif
 
 <center>@lang('Time-Flow is a Time Exchange System. You are receiving this mail because someone has send or requested time to you')
 </center>
 <br>
 <table class="timeflow">
   <td style="background-color:#222; padding:8px; color:#fff; ">
-    Exchange Concept:
+    @lang('Concept'):
   </td>
   <tr>
   <td>{{ $concept }}</td>
   <tr>
-  <td>Amount: {{ humanizeMinutes($amount) }}</td>
+  <td>@lang('Amount'): {{ humanizeMinutes($amount) }}</td>
 </table>
 
 <br>
@@ -28,12 +28,12 @@
 @if ($rating)
   <table class="timeflow">
     <td style="background-color:#555; padding:8px; color:#fff; ">
-      Comments of <span style="text-transform:capitalize;">{{ $buyerName }}</span>:
+      @lang('Comment of') <span style="text-transform:capitalize;">{{ $buyerName }}</span>:
     <tr>
     <td> {{ $comment }}</td>
     <tr>
     <td>
-      Rating of <span style="text-transform:capitalize;">{{ $buyerName }}</span>: {{ $rating }} stars
+      @lang('Rating of') <span style="text-transform:capitalize;">{{ $buyerName }}</span>: {{ $rating }} @lang('stars')
     </td>
   </table>
 <br>
@@ -44,23 +44,19 @@
   @if ($status === -1) #f00 @endif
   @if ($status === 0) #008 @endif
   @if ($status === 1) #090 @endif
-  ;">Exchange Status:
-    @if ($status === -1) Rejected @endif
-    @if ($status === 0) Pending @endif
-    @if ($status === 1) Accepted @endif
+  ;">@lang('Status'):
+    @if ($status === -1) @lang('Rejected') @endif
+    @if ($status === 0) @lang('Pending') @endif
+    @if ($status === 1) @lang('Accepted') @endif
   </td>
   <tr>
-  <td >Time Receiver:<br> {{ $sellerName }} - <a href="mailto:{{ $sellerMail }}">{{ $sellerMail }}</a></td>
+  <td >@lang('Time Giver'):<br> {{ $buyerName }} - <a href="mailto:{{ $buyerMail }}">{{ $buyerMail }}</a></td>
   <tr>
-  <td >Time Giver:<br> {{ $buyerName }} - <a href="mailto:{{ $buyerMail }}">{{ $buyerMail }}</a></td>
+  <td >@lang('Time Receiver'):<br> {{ $sellerName }} - <a href="mailto:{{ $sellerMail }}">{{ $sellerMail }}</a></td>
 </table>
 
-<br>
-
-<br>Exchange Creator: {{ $creatorName }}
-
 @component('mail::button', ['url' => 'https://time-flow.app/login'])
-  @lang('Log to Time-Flow')
+  @lang('Go to Time-Flow')
 @endcomponent
 
 <center>

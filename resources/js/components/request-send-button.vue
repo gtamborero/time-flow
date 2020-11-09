@@ -54,7 +54,7 @@
           `;
 
           if (type == 'request') var typeTitle = this.$t('Request time to');
-          if (type == 'send') var typeTitle = this.$t('Send time to');
+          if (type == 'send') var typeTitle = this.$t('Pay time to');
 
           this.$swal({
             title: typeTitle + " "

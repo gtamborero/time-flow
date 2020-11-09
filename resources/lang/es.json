@@ -1,5 +1,5 @@
 {
-
+    "Time-Flow is a Time Exchange System. You are receiving this mail because someone has send or requested time to you":"Time-Flow es un sistema de intercambio de tiempo. Estás recibiendo este correo porque alguien te ha pagado tiempo",
     "E-Mail Address": "Correo electrónico",
     "Password": "Contraseña",
     "Remember Me": "Recuérdame",
@@ -42,8 +42,15 @@
     "access to": "acceso a",
     "More info": "Más información",
 
+    "New exchange": "Nuevo intercambio",
     "exchange": "intercambio",
     "exchanges": "intercambios",
+    "Concept": "Concepto",
+    "Amount": "Importe",
+    "Comment of": "Comentario de",
+    "Rating of": "Valoración de",
+    "stars": "estrellas",
+    "Status": "Estado",
     "minutes": "minutos",
     "hours": "horas",
     "Ok": "Ok",
@@ -103,6 +110,9 @@
     "Pending": "Pendiente",
     "Accepted": "Aceptado",
     "Rejected": "Rechazado",
+    "Time Receiver": "Receptor de tiempo",
+    "Time Giver": "Pagador de tiempo",
+    "Go to Time-Flow": "Acceder a Time-Flow",
 
     "Edit my profile": "Editar mi perfil",
     "My Profile": "Mi perfil",
@@ -120,6 +130,7 @@
     "You must search for a user first!": "Debes buscar a un usuario!",
     "Inside every user profile you will be able to make Payments": "Podrás realizar pagos al visualizar un perfil de usuario",
     "OK, Thanks!": "OK, Gracias!",
+    "View profile": "Ver perfil",
 
     "last exchanges": "últimos intercambios",
     "Make a Payment": "Realizar pago",
