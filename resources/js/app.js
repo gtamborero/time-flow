@@ -42,7 +42,7 @@ const store = new Vuex.Store(StoreData);
 
 // Use internationalization -> martinlindhe/laravel-vue-i18n-generator
 import VueInternationalization from 'vue-i18n';
-import Locale from './vue-i18n-locales.generated';
+import Locale from './vue-i18n-locales';
 
 // VueInternationalization config
 Vue.use(VueInternationalization);
