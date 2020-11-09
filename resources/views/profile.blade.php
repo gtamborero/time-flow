@@ -15,7 +15,7 @@
 
         <a class="flex-1" href="{{ url('/last-exchanges') }}">
           <button class="tf-button tf-button-secondary items-center w-full uppercase">
-            @lang('Last Exchanges')
+            @lang('last exchanges')
           </button>
         </a>
 

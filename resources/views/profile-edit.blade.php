@@ -84,7 +84,7 @@
     <div class="profile-divider">
 
         <div>@lang('Web Site')</div>
-        <span class="text-base text-gray">@lang('Start with https://')</span>
+        <span class="text-base text-gray">@lang('Start with') https://</span>
         <div>
           <input placeholder="@lang('https://yourweb.site')..." class="form-input w-full lg:w-1/2 mt-2 text-black" type="text" name="website" value="{{ old('website', Auth::user()->website) }}">
         </div>

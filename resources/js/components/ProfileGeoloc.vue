@@ -1,6 +1,6 @@
 <template>
 <div>
-<button @click.prevent="getLocation" class="tf-button tf-button-primary mx-auto uppercase">GeoLocate Me!</button>
+<button @click.prevent="getLocation" class="tf-button tf-button-primary mx-auto uppercase">{{$t('GeoLocate Me')}}!</button>
 </div>
 </template>
 
