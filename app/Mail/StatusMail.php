@@ -12,6 +12,7 @@ class StatusMail extends Mailable
 {
     use Queueable, SerializesModels;
 
+    public $type; // type of mail to send: seller or buyer
     public $sellerName;
     public $sellerMail;
     public $buyerName;
@@ -28,10 +29,11 @@ class StatusMail extends Mailable
     public $rating;
     public $comment;
 
-    public function __construct($exchangeId)
+    public function __construct($exchangeId, $type)
     {
       $exchangeData = Exchanges::where('id', $exchangeId)->first();
 
+      $this->type = $type;
       // USER names + mails
       $this->sellerName = $exchangeData->getSellerUser->name;
       $this->sellerMail = $exchangeData->getSellerUser->email;
@@ -55,6 +57,11 @@ class StatusMail extends Mailable
       }
     }
 
+    public function sellerOrBuyer(){
+      if ($this->type == 'seller') return $this->sellerMail;
+      if ($this->type == 'buyer') return $this->buyerMail;
+    }
+
     /**
      * Build the message.
      *
@@ -75,8 +82,7 @@ class StatusMail extends Mailable
         $customMessage = __('Rejected Exchange');
       }
         return $this->subject('[' . config('app.name') . '] ' . $customMessage )
-        ->to($this->sellerMail)
-        ->to($this->buyerMail)
+        ->to($this->sellerOrBuyer())
         ->markdown('emails.statusMail');
     }
 }

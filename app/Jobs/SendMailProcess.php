@@ -36,7 +36,9 @@ class SendMailProcess implements ShouldQueue
      */
     public function handle()
     {
-      \App::setLocale(Auth::user()->locale);
-      return Mail::send(new StatusMail($this->id));
+      \App::setLocale('es');
+      Mail::send(new StatusMail($this->id, 'seller'));
+      \App::setLocale('en');
+      Mail::send(new StatusMail($this->id, 'buyer'));
     }
 }
