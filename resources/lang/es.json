@@ -42,7 +42,12 @@
     "access to": "acceso a",
     "More info": "Más información",
 
-    "New exchange": "Nuevo intercambio",
+    "Time-Payment Request": "Solicitud de Pago de Tiempo",
+    "Payment Accepted": "Pago Aceptado",
+    "New Comment": "Nuevo Comentario",
+    "Rejected Payment": "Pago Rechazado",
+    "between": "entre",
+    "and": "y",
     "exchange": "intercambio",
     "exchanges": "intercambios",
     "Concept": "Concepto",

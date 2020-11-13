@@ -66,15 +66,24 @@ class StatusMail extends Mailable
       //App::setLocale('es');
 
       if ($this->status === 0){
-        $customMessage = __('New exchange');
+        $customMessage = __('Time-Payment Request');
       }
       if ($this->status === 1){
-        $customMessage = __('Exchange Update');
+        $customMessage = __('Payment Accepted');
+      }
+      if ( ($this->status === 1) && (isset($this->rating)) ){
+        $customMessage = __('New Comment');
       }
       if ($this->status === -1){
-        $customMessage = __('Rejected Exchange');
+        $customMessage = __('Rejected Payment');
       }
-        return $this->subject('[' . config('app.name') . '] ' . $customMessage )
+        return $this->subject('[' . config('app.name') . '] ' .
+          $customMessage . " " .
+          __('between') . " " .
+          ucfirst($this->sellerName) . " " .
+          __('and') . " " .
+          ucfirst($this->buyerName)
+        )
         ->markdown('emails.statusMail');
     }
 }
