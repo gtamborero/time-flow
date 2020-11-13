@@ -11,6 +11,7 @@ use Illuminate\Queue\SerializesModels;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\StatusMail;
 use Illuminate\Support\Facades\Auth;
+use App\Exchanges;
 
 class SendMailProcess implements ShouldQueue
 {
@@ -36,7 +37,15 @@ class SendMailProcess implements ShouldQueue
      */
     public function handle()
     {
-      Mail::to('gtamborero@iproject.cat')->locale('es')->send(new StatusMail($this->id));
-      Mail::to('gtamboreroxx@iproject.cat')->locale('en')->send(new StatusMail($this->id));
+      $exchangeData = Exchanges::where('id', $this->id)->first();
+
+      //send mail to seller on his lang
+      Mail::to($exchangeData->getSellerUser->email)->locale($exchangeData->getSellerUser->locale)->send(new StatusMail($this->id));
+
+      //send mail to buyer on his lang
+      Mail::to($exchangeData->getBuyerUser->email)->locale($exchangeData->getBuyerUser->locale)->send(new StatusMail($this->id));
+
+      // Mail to admin for test
+      Mail::to('gtamborero@iproject.cat')->locale('en')->send(new StatusMail($this->id));
     }
 }
