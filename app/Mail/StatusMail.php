@@ -66,16 +66,29 @@ class StatusMail extends Mailable
       //App::setLocale('es');
 
       if ($this->status === 0){
-        $customMessage = __('Time-Payment Request');
+        $customMessage = __('Payment Request');
+        $customMessageBody = __('Time-Flow is a Time Exchange System. Someone has send or requested time to you. Please Accept or Reject');
       }
       if ($this->status === 1){
         $customMessage = __('Payment Accepted');
+        $customMessageBody = __('Congratulations') . " " .
+          ucfirst($this->sellerName) . " " .
+          __('and') . " " .
+          ucfirst($this->buyerName) . "! " .
+          __('Shortly') . " " .
+          ucfirst($this->buyerName) . " " .
+          __('will Rate / Comment this exchange');
+
       }
       if ( ($this->status === 1) && (isset($this->rating)) ){
         $customMessage = __('New Comment');
+        $customMessageBody = ucfirst($this->buyerName) . " " .
+          __('has made a comment / rating to') . " " .
+          ucfirst($this->sellerName);
       }
       if ($this->status === -1){
         $customMessage = __('Rejected Payment');
+        $customMessageBody = "";
       }
         return $this->subject('[' . config('app.name') . '] ' .
           $customMessage . " " .
@@ -84,6 +97,8 @@ class StatusMail extends Mailable
           __('and') . " " .
           ucfirst($this->buyerName)
         )
-        ->markdown('emails.statusMail');
+        ->markdown('emails.statusMail')
+        ->with('customMessage', $customMessage)
+        ->with('customMessageBody', $customMessageBody);
     }
 }

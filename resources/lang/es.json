@@ -1,5 +1,5 @@
 {
-    "Time-Flow is a Time Exchange System. You are receiving this mail because someone has send or requested time to you":"Time-Flow es un sistema de intercambio de tiempo. Estás recibiendo este correo porque alguien te ha pagado tiempo",
+    "Time-Flow is a Time Exchange System. Someone has send or requested time to you. Please Accept or Reject":"Time-Flow es un sistema de intercambio de tiempo. Alguien te ha pagado o solicitado tiempo. Por favor Acepta o Rechaza",
     "E-Mail Address": "Correo electrónico",
     "Password": "Contraseña",
     "Remember Me": "Recuérdame",
@@ -42,7 +42,7 @@
     "access to": "acceso a",
     "More info": "Más información",
 
-    "Time-Payment Request": "Solicitud de Pago de Tiempo",
+    "Payment Request": "Solicitud de Pago",
     "Payment Accepted": "Pago Aceptado",
     "New Comment": "Nuevo Comentario",
     "Rejected Payment": "Pago Rechazado",
@@ -65,6 +65,10 @@
     "cancel": "cancelar",
     "Exchange Accepted": "Intercambio Aceptado",
     "Exchange Rejected": "Intercambio Rechazado",
+    "Congratulations": "Felicidades",
+    "Shortly": "En breve",
+    "will Rate / Comment this exchange": "valorará / comentará el intercambio",
+    "has made a comment / rating to": "ha comentado / valorado a",
     "spam": "spam",
     "sends you": "te envía",
     "have send": "te envió",

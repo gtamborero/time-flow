@@ -1,17 +1,10 @@
 @component('mail::message')
 
- @if ($status === 0)
-    # <center>@lang('New exchange')</center>
-  @endif
-  @if ($status === 1)
-    # <center>@lang('Exchange Update')</center>
-  @endif
-  @if ($status === -1)
-    # <center>@lang('Rejected Exchange')</center>
-  @endif
+# <center>{{ $customMessage }}</center>
 
-<center>@lang('Time-Flow is a Time Exchange System. You are receiving this mail because someone has send or requested time to you')
+<center>{{ $customMessageBody }}
 </center>
+
 <br>
 <table class="timeflow">
   <td style="background-color:#222; padding:8px; color:#fff; ">
