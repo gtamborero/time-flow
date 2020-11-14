@@ -66,7 +66,8 @@
             console.log(locationData);
 
             var locationField = document.getElementById('locationField');
-
+            locationField.value="";
+            
             // Set country + city
             if (locationData.adminArea1){
               document.getElementById('country').value=locationData.adminArea1;
