@@ -7,8 +7,8 @@ require('./bootstrap');
 window.Vue = require('vue');
 
 // Add capitalize function on strings
-String.prototype.capitalize = function() {
-    return this.charAt(0).toUpperCase() + this.slice(1);
+window.capitalize = function(string=""){
+  return string.charAt(0).toUpperCase() + string.slice(1);
 }
 
 import ExchangeBlock from './components/ExchangeBlock.vue';
