@@ -77,7 +77,7 @@
                     <span class="icon-envelope-o"></span>
                     <span class="icon-earth"></span>
                     <span class="icon-linkedin-square"></span>
-                    <br>Social data is available for registered users
+                    <br>@lang('Social data is available for registered users')
                   </div>
                 @endguest
 
