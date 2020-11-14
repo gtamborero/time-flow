@@ -57,5 +57,25 @@
     </div>
 
     <script src="{{ mix('js/app.js') }}"></script>
+    
+    <script>
+    function paymentAlert(){
+      swal({
+        title: '@lang('You must search for a user first!')',
+        icon: "info",
+        text: '@lang('Inside every user profile you will be able to make Payments')',
+        buttons: {
+          confirm: {
+            text: '@lang('OK, Thanks!')',
+            className: 'text-center',
+            visible: true,
+            closeModal: true
+          }
+        },
+        timer: 6000
+      })
+    }
+    </script>
+
 </body>
 </html>
