@@ -23,7 +23,7 @@ class ArtisanController extends Controller
   public function mailWork(){
   	//Artisan::call('queue:restart');
 	//Artisan::call('queue:work --stop-when-empty --tries=2');
-  Artisan::call('queue:work --max-time=30'); // only for laravel 8
+  Artisan::call('queue:work --max-time=275'); // only for laravel 8
   }
 
 }
