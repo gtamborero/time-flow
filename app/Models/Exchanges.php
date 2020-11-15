@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Auth;
@@ -29,18 +29,18 @@ class Exchanges extends Model
     }
 
     public function getSellerUser(){
-      return $this->hasOne('App\User','id','id_seller');
+      return $this->hasOne('App\Models\User','id','id_seller');
     }
 
     public function getBuyerUser(){
-      return $this->hasOne('App\User','id','id_buyer');
+      return $this->hasOne('App\Models\User','id','id_buyer');
     }
 
     public function getCreatorUser(){
-      return $this->hasOne('App\User','id','id_creator');
+      return $this->hasOne('App\Models\User','id','id_creator');
     }
 
     public function getRating(){
-      return $this->hasOne('App\Comments','id_exchange','id');
+      return $this->hasOne('App\Models\Comments','id_exchange','id');
     }
 }

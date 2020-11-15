@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Comments;
+use App\Models\Comments;
 use App\Jobs\SendMailProcess;
 
 class CommentController extends Controller

@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
 // GLOBAL CONSTANTS for TIMEBANK
 // use example: if (Constant::STATUS_ACCEPTED) ...

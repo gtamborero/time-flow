@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Exchanges;
+use App\Models\Exchanges;
 use App\Jobs\SendMailProcess;
 
 class ExchangeController extends Controller

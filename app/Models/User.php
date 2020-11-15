@@ -1,14 +1,14 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Support\Facades\Auth;
 use Laravel\Scout\Searchable;
-use App\Exchanges;
-use App\Constants;
+use App\Models\Exchanges;
+use App\Models\Constants;
 
 class User extends Authenticatable implements MustVerifyEmail
 {

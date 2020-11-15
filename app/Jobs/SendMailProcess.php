@@ -11,7 +11,7 @@ use Illuminate\Queue\SerializesModels;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\StatusMail;
 use Illuminate\Support\Facades\Auth;
-use App\Exchanges;
+use App\Models\Exchanges;
 
 class SendMailProcess implements ShouldQueue
 {

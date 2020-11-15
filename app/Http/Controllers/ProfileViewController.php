@@ -16,7 +16,7 @@ class ProfileViewController extends Controller
 
   public function index($userName)
   {
-      $userData = \App\User::where('name', $userName)->first();
+      $userData = \App\Models\User::where('name', $userName)->first();
 
       // Check if user has verified mail:
       if ((Auth::user()) && ($userName == Auth::user()->name)){
@@ -25,7 +25,7 @@ class ProfileViewController extends Controller
 
       $userId = $userData->id;
 
-      $exchanges = \App\Exchanges
+      $exchanges = \App\Models\Exchanges
           ::where('id_buyer', $userId)
           ->orWhere('id_seller', $userId)
           ->with('getSellerUser')

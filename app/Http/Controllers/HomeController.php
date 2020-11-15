@@ -43,7 +43,7 @@ class HomeController extends Controller
       }
 
       // IF Anonymouse user
-      $exchanges = \App\Exchanges::orderBy('id', 'desc')
+      $exchanges = \App\Models\Exchanges::orderBy('id', 'desc')
       ->where('status', 1)
       ->with('getSellerUser')
       ->with('getBuyerUser')
@@ -58,7 +58,7 @@ class HomeController extends Controller
     }
 
     public function lastExchanges(){
-      $exchanges = \App\Exchanges::orderBy('id', 'desc')
+      $exchanges = \App\Models\Exchanges::orderBy('id', 'desc')
       ->where('status', 1)
       ->with('getSellerUser')
       ->with('getBuyerUser')

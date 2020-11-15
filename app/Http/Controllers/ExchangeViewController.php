@@ -10,14 +10,14 @@ class ExchangeViewController extends Controller
 
     public function index($exchangeId)
     {
-        $userData = \App\User::where('name', Auth::user()->name)->first();
+        $userData = \App\Models\User::where('name', Auth::user()->name)->first();
 
         // Check if user has verified mail:
         if (!isVerifiedUser()) return redirect ('email/verify');
 
         $userId = $userData->id;
 
-        $exchanges = \App\Exchanges
+        $exchanges = \App\Models\Exchanges
             ::where('id', $exchangeId)->get();
 
         return view('single-exchange')
