@@ -20,4 +20,10 @@ class SearchController extends Controller
         ->with('usersData',$usersData)
         ->with('search',$request->input('search'));
     }
+
+    public function all(Request $request){
+      $usersData = User::orderBy('updated_at', 'desc')->take(100)->get();
+      return view('showAllUsers')
+        ->with('usersData',$usersData);
+    }
 }

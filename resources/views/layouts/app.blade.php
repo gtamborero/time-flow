@@ -54,10 +54,27 @@
           @yield('content')
         </div>
 
+        <div class="w-full" style="background:#000;">
+          <div class="flex container mx-auto p-6 text-white">
+
+            <a class="flex-1" href="{{ route('showAllUsers') }}">
+              <button class="tf-button items-center uppercase">
+                @lang('View last users')
+              </button>
+            </a>
+
+            <a class="flex-1" href="{{ url('/web') }}">
+              <button class="tf-button uppercase float-right">
+                @lang('Time-flow WebSite')
+              </button>
+            </a>
+
+          </div>
+        </div>
     </div>
 
     <script src="{{ mix('js/app.js') }}"></script>
-    
+
     <script>
     function paymentAlert(){
       swal({

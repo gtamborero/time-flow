@@ -32,6 +32,7 @@ Route::group(['middleware' => 'language'], function () {
   Route::get('login/facebook/callback', 'Auth\LoginController@handleProviderCallback');
 
   Route::get('search', 'SearchController@index')->name('search');
+  Route::get('show-all-users', 'SearchController@all')->name('showAllUsers');
 
   Route::post('/save-user-data', 'ProfileSaveController@index')->middleware('verified');
 
