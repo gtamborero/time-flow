@@ -17,6 +17,10 @@ Time-Flow is like PayPal or a bank, but the exchanges are in hours and minutes i
 
 Use 100% Time-Flow or combine it with other currencies. The decision is yours and the person you trade with
 
+## Web App Use
+
+You can register on https://time-flow.app/ as a user and send Time to anybody who has an email and is registered on the platform
+
 ## Specification
 
 Time-Flow is a web Application made with Laravel + VueJS
