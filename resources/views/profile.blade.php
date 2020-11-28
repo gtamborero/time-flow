@@ -104,8 +104,14 @@
             @lang('Start searching users or skills').<br>
             @lang('Connect with users and start paying time')!<br><br>
             <button class="tf-button tf-button-primary text-lg uppercase">
-              <a target=_BLANK href="https://www.youtube.com/watch?v=1KY7b-C-HHA">
+              <a target=_BLANK href="https://www.youtube.com/watch?v=iWku72qTVfo">
                 @lang('Play promotional video')
+              </a>
+            </button>
+              <br>
+            <button class="tf-button tf-button-primary text-lg uppercase">
+              <a target=_BLANK href="{{URL::to('/web')}}">
+                @lang('Time-Flow Web')
               </a>
             </button>
           </div>
