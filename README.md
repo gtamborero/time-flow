@@ -19,7 +19,7 @@ Use 100% Time-Flow or combine it with other currencies. The decision is yours an
 
 ## Web App Use
 
-You can register on https://time-flow.app/ as a user and send Time to anybody who has an email and is registered on the platform
+You can register on https://time-flow.app/ as a user and send Time to anyone who has an email and is registered on the platform
 
 ## Specification
 
