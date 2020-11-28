@@ -55,7 +55,7 @@
         </div>
 
         <div class="w-full" style="background:#000;">
-          <div class="flex container mx-auto p-6 text-white">
+          <div class="flex container mx-auto p-2 text-white">
 
             <a class="flex-1" href="{{ route('showAllUsers') }}">
               <button class="tf-button items-center uppercase">

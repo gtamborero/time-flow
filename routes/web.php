@@ -20,6 +20,12 @@ Route::group(['middleware' => 'language'], function () {
 
   // After login -> Home -> Redirects to profile/username
   Route::get('/', 'HomeController@index')->name('home');
+  
+  // Route language /en to /
+  Route::get('/en', function(){
+	  return redirect('/');
+  });
+
   Route::get('/home', 'HomeController@index')->name('language::back');
   Route::get('/last-exchanges', 'HomeController@lastExchanges')->name('lastExchanges');
 
