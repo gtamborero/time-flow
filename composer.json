@@ -20,7 +20,8 @@
         "laravel/socialite": "^5.0",
         "laravel/tinker": "^2.0",
         "laravel/ui": "^3.0",
-        "propaganistas/laravel-phone": "^4.2"
+        "propaganistas/laravel-phone": "^4.2",
+        "silviolleite/laravelpwa": "^2.0"
     },
     "require-dev": {
         "facade/ignition": "^2.3.6",
