@@ -6,10 +6,10 @@ return [
         'name' => 'Time-Flow',
         'short_name' => 'TimeFlow',
         'start_url' => '/',
-        'background_color' => '#ffffff',
-        'theme_color' => '#555555',
+        'background_color' => '#1a2345',
+        'theme_color' => '#1a2345',
         'display' => 'standalone',
-        'orientation'=> 'any',
+        'orientation'=> 'portrail',
         'status_bar'=> 'black',
         'icons' => [
             '192x192' => [
