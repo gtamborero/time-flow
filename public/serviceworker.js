@@ -1,5 +1,4 @@
-var date = new Date();
-var staticCacheName = "pwa-v";
+var staticCacheName = "pwa-v" + new Date().getTime();
 var filesToCache = [
     '/offline',
     '/css/app.css',
