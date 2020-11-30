@@ -9,7 +9,7 @@ return [
         'background_color' => '#1a2345',
         'theme_color' => '#1a2345',
         'display' => 'standalone',
-        'orientation'=> 'portrail',
+        'orientation'=> 'portrait',
         'status_bar'=> 'black',
         'icons' => [
             '192x192' => [
