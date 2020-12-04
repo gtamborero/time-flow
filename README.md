@@ -25,6 +25,10 @@ You can register on https://time-flow.app/ as a user and send Time to anyone who
 
 Time-Flow is a web Application made with Laravel + VueJS
 
+## Instalation
+
+You can install time-flow as a normal laravel app. Using composer, artisan for database deployment, and npm to compile the CSS / JS assets
+
 ## Contributing
 
 Thank you for considering contributing to time-flow project!
