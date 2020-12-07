@@ -43,7 +43,7 @@
 </head>
 
 <body class=" h-screen antialiased" style="background-color:#bbb;">
-    <div id="app">
+    <div id="app" class="pb-24">
         <nav class="bg-primary shadow mb-0 sm:mb-6 w-full z-50" style="padding:14px 0;">
             <div class="container mx-auto px-5 flex items-center justify-center" >
                 <!-- SIDE LEFT logo -->
@@ -62,28 +62,32 @@
         <div class="fixed bottom-0 left-0 right-0" style="background:#000;">
           <div class="flex container mx-auto p-2 text-white">
 
-            <a class="flex-1 text-center" href="{{ url('/last-exchanges') }}">
-              <button class="head-button items-center mx-1 lg:mx-2" style="padding-top:13px;">
+            <a class="flex-1 text-center" href="@isset (Auth::user()->name)
+                {{ route('userExchanges', Auth::user()->name) }}
+              @else
+                {{ url('last-exchanges') }}
+              @endif">
+              <button class="head-button" style="padding-top:13px;">
                 <span class="icon-exchange text-white" style="font-size: 1.5rem; margin-bottom:1px;"></span>
-                <span class="hidden md:block ml-2 mr-1">
-                  @lang('last exchanges')
+                <span class="hidden md:block">
+                  @lang('Exchanges')
                 </span>
               </button>
             </a>
 
             <a class="flex-1 text-center" href="{{ route('showAllUsers') }}">
-              <button class="head-button mx-1 lg:mx-2">
+              <button class="head-button">
                 <span class="icon-profile text-white text-3xl"></span>
-                <span class="hidden md:block ml-2 capitalize">
-                  @lang('View last users')
+                <span class="hidden md:block capitalize">
+                  @lang('Users')
                 </span>
               </button>
             </a>
 
             <a class="flex-1 text-center" href="{{ route('search') }}">
-              <button class="head-button mx-1 lg:mx-2" style="padding-top:6px;">
+              <button class="head-button" style="padding-top:6px;">
                 <span class="icon-search text-white" style="font-size: 2rem;"></span>
-                <span class="hidden md:block ml-2 mr-1">
+                <span class="hidden md:block">
                   @lang('Search')
                 </span>
               </button>
@@ -91,9 +95,9 @@
 
             @guest
               <a class="flex-1 text-center" href="{{ route('login') }}">
-                <button class="head-button mx-1 lg:mx-2">
+                <button class="head-button">
                   <span class="icon-person text-white text-3xl"></span>
-                    <span class="hidden md:block ml-2">
+                    <span class="hidden md:block capitalize">
                       {{ __('Login') }}
                     </span>
                 </button>
@@ -101,9 +105,9 @@
             @else
 
             <a class="flex-1 text-center" href="{{ route('profileView', Auth::user()->name) }}">
-              <button class="head-button mx-1 lg:mx-2">
+              <button class="head-button">
                 <span class="icon-person text-white text-3xl"></span>
-                <span class="hidden md:block ml-2 capitalize">
+                <span class="hidden md:block capitalize">
                   {{Auth::user()->name}}
                 </span>
               </button>
