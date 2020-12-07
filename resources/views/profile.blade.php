@@ -13,18 +13,6 @@
       <?php if (Auth::user()->name == $userData->name){ ?>
       <div class="md:flex gap-4 mx-4 sm:mx-0">
 
-        <a class="flex-1" href="{{ url('/last-exchanges') }}">
-          <button class="tf-button tf-button-secondary items-center w-full uppercase">
-            @lang('last exchanges')
-          </button>
-        </a>
-
-        <a class="flex-1" onclick="paymentAlert();">
-          <button class="tf-button tf-button-3 items-center w-full uppercase">
-            @lang('Make a Payment')
-          </button>
-        </a>
-
         <a class="flex-1" href="{{ url('/profile/' . $userData->name . '/edit') }}">
           <button class="tf-button tf-button-primary items-center w-full uppercase">
             @lang('Edit my profile')
