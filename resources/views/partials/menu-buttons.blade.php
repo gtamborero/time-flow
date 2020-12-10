@@ -8,7 +8,7 @@
       @endif">
       <button class="head-button" style="padding-top:13px;">
         <span class="icon-exchange text-white" style="font-size: 1.5rem; margin-bottom:1px;"></span>
-        <span class="hidden md:block">
+        <span class="hidden md:block text-base">
           @lang('Exchanges')
         </span>
       </button>
@@ -17,7 +17,7 @@
     <a class="flex-1 text-center" href="{{ route('showAllUsers') }}">
       <button class="head-button">
         <span class="icon-profile text-white text-3xl"></span>
-        <span class="hidden md:block capitalize">
+        <span class="hidden md:block text-base capitalize">
           @lang('Users')
         </span>
       </button>
@@ -26,7 +26,7 @@
     <a class="flex-1 text-center" href="{{ route('search') }}">
       <button class="head-button" style="padding-top:6px;">
         <span class="icon-search text-white" style="font-size: 2rem;"></span>
-        <span class="hidden md:block">
+        <span class="hidden md:block text-base">
           @lang('Search')
         </span>
       </button>
@@ -36,7 +36,7 @@
       <a class="flex-1 text-center" href="{{ route('login') }}">
         <button class="head-button">
           <span class="icon-person text-white text-3xl"></span>
-            <span class="hidden md:block capitalize">
+            <span class="hidden md:block text-base capitalize">
               {{ __('Login') }}
             </span>
         </button>
