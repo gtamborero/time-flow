@@ -42,7 +42,7 @@
           <div class="profile-divider text-base uppercase p-0" style="background-color:#bbb;">
 
           {{-- Show PAYMENT fixed down button --}}
-          <?php if (isVerifiedUser() && ($userName != Auth::user()->name)){ ?>
+          <?php if (isVerifiedUser() && !isAuthUser($userName)){ ?>
           <request-send-button
             :profile-user-id="{{$userId}}"
             profile-user-name="{{$userData->name}}"

@@ -34,7 +34,7 @@
           <div class="profile-divider text-base uppercase p-0" style="background-color:#bbb;">
 
           {{-- Show PAYMENT button --}}
-          <?php if (isVerifiedUser() && ($userName != Auth::user()->name)){ ?>
+          <?php if ( isVerifiedUser() && !isAuthUser($userName) ){ ?>
           <request-send-button
             :profile-user-id="{{$userId}}"
             profile-user-name="{{$userData->name}}"
@@ -48,7 +48,7 @@
   {{-- @include ('partials.search-block') --}}
 
     <div class=" p-4 my-5 break-words text-3xl text-primary text-center font-medium uppercase bg-white">
-      <?php if (isVerifiedUser() && ($userName == Auth::user()->name)){ ?>
+      <?php if ( isVerifiedUser() && isAuthUser($userName) ){ ?>
         @lang('your exchanges')
       <?php }else{ ?>
         @lang(':name exchanges',['name' => $userName])
@@ -78,7 +78,7 @@
 
       {{-- Show Call to action to actual user or --}}
       @empty
-        <?php if (isVerifiedUser() && ($userName == Auth::user()->name)){ ?>
+        <?php if (isVerifiedUser() && isAuthUser($userName)){ ?>
           <div class="p-4 my-5 break-words text-2xl text-center bg-gray-300">
             @lang('You don\'t have any exchanges yet').<br>
             @lang('Start searching users or skills').<br>

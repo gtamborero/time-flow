@@ -19,7 +19,7 @@ class ProfileViewController extends Controller
       $userData = \App\Models\User::where('name', $userName)->first();
 
       // Check if user has verified mail:
-      if ((Auth::user()) && ($userName == Auth::user()->name)){
+      if (Auth::user() && isAuthUser($userName)){
         if (!isVerifiedUser()) return redirect ('email/verify');
       }
 
@@ -36,7 +36,7 @@ class ProfileViewController extends Controller
       $userData = \App\Models\User::where('name', $userName)->first();
 
       // Check if user has verified mail:
-      if ((Auth::user()) && ($userName == Auth::user()->name)){
+      if (Auth::user() && isAuthUser($userName)){
         if (!isVerifiedUser()) return redirect ('email/verify');
       }
 
