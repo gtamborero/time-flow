@@ -30,7 +30,7 @@
 
 
         @auth
-        <?php if (Auth::user()->name != $userData->name){ ?>
+        <?php if (!isAuthUser($userData->name)){ ?>
           <div class="profile-divider text-base uppercase p-0" style="background-color:#bbb;">
 
           {{-- Show PAYMENT button --}}

@@ -10,7 +10,7 @@
 
     <div class="profile-divider text-base uppercase p-0" style="background-color:#bbb;">
       @auth
-      <?php if (Auth::user()->name == $userData->name){ ?>
+      <?php if (isAuthUser($userData->name)){ ?>
       <div class="md:flex gap-4 mx-4 sm:mx-0">
 
         <a class="flex-1" href="{{ url('/profile/' . $userData->name . '/edit') }}">
@@ -38,7 +38,7 @@
       @include ('partials.user-profile')
 
         @auth
-        <?php if (Auth::user()->name != $userData->name){ ?>
+        <?php if (!isAuthUser($userData->name)){ ?>
           <div class="profile-divider text-base uppercase p-0" style="background-color:#bbb;">
 
           {{-- Show PAYMENT fixed down button --}}

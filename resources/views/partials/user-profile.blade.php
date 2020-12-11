@@ -49,7 +49,7 @@
                     @endif
 
                     @if (
-                          (Auth::user()->name == $userData->name)
+                          (isAuthUser($userData->name))
                           &&
                           (!$userData->phone)
                           &&
