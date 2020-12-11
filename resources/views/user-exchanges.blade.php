@@ -33,7 +33,7 @@
         <?php if (Auth::user()->name != $userData->name){ ?>
           <div class="profile-divider text-base uppercase p-0" style="background-color:#bbb;">
 
-          {{-- Show PAYMENT fixed down button --}}
+          {{-- Show PAYMENT button --}}
           <?php if (isVerifiedUser() && ($userName != Auth::user()->name)){ ?>
           <request-send-button
             :profile-user-id="{{$userId}}"
