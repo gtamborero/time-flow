@@ -25,6 +25,15 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+.icon-credit-card:before {
+  content: "\e90d";
+}
+.icon-earth:before {
+  content: "\e900";
+}
+.icon-globe:before {
+  content: "\e900";
+}
 .icon-profile:before {
   content: "\e90c";
 }
@@ -45,18 +54,6 @@
 }
 .icon-envelope-o:before {
   content: "\e904";
-}
-.icon-earth:before {
-  content: "\e900";
-}
-.icon-globe:before {
-  content: "\e900";
-}
-.icon-fast-forward:before {
-  content: "\e905";
-}
-.icon-log-out:before {
-  content: "\e906";
 }
 .icon-close:before {
   content: "\e90a";
