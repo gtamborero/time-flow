@@ -41,6 +41,7 @@
     "You're logged in": "Has accedido",
     "access to": "acceso a",
     "More info": "Más información",
+    "Other exchanges": "Otros intercambios",
 
     "Payment Request": "Solicitud de Pago",
     "Payment Accepted": "Pago Aceptado",
@@ -146,7 +147,7 @@
     "Make a Payment": "Realizar pago",
     "Search user, phone, skills, profession": "Buscar usuarios, teléfono, habilidades, profesión",
     "Example: Programmer, designer": "Ejemplo: Programador, diseñador",
-    "Search": "Buscar",
+    "Search & Pay": "Buscar / Pagar",
     "Login": "Acceder",
 
     "Total Charges": "Total Intercambios",

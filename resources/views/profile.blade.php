@@ -15,15 +15,16 @@
 
         <a class="flex-1" href="{{ url('/profile/' . $userData->name . '/edit') }}">
           <button class="tf-button tf-button-primary items-center w-full uppercase">
-            @lang('Edit my profile')
+            <div class="icon-profile my-1" style="font-size:1.6em;"></div>
+            <span>@lang('Edit my profile')</span>
           </button>
         </a>
 
         <a class="flex-1" href="{{ route('logout') }}" onclick="event.preventDefault();
           document.getElementById('logout-form').submit();">
           <button class="tf-button tf-button-secondary items-center w-full uppercase">
-            <span class="icon-log-out"></span>
-            <span class="ml-2">{{ __('Logout') }}</span>
+            <div class="icon-log-out" style="font-size:1.2em; padding:7px 0;"></div>
+            <span>{{ __('Logout') }}</span>
           </button>
         </a>
         <form id="logout-form" action="{{ route('logout') }}" method="POST" class="hidden">
@@ -109,5 +110,5 @@
 
       <?php } ?>
       @endauth
-      
+
 @endsection

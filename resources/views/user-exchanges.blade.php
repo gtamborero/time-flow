@@ -12,13 +12,15 @@
 
     <a class="flex-1" href="{{ url('/search') }}">
       <button class="tf-button tf-button-3 items-center w-full uppercase">
+        <div class="icon-credit-card" style="font-size:1.5em; padding:7px 0;"></div>
         @lang('Make a Payment')
       </button>
     </a>
 
     <a class="flex-1" href="{{ url('last-exchanges') }}">
       <button class="tf-button tf-button-secondary items-center w-full uppercase">
-        <span class="ml-2">{{ __('Last exchanges') }}</span>
+        <div class="icon-exchange" style="font-size:1.5em; padding:7px 0;"></div>
+        <span class="ml-2">{{ __('Other exchanges') }}</span>
       </button>
     </a>
 

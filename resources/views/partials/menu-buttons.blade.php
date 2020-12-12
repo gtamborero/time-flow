@@ -1,4 +1,4 @@
-<div class="fixed bottom-0 left-0 right-0" style="background:#000;">
+<div class="fixed bottom-0 left-0 right-0" style="background:#222;">
   <div class="flex container mx-auto p-2 text-white">
 
     <a class="flex-1 text-center" href="@isset (Auth::user()->name)
@@ -16,7 +16,7 @@
 
     <a class="flex-1 text-center" href="{{ route('showAllUsers') }}">
       <button class="head-button">
-        <span class="icon-profile text-white text-3xl"></span>
+        <span class="icon-earth text-white" style="font-size: 1.9rem;"></span>
         <span class="hidden md:block text-base capitalize">
           @lang('Users')
         </span>
@@ -25,9 +25,9 @@
 
     <a class="flex-1 text-center" href="{{ route('search') }}">
       <button class="head-button" style="padding-top:6px;">
-        <span class="icon-search text-white" style="font-size: 2rem;"></span>
+        <span class="icon-credit-card text-white" style="font-size: 1.9rem;"></span>
         <span class="hidden md:block text-base">
-          @lang('Search')
+          @lang('Search & Pay')
         </span>
       </button>
       </a>
