@@ -25,10 +25,19 @@ class ProfileViewController extends Controller
 
       $userId = $userData->id;
 
+      $exchanges = \App\Models\Exchanges
+          ::where('id_buyer', $userId)
+          ->orWhere('id_seller', $userId)
+          ->with('getSellerUser')
+          ->with('getBuyerUser')
+          ->with('getCreatorUser')
+          ->with('getRating')
+          ->orderBy('id', 'desc')
+          ->get();
       return view('profile')
         ->with('userId',$userId)
         ->with('userData',$userData)
-        ->with('userName',$userName);
+        ->with('userName',$userName)->with('exchanges',$exchanges);
   }
 
   public function exchanges($userName)

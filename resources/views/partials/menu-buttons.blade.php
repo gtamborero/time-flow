@@ -46,7 +46,7 @@
     <a class="flex-1 text-center" href="{{ route('profileView', Auth::user()->name) }}">
       <button class="head-button">
         <span class="icon-person text-white text-3xl"></span>
-        <span class="hidden md:block capitalize">
+        <span class="hidden md:block text-base capitalize">
           {{Auth::user()->name}}
         </span>
       </button>

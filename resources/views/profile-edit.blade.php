@@ -58,7 +58,7 @@
         <div class="text-base text-gray w-full lg:w-1/2 mx-auto mt-2">
           @lang('Write here what you can offer to others. All words will be searchable keywords.')<br>
           <span class="text-base text-primary">@lang('Max size. 255 characters')</span>
-          <textarea placeholder="@lang('Write your description')..." rows="4" name="user_data"  maxlength="250"
+          <textarea placeholder="@lang('Write your description')..." rows="5" name="user_data"  maxlength="250"
             class="form-input w-full mt-3 text-black">{{ old('user_data', Auth::user()->user_data) }}</textarea>
         </div>
 
