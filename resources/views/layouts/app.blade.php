@@ -8,15 +8,7 @@
     <link href="{{ mix('css/app.css') }}" rel="stylesheet">
     @laravelPWA
 
-    <script src="https://cdn.onesignal.com/sdks/OneSignalSDK.js" async=""></script>
-    <script>
-      window.OneSignal = window.OneSignal || [];
-      OneSignal.push(function() {
-        OneSignal.init({
-          appId: "9e810395-d013-4756-a74b-82f5b6f2848a",
-        });
-      });
-    </script>
+    @include('partials.one-signal')
 
 <!-- APPLE ICONS: npm install --global pwa-asset-generator + npx pwa-asset-generator logo-timeflow.png -b 1a2345 -->
 <link rel="apple-touch-icon" sizes="180x180" href="apple-icon-180.jpg">
