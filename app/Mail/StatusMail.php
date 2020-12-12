@@ -7,6 +7,8 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 use App\Models\Exchanges;
+use Illuminate\Support\Facades\Auth;
+use OneSignal;
 
 class StatusMail extends Mailable
 {
@@ -64,6 +66,14 @@ class StatusMail extends Mailable
     {
       // Get user language for use in this mail
       //App::setLocale('es');
+      OneSignal::sendNotificationToExternalUser(
+   "hi friend",
+   Auth::user()->id,
+   $url = null,
+   $data = null,
+   $buttons = null,
+   $schedule = null
+);
 
       if ($this->status === 0){
         $customMessage = __('Payment Request');
