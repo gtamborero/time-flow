@@ -102,18 +102,6 @@
         this.status = this.$store.state.exchange[this.id].status;
         this.hasComment = this.$store.state.exchange[this.id].comment
 
-        // Welcome sweet Alert on first login if user
-        if (!sessionStorage.getItem('firstAlertDone') && this.actualUserId){
-          sessionStorage.setItem('firstAlertDone', 1);
-          this.$swal({
-            title: this.$t('Welcome'),
-            icon: "success",
-            text: this.$t('You\'re logged in'),
-            buttons: false,
-            timer: 1800
-          });
-        }
-
       },
       methods: {
         changeStatus: function (){
