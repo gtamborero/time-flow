@@ -102,7 +102,9 @@
 
     "Request time to": "Solicitar tiempo a",
     "Send time to": "Enviar tiempo a",
+    "Search": "Buscar",
     "Pay to": "Pagar a",
+    "Pay time to a user": "Pagar tiempo a usuario",
     "Sending data...": "Enviando información...",
     "Please wait until page refresh": "Por favor, espera a que la página refresque",
     "You must write the concept": "Debes escribir un concepto",
@@ -145,7 +147,7 @@
     "Exchanges": "Transacciones",
     "Users": "Usuarios",
     "Make a Payment": "Realizar pago",
-    "Search user, phone, skills, profession": "Buscar usuarios, teléfono, habilidades, profesión",
+    "Search by e-mail, name, phone, skills, profession": "Buscar por e-mail, nombre, teléfono, habilidades, profesión",
     "Example: Programmer, designer": "Ejemplo: Programador, diseñador",
     "Search & Pay": "Buscar / Pagar",
     "Login": "Acceder",
