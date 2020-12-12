@@ -1,5 +1,13 @@
-
 /* TIME FLOW BUTTONS */
+
+* {
+    -webkit-tap-highlight-color: transparent !important;
+}
+*:focus {
+  outline:none !important;
+  -webkit-appearance: none !important;
+}
+
 .head-button{
     @apply text-white font-medium text-lg py-2 pl-2
 }
