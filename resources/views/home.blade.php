@@ -11,7 +11,7 @@
   <!-- LOAD USER HEADING -->
   @if (!isset($hideHeading))
     @include ('partials.user-simple-heading')
-    @include ('partials.search-block')
+    {{-- @include ('partials.search-block') --}}
   @endif
 
   <div class="p-4 my-5 break-words text-3xl text-primary text-center font-medium uppercase bg-white">

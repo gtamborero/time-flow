@@ -50,7 +50,7 @@ class HomeController extends Controller
       ->with('getCreatorUser')
       ->with('getRating')
       ->orderBy('id', 'desc')
-      ->limit(10)
+      ->limit(20)
       ->get();
       return view('home')
         ->with('exchanges',$exchanges)
@@ -65,7 +65,7 @@ class HomeController extends Controller
       ->with('getCreatorUser')
       ->with('getRating')
       ->orderBy('id', 'desc')
-      ->limit(10)
+      ->limit(20)
       ->get();
       return view('home')
         ->with('exchanges',$exchanges)

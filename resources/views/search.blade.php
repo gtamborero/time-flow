@@ -4,7 +4,7 @@
 
     <div class="p-8 mb-6 break-words text-xl text-primary text-center font-medium bg-white">
       <div class="text-4xl uppercase">@lang('Pay time to a user')</div>
-      <div class="text-2xl pb-4">@lang('Search by e-mail, name, phone, skills, profession')...</div>
+      <div class="text-2xl text-gray pb-4">@lang('Search by e-mail, name, phone, skills, profession')...</div>
         <form method="get">
         {{csrf_field()}}
           <input class="shadow appearance-none
