@@ -14,6 +14,11 @@ return [
     |
     */
 
+    'pusher' => [
+        'beams_instance_id' => '80cd9f18-6ec1-49a7-a2c4-33be8cea555b',
+        'beams_secret_key' => '3AA4CFCA5410852A5FE1ADCC5257EAA4DE737FC104FA063FE2A6D396FBF71CD6',
+    ],
+
     'mailgun' => [
         'domain' => env('MAILGUN_DOMAIN'),
         'secret' => env('MAILGUN_SECRET'),
