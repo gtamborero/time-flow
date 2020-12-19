@@ -6,6 +6,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>{{ config('app.name', 'Laravel') }}</title>
     <link href="{{ mix('css/app.css') }}" rel="stylesheet">
+    <script src="https://js.pusher.com/beams/1.0/push-notifications-cdn.js"></script>
     @laravelPWA
 
 <!-- APPLE ICONS: npm install --global pwa-asset-generator + npx pwa-asset-generator logo-timeflow.png -b 1a2345 -->
@@ -62,6 +63,17 @@
     </div>
 
     <script src="{{ mix('js/app.js') }}"></script>
+    
+    <script>
+        const beamsClient = new PusherPushNotifications.Client({
+          instanceId: '80cd9f18-6ec1-49a7-a2c4-33be8cea555b',
+        });
+      
+        beamsClient.start()
+          .then(() => beamsClient.addDeviceInterest('hello'))
+          .then(() => console.log('Successfully registered and subscribed!'))
+          .catch(console.error);
+      </script>
 
 </body>
 </html>
