@@ -49,7 +49,8 @@
     "between": "entre",
     "and": "y",
     "exchange": "intercambio",
-    "exchanges": "intercambios",
+    "Exchanges": "Transacciones",
+    "Users": "Usuarios",
     "Concept": "Concepto",
     "Amount": "Importe",
     "Comment of": "Comentario de",
@@ -148,6 +149,7 @@
     "Example: Programmer, designer": "Ejemplo: Programador, diseñador",
     "Search": "Buscar",
     "Login": "Acceder",
+    "last users": "últimos usuarios",
 
     "Total Charges": "Total Intercambios",
     "Total Payments": "Total Pagos",

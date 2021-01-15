@@ -15,7 +15,7 @@
   @endif
 
   <div class="p-4 my-5 break-words text-3xl text-primary text-center font-medium uppercase bg-white">
-    @lang('last exchanges')
+    @lang('exchanges')
   </div>
 
     {{-- Feed exchange data --}}
