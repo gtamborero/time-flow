@@ -1,15 +1,11 @@
 <div class="fixed bottom-0 left-0 right-0" style="background:#000;">
   <div class="flex container mx-auto p-2 text-white">
 
-    <a class="flex-1 text-center" href="@isset (Auth::user()->name)
-        {{ route('userExchanges', Auth::user()->name) }}
-      @else
-        {{ url('last-exchanges') }}
-      @endif">
+    <a class="flex-1 text-center" href="{{ url('last-exchanges') }}">
       <button class="head-button" style="padding-top:13px;">
         <span class="icon-exchange text-white" style="font-size: 1.5rem; margin-bottom:1px;"></span>
         <span class="hidden md:block text-base">
-          @lang('Exchanges')
+          @lang('Last Exchanges')
         </span>
       </button>
     </a>

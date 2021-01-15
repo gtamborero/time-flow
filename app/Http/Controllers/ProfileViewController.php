@@ -25,23 +25,6 @@ class ProfileViewController extends Controller
 
       $userId = $userData->id;
 
-      return view('profile')
-        ->with('userId',$userId)
-        ->with('userData',$userData)
-        ->with('userName',$userName);
-  }
-
-  public function exchanges($userName)
-  {
-      $userData = \App\Models\User::where('name', $userName)->first();
-
-      // Check if user has verified mail:
-      if ((Auth::user()) && ($userName == Auth::user()->name)){
-        if (!isVerifiedUser()) return redirect ('email/verify');
-      }
-
-      $userId = $userData->id;
-
       $exchanges = \App\Models\Exchanges
           ::where('id_buyer', $userId)
           ->orWhere('id_seller', $userId)
@@ -52,7 +35,7 @@ class ProfileViewController extends Controller
           ->orderBy('id', 'desc')
           ->get();
 
-      return view('user-exchanges')
+      return view('profile')
         ->with('userId',$userId)
         ->with('userData',$userData)
         ->with('userName',$userName)
