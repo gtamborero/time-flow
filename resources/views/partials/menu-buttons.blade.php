@@ -20,8 +20,8 @@
     </a>
 
     <a class="flex-1 text-center" href="{{ route('search') }}">
-      <button class="head-button" style="padding-top:6px;">
-        <span class="icon-search text-white" style="font-size: 2rem;"></span>
+      <button class="head-button" style="padding-top:8px;">
+        <span class="icon-earth text-white" style="font-size: 1.8rem;"></span>
         <span class="hidden md:block text-base">
           @lang('Search')
         </span>
