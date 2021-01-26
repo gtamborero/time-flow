@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>{{ config('app.name', 'Laravel') }}</title>
+    <meta name="description" content="@lang('A TimeBank Web App. Exchange time with anyone in the world, all you need is an email')">
+
     <link href="{{ mix('css/app.css') }}" rel="stylesheet">
     <script src="https://js.pusher.com/beams/1.0/push-notifications-cdn.js"></script>
     @laravelPWA
