@@ -21,6 +21,8 @@
         "laravel/socialite": "^5.0",
         "laravel/tinker": "^2.0",
         "laravel/ui": "^3.0",
+        "laravelium/sitemap": "^8.0",
+        "livewire/livewire": "^2.3",
         "propaganistas/laravel-phone": "^4.2",
         "silviolleite/laravelpwa": "^2.0"
     },
