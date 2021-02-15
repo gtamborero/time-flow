@@ -71,9 +71,16 @@
           instanceId: '80cd9f18-6ec1-49a7-a2c4-33be8cea555b',
         });
       
-        beamsClient.start()
+        /*beamsClient.start()
           .then(() => beamsClient.addDeviceInterest('hello'))
           .then(() => console.log('Successfully registered and subscribed!'))
+          .catch(console.error);*/
+
+        beamsClient.start()
+          .then(beamsClient => beamsClient.getDeviceId())
+          .then(deviceId =>
+            console.log('Successfully registered with Beams. Device ID:', deviceId)
+          )
           .catch(console.error);
       </script>
 
