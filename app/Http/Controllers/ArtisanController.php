@@ -11,8 +11,8 @@ class ArtisanController extends Controller
     //Storage::deleteDirectory('public');
     //Storage::makeDirectory('public');
     //Artisan::call('migrate:fresh --seed --force');
-	Artisan::call('cache:clear');
-	Artisan::call('route:clear');
+	  Artisan::call('cache:clear');
+	  Artisan::call('route:clear');
     Artisan::call('config:clear');
     Artisan::call('config:cache');
     Artisan::call('route:cache');
@@ -23,7 +23,7 @@ class ArtisanController extends Controller
   public function mailWork(){
   	//Artisan::call('queue:restart');
 	//Artisan::call('queue:work --stop-when-empty --tries=2');
-  Artisan::call('queue:work --max-time=275'); // only for laravel 8
+  Artisan::call('queue:work --max-time=10'); // only for laravel 8
   }
 
 }
