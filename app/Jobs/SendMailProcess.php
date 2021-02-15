@@ -47,5 +47,19 @@ class SendMailProcess implements ShouldQueue
 
       // Mail to admin for test
       Mail::to('gtamborero@iproject.cat')->locale('en')->send(new StatusMail($this->id));
+
+      $beamsClient = new \Pusher\PushNotifications\PushNotifications(array(
+        "instanceId" => "80cd9f18-6ec1-49a7-a2c4-33be8cea555b",
+        "secretKey" => "3AA4CFCA5410852A5FE1ADCC5257EAA4DE737FC104FA063FE2A6D396FBF71CD6",
+      ));
+      
+      $publishResponse = $beamsClient->publishToInterests(
+        array("hello"),
+        array("web" => array("notification" => array(
+          "title" => "Hello",
+          "body" => "Hello, World!",
+          "deep_link" => "https://www.pusher.com",
+        )),
+      ));
     }
 }
