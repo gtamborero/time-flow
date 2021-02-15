@@ -60,6 +60,9 @@ class ExchangeController extends Controller
         $exchange->save();
         //Mail::send(new StatusMail(16));
         SendMailProcess::dispatch($exchange->id);
+
+        pushUrlMailwork();
+
         return $exchange->id; //Return new created exchange id
     }
 
@@ -97,6 +100,7 @@ class ExchangeController extends Controller
         Exchanges::changeStatus($request, $id);
         SendMailProcess::dispatch($id);
         //Mail::send(new StatusMail($id));
+        pushUrlMailwork();
     }
 
     /**

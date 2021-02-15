@@ -51,7 +51,8 @@
         },
         "files": [
             "app/Helpers/HumanizeMinutes.php",
-            "app/Helpers/IsVerifiedUser.php"
+            "app/Helpers/IsVerifiedUser.php",
+            "app/Helpers/PushUrlMailwork.php"
         ]
     },
     "autoload-dev": {
