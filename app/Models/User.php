@@ -87,19 +87,16 @@ class User extends Authenticatable implements MustVerifyEmail
         }
       }
 
-      // Returns
+      // Return prepare
       if ($ratingsWithValue){
+        $average = $ratingData / $ratingsWithValue;
+      }else{
+        $average = 0;
+      }
         return array(
           'ratingsWithValue' => $ratingsWithValue, 
-          'average'  => $ratingData / $ratingsWithValue
+          'average'  => $average
         );
-      }
-      return array(
-        'ratingsWithValue' => $ratingsWithValue, 
-        'average'  => 0
-      );
-      
-
     }
 
     // Get all received ratings
