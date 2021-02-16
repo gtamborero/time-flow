@@ -42,9 +42,6 @@ class User extends Authenticatable implements MustVerifyEmail
         'email_verified_at' => 'datetime',
     ];
 
-    protected $totalRatings;
-    protected $ratingAverage;
-
     public function getTotalCharge($userId){
       $exchangesAsSeller = Exchanges
         ::where('id_seller', $userId)
@@ -90,21 +87,28 @@ class User extends Authenticatable implements MustVerifyEmail
         }
       }
 
-      $this->totalRatings = $ratingsWithValue;
-      if($ratingsWithValue){
-        $this->ratingAverage = $ratingData / $ratingsWithValue;
+      // Returns
+      if ($ratingsWithValue){
+        return array(
+          'ratingsWithValue' => $ratingsWithValue, 
+          'average'  => $ratingData / $ratingsWithValue
+        );
       }
+      return array(
+        'ratingsWithValue' => $ratingsWithValue, 
+        'average'  => 0
+      );
+      
+
     }
 
     // Get all received ratings
     public function getRatingCount($userId){
-        $this->getUserRating($userId);
-        return $this->totalRatings;
+      return $this->getUserRating($userId)['ratingsWithValue'];
     }
 
     // Get all ratings values and divide them buy ratings
     public function getTotalRating($userId){
-        $this->getUserRating($userId);
-        return $this->ratingAverage;
+      return $this->getUserRating($userId)['average'];
     }
 }
