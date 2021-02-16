@@ -42,14 +42,8 @@ class User extends Authenticatable implements MustVerifyEmail
         'email_verified_at' => 'datetime',
     ];
 
-    // Add extra data on return of the model
-    protected $appends = ['gravatar'];
-
-    // GRAVATAR GET
-    public function getGravatarAttribute()
-    {
-      return gravatar("gtamborero@iproject.cat");
-    }
+    protected $totalRatings = 0;
+    protected $ratingAverage = 0;
 
     public function getTotalCharge($userId){
       $exchangesAsSeller = Exchanges
@@ -79,43 +73,36 @@ class User extends Authenticatable implements MustVerifyEmail
         ->count();
     }
 
-    // Get all received ratings
-    public function getRatingCount($userId){
-      $myExchanges = Exchanges
-        ::where('id_seller', $userId)
-        ->where('status', Constant::STATUS_ACCEPTED)
-        ->get();
-
-        $ratingsWithValue = 0;
-
-        foreach ($myExchanges as $exchange){
-          if ($exchange->getRating){
-            $ratingsWithValue ++;
-          }
-        }
-
-        if ($ratingsWithValue) return $ratingsWithValue;
-        return 0;
-    }
-
-    // Get all ratings values and divide them buy ratings
-    public function getTotalRating($userId){
+    // Get all ratings values 
+    public function getUserRating($userId){
       $myExchanges = Exchanges
         ::where('id_seller', $userId)
         ->where('status', Constant::STATUS_ACCEPTED)
         ->get();
 
       $ratingData = 0;
-      $ratingsWithValue = 0;
 
       foreach ($myExchanges as $exchange){
         if ($exchange->getRating){
           $ratingData = $ratingData + $exchange->getRating->rating;
-          $ratingsWithValue ++;
+          $this->totalRatings++;
         }
       }
 
-      if ($ratingsWithValue) return intval($ratingData / $ratingsWithValue);
-      return 0;
+      if($this->totalRatings){
+        $this->ratingAverage = $ratingData / $this->totalRatings;
+      }
+    }
+
+    // Get all received ratings
+    public function getRatingCount($userId){
+        $this->getUserRating($userId);
+        return $this->totalRatings;
+    }
+
+    // Get all ratings values and divide them buy ratings
+    public function getTotalRating($userId){
+        $this->getUserRating($userId);
+        return $this->ratingAverage;
     }
 }
