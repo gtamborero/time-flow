@@ -42,8 +42,8 @@ class User extends Authenticatable implements MustVerifyEmail
         'email_verified_at' => 'datetime',
     ];
 
-    protected $totalRatings = 0;
-    protected $ratingAverage = 0;
+    protected $totalRatings;
+    protected $ratingAverage;
 
     public function getTotalCharge($userId){
       $exchangesAsSeller = Exchanges
@@ -81,16 +81,18 @@ class User extends Authenticatable implements MustVerifyEmail
         ->get();
 
       $ratingData = 0;
+      $ratingsWithValue = 0;
 
       foreach ($myExchanges as $exchange){
         if ($exchange->getRating){
           $ratingData = $ratingData + $exchange->getRating->rating;
-          $this->totalRatings++;
+          $ratingsWithValue ++;
         }
       }
 
-      if($this->totalRatings){
-        $this->ratingAverage = $ratingData / $this->totalRatings;
+      $this->totalRatings = $ratingsWithValue;
+      if($ratingsWithValue){
+        $this->ratingAverage = $ratingData / $ratingsWithValue;
       }
     }
 
